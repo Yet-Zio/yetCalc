@@ -22,7 +22,7 @@ The free and open source calculator developed for Android 5.0 and above using Ko
     - Light mode
 
 <p align="center">
-    <img src="./img/snaps/snap2.png?raw=true" alt="yetCalc Landscape" width="677" height="328"/>
+    <img src="./img/snaps/snap2.png?raw=true" alt="yetCalc Landscape" width="575" height="279"/>
 </p>
 
 - Calculator
