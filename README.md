@@ -17,7 +17,9 @@ The free and open source calculator developed for Android 5.0 and above using Ko
 
 ## Features
 
-- Switch between dark and light themes
+- Themes
+    - Dark mode
+    - Light mode
 
 - Calculator
     - Support for all basic operators.
