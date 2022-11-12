@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/calc_bgdef">
+
+    <ImageView
+        android:id="@+id/imspinDropLyt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:src="@drawable/ic_baseline_calculate_24"/>
+
+    <TextView
+        android:id="@+id/tvspinDropLyt"
+        android:layout_width="match_parent"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:textColor="@color/calc_textdef"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

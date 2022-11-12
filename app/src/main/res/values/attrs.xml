@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="popupOverlayStyle" format="reference"/>
+    <attr name="cardBGcolor" format="reference"/>
+    <attr name="iconPreferenceColor" format="reference|color" />
+</resources>

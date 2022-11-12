@@ -1,0 +1,8 @@
+<resources>
+
+    <string-array name="precision_array">
+        <item>Default precision</item>
+        <item>1e-60</item>
+        <item>1e-99</item>
+    </string-array>
+</resources>

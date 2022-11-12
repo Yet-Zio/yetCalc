@@ -1,0 +1,43 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory app:title="Calculator">
+
+        <SwitchPreferenceCompat
+            app:key="almostintkey"
+            app:summary="A number is rounded to the nearest integer if it is close enough to an integer."
+            app:title="Almost Integer Rounding"
+            app:defaultValue="true"/>
+
+        <ListPreference
+            app:defaultValue="Default precision"
+            app:entries="@array/precision_array"
+            app:entryValues="@array/precision_array"
+            app:key="precisionkey"
+            app:title="Precision"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="App">
+        <Preference
+            app:title="Donate"
+            app:icon="@drawable/ic_baseline_volunteer_activism_24">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Yet-Zio/yetCalc/blob/main/DONATE.md"/>
+        </Preference>
+
+        <Preference
+            app:title="About"
+            app:icon="@drawable/ic_outline_info_24">
+            <intent
+                android:action="yetzio.yetcalc.ABOUT_NEW_ACTIVITY"
+                android:targetPackage="yetzio.yetcalc"
+                android:targetClass="yetzio.yetcalc.views.AboutActivity"
+                />
+        </Preference>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
