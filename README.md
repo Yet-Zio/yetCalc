@@ -42,3 +42,6 @@ The free and open source calculator developed for Android 5.0 and above using Ko
     - **Power**: Conversions to and from Watts, Kilowatts, Horsepower, Ergs per second, Foot-pounds per minute, Decibel-milliwatts, Calories per hour, BTUs per hour, Tons of refrigeration.
     - **Energy**: Conversions to and from Electron volts, Joules, Kilojoules, Ergs, Calories, British Thermal Units, Kilowatt hours, Kilocalories, Foot-pounds
     - **Pressure**: Conversions to and from Atmospheres, Torrs, Pascals, Kilopascals, Kips per square inch, Pounds per square inch, Feet Sea Water(15° C), Bars, Kilograms per square centimetre, Baryes, Sthenes, Millimetres of mercury
+    - **Time**: Conversions to and from Nanoseconds, Microseconds, Milliseconds, Jiffies, Seconds, Minutes, Hours, Days, Weeks, Fortnights, Months, Years, Decades, Centuries, Milleniums, Galactic years
+    - **Angle**: Degrees, Radians, Gradians, Turns, Milliradians, Minutes of arc, Seconds of arc
+    - **Data**: Bits, Nibbles, Crumbs, Bytes, Kilobits, Kibibits, Megabits, Mebibits, Gigabits, Gibibits, Terabits, Tebibits, Petabits, Pebibits, Exabits, Exbibits, Zetabits, Zebibits, Yottabits, Yobibits, Kilobytes, Kibibytes, Megabytes, Mebibytes, Gigabytes, Gibibytes, Terabytes, Tebibytes, Petabytes, Pebibytes, Exabytes, Exbibytes, Zetabytes, Zebibytes, Yottabytes, Yobibytes
