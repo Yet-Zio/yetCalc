@@ -4,6 +4,6 @@
 
 <h1 align="center">yetCalc</h1>
 
-The free and open source calculator for Android 5.0 and above. yetCalc is yet another calculator developed for Android 5.0 and above using Kotlin.
+The free and open source calculator developed for Android 5.0 and above using Kotlin.
 
 yetCalc's calculator mode uses the [mXparser](https://mathparser.org/) library for its calculations.
