@@ -32,6 +32,6 @@ The free and open source calculator developed for Android 5.0 and above using Ko
     - Vibrations when clicking buttons?(don't know if I should have mentioned it here)
 
 - Unit Converter
-    - Currency: Conversions are handled through [exchangerate.host API](https://exchangerate.host) and requires an Internet connection.
-    - Length: Conversion to and from Femtometres, Picometres, Nanometres, Micrometres, Millimetres, Centimetres, Decimetres, Metres, Decametres, Hectometres, Kilometres, Inches, Feet, Yards, Miles, Nautical Miles, Megametres, Gigametres, Terametres, Petametres
-    - Volume: Conversion to and from Microlitres, Drops, Millilitres, Cubic centimetres, Decilitres, Litres, Cubic metres, Cups(US), Cups(UK), Pints(US), Pints(UK), Quarts(US), Quarts(UK), Gallons(US), Gallons(UK), Dry, Liquid, Federal and Oil Barrels(US), Barrels(UK), Cubic inches, Cubic feet, Cubic yards, Teaspoons(US), Teaspoons(UK), Tablespoons(US), Tablespoons(UK), Fluid Ounces(US), Fluid Ounces(UK)
+    - **Currency**: Conversions are handled through [exchangerate.host API](https://exchangerate.host) and requires an Internet connection.
+    - **Length**: Conversion to and from Femtometres, Picometres, Nanometres, Micrometres, Millimetres, Centimetres, Decimetres, Metres, Decametres, Hectometres, Kilometres, Inches, Feet, Yards, Miles, Nautical Miles, Megametres, Gigametres, Terametres, Petametres
+    - **Volume**: Conversion to and from Microlitres, Drops, Millilitres, Cubic centimetres, Decilitres, Litres, Cubic metres, Cups(US), Cups(UK), Pints(US), Pints(UK), Quarts(US), Quarts(UK), Gallons(US), Gallons(UK), Dry, Liquid, Federal and Oil Barrels(US), Barrels(UK), Cubic inches, Cubic feet, Cubic yards, Teaspoons(US), Teaspoons(UK), Tablespoons(US), Tablespoons(UK), Fluid Ounces(US), Fluid Ounces(UK)
