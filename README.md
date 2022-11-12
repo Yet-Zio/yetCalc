@@ -45,3 +45,10 @@ The free and open source calculator developed for Android 5.0 and above using Ko
     - **Time**: Conversions to and from Nanoseconds, Microseconds, Milliseconds, Jiffies, Seconds, Minutes, Hours, Days, Weeks, Fortnights, Months, Years, Decades, Centuries, Milleniums, Galactic years
     - **Angle**: Degrees, Radians, Gradians, Turns, Milliradians, Minutes of arc, Seconds of arc
     - **Data**: Bits, Nibbles, Crumbs, Bytes, Kilobits, Kibibits, Megabits, Mebibits, Gigabits, Gibibits, Terabits, Tebibits, Petabits, Pebibits, Exabits, Exbibits, Zetabits, Zebibits, Yottabits, Yobibits, Kilobytes, Kibibytes, Megabytes, Mebibytes, Gigabytes, Gibibytes, Terabytes, Tebibytes, Petabytes, Pebibytes, Exabytes, Exbibytes, Zetabytes, Zebibytes, Yottabytes, Yobibytes
+
+- Programmer(Extended from this [implementation](https://github.com/agam23/programmers-calculator-in-kotlin))
+    - Provides all basic operators like +, -, ×, ÷
+    - Provides logical operators like AND, OR, NOT, NAND, NOR, XOR
+    - Provides operations like left shift(<<) and right shift(>>)
+    - Support for commonly used number systems: Binary, Octal, Decimal and Hexadecimal
+    
