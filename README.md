@@ -28,6 +28,7 @@ The free and open source calculator developed for Android 5.0 and above using Ko
     - Switch between different angle measurements with ease.
     - Scientific Mode that provides various trigonometric, hyperbolic and inverse functions, calculus and iterated operators, much more.
     - Provides variable support.```(only 1 variable)```
+    - Precision settings for precise calculations.
     - Operations like copy, cut, paste, delete are handled and results are changed accordingly.
     - Vibrations when clicking buttons?(don't know if I should have mentioned it here)
 
