@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/nointlyt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/nointimg"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="128dp"
+                android:src="@drawable/ic_baseline_mobiledata_off_600light" />
+
+            <TextView
+                android:id="@+id/nointtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nointTitle"
+                android:layout_centerHorizontal="true"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textStyle="bold"
+                android:textColor="@color/pink"
+                android:layout_below="@id/nointimg"/>
+
+            <TextView
+                android:id="@+id/nointpara"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nointtext"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginVertical="64dp"
+                android:gravity="center"
+                android:text="@string/nointInfoText"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/greyishlight" />
+
+            <Button
+                android:id="@+id/nointtryagain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nointpara"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@color/pink"
+                android:paddingHorizontal="32dp"
+                android:text="@string/try_again"
+                android:textAllCaps="false"
+                android:textColor="@color/pinkdark"
+                app:cornerRadius="16dp" />
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

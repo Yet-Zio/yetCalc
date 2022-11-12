@@ -1,0 +1,46 @@
+package yetzio.yetcalc.component
+
+import org.mariuszgromada.math.mxparser.Expression
+import org.mariuszgromada.math.mxparser.Function
+import org.mariuszgromada.math.mxparser.mXparser
+
+class Calculator{
+    var angleMode = AngleMode.DEGREE
+    var almostInt = true
+    var precision = "Default precision"
+    val m_history = History()
+
+    fun calculate(expr: String): String {
+        val ncr = Function("nCr(n, r) = nCk(n, r)")
+        val npr = Function("nPr(n, r) = nPk(n, r)")
+
+        when (precision) {
+            "Default precision" -> mXparser.setDefaultEpsilon()
+            "1e-60" -> mXparser.setEpsilon(1e-60)
+            "1e-99" -> mXparser.setEpsilon(1e-99)
+        }
+
+        if(almostInt)
+            mXparser.setAlmostIntRounding(true)
+        else
+            mXparser.setAlmostIntRounding(false)
+
+        if (angleMode == AngleMode.DEGREE) {
+            mXparser.setDegreesMode()
+        } else if (angleMode == AngleMode.RADIAN) {
+            mXparser.setRadiansMode()
+        }
+
+        val grad = if (mXparser.checkIfDegreesMode())
+            Function("grad(x) = x * (200/180)")
+        else
+            Function("grad(x) = x * (200/pi)")
+
+        val e = Expression(expr, grad, npr, ncr)
+        return e.calculate().toString()
+    }
+
+    fun addToHistory(ex: String, res: String){
+        m_history.addToDb(ex, res)
+    }
+}

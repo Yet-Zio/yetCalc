@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id = "@+id/histLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/timestamptext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text=""
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/greyishlight"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+            <TextView
+                android:id="@+id/histexp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:text=""
+                android:textAlignment="textEnd"
+                android:textSize="30sp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:textColor="@color/inputcolorlight"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/histres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:text=""
+                android:textAlignment="textEnd"
+                android:textSize="33sp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:textColor="@color/greyishlight"
+                android:focusable="true" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

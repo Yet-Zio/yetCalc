@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/calc_bgdef">
+            </solid>
+            <corners android:radius="60dp"/>
+        </shape>
+    </item>
+
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/extra_selected">
+            </solid>
+            <corners android:radius="60dp"/>
+        </shape>
+    </item>
+</selector>

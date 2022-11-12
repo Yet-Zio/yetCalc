@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="calc_bgdef">#191919</color>
+
+    <!-- Button colors -->
+    <color name="lint">#BACC81</color>
+    <color name="lint_dark">#838F5C</color>
+    <color name="lint_light">#E7FDA0</color>
+    <color name="calcbutton">#387149</color>
+    <color name="calcbutton_clicked">#85BD96</color>
+    <color name="calc_textdef">#A0CAAB</color>
+
+    <color name="numberbutton">#202020</color>
+    <color name="numberbutton_clicked">#616161</color>
+
+    <color name="inputcolor">#E3E3E3</color>
+
+    <!-- Menu colors -->
+    <color name="menubg">#464646</color>
+    <color name="menutxt">#CECECE</color>
+    <color name="extra_selected">#313131</color>
+    <color name="equalbutton">#013A20</color>
+    <color name="equalbt_clicked">#127246</color>
+    <color name="greyish">#A0A0A0</color>
+
+
+    <color name="calc_bglight">#FFFFFF</color>
+    <!-- Button colors -->
+    <color name="pink">#fec5df</color>
+    <color name="pinkdark">#473B40</color>
+    <color name="pinklight">#FDD8E9</color>
+    <color name="calcbuttonlight">#c2e7ff</color>
+    <color name="calcbutton_clickedlight">#CCEAFD</color>
+    <color name="calc_textdeflight">#A4D4FB</color>
+    <color name="calc_textdeflightclicked">#001d35</color>
+
+    <color name="numberbuttonlight">#f7f9fc</color>
+    <color name="numberbutton_clickedlight">#F9F9FA</color>
+
+    <color name="inputcolorlight">#595959</color>
+
+    <!-- Menu colors(Dark) -->
+    <color name="menubglight">#EEEEEE</color>
+    <color name="menutxtlight">#313131</color>
+    <color name="extra_selectedlight">#cecece</color>
+    <color name="equalbuttonlight">#295979</color>
+    <color name="equalbt_clickedlight">#9BC9E8</color>
+    <color name="greyishlight">#5f5f5f</color>
+
+</resources>

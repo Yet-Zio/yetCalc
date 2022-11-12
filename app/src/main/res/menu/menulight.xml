@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        app:showAsAction="always"
+        android:icon="@drawable/ic_menuvertlight"
+        android:title="">
+        <menu>
+            <item
+                android:id="@+id/historyopt"
+                android:icon="@drawable/ic_baseline_history_24light"
+                android:title="@string/history_name"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/selecthemeopt"
+                android:icon="@drawable/ic_outline_palette_24light"
+                android:title="@string/theme_opt"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/settingsopt"
+                android:icon="@drawable/ic_outline_settings_24light"
+                android:title="@string/settingsmenu"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/helpopt"
+                android:icon="@drawable/ic_outline_help_outline_24light"
+                android:title="@string/helpmenu"
+                app:showAsAction="never"/>
+        </menu>
+    </item>
+</menu>

@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/settings_app_bar"
+        layout="@layout/settings_appbar"
+        android:layout_height="?android:actionBarSize"
+        android:layout_width="match_parent"></include>
+
+    <FrameLayout
+        android:id="@+id/settingslyt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
