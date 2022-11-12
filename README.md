@@ -21,11 +21,12 @@ The free and open source calculator developed for Android 5.0 and above using Ko
     - Dark mode
     - Light mode
 
-<p align="center">
-    <img src="./img/snaps/snap2.png?raw=true" alt="yetCalc Landscape" width="575" height="279"/>
-</p>
-
 - Calculator
+
+    <p align="center">
+        <img src="./img/snaps/snap2.png?raw=true" alt="yetCalc Landscape" width="575" height="279"/>
+    </p>
+    
     - Support for all basic operators.
     - Progressive calculations.```(results appear on top and change side by side as you change the expression)```
     - Provides commonly used constants.```(Some constants might result to 0 if precision setting is not high)```
