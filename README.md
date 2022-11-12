@@ -1,4 +1,6 @@
-<p style="text-align:center;"><img src="./img/icons/appico.png" alt="yetCalcIcon" width="60" height="60"></p>
+<p align="center">
+  <img src="./img/icons/appico.png?raw=true" alt="yetCalc Icon" width="60" height="60"/>
+</p>
 
 <h1 style="text-align:center;">yetCalc</h1>
 
