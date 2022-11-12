@@ -17,14 +17,10 @@ class History{
     val m_Mapper = jacksonObjectMapper()
 
     fun addToDb(ex: String, res: String){
-        val datefmr = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            DateTimeFormatter
+        val datefmr = DateTimeFormatter
                 .ofLocalizedDateTime(FormatStyle.MEDIUM)
                 .withZone(ZoneOffset.systemDefault())
                 .format(Instant.now()).toString()
-        } else {
-            TODO("VERSION.SDK_INT < O")
-        }
 
         val histout = HistoryItem(datefmr, ex, res)
 
