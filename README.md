@@ -20,6 +20,6 @@ The free and open source calculator developed for Android 5.0 and above using Ko
 - Calculator
     - Support for all basic operators.
     - Progressive calculations(results change side by side as you change the expression)
-    - Provides commonly used constants. <span style="color:yellow">(NOTE: Some constants might result to 0 if precision setting is not high)</span>.
+    - Provides commonly used constants. ```(Some constants might result to 0 if precision setting is not high)```
     - Switch between different angle measurements with ease.
     - Scientific Mode that provides various trigonometric, hyperbolic and inverse functions, calculus and iterated operators, much more.
