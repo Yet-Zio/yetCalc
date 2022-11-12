@@ -53,3 +53,7 @@ The free and open source calculator developed for Android 5.0 and above using Ko
     - Provides operations like left shift(<<) and right shift(>>)
     - Support for commonly used number systems: Binary, Octal, Decimal and Hexadecimal
     
+
+## Install
+Download the app from the [releases page](https://github.com/Yet-Zio/yetCalc/releases). Note: Requires Android 5.0 and above
+Also, only download the app from sources provided by the developer.
