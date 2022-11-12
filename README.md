@@ -41,3 +41,4 @@ The free and open source calculator developed for Android 5.0 and above using Ko
     - **Speed**: Conversions to and from Centimetres per second, Metres per second, Kilometres per hour, Miles per hour, Knots, Feet per second, Feet per minute, Inch per second, Mach, Furlongs per Fortnight, Bubnoff units, Natural units(speed of light)
     - **Power**: Conversions to and from Watts, Kilowatts, Horsepower, Ergs per second, Foot-pounds per minute, Decibel-milliwatts, Calories per hour, BTUs per hour, Tons of refrigeration.
     - **Energy**: Conversions to and from Electron volts, Joules, Kilojoules, Ergs, Calories, British Thermal Units, Kilowatt hours, Kilocalories, Foot-pounds
+    - **Pressure**: Conversions to and from Atmospheres, Torrs, Pascals, Kilopascals, Kips per square inch, Pounds per square inch, Feet Sea Water(15° C), Bars, Kilograms per square centimetre, Baryes, Sthenes, Millimetres of mercury
