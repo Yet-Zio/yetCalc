@@ -23,10 +23,10 @@ The free and open source calculator developed for Android 5.0 and above using Ko
 
 - Calculator
     - Support for all basic operators.
-    - Progressive calculations(results appear on top and change side by side as you change the expression)
+    - Progressive calculations.```(results appear on top and change side by side as you change the expression)```
     - Provides commonly used constants.```(Some constants might result to 0 if precision setting is not high)```
     - Switch between different angle measurements with ease.
     - Scientific Mode that provides various trigonometric, hyperbolic and inverse functions, calculus and iterated operators, much more.
     - Provides variable support.```(only 1 variable)```
-    - Operations like copy, cut, paste, delete are handled and results are changed accordingly
+    - Operations like copy, cut, paste, delete are handled and results are changed accordingly.
     - Vibrations when clicking buttons?(don't know if I should have mentioned it here)
