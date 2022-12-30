@@ -1,1 +1,7 @@
 yetCalc is a Calculator with basic and scientific calculation features, a unit converter. The design is loosely based on Google's Calculator and tries to address its problems.
+
+Features: 
+- Progressive Calculations
+- Scientific Mode with trigonometric, hyperbolic and inverse functions, calculus and iterated operators, much more.
+- Unit Converter
+- Programmer Mode with number systems and logical operations.
