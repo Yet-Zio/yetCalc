@@ -83,21 +83,6 @@
         <item name="cardBGcolor">@color/calc_bgdef</item>
     </style>
 
-    <style name="LicenseTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
-        <item name="android:windowBackground">@color/calc_bgdef</item>
-        <item name="android:navigationBarColor">@color/calc_bgdef</item>
-        <item name="android:statusBarColor">@color/calc_bgdef</item>
-        <item name="popupOverlayStyle">@style/PopupTheme</item>
-        <item name="alertDialogTheme">@style/SettingsDialogThemeDark</item>
-        <item name="colorPrimary">@color/calc_bgdef</item>
-        <item name="colorPrimaryDark">@color/calc_bgdef</item>
-        <item name="android:textColorPrimary">@color/menubglight</item>
-        <item name="colorAccent">@color/calc_textdef</item>
-        <item name="android:textColorSecondary">@color/greyish</item>
-        <item name="android:textColorTertiary">@color/greyish</item>
-        <item name="iconPreferenceColor">@color/calc_textdef</item>
-    </style>
-
     <style name="AboutDark" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@color/calc_bgdef</item>
         <item name="android:navigationBarColor">@color/calc_bgdef</item>
@@ -559,24 +544,6 @@
 
     <style name="historyDelImgSrcStyleLight">
         <item name="android:background">@drawable/ic_baseline_delete_outline_24light</item>
-    </style>
-
-    <style name="OthBtDark">
-        <item name="android:textAllCaps">false</item>
-        <item name="android:textColor">@color/calc_bgdef</item>
-        <item name="cornerRadius">16dp</item>
-        <item name="android:backgroundTint">@color/lint</item>
-        <item name="android:paddingHorizontal" tools:targetApi="o">32dp</item>
-        <item name="android:layout_marginBottom">20sp</item>
-    </style>
-
-    <style name="OthBtLight">
-        <item name="android:textAllCaps">false</item>
-        <item name="android:textColor">@color/calc_bglight</item>
-        <item name="cornerRadius">16dp</item>
-        <item name="android:backgroundTint">@color/pink</item>
-        <item name="android:paddingHorizontal" tools:targetApi="o">32dp</item>
-        <item name="android:layout_marginBottom">20sp</item>
     </style>
 
 </resources>

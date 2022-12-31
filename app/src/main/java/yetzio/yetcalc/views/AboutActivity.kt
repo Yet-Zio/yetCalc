@@ -6,14 +6,12 @@ import android.content.SharedPreferences
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.airbnb.paris.Paris
 import yetzio.yetcalc.R
-import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 
 class AboutActivity : AppCompatActivity() {
 
@@ -26,8 +24,6 @@ class AboutActivity : AppCompatActivity() {
     private lateinit var abtTitle: TextView
     private lateinit var ghbTV: TextView
     private lateinit var ghbIV: ImageView
-
-    private lateinit var osslicBt: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initThemePrefs()
@@ -65,12 +61,10 @@ class AboutActivity : AppCompatActivity() {
 
         ghbTV = findViewById(R.id.githubTV)
         ghbIV = findViewById(R.id.githubIV)
-        osslicBt = findViewById(R.id.osslicensesbt)
 
         if(theme != getString(R.string.dark_theme)){
             Paris.style(ghbTV).apply(R.style.AboutTextLight)
             Paris.style(ghbIV).apply(R.style.ghbImgSrcLight)
-            Paris.style(osslicBt).apply(R.style.OthBtLight)
         }
 
         val ghburi = Uri.parse("https://github.com/Yet-Zio/yetCalc")
@@ -83,10 +77,6 @@ class AboutActivity : AppCompatActivity() {
         ghbIV.setOnClickListener{
             val ghbIntent = Intent(Intent.ACTION_VIEW, ghburi)
             startActivity(ghbIntent)
-        }
-
-        osslicBt.setOnClickListener{
-            startActivity(Intent(this, OssLicensesMenuActivity::class.java))
         }
     }
 

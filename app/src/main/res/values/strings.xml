@@ -1,7 +1,7 @@
 <resources>
     <string name="author_name">Yet Zio</string>
     <string name="app_name">yetCalc</string>
-    <string name="VERSION_NUM">1.0.0</string>
+    <string name="VERSION_NUM">1.0.1</string>
     <string name="app_descrp">Yet another calculator by Yet Zio</string>
     <string name="ghbtext">View on GitHub</string>
     <string name="app_details">Free and open source software\nLicensed under the BSD-3-Clause license.</string>
