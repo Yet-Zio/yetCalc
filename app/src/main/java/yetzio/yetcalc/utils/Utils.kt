@@ -17,6 +17,7 @@ import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.text.parseAsHtml
+import androidx.preference.PreferenceManager
 import com.afollestad.materialdialogs.MaterialDialog
 import io.github.muddz.styleabletoast.StyleableToast
 import yetzio.yetcalc.R
@@ -95,24 +96,30 @@ fun getScreenOrientation(ctx: Context): Int{
 }
 
 fun setVibOnClick(ctx: Context){
-    val vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-        val vibratorManager =
-            ctx.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
-        vibratorManager.defaultVibrator
-    } else {
-        @Suppress("DEPRECATION")
-        ctx.getSystemService(AppCompatActivity.VIBRATOR_SERVICE) as Vibrator
+    val prefMgr = PreferenceManager.getDefaultSharedPreferences(ctx)
+    val hapticPref = prefMgr.getBoolean("hapticfdkey", true)
+
+    if(hapticPref){
+        val vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val vibratorManager =
+                ctx.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
+            vibratorManager.defaultVibrator
+        } else {
+            @Suppress("DEPRECATION")
+            ctx.getSystemService(AppCompatActivity.VIBRATOR_SERVICE) as Vibrator
+        }
+
+        if(vibrator.hasVibrator()){
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                vibrator.vibrate(VibrationEffect.createOneShot(40, 10))
+            }
+            else{
+                @Suppress("DEPRECATION")
+                vibrator.vibrate(10)
+            }
+        }
     }
 
-    if(vibrator.hasVibrator()){
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            vibrator.vibrate(VibrationEffect.createOneShot(40, 10))
-        }
-        else{
-            @Suppress("DEPRECATION")
-            vibrator.vibrate(10)
-        }
-    }
 }
 
 fun isNetworkAvailable(ctx: Context?): Boolean{
