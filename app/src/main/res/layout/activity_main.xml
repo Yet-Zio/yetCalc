@@ -30,8 +30,10 @@
             android:background="@android:color/transparent"
             android:text=""
             android:textAlignment="textEnd"
+            android:paddingEnd="5dp"
             style="@style/yetCalcTVDarkRes"
-            android:textSize="19sp" />
+            android:textSize="19sp"
+            tools:ignore="RtlSymmetry" />
 
         <yetzio.yetcalc.widget.CalcText
             android:id="@+id/textexpression"
