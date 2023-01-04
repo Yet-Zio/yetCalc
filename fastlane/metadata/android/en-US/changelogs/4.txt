@@ -1,0 +1,3 @@
+- Fixed an issue where result is always a real number.
+- Added a higher precision setting(1e-323).
+- Padding for progressive result changed in portrait mode.

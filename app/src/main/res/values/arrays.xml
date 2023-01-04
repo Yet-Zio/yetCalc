@@ -4,5 +4,6 @@
         <item>Default precision</item>
         <item>1e-60</item>
         <item>1e-99</item>
+        <item>1e-323</item>
     </string-array>
 </resources>

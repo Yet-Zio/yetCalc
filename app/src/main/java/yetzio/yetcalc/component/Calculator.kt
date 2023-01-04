@@ -18,6 +18,7 @@ class Calculator{
             "Default precision" -> mXparser.setDefaultEpsilon()
             "1e-60" -> mXparser.setEpsilon(1e-60)
             "1e-99" -> mXparser.setEpsilon(1e-99)
+            "1e-323" -> mXparser.setEpsilon(1e-323)
         }
 
         if(almostInt)
@@ -37,7 +38,16 @@ class Calculator{
             Function("grad(x) = x * (200/pi)")
 
         val e = Expression(expr, grad, npr, ncr)
-        return e.calculate().toString()
+
+        return if(e.calculate() > Long.MAX_VALUE){
+            e.calculate().toString()
+        }
+        else if(e.calculate() % 1.0 == 0.0){
+            Math.round(e.calculate()).toString()
+        }
+        else{
+            e.calculate().toString()
+        }
     }
 
     fun addToHistory(ex: String, res: String){
