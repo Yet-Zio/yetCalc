@@ -32,7 +32,7 @@
 
 ## Converter
 
-1. Does the converter require Internet connections?
+1. Does the converter require an Internet connections?
 
     An internet connection is only required for currency conversions and nothing else. All other conversions should work fine without it.
 
@@ -40,11 +40,16 @@
 
     Yes, this is because when you enter data, an API request is made to [exchangeratehost](https://exchangerate.host/#/). So this depends upon your internet connection speed, the value entered, the currencies selected on both sides.
 
-3. Is there a limit to the unit you can type?
+3. Does the converter remember the last tab and units I used?
+
+    Yes, the converter does remember the last tab you opened if you have enabled 'Use Recent Tab' in Settings. 
+    However, the units are not remembered since there are some issues with spinner(combobox/unit selector).
+
+4. Is there a limit to the unit you can type?
 
     Currently we haven't encountered such a thing.
 
-4. I have an issue where there is 'no result/I can't type in the text input' especially on currency conversion tab.
+5. I have an issue where there is 'no result/I can't type in the text input' especially on currency conversion tab.
 
     This is a very rare issue that is encountered on some devices although everything works fine on other devices running the same Android version, updates, etc.
 
@@ -63,7 +68,7 @@
 
 2. How do I donate?
 
-    Go to https://github.com/Yet-Zio/yetCalc/blob/main/DONATE.md\
+    Go to https://github.com/Yet-Zio/yetCalc/blob/main/DONATE.md
     or Settings -> Tap Donate
     takes you to the same link anyways.
 

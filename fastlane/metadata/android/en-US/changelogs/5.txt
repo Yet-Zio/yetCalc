@@ -1,0 +1,8 @@
+Bug Fixes
+
+- Fixed cursor appearing at start incase of pressing equal to button.
+- Fixed calculator losing precision after 9223372036854775807, a scientific notation is used instead.
+
+Enhancements
+
+- Converter now remembers the last section/tab you opened and the app provides a setting for this.(Settings -> Use Recent Tab). This is enabled by default.
