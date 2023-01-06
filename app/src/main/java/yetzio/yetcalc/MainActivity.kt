@@ -1299,6 +1299,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
                     Calc.addToHistory(textexpression.text.toString(), textres.text.toString())
                     textexpression.setText(textres.text)
                     textres.setText("")
+                    textexpression.setSelection(textexpression.length())
                     result = textres.text.toString()
                 }
             }

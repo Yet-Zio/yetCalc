@@ -29,6 +29,16 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory app:title="Converter">
+
+        <SwitchPreferenceCompat
+            app:key="lastusedtabkey"
+            app:summary="Open the last used section by default."
+            app:title="Use Recent Tab"
+            app:defaultValue="true" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory app:title="App">
         <Preference
             app:title="Donate"

@@ -9,6 +9,7 @@ class Calculator{
     var almostInt = true
     var precision = "Default precision"
     val m_history = History()
+    val MAXREP = 9999999
 
     fun calculate(expr: String): String {
         val ncr = Function("nCr(n, r) = nCk(n, r)")
@@ -39,7 +40,7 @@ class Calculator{
 
         val e = Expression(expr, grad, npr, ncr)
 
-        return if(e.calculate() > Long.MAX_VALUE){
+        return if(e.calculate() > MAXREP){
             e.calculate().toString()
         }
         else if(e.calculate() % 1.0 == 0.0){

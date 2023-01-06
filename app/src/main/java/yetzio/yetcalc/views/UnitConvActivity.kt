@@ -15,19 +15,29 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
 import androidx.viewpager2.widget.ViewPager2
+import com.fasterxml.jackson.core.type.TypeReference
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import yetzio.yetcalc.MainActivity
 import yetzio.yetcalc.R
 import yetzio.yetcalc.component.SpinnerItemAdapter
+import yetzio.yetcalc.model.ConverterPref
+import yetzio.yetcalc.model.HistoryItem
 import yetzio.yetcalc.model.UnitConvViewModel
 import yetzio.yetcalc.utils.getModesList
+import yetzio.yetcalc.utils.isNetworkAvailable
 import yetzio.yetcalc.utils.showThemeDialog
 import yetzio.yetcalc.views.fragments.*
 import yetzio.yetcalc.views.fragments.adapters.ViewPagerAdapter
+import java.io.File
 
 class UnitConvActivity : AppCompatActivity() {
+    val tabPrefName = "tabpref.json"
+    val m_Mapper = jacksonObjectMapper()
+
     lateinit var viewPager: ViewPager2
     private lateinit var tabs: TabLayout
     private lateinit var toolbar: Toolbar
@@ -44,6 +54,7 @@ class UnitConvActivity : AppCompatActivity() {
 
     lateinit var preferences: SharedPreferences
     lateinit var editor: SharedPreferences.Editor
+    lateinit var adp: ViewPagerAdapter
 
     lateinit var theme: String
 
@@ -90,9 +101,11 @@ class UnitConvActivity : AppCompatActivity() {
         modeselecSpin.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                 if(pos == 0){
+                    saveTabPrefs()
                     startActivity(Intent(applicationContext, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
                 }
                 else if(pos == 2){
+                    saveTabPrefs()
                     startActivity(Intent(applicationContext, ProgramCalcActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
                 }
             }
@@ -113,6 +126,50 @@ class UnitConvActivity : AppCompatActivity() {
     private fun initPrefs(){
         preferences = getSharedPreferences("CalcPrefs", Context.MODE_PRIVATE)
         editor = preferences.edit()
+    }
+
+    private fun initTabPrefs(){
+        val prefMgr = PreferenceManager.getDefaultSharedPreferences(this)
+        val tabPrefer = prefMgr.getBoolean("lastusedtabkey", true)
+
+        if(tabPrefer){
+            val tabPrefFile = File(filesDir, tabPrefName)
+
+            var tabPref = ConverterPref(0)
+
+            if(tabPrefFile.exists()){
+                val tabcontent = openFileInput(tabPrefName)?.bufferedReader().use {
+                    it?.readText().toString()
+                }
+
+                try{
+                    tabPref = m_Mapper.readValue(tabcontent, object: TypeReference<ConverterPref>(){})
+                }
+                catch (e: Exception){
+                    println("tab preference read error occurred")
+                }
+            }
+
+            tabs.selectTab(tabs.getTabAt(tabPref.tabnum))
+        }
+    }
+
+    private fun saveTabPrefs(){
+        val tabPrefFile = File(filesDir, tabPrefName)
+
+        val currentTabPref = ConverterPref(tabs.selectedTabPosition)
+        if(!tabPrefFile.exists()){
+            tabPrefFile.createNewFile()
+        }
+        else{
+            tabPrefFile.delete()
+            tabPrefFile.createNewFile()
+        }
+
+        openFileOutput(tabPrefName, Context.MODE_PRIVATE or Context.MODE_APPEND).use {
+            it?.write(m_Mapper.writeValueAsString(currentTabPref).toByteArray())
+        }
+
     }
 
     override fun onBackPressed() {
@@ -175,6 +232,7 @@ class UnitConvActivity : AppCompatActivity() {
 
         adapter.addFragment(DataFragment())
         viewPager.adapter = adapter
+        adp = adapter
 
         TabLayoutMediator(tabs, viewPager) {tab, position ->
             tab.text = titles[position]
@@ -198,5 +256,22 @@ class UnitConvActivity : AppCompatActivity() {
 
         tabs.getTabAt(12)!!.setIcon(R.drawable.ic_baseline_text_snippet_60)
 
+        initTabPrefs()
+
+    }
+
+    override fun onPause() {
+        saveTabPrefs()
+        super.onPause()
+    }
+
+    override fun onStop() {
+        saveTabPrefs()
+        super.onStop()
+    }
+
+    override fun onDestroy() {
+        saveTabPrefs()
+        super.onDestroy()
     }
 }
