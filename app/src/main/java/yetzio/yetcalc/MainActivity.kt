@@ -455,9 +455,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
 
         settingsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
             val almInt = calculationPref.getBoolean("almostintkey", true)
+            val canInt = calculationPref.getBoolean("canonintkey", false)
             val precisionChoice = calculationPref.getString("precisionkey", "Default precision")
 
             Calc.almostInt = almInt
+            Calc.canonInt = canInt
             if (precisionChoice != null) {
                 Calc.precision = precisionChoice
             }
@@ -477,9 +479,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
     private fun initCalculationPrefs(){
         calculationPref = PreferenceManager.getDefaultSharedPreferences(this)
         val almInt = calculationPref.getBoolean("almostintkey", true)
+        val canInt = calculationPref.getBoolean("canonintkey", false)
         val precisionChoice = calculationPref.getString("precisionkey", "Default precision")
 
         Calc.almostInt = almInt
+        Calc.canonInt = canInt
         if (precisionChoice != null) {
             Calc.precision = precisionChoice
         }

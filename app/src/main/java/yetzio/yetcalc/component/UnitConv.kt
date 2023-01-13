@@ -1,6 +1,7 @@
 package yetzio.yetcalc.component
 
 import java.math.BigDecimal
+import java.math.RoundingMode
 import kotlin.Double
 
 class UnitConv{
@@ -118,19 +119,19 @@ class UnitConv{
             }
 
             fun InchToMetre(inch: Double): Double{
-                return inch / BigDecimal("39.37").toDouble()
+                return inch * BigDecimal("0.0254").toDouble()
             }
 
             fun FeetToMetre(feet: Double): Double{
-                return feet / BigDecimal("3.281").toDouble()
+                return feet * BigDecimal("0.3048").toDouble()
             }
 
             fun YardsToMetre(yard: Double): Double{
-                return yard / BigDecimal("1.094").toDouble()
+                return yard * BigDecimal("0.9144").toDouble()
             }
 
             fun MilesToMetre(mile: Double): Double{
-                return mile * BigDecimal("1609").toDouble()
+                return mile * BigDecimal("1609.344").toDouble()
             }
 
             fun NMilesToMetre(nmile: Double): Double{
@@ -195,19 +196,19 @@ class UnitConv{
             }
 
             fun MetreToInch(metre: Double): Double{
-                return metre * BigDecimal("39.37").toDouble()
+                return BigDecimal.valueOf(metre / 0.0254).setScale(4, RoundingMode.HALF_UP).toDouble()
             }
 
             fun MetreToFeet(metre: Double): Double{
-                return metre * BigDecimal("3.281").toDouble()
+                return BigDecimal.valueOf(metre / 0.3048).setScale(4, RoundingMode.HALF_UP).toDouble()
             }
 
             fun MetreToYards(metre: Double): Double{
-                return metre * BigDecimal("1.094").toDouble()
+                return BigDecimal.valueOf(metre / 0.9144).setScale(4, RoundingMode.HALF_UP).toDouble()
             }
 
             fun MetreToMiles(metre: Double): Double{
-                return metre / BigDecimal("1609").toDouble()
+                return metre / BigDecimal("1609.344").toDouble()
             }
 
             fun MetreToNMiles(metre: Double): Double{
@@ -347,7 +348,7 @@ class UnitConv{
             }
 
             fun CupUSToCubicMetre(cup: Double): Double{
-                return cup / BigDecimal("4227").toDouble()
+                return cup / BigDecimal("4226.8").toDouble()
             }
 
             fun CupUKToCubicMetre(cup: Double): Double{
@@ -355,7 +356,7 @@ class UnitConv{
             }
 
             fun PintsUSToCubicMetre(pint: Double): Double{
-                return pint / BigDecimal("2113").toDouble()
+                return pint * BigDecimal("0.0004731765").toDouble()
             }
 
             fun PintsUKToCubicMetre(pint: Double): Double{
@@ -363,15 +364,15 @@ class UnitConv{
             }
 
             fun QuartsUSToCubicMetre(quart: Double): Double{
-                return quart / BigDecimal("1057").toDouble()
+                return quart * BigDecimal("0.0009463529").toDouble()
             }
 
             fun QuartsUKToCubicMetre(quart: Double): Double{
-                return quart / BigDecimal("879.88").toDouble()
+                return quart * BigDecimal("0.0011365225").toDouble()
             }
 
             fun GallonsUSToCubicMetre(gallon: Double): Double{
-                return gallon / BigDecimal("264.2").toDouble()
+                return gallon * BigDecimal("0.0037854118").toDouble()
             }
 
             fun GallonsUKToCubicMetre(gallon: Double): Double{
@@ -399,15 +400,15 @@ class UnitConv{
             }
 
             fun CInchesToCubicMetre(cinch: Double): Double{
-                return cinch / BigDecimal("61020").toDouble()
+                return cinch * BigDecimal("0.0000163871").toDouble()
             }
 
             fun CFeetToCubicMetre(cfeet: Double): Double{
-                return cfeet / BigDecimal("35.315").toDouble()
+                return cfeet * BigDecimal("0.0283168466").toDouble()
             }
 
             fun CYardsToCubicMetre(cyard: Double): Double{
-                return cyard / BigDecimal("1.308").toDouble()
+                return cyard * BigDecimal("0.764554858").toDouble()
             }
 
             fun TeaspoonsUSToCubicMetre(teaspoon: Double): Double{
@@ -461,7 +462,7 @@ class UnitConv{
             }
 
             fun CubicMetreToCupUS(cmetre: Double): Double{
-                return cmetre * BigDecimal("4227").toDouble()
+                return cmetre * BigDecimal("4226.8").toDouble()
             }
 
             fun CubicMetreToCupUK(cmetre: Double): Double{
@@ -469,7 +470,7 @@ class UnitConv{
             }
 
             fun CubicMetreToPintsUS(cmetre: Double): Double{
-                return cmetre * BigDecimal("2113").toDouble()
+                return cmetre / BigDecimal("0.0004731765").toDouble()
             }
 
             fun CubicMetreToPintsUK(cmetre: Double): Double{
@@ -477,15 +478,15 @@ class UnitConv{
             }
 
             fun CubicMetreToQuartsUS(cmetre: Double): Double{
-                return cmetre * BigDecimal("1057").toDouble()
+                return cmetre / BigDecimal("0.0009463529").toDouble()
             }
 
             fun CubicMetreToQuartsUK(cmetre: Double): Double{
-                return cmetre * BigDecimal("879.88").toDouble()
+                return cmetre / BigDecimal("0.0011365225").toDouble()
             }
 
             fun CubicMetreToGallonsUS(cmetre: Double): Double{
-                return cmetre * BigDecimal("264.2").toDouble()
+                return cmetre / BigDecimal("0.0037854118").toDouble()
             }
 
             fun CubicMetreToGallonsUK(cmetre: Double): Double{
@@ -513,15 +514,15 @@ class UnitConv{
             }
 
             fun CubicMetreToCInches(cinch: Double): Double{
-                return cinch * BigDecimal("61020").toDouble()
+                return cinch / BigDecimal("0.0000163871").toDouble()
             }
 
             fun CubicMetreToCFeet(cmetre: Double): Double{
-                return cmetre / BigDecimal("35.315").toDouble()
+                return cmetre / BigDecimal("0.0283168466").toDouble()
             }
 
             fun CubicMetreToCYards(cmetre: Double): Double{
-                return cmetre / BigDecimal("1.308").toDouble()
+                return cmetre / BigDecimal("0.764554858").toDouble()
             }
 
             fun CubicMetreToTeaspoonsUS(cmetre: Double): Double{

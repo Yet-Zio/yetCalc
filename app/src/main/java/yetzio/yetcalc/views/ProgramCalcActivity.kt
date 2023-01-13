@@ -375,6 +375,12 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         val buttonId = view?.id
 
+        if(mViewModel.divByZero){
+            tvResult.text = "0"
+            tvExp.text = "0"
+            mViewModel.divByZero = false
+        }
+
         if(buttonId != null){
             when(buttonId){
                 R.id.btnForHex -> {
@@ -593,7 +599,13 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             Operator.DIV -> {
-                mViewModel.prevResult /= tvResult.text.toString().toInt(mViewModel.numberSys.radix)
+                if(tvResult.text.toString().toInt(mViewModel.numberSys.radix) == 0){
+                    mViewModel.divByZero = true
+                    mViewModel.prevResult = 0
+                }
+                else{
+                    mViewModel.prevResult /= tvResult.text.toString().toInt(mViewModel.numberSys.radix)
+                }
             }
 
             Operator.AND -> {
@@ -673,6 +685,10 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
 
         mViewModel.textEXP = tvExp.text.toString()
         mViewModel.textRES = tvResult.text.toString()
+
+        if(mViewModel.divByZero) {
+            tvResult.text = "Cannot divide by zero!"
+        }
     }
 
     private fun setCurrentNumberSystem(numSys: NumberSystem) {
@@ -811,25 +827,25 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
                     inputBtn3.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
                 }
                 else{
-                    btnForOct.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    tvOct.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtnA.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnB.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnC.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnD.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnE.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnF.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
+                    btnForOct.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
+                    tvOct.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
+                    inputBtnA.setTextColor(ContextCompat.getColor(this, R.color.greyish))
+                    inputBtnB.setTextColor(ContextCompat.getColor(this, R.color.greyish))
+                    inputBtnC.setTextColor(ContextCompat.getColor(this, R.color.greyish))
+                    inputBtnD.setTextColor(ContextCompat.getColor(this, R.color.greyish))
+                    inputBtnE.setTextColor(ContextCompat.getColor(this, R.color.greyish))
+                    inputBtnF.setTextColor(ContextCompat.getColor(this, R.color.greyish))
 
-                    inputBtn7.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn8.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtn9.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
+                    inputBtn7.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
+                    inputBtn8.setTextColor(ContextCompat.getColor(this, R.color.greyish))
+                    inputBtn9.setTextColor(ContextCompat.getColor(this, R.color.greyish))
 
-                    inputBtn4.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn5.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn6.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
+                    inputBtn4.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
+                    inputBtn5.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
+                    inputBtn6.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
 
-                    inputBtn2.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn3.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
+                    inputBtn2.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
+                    inputBtn3.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
                 }
 
             }

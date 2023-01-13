@@ -4,14 +4,19 @@ plugins {
 }
 
 android {
+    tasks.whenTaskAdded {task ->
+        if(task.name.contains("ArtProfile")) {
+            task.enabled = false
+        }
+    }
     compileSdk 33
 
     defaultConfig {
         applicationId "yetzio.yetcalc"
         minSdk 21
         targetSdk 33
-        versionCode 5
-        versionName "1.0.4"
+        versionCode 6
+        versionName "1.0.5"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -43,11 +48,11 @@ dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.2.0")
 
     implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.appcompat:appcompat:1.6.0'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    implementation("org.mariuszgromada.math:MathParser.org-mXparser:5.0.6")
+    implementation("org.mariuszgromada.math:MathParser.org-mXparser:5.1.0")
 
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
