@@ -19,6 +19,12 @@
             app:title="Almost Integer Rounding"
             app:defaultValue="true"/>
 
+        <SwitchPreferenceCompat
+            app:key="canonintkey"
+            app:summary="Solves precision problems like 0.1 + 0.2. Enabling this might cause losing precision in really small numbers."
+            app:title="Canonical Rounding"
+            app:defaultValue="false"/>
+
         <ListPreference
             app:defaultValue="Default precision"
             app:entries="@array/precision_array"

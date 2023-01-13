@@ -7,11 +7,14 @@ import org.mariuszgromada.math.mxparser.mXparser
 class Calculator{
     var angleMode = AngleMode.DEGREE
     var almostInt = true
+    var canonInt =  false
     var precision = "Default precision"
     val m_history = History()
     val MAXREP = 9999999
 
     fun calculate(expr: String): String {
+        mXparser.setUlpRounding(false)
+
         val ncr = Function("nCr(n, r) = nCk(n, r)")
         val npr = Function("nPr(n, r) = nPk(n, r)")
 
@@ -26,6 +29,11 @@ class Calculator{
             mXparser.setAlmostIntRounding(true)
         else
             mXparser.setAlmostIntRounding(false)
+
+        if(canonInt)
+            mXparser.setCanonicalRounding(true)
+        else
+            mXparser.setCanonicalRounding(false)
 
         if (angleMode == AngleMode.DEGREE) {
             mXparser.setDegreesMode()

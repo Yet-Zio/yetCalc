@@ -13,4 +13,5 @@ class ProgramCalcViewModel: ViewModel(){
     var isCalcPending = false
     var prevResult = 0
     var clearInput = false
+    var divByZero = false
 }
