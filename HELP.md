@@ -25,10 +25,21 @@
         'Almost Integer Rounding – a number is rounded to the nearest integer if it is close enough to an integer. This is a fairly quick procedure, but you lose the ability to work with small numbers.'
     
     Normally this doesn't cause much issues for calculations, but if you are working with really small numbers you can toggle this setting from our app.
+    
+4. What is Canonical Rounding? Why is it disabled by default?
+    
+    Issues like 0.1 + 0.2 or 0.1 + 0.1 + 0.1 might equal 0.30000000000000004 instead of 0.3. This can be solved by enabling canonical rounding 
+    in Settings -> Canonical Rounding, but there is a risk of using it as well. Calculations including very small numbers, for example 
+    0.00000000003 * 0.00000000004 might yield 0 even on a higher precision setting. Therefore canonical rounding is disabled by default. 
+    This is a setting taken directly from mXparser and as the docs say:
+    
+        It solves a huge part of the problem, but comes at a cost in computing performance.
 
-4. The screen gets cuts off and the buttons look weird?
+5. The screen gets cuts off and the buttons look weird?
 
     You might have a really small screen to support this app. Minimum 5 or 5.5 inches is required since the buttons, result, progressive result tab take up space. We are extremely sorry. Nowadays, vendors provide devices with larger screen sizes so this is not a concerning issue but still this feels bad.
+    
+    NOTE: On taller screens and foldables, only the buttons may look weird(like crushed or oval shaped). We promise to provide a layout with support for larger screens/resolutions.
 
 ## Converter
 
@@ -71,5 +82,25 @@
     Go to https://github.com/Yet-Zio/yetCalc/blob/main/DONATE.md
     or Settings -> Tap Donate
     takes you to the same link anyways.
+    
+3. Why did you create this? There's already so many good calculators.
+    
+    Well, there are actually. But maybe most of them are not open source or provide a necessary feature.
+    Or one might provide a feature the other doesn't.
+    
+    Just so you know, this is going to be long...:)
+    
+    To be honest, I had Google's Calculator by default on my phone. It's pretty good but not that great either.
+    It doesn't provide progressive calculations(calculations that change side by side) or more scientific functions, constants and features.
+    It's like a simple enough calculator and don't tell me Google can't make a better calculator than that, oh wait took them years to add a screen recording feature in Android, can't create their own terminal emulator, well there's Termux, so why need anyway right. Aha, back to the point.
+    Either way the UI is pretty great tho, that's what yetCalc's design is based on.
+    
+    Very well, why didn't I use some other vendor's calculator, like Samsung or Xiaomi. Yea Samsung's Calculator is pretty good and Xiaomi's one is even better. Samsung's one provides progressive calculations, simple and scientific features, history, a good converter etc. But it suffers from the same things Google's does, more effort has not been put into adding more scientific features like more functions, constants. As a company they could have added a graphing, programmer modes as well. Well, its not my calculator right?
+    
+    Talking about Xiaomi's one, this one's a pretty good one too, provides even more converters. But on the other side, the same mistake to not add more scientific features like the one's I mentioned for Samsung's and Google's one. Just look at this [calculator](https://play.google.com/store/apps/details?id=cz.hipercalc) and see how many features it contains, even has a pro version or look at this [one](https://play.google.com/store/apps/details?id=org.mathparser.scalar.lite&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1). Now that's what I call a good calculator, it might not have everything but atleast some effort is put into it. You can argue it doesn't have a user/beginner-friendly UI for someone coming from a different calculator, and that's a valid point too.
+    
+    Now if you want to look at a good calculator which is user-friendly and provides a ton of features, look at Microsoft's new [Windows Calculator](https://apps.microsoft.com/store/detail/windows-calculator/9WZDNCRFHVN5). It even has date calculation and graphing, some which I didn't even add to yetCalc(at the time of writing). It's even open source on [github](https://github.com/Microsoft/calculator)
+    
+    In the end, I created this because I needed a calculator with a simple UI like Google's one with features that are usually and should be provided, more features that are typically not on Android or others. It didn't become so simple or advanced but it was worth it. It's free, it's open source and it's yet another calculator.
 
 (you can notify us if an issue is not mentioned here!)
