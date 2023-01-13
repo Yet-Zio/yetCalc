@@ -1,0 +1,9 @@
+Bug Fixes
+
+- Fixed an app crash when attempting to divide by zero in programmer mode.
+- Converter now converts feet to inches and vice versa correctly.
+- Converter now allows negative values on all sections(tabs) except currency.
+
+Enhancements
+
+- A setting to enable/disable Canonical Rounding has been added. Canonical Rounding solves issues like 0.1 + 0.2 giving invalid results. It is disabled by default. Enabling this might cause problems with calculations including really small numbers.

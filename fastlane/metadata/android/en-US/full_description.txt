@@ -3,9 +3,9 @@ yetCalc is a Calculator with basic and scientific calculation features, a unit c
 HINT: Use landscape orientation to access scientific mode.
 
 Features: 
-- Progressive Calculations
-- Scientific Mode with trigonometric, hyperbolic and inverse functions, calculus and iterated operators, much more.
-- Unit Converter
-- Programmer Mode with number systems and logical operations.
+• Progressive Calculations
+• Scientific Mode with trigonometric, hyperbolic and inverse functions, calculus and iterated operators, much more.
+• Unit Converter
+• Programmer Mode with number systems and logical operations.
 
 NOTE: Internet connection is used for currency conversions and nothing else.
