@@ -26,7 +26,7 @@
     
     Normally this doesn't cause much issues for calculations, but if you are working with really small numbers you can toggle this setting from our app.
     
-4. What is Canonical Rounding? Why is it disabled by default?
+4. Can't get right answers from 0.1 + 0.2/there is a precision problem/I get answers like 0.30000000000000004/What is Canonical Rounding? Why is it disabled by default?
     
     Issues like 0.1 + 0.2 or 0.1 + 0.1 + 0.1 might equal 0.30000000000000004 instead of 0.3. This can be solved by enabling canonical rounding 
     in Settings -> Canonical Rounding, but there is a risk of using it as well. Calculations including very small numbers, for example 
