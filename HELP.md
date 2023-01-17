@@ -91,8 +91,7 @@
     Just so you know, this is going to be long...:)
     
     To be honest, I had Google's Calculator by default on my phone. It's pretty good but not that great either.
-    It doesn't provide progressive calculations(calculations that change side by side) or more scientific functions, constants and features.
-    It's like a simple enough calculator and don't tell me Google can't make a better calculator than that, oh wait took them years to add a screen recording feature in Android, can't create their own terminal emulator, well there's Termux, so why need anyway right. Aha, back to the point.
+    It doesn't more scientific functions, constants and features. It's like a simple enough calculator and don't tell me Google can't make a better calculator than that, oh wait took them years to add a screen recording feature in Android, can't create their own terminal emulator, well there's Termux, so why need anyway right. Aha, back to the point.
     Either way the UI is pretty great tho, that's what yetCalc's design is based on.
     
     Very well, why didn't I use some other vendor's calculator, like Samsung or Xiaomi. Yea Samsung's Calculator is pretty good and Xiaomi's one is even better. Samsung's one provides progressive calculations, simple and scientific features, history, a good converter etc. But it suffers from the same things Google's does, more effort has not been put into adding more scientific features like more functions, constants. As a company they could have added a graphing, programmer modes as well. Well, its not my calculator right?
