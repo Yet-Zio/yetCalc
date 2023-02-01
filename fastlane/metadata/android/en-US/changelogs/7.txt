@@ -1,0 +1,7 @@
+Bug Fixes
+
+- Fixed inaccurate results in volume section of unit converter over Cups(US), Cups(UK), Teaspoons, Tablespoons, Fluid Ounces, etc. Other units might have similar issues as well.
+
+Enhancements
+
+- Added furlongs to length section in Unit Converter
