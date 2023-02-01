@@ -43,6 +43,7 @@ class UnitConv{
                     17 -> GigaToMetre(value)
                     18 -> TeraToMetre(value)
                     19 -> PetaToMetre(value)
+                    20 -> FlgToMetre(value)
                     else -> {
                         value
                     }
@@ -68,6 +69,7 @@ class UnitConv{
                     17 -> MetreToGiga(temp)
                     18 -> MetreToTera(temp)
                     19 -> MetreToPeta(temp)
+                    20 -> MetreToFlg(temp)
                     else -> {
                         temp
                     }
@@ -154,6 +156,10 @@ class UnitConv{
                 return peta * BigDecimal("1000000000000000").toDouble()
             }
 
+            fun FlgToMetre(flg: Double): Double{
+                return flg * BigDecimal("201.168").toDouble()
+            }
+
             // Order 2 - Meter to others
             fun MetreToFemto(metre: Double): Double{
                 return metre * BigDecimal("1000000000000000").toDouble()
@@ -229,6 +235,10 @@ class UnitConv{
 
             fun MetreToPeta(metre: Double): Double{
                 return metre / BigDecimal("1000000000000000").toDouble()
+            }
+
+            fun MetreToFlg(metre: Double): Double{
+                return metre / BigDecimal("201.168").toDouble()
             }
 
         }
@@ -352,7 +362,7 @@ class UnitConv{
             }
 
             fun CupUKToCubicMetre(cup: Double): Double{
-                return cup * BigDecimal("0.0002841306").toDouble()
+                return cup / BigDecimal("3519.5079728").toDouble()
             }
 
             fun PintsUSToCubicMetre(pint: Double): Double{
@@ -412,27 +422,27 @@ class UnitConv{
             }
 
             fun TeaspoonsUSToCubicMetre(teaspoon: Double): Double{
-                return teaspoon / BigDecimal("202900").toDouble()
+                return BigDecimal.valueOf(teaspoon / 202884.1361596).setScale(3, RoundingMode.HALF_UP).toDouble()
             }
 
             fun TeaspoonsUKToCubicMetre(teaspoon: Double): Double{
-                return teaspoon / BigDecimal("281560").toDouble()
+                return BigDecimal.valueOf(teaspoon / 168936.3827175).setScale(3, RoundingMode.HALF_UP).toDouble()
             }
 
             fun TablespoonsUSToCubicMetre(tablespoon: Double): Double{
-                return tablespoon / BigDecimal("67630").toDouble()
+                return BigDecimal.valueOf(tablespoon / 67628.045398).setScale(3, RoundingMode.HALF_UP).toDouble()
             }
 
             fun TablespoonsUKToCubicMetre(tablespoon: Double): Double{
-                return tablespoon * BigDecimal("0.0000177582").toDouble()
+                return BigDecimal.valueOf(tablespoon / 56312.1275646).setScale(3, RoundingMode.HALF_UP).toDouble()
             }
 
             fun FluidOuncesUSToCubicMetre(fluidounce: Double): Double{
-                return fluidounce * BigDecimal("0.0000295735").toDouble()
+                return BigDecimal.valueOf(fluidounce / 33814.0227018).setScale(3, RoundingMode.HALF_UP).toDouble()
             }
 
             fun FluidOuncesUKToCubicMetre(fluidounce: Double): Double{
-                return fluidounce * BigDecimal("0.0000284131").toDouble()
+                return BigDecimal.valueOf(fluidounce / 35195.0797279).setScale(3, RoundingMode.HALF_UP).toDouble()
             }
 
             // Order 2 - Cubic metre to others
@@ -466,7 +476,7 @@ class UnitConv{
             }
 
             fun CubicMetreToCupUK(cmetre: Double): Double{
-                return cmetre / BigDecimal("0.0002841306").toDouble()
+                return cmetre * BigDecimal("3519.5079728").toDouble()
             }
 
             fun CubicMetreToPintsUS(cmetre: Double): Double{
@@ -526,27 +536,27 @@ class UnitConv{
             }
 
             fun CubicMetreToTeaspoonsUS(cmetre: Double): Double{
-                return cmetre / BigDecimal("202900").toDouble()
+                return BigDecimal.valueOf(cmetre * 202884.1361596).setScale(3, RoundingMode.HALF_UP).toDouble()
             }
 
             fun CubicMetreToTeaspoonsUK(cmetre: Double): Double{
-                return cmetre / BigDecimal("281560").toDouble()
+                return BigDecimal.valueOf(cmetre * 168936.3827175).setScale(3, RoundingMode.HALF_UP).toDouble()
             }
 
             fun CubicMetreToTablespoonsUS(cmetre: Double): Double{
-                return cmetre / BigDecimal("67630").toDouble()
+                return BigDecimal.valueOf(cmetre * 67628.045398).setScale(3, RoundingMode.HALF_UP).toDouble()
             }
 
             fun CubicMetreToTablespoonsUK(cmetre: Double): Double{
-                return cmetre * BigDecimal("0.0000177582").toDouble()
+                return BigDecimal.valueOf(cmetre * 56312.1275646).setScale(3, RoundingMode.HALF_UP).toDouble()
             }
 
             fun CubicMetreToFluidOuncesUS(cmetre: Double): Double{
-                return cmetre * BigDecimal("0.0000295735").toDouble()
+                return BigDecimal.valueOf(cmetre * 33814.0227018).setScale(3, RoundingMode.HALF_UP).toDouble()
             }
 
             fun CubicMetreToFluidOuncesUK(cmetre: Double): Double{
-                return cmetre * BigDecimal("0.0000284131").toDouble()
+                return BigDecimal.valueOf(cmetre * 35195.0797279).setScale(3, RoundingMode.HALF_UP).toDouble()
             }
         }
     }
