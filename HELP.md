@@ -35,7 +35,12 @@
     
         It solves a huge part of the problem, but comes at a cost in computing performance.
 
-5. The screen gets cuts off and the buttons look weird?
+5. Percentages do not work properly?
+   Percentages in calculator work in a more traditional and mathematical way. By default, percentage is calculated in 1. Some users have this
+   doubt because they come from using different calculators. To fix this for an example like 1000-90%, convert to this: 1000-90%*1000. As you can see,
+   you need to multiply it with the required number to get the right percentage result.
+
+6. The screen gets cuts off and the buttons look weird?
 
     You might have a really small screen to support this app. Minimum 5 or 5.5 inches is required since the buttons, result, progressive result tab take up space. We are extremely sorry. Nowadays, vendors provide devices with larger screen sizes so this is not a concerning issue but still this feels bad.
     
