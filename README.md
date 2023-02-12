@@ -10,7 +10,6 @@
 
 <br>
 <br>
-<br>
 
 The free and open source calculator developed for Android 5.0 and above using Kotlin. yetCalc's calculator mode uses the [mXparser](https://mathparser.org/) library. Large calculations are handled without device freezing and other issues, although some calculations might take time. 
 
