@@ -36,6 +36,7 @@
         It solves a huge part of the problem, but comes at a cost in computing performance.
 
 5. Percentages do not work properly?
+
    Percentages in calculator work in a more traditional and mathematical way. By default, percentage is calculated in 1. Some users have this
    doubt because they come from using different calculators. To fix this for an example like 1000-90%, convert to this: 1000-90%*1000. As you can see,
    you need to multiply it with the required number to get the right percentage result.
