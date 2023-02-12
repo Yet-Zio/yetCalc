@@ -3,6 +3,10 @@
 
 It will be a great help :)
 
+[Liberapay](https://liberapay.com/yetzio/donate)
+
+[Ko-fi](https://ko-fi.com/yetzio)
+
 [Patreon](https://patreon.com/yetzio)
 
 [PayPal](https://paypal.me/MaheshPSYetZio)
