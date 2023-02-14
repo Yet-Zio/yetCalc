@@ -3,13 +3,10 @@
 
 It will be a great help :)
 
-[Liberapay](https://liberapay.com/yetzio/donate)
+UPI ID for payment: maheshdeluxe53@okhdfcbank
+You can use a payment service such as Google Pay
 
-[Ko-fi](https://ko-fi.com/yetzio)
-
-[Patreon](https://patreon.com/yetzio)
-
-[PayPal](https://paypal.me/MaheshPSYetZio)
+More donation methods will be listed once I ensure it works.
 
 ## Donate to mXparser
 

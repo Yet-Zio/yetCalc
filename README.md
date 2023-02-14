@@ -4,9 +4,6 @@
 
 <h1 align="center">yetCalc</h1>
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/yetzio)
-<noscript><a href="https://liberapay.com/yetzio/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a></noscript>
-
 The free and open source calculator developed for Android 5.0 and above using Kotlin. yetCalc's calculator mode uses the [mXparser](https://mathparser.org/) library. Large calculations are handled without device freezing and other issues, although some calculations might take time. 
 
 ![yetCalc About](./img/snaps/calcbrand.png)
