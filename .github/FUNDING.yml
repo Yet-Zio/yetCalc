@@ -1,7 +1,4 @@
 # These are supported funding model platforms
 
 github: # not yet
-liberapay: yetzio
-ko_fi: yetzio
-patreon: yetzio
-custom: ['https://paypal.me/MaheshPSYetZio']
+custom: upi://pay?pa=maheshdeluxe53@okhdfcbank&pn=YourName&tn=PaymenMessage&cu=INR
