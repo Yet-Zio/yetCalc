@@ -1,4 +1,4 @@
 # These are supported funding model platforms
 
 github: # not yet
-custom: ['upi://pay?pa=maheshdeluxe53@okhdfcbank&pn=YourName&tn=PaymenMessage&cu=INR', 'UPI']
+custom: upi://pay?pa=maheshdeluxe53@okhdfcbank&pn=YourName&tn=PaymenMessage&cu=INR
