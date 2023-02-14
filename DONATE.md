@@ -3,7 +3,8 @@
 
 It will be a great help :)
 
-UPI ID for payment: maheshdeluxe53@okhdfcbank
+UPI ID for payment: **maheshdeluxe53@okhdfcbank**
+
 You can use a payment service such as Google Pay
 
 More donation methods will be listed once I ensure it works.
