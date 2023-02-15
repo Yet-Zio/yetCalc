@@ -435,6 +435,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
         // Set on click listener for every button
         setOnClickListeners()
 
+        setOnLongClickListeners()
+
         restoreModesAndConfiguration(savedInstanceState)
 
         histLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -469,6 +471,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
                 evaluate_expr()
         }
 
+    }
+
+    private fun setOnLongClickListeners() {
+        bkspacebt.setOnLongClickListener {
+            clearFields()
+            true
+        }
     }
 
     private fun initPrefs(){
@@ -1266,9 +1275,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
                 evaluate_expr()
             }
             R.id.acbutton -> {
-                textexpression.setText("")
-                textres.setText("")
-                result = textres.text.toString()
+                clearFields()
             }
             R.id.powerbutton -> {
                 addExpression(getString(R.string.power_text))
@@ -1336,6 +1343,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
                 }
             }
         }
+    }
+
+    private fun clearFields() {
+        textexpression.setText("")
+        textres.setText("")
+        result = textres.text.toString()
     }
 
     private fun handleNumberButtons(id: Int){
