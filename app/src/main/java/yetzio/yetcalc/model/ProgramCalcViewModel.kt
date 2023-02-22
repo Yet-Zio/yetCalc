@@ -14,4 +14,5 @@ class ProgramCalcViewModel: ViewModel(){
     var prevResult = 0
     var clearInput = false
     var divByZero = false
+    var opPresent = false
 }

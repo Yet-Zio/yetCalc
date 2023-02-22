@@ -1,0 +1,9 @@
+Bug Fixes
+
+- Fixed inaccurate results when selecting 'Bubnoff unit' in speed section of Unit Converter.
+
+- Fixed an issue in Programmer mode that caused an operator to disappear in history but the operation to remain.
+
+Enhancements
+
+- Now you can long press the delete button to clear all digits.

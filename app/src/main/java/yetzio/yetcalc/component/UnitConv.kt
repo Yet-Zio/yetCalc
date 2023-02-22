@@ -1425,7 +1425,7 @@ class UnitConv{
             }
 
             fun BubnoffToMperSec(bubnoff: Double): Double{
-                return bubnoff * BigDecimal("31540000").toDouble()
+                return bubnoff / BigDecimal("31540000000000").toDouble()
             }
 
             fun NaturalUnitToMperSec(nat: Double): Double{
@@ -1434,48 +1434,48 @@ class UnitConv{
 
             // Order 2 - Metre per second to Others
 
-            fun MetreperSecToCentiMperSec(centimpersec: Double): Double{
-                return centimpersec * 100
+            fun MetreperSecToCentiMperSec(metre: Double): Double{
+                return metre * 100
             }
 
-            fun MetreperSecToKiloMperHr(kilomperhr: Double): Double{
-                return kilomperhr * 3.6
+            fun MetreperSecToKiloMperHr(metre: Double): Double{
+                return metre * 3.6
             }
 
-            fun MetreperSecToMilesperHr(milesperhr: Double): Double{
-                return milesperhr * 2.237
+            fun MetreperSecToMilesperHr(metre: Double): Double{
+                return metre * 2.237
             }
 
-            fun MetreperSecToKnots(knot: Double): Double{
-                return knot * 1.944
+            fun MetreperSecToKnots(metre: Double): Double{
+                return metre * 1.944
             }
 
-            fun MetreperSecToFeetperSec(feetpersec: Double): Double{
-                return feetpersec * 3.281
+            fun MetreperSecToFeetperSec(metre: Double): Double{
+                return metre * 3.281
             }
 
-            fun MetreperSecToFeetperM(feetperm: Double): Double{
-                return feetperm * 196.9
+            fun MetreperSecToFeetperM(metre: Double): Double{
+                return metre * 196.9
             }
 
-            fun MetreperSecToInchperSec(inchpersec: Double): Double{
-                return inchpersec * 39.37
+            fun MetreperSecToInchperSec(metre: Double): Double{
+                return metre * 39.37
             }
 
-            fun MetreperSecToMach(mach: Double): Double{
-                return mach / 343
+            fun MetreperSecToMach(metre: Double): Double{
+                return metre / 343
             }
 
-            fun MetreperSecToFurlon(furlongs: Double): Double{
-                return furlongs * 6013
+            fun MetreperSecToFurlon(metre: Double): Double{
+                return metre * 6013
             }
 
-            fun MetreperSecToBubnoff(bubnoff: Double): Double{
-                return bubnoff / BigDecimal("31540000").toDouble()
+            fun MetreperSecToBubnoff(metre: Double): Double{
+                return metre * BigDecimal("31540000000000").toDouble()
             }
 
-            fun MetreperSecToNaturalUnit(nat: Double): Double{
-                return nat / BigDecimal("299792458").toDouble()
+            fun MetreperSecToNaturalUnit(metre: Double): Double{
+                return metre / BigDecimal("299792458").toDouble()
             }
         }
     }

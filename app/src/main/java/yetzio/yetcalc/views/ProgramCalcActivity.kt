@@ -12,6 +12,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
@@ -90,6 +91,8 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var theme: String
     private lateinit var toolbar: Toolbar
 
+    private lateinit var opsList: ArrayList<String>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         initPrefs()
         theme = preferences.getString(getString(R.string.key_theme), getString(R.string.dark_theme)).toString()
@@ -101,6 +104,12 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
         }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_program_calc)
+
+        opsList = arrayListOf()
+
+        for(i in Operator.values()){
+            i.str?.let { opsList.add(it) }
+        }
 
         mViewModel = ViewModelProvider(this)[ProgramCalcViewModel::class.java]
 
@@ -300,12 +309,22 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
             Paris.style(inputBtnXor).apply(R.style.programCalcBorderlessButtonLight)
         }
 
-        // set number system setCurrentNumberSystem
+        // sets the current number system, by default it is 'Decimal'
         setCurrentNumberSystem(mViewModel.numberSys)
 
         mViewModel.initialized = true
 
         setOnClickListeners()
+
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Log.d("CDA", "onBackPressed Called")
+                val setIntent = Intent(Intent.ACTION_MAIN)
+                setIntent.addCategory(Intent.CATEGORY_HOME)
+                setIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(setIntent)
+            }
+        })
     }
 
     private fun initPrefs(){
@@ -330,14 +349,6 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
         for(btn in buttonlist){
             btn.setOnClickListener(this)
         }
-    }
-
-    override fun onBackPressed() {
-        Log.d("CDA", "onBackPressed Called")
-        val setIntent = Intent(Intent.ACTION_MAIN)
-        setIntent.addCategory(Intent.CATEGORY_HOME)
-        setIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        startActivity(setIntent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -545,6 +556,10 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
                         mViewModel.currentOp = null
                         mViewModel.isCalcPending = false
                     }
+                    else{
+                        mViewModel.prevResult = tvResult.text.toString().toInt(mViewModel.numberSys.radix)
+                        setCurrentNumberSystem(mViewModel.numberSys)
+                    }
                 }
             }
         }
@@ -692,6 +707,22 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setCurrentNumberSystem(numSys: NumberSystem) {
+
+        for(i in opsList){
+            if(tvExp.text.toString().contains(i) && tvExp.text.toString().trim().indexOf(i) == tvExp.text.toString().trim().lastIndex){
+                mViewModel.opPresent = true
+                break
+            }
+        }
+
+        if(!mViewModel.opPresent){
+            tvExp.text = ""
+            if (mViewModel.isCalcPending) {
+                calculate()
+                mViewModel.currentOp = null
+                mViewModel.isCalcPending = false
+            }
+        }
 
         if (mViewModel.prevResult == 0 && tvResult.text.toString() != "0") {
             mViewModel.prevResult = tvResult.text.toString().toInt(mViewModel.numberSys.radix)
@@ -898,6 +929,12 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
 
         if(mViewModel.initialized){
             setResultText()
+        }
+
+        if(mViewModel.opPresent){
+            tvExp.append(" " + mViewModel.currentOp!!.str + " ")
+            mViewModel.textEXP = tvExp.text.toString()
+            mViewModel.opPresent = false
         }
     }
 
