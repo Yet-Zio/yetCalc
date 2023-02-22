@@ -5,8 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -14,13 +12,13 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
-import com.afollestad.materialdialogs.MaterialDialog
 import com.airbnb.paris.Paris
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -189,18 +187,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
 
         modeselecSpin.adapter = modeAdp
         modeselecSpin.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-                override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    if(pos == 1){
-                        startActivity(Intent(applicationContext, UnitConvActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
-                    }
-                    else if(pos == 2){
-                        startActivity(Intent(applicationContext, ProgramCalcActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
-                    }
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
+                if(pos == 1){
+                    startActivity(Intent(applicationContext, UnitConvActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
                 }
+                else if(pos == 2){
+                    startActivity(Intent(applicationContext, ProgramCalcActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
+                }
+            }
 
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    TODO("Not yet implemented")
-                }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
 
         }
 
@@ -402,7 +400,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
             // for future themes
         }
 
-
         // Add buttons to button list
 
         button_list.add(sqrootbt)
@@ -471,13 +468,29 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
                 evaluate_expr()
         }
 
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Log.d("CDA", "onBackPressed Called")
+                val setIntent = Intent(Intent.ACTION_MAIN)
+                setIntent.addCategory(Intent.CATEGORY_HOME)
+                setIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(setIntent)
+            }
+        })
+
     }
 
     private fun setOnLongClickListeners() {
+        val prefMgr = PreferenceManager.getDefaultSharedPreferences(this)
+        val hapticPref = prefMgr.getBoolean("hapticfdkey", true)
+
+        bkspacebt.isHapticFeedbackEnabled = hapticPref
+
         bkspacebt.setOnLongClickListener {
             clearFields()
             true
         }
+
     }
 
     private fun initPrefs(){
@@ -497,14 +510,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
             Calc.precision = precisionChoice
         }
         println("Current precision: ${Calc.precision}")
-    }
-
-    override fun onBackPressed() {
-        Log.d("CDA", "onBackPressed Called")
-        val setIntent = Intent(Intent.ACTION_MAIN)
-        setIntent.addCategory(Intent.CATEGORY_HOME)
-        setIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        startActivity(setIntent)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

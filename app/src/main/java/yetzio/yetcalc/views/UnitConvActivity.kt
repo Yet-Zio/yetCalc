@@ -11,7 +11,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Spinner
-import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
@@ -25,10 +25,8 @@ import yetzio.yetcalc.MainActivity
 import yetzio.yetcalc.R
 import yetzio.yetcalc.component.SpinnerItemAdapter
 import yetzio.yetcalc.model.ConverterPref
-import yetzio.yetcalc.model.HistoryItem
 import yetzio.yetcalc.model.UnitConvViewModel
 import yetzio.yetcalc.utils.getModesList
-import yetzio.yetcalc.utils.isNetworkAvailable
 import yetzio.yetcalc.utils.showThemeDialog
 import yetzio.yetcalc.views.fragments.*
 import yetzio.yetcalc.views.fragments.adapters.ViewPagerAdapter
@@ -121,6 +119,16 @@ class UnitConvActivity : AppCompatActivity() {
         //tabs.setSelectedTabIndicatorColor(ContextCompat.getColor(applicationContext, R.color.lint))
 
         setUpTabLayout()
+
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Log.d("CDA", "onBackPressed Called")
+                val setIntent = Intent(Intent.ACTION_MAIN)
+                setIntent.addCategory(Intent.CATEGORY_HOME)
+                setIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(setIntent)
+            }
+        })
     }
 
     private fun initPrefs(){
@@ -170,14 +178,6 @@ class UnitConvActivity : AppCompatActivity() {
             it?.write(m_Mapper.writeValueAsString(currentTabPref).toByteArray())
         }
 
-    }
-
-    override fun onBackPressed() {
-        Log.d("CDA", "onBackPressed Called")
-        val setIntent = Intent(Intent.ACTION_MAIN)
-        setIntent.addCategory(Intent.CATEGORY_HOME)
-        setIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        startActivity(setIntent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
