@@ -3,13 +3,37 @@
 
 It will be a great help :)
 
-UPI ID for payment: **maheshdeluxe53@okhdfcbank**
+## 1. Donate through 'Buy Me a Coffee'
 
-You can use a payment service such as Google Pay
+<br>
 
-More donation methods will be listed once I ensure it works.
+<a href="https://www.buymeacoffee.com/yetzio" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 30px !important;width: 120px !important;" ></a>
 
-## Donate to mXparser
+<br>
+
+## 2. Donate through Patreon
+
+<br>
+
+[![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dyetzio%26type%3Dpatrons&style=flat)](https://patreon.com/yetzio)
+
+<br>
+
+## 3. Donate by UPI
+
+<br>
+
+Scan the QR code below with an app that supports UPI like Google Pay:
+
+![UPIQR](./img/oth/UPIQRcode.png)
+
+Alternatively, you can even donate by entering the UPI ID below:
+
+UPI ID: **maheshdeluxe53@okhdfcbank**
+
+<br>
+
+# Donate to mXparser
 
 yetCalc uses mXparser for its calculator part. Show your support and help the developer continue this project.
 
