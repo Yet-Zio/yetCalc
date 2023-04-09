@@ -10,20 +10,16 @@ import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
-import android.view.MenuItem
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.text.parseAsHtml
 import androidx.preference.PreferenceManager
 import com.afollestad.materialdialogs.MaterialDialog
 import io.github.muddz.styleabletoast.StyleableToast
 import yetzio.yetcalc.R
 import yetzio.yetcalc.model.SpinnerItem
 import java.util.*
-import kotlin.collections.ArrayList
 
 fun showThemeDialog(ctx: Activity){
     val pref = ctx.getSharedPreferences("CalcPrefs", Context.MODE_PRIVATE)
