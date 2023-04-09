@@ -92,6 +92,7 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var toolbar: Toolbar
 
     private lateinit var opsList: ArrayList<String>
+    private var booleanOpsList = arrayListOf("AND", "OR", "NAND", "NOR", "XOR", "Lsh", "Rsh") // NOT is unary, so not required
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initPrefs()
@@ -713,6 +714,26 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
                 mViewModel.opPresent = true
                 break
             }
+
+            if(i in booleanOpsList){
+                val inc = when (i) {
+                    "OR" -> {
+                        1
+                    }
+                    "NAND" -> {
+                        3
+                    }
+                    else -> {
+                        2
+                    }
+                }
+
+                if(tvExp.text.toString().contains(i) && tvExp.text.toString().trim().indexOf(i) + inc == tvExp.text.toString().trim().lastIndex){
+                    mViewModel.opPresent = true
+                    break
+                }
+            }
+
         }
 
         if(!mViewModel.opPresent){

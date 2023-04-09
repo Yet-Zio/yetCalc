@@ -54,12 +54,13 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/githubLyt"
         app:layout_constraintBottom_toTopOf="@id/appBottomText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_marginBottom="10sp">
+        android:layout_marginBottom="20sp">
 
         <ImageView
             android:id="@+id/githubIV"
@@ -86,6 +87,7 @@
         android:textColor="@color/greyish"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="25sp"/>
+        android:layout_marginBottom="25sp"
+        android:fontFamily="serif"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

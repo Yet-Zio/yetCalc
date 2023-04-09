@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="yetzio.yetcalc">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -20,7 +19,7 @@
         <activity
             android:name=".views.AboutActivity"
             android:exported="false"
-            android:theme="@style/AboutDark"/>
+            android:theme="@style/AboutDark" />
         <activity
             android:name=".views.SettingsActivity"
             android:exported="false"
