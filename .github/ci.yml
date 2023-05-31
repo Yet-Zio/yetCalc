@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths-ignore:
+      - "README*.md"
+      - "fastlane/**"
+      - "assets/**"
+      - ".github/**/*.md"
+  push:
+    paths-ignore:
+      - "README*.md"
+      - "fastlane/**"
+      - "assets/**"
+      - ".github/**/*.md"
+
+jobs:
+  debug-builds:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: gradle/wrapper-validation-action@v1
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+
+      - name: Check for Execution Orders
+        run: |
+          cd .github
+          curl https://api.github.com/repos/${{ github.repository }}/commits/${{ github.sha }} > commit.json
+          python checkrun.py
+          cd ..
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: "temurin"
+          cache: "gradle"
+
+      - name: Git Configuraion
+        run: |
+          git config --global user.name "Bnyro"
+          git config --global user.email "bnyro@tutanota.com"
+          git config --global credential.helper store
+          echo "https://bnyro:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
+      - name: Compile
+        run: |
+          ./gradlew assembleDebug
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: app
+          path: nightly/*.apk
