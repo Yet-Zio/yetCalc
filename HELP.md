@@ -40,6 +40,8 @@
    Percentages in calculator work in a more traditional and mathematical way. By default, percentage is calculated in 1. Some users have this
    doubt because they come from using different calculators. To fix this for an example like 1000-90%, convert to this: 1000-90%*1000. As you can see,
    you need to multiply it with the required number to get the right percentage result.
+   
+   **NOTE: This is required only for additions/subtractions. While multiplying or dividing, the usual way will provide the correct result. For example: 150/3% or 5*150%**
 
 6. The screen gets cuts off and the buttons look weird?
 
