@@ -23,6 +23,7 @@ import yetzio.yetcalc.views.UnitConvActivity
 import yetzio.yetcalc.views.fragments.adapters.ViewPagerAdapter
 import java.net.URL
 import java.util.*
+import kotlin.properties.Delegates
 
 
 class CurrencyFragment : Fragment() {
@@ -49,6 +50,8 @@ class CurrencyFragment : Fragment() {
 
     private var tryAgainBT: Button? = null
     private lateinit var pTheme: String
+    private var pDark by Delegates.notNull<Boolean>()
+    private var pLight by Delegates.notNull<Boolean>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,13 +63,15 @@ class CurrencyFragment : Fragment() {
     ): View? {
 
         pTheme = (activity as? UnitConvActivity)?.theme.toString()
+        pDark = (activity as? UnitConvActivity)?.dark!!
+        pLight = (activity as? UnitConvActivity)?.light!!
 
         var v: View?
         if(isNetworkAvailable(context?.applicationContext)){
             v = createConv(inflater, container)
         }
         else{
-            v = if(pTheme == getString(R.string.light_theme)){
+            v = if(pLight){
                 inflater.inflate(R.layout.no_internetlight, container, false)
             } else{
                 inflater.inflate(R.layout.no_internet, container, false)
@@ -106,7 +111,7 @@ class CurrencyFragment : Fragment() {
         setupDatePicker()
         textChanged()
 
-        if(pTheme == getString(R.string.light_theme)){
+        if(pLight){
             Paris.style(firstConv).apply(R.style.ConvTextStyleLight)
             Paris.style(secondConv).apply(R.style.ConvTextStyleLight)
 
@@ -214,7 +219,7 @@ class CurrencyFragment : Fragment() {
 
     private fun setupSpinner(){
         activity?.let {
-            if(pTheme == getString(R.string.light_theme)){
+            if(pLight){
                 ArrayAdapter.createFromResource(it, R.array.currencies_one, R.layout.spinner_itemlight)
                     .also { adapter ->
                         spinner?.adapter= adapter
@@ -229,7 +234,7 @@ class CurrencyFragment : Fragment() {
         }
 
         activity?.let {
-            if(pTheme == getString(R.string.light_theme)){
+            if(pLight){
                 ArrayAdapter.createFromResource(it, R.array.currencies_two, R.layout.spinner_itemlight)
                     .also { adapter2 ->
                         spinner2?.adapter= adapter2
@@ -288,7 +293,7 @@ class CurrencyFragment : Fragment() {
         datePkr?.setOnClickListener{
             val dpd =
                 activity?.let { it1 ->
-                    if(pTheme == getString(R.string.dark_theme)){
+                    if(pDark){
                         DatePickerDialog(it1, R.style.DatePickerTheme, DatePickerDialog.OnDateSetListener{ _, mYear, mMonth, mDay ->
                             pViewModel.current_date = "$mYear-$mMonth-$mDay"
                             println("Date pick: ${pViewModel.current_date}")

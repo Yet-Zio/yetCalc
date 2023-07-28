@@ -2,6 +2,7 @@ package yetzio.yetcalc.utils
 
 import android.app.Activity
 import android.content.Context
+import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
@@ -21,14 +22,28 @@ import yetzio.yetcalc.R
 import yetzio.yetcalc.model.SpinnerItem
 import java.util.*
 
+
 fun showThemeDialog(ctx: Activity){
     val pref = ctx.getSharedPreferences("CalcPrefs", Context.MODE_PRIVATE)
     val ed = pref.edit()
 
-    val theme = pref.getString(ctx.getString(R.string.key_theme), ctx.getString(R.string.dark_theme)).toString()
+    val theme = pref.getString(ctx.getString(R.string.key_theme), ctx.getString(R.string.system_theme)).toString()
     val dialog = MaterialDialog(ctx).noAutoDismiss()
 
-    if(theme == ctx.getString(R.string.light_theme)){
+    if(theme == ctx.getString(R.string.system_theme)){
+        val nightModeFlags: Int = ctx.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        when (nightModeFlags) {
+            Configuration.UI_MODE_NIGHT_YES -> {
+                dialog.setContentView(R.layout.choose_theme)
+            }
+            Configuration.UI_MODE_NIGHT_NO -> {
+                dialog.setContentView(R.layout.choose_themelight)
+            }
+            Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                dialog.setContentView(R.layout.choose_theme)
+            }
+        }
+    } else if(theme == ctx.getString(R.string.light_theme)){
         dialog.setContentView(R.layout.choose_themelight)
     }
     else{
@@ -38,11 +53,16 @@ fun showThemeDialog(ctx: Activity){
     dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
     var prevTheme = false
 
-    if(theme == ctx.getString(R.string.dark_theme)){
-        dialog.findViewById<RadioGroup>(R.id.theme_group).check(R.id.darkRadioBt)
-    }
-    else{
-        dialog.findViewById<RadioGroup>(R.id.theme_group).check(R.id.lightRadioBt)
+    when (theme) {
+        ctx.getString(R.string.system_theme) -> {
+            dialog.findViewById<RadioGroup>(R.id.theme_group).check(R.id.systemRadioBt)
+        }
+        ctx.getString(R.string.dark_theme) -> {
+            dialog.findViewById<RadioGroup>(R.id.theme_group).check(R.id.darkRadioBt)
+        }
+        else -> {
+            dialog.findViewById<RadioGroup>(R.id.theme_group).check(R.id.lightRadioBt)
+        }
     }
 
     dialog.findViewById<Button>(R.id.positive_button).setOnClickListener{

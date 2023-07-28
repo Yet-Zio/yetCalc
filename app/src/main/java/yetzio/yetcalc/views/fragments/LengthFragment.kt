@@ -16,8 +16,8 @@ import kotlinx.coroutines.launch
 import yetzio.yetcalc.R
 import yetzio.yetcalc.component.UnitConv
 import yetzio.yetcalc.model.UnitConvViewModel
-import yetzio.yetcalc.utils.gigaChad_EasterEgg
 import yetzio.yetcalc.views.UnitConvActivity
+import kotlin.properties.Delegates
 
 class LengthFragment : Fragment() {
 
@@ -33,6 +33,8 @@ class LengthFragment : Fragment() {
     private val mCoroutineScope = CoroutineScope(Dispatchers.Main)
     private lateinit var pViewModel: UnitConvViewModel
     private lateinit var pTheme: String
+    private var pDark by Delegates.notNull<Boolean>()
+    private var pLight by Delegates.notNull<Boolean>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +45,8 @@ class LengthFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         pTheme = (activity as? UnitConvActivity)?.theme.toString()
+        pDark = (activity as? UnitConvActivity)?.dark!!
+        pLight = (activity as? UnitConvActivity)?.light!!
 
         val v = inflater.inflate(R.layout.fragment_unitconversions, container, false)
 
@@ -57,7 +61,7 @@ class LengthFragment : Fragment() {
         setupSpinner()
         textChanged()
 
-        if(pTheme == getString(R.string.light_theme)){
+        if (pLight) {
             Paris.style(firstConv).apply(R.style.ConvTextStyleLight)
             Paris.style(secondConv).apply(R.style.ConvTextStyleLight)
 
@@ -65,58 +69,66 @@ class LengthFragment : Fragment() {
             Paris.style(spinner2).apply(R.style.yetSpinnerStyleLight)
 
             Paris.style(v.findViewById<LinearLayout>(R.id.ll_parent)).apply(R.style.GenericLight)
-            Paris.style(v.findViewById<LinearLayout>(R.id.cardll_parent)).apply(R.style.GenericLight)
-        }
-        else{
+            Paris.style(v.findViewById<LinearLayout>(R.id.cardll_parent))
+                .apply(R.style.GenericLight)
+        } else {
             Paris.style(v.findViewById<LinearLayout>(R.id.ll_parent)).apply(R.style.GenericDark)
             Paris.style(v.findViewById<LinearLayout>(R.id.cardll_parent)).apply(R.style.GenericDark)
         }
         return v
     }
 
-    fun convert(id: Int){
+    fun convert(id: Int) {
         mCoroutineScope.launch {
             try {
-                when(id){
+                when (id) {
                     R.id.et_firstConversion -> {
-                        val res = UnitConv.Length.convert(pViewModel._lengthftpos, pViewModel._lengthsdpos
-                            , firstConv?.text.toString().toDouble())
+                        val res = UnitConv.Length.convert(
+                            pViewModel._lengthftpos,
+                            pViewModel._lengthsdpos,
+                            firstConv?.text.toString().toDouble()
+                        )
 
-                        if(res.toString() != secondConv?.text.toString()){
+                        if (res.toString() != secondConv?.text.toString()) {
                             secondConv?.removeTextChangedListener(secondConvWatcher)
                             secondConv?.setText(res.toString())
                             secondConv?.addTextChangedListener(secondConvWatcher)
                         }
                     }
-                    R.id.et_secondConversion -> {
-                        val res = UnitConv.Length.convert(pViewModel._lengthsdpos, pViewModel._lengthftpos
-                            , secondConv?.text.toString().toDouble())
 
-                        if(res.toString() != firstConv?.text.toString()){
+                    R.id.et_secondConversion -> {
+                        val res = UnitConv.Length.convert(
+                            pViewModel._lengthsdpos,
+                            pViewModel._lengthftpos,
+                            secondConv?.text.toString().toDouble()
+                        )
+
+                        if (res.toString() != firstConv?.text.toString()) {
                             firstConv?.removeTextChangedListener(firstConvWatcher)
                             firstConv?.setText(res.toString())
                             firstConv?.addTextChangedListener(firstConvWatcher)
                         }
                     }
                 }
-            } catch (e: Exception){
+            } catch (e: Exception) {
                 Log.e("Main:", "$e")
             }
         }
     }
 
-    fun getConversionResults(id: Int){
-        when(id){
+    fun getConversionResults(id: Int) {
+        when (id) {
             R.id.et_firstConversion -> {
-                if(firstConv != null){
-                    if(firstConv!!.text.isNotEmpty() && firstConv!!.text.isNotBlank()){
+                if (firstConv != null) {
+                    if (firstConv!!.text.isNotEmpty() && firstConv!!.text.isNotBlank()) {
                         convert(id)
                     }
                 }
             }
+
             R.id.et_secondConversion -> {
-                if(secondConv != null){
-                    if(secondConv!!.text.isNotEmpty() && secondConv!!.text.isNotBlank()){
+                if (secondConv != null) {
+                    if (secondConv!!.text.isNotEmpty() && secondConv!!.text.isNotBlank()) {
                         convert(id)
                     }
                 }
@@ -124,15 +136,14 @@ class LengthFragment : Fragment() {
         }
     }
 
-    fun setupSpinner(){
+    fun setupSpinner() {
         activity?.let {
-            if(pTheme == getString(R.string.light_theme)){
+            if (pLight) {
                 ArrayAdapter.createFromResource(it, R.array.lengthlist, R.layout.spinner_itemlight)
                     .also { adapter ->
                         spinner?.adapter = adapter
                     }
-            }
-            else{
+            } else {
                 ArrayAdapter.createFromResource(it, R.array.lengthlist, R.layout.spinner_item)
                     .also { adapter ->
                         spinner?.adapter = adapter
@@ -141,13 +152,12 @@ class LengthFragment : Fragment() {
         }
 
         activity?.let {
-            if(pTheme == getString(R.string.light_theme)){
+            if (pLight) {
                 ArrayAdapter.createFromResource(it, R.array.lengthlist, R.layout.spinner_itemlight)
                     .also { adapter ->
                         spinner2?.adapter = adapter
                     }
-            }
-            else{
+            } else {
                 ArrayAdapter.createFromResource(it, R.array.lengthlist, R.layout.spinner_item)
                     .also { adapter ->
                         spinner2?.adapter = adapter
@@ -155,17 +165,16 @@ class LengthFragment : Fragment() {
             }
         }
 
-        spinner?.onItemSelectedListener = (object: AdapterView.OnItemSelectedListener{
+        spinner?.onItemSelectedListener = (object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, vw: View?, pos: Int, id: Long) {
-                if(!pViewModel._lengthspinInit){
+                if (!pViewModel._lengthspinInit) {
                     pViewModel._lengthspinInit = true
                     pViewModel._lengthftpos = pos
                     pViewModel._lengthsdpos = 0
 
                     getConversionResults(firstConv?.id!!)
                     getConversionResults(secondConv?.id!!)
-                }
-                else{
+                } else {
                     pViewModel._lengthftpos = pos
                     pViewModel._lengthsdpos = spinner2?.selectedItemPosition!!
 
@@ -180,20 +189,19 @@ class LengthFragment : Fragment() {
 
         })
 
-        spinner2?.onItemSelectedListener = (object: AdapterView.OnItemSelectedListener{
+        spinner2?.onItemSelectedListener = (object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, vw: View?, pos: Int, id: Long) {
-                if(!pViewModel._slengthspinInit){
+                if (!pViewModel._slengthspinInit) {
                     pViewModel._slengthspinInit = true
                     pViewModel._lengthftpos = 0
                     pViewModel._lengthsdpos = pos
 
-                      getConversionResults(firstConv?.id!!)
-                }
-                else{
+                    getConversionResults(firstConv?.id!!)
+                } else {
                     pViewModel._lengthftpos = spinner?.selectedItemPosition!!
                     pViewModel._lengthsdpos = pos
 
-                      getConversionResults(firstConv?.id!!)
+                    getConversionResults(firstConv?.id!!)
                 }
             }
 
@@ -204,8 +212,8 @@ class LengthFragment : Fragment() {
         })
     }
 
-    private fun textChanged(){
-        firstConvWatcher = object: TextWatcher{
+    private fun textChanged() {
+        firstConvWatcher = object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 Log.d("Main", "beforeTextChanged")
             }
@@ -215,16 +223,16 @@ class LengthFragment : Fragment() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                try{
+                try {
                     getConversionResults(firstConv?.id!!)
-                }catch (e: Exception){
+                } catch (e: Exception) {
                     Log.e("Main:", "$e")
                 }
             }
 
         }
 
-        secondConvWatcher = object: TextWatcher{
+        secondConvWatcher = object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 Log.d("Main", "beforeTextChanged")
             }
@@ -234,9 +242,9 @@ class LengthFragment : Fragment() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                try{
+                try {
                     getConversionResults(secondConv?.id!!)
-                }catch (e: Exception){
+                } catch (e: Exception) {
                     Log.e("Main:", "$e")
                 }
             }

@@ -3,6 +3,7 @@ package yetzio.yetcalc.views
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,6 +17,8 @@ import yetzio.yetcalc.R
 class AboutActivity : AppCompatActivity() {
 
     private lateinit var theme: String
+    private var dark = false
+    private var light = false
 
     private lateinit var preferences: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
@@ -27,11 +30,36 @@ class AboutActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initThemePrefs()
-        theme = preferences.getString(getString(R.string.key_theme), getString(R.string.dark_theme)).toString()
-        if(theme == getString(R.string.dark_theme)){
+        theme = preferences.getString(getString(R.string.key_theme), getString(R.string.system_theme)).toString()
+
+        if(theme == getString(R.string.system_theme)){
+            val nightModeFlags: Int = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+            when (nightModeFlags) {
+                Configuration.UI_MODE_NIGHT_YES -> {
+                    dark = true
+                    light = false
+                    setTheme(R.style.AboutDark)
+                }
+                Configuration.UI_MODE_NIGHT_NO -> {
+                    dark = false
+                    light = true
+                    setTheme(R.style.AboutLight)
+                }
+                Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                    dark = true
+                    light = false
+                    setTheme(R.style.AboutDark)
+                }
+            }
+        }
+        else if(theme == getString(R.string.dark_theme)){
+            dark = true
+            light = false
             setTheme(R.style.AboutDark)
         }
         else{
+            dark = false
+            light = true
             setTheme(R.style.AboutLight)
         }
         super.onCreate(savedInstanceState)
@@ -40,7 +68,7 @@ class AboutActivity : AppCompatActivity() {
         toolbar = findViewById(R.id.about_app_bar)
         abtTitle = toolbar.findViewById(R.id.abouttitle)
 
-        if (theme == getString(R.string.dark_theme)){
+        if (dark){
             toolbar.navigationIcon = ContextCompat.getDrawable(applicationContext, R.drawable.ic_baseline_arrow_back_24)
         }
         else{
@@ -62,7 +90,7 @@ class AboutActivity : AppCompatActivity() {
         ghbTV = findViewById(R.id.githubTV)
         ghbIV = findViewById(R.id.githubIV)
 
-        if(theme != getString(R.string.dark_theme)){
+        if(light){
             Paris.style(ghbTV).apply(R.style.AboutTextLight)
             Paris.style(ghbIV).apply(R.style.ghbImgSrcLight)
         }

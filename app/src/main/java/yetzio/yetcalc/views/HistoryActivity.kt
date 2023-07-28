@@ -2,6 +2,7 @@ package yetzio.yetcalc.views
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.*
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
@@ -28,14 +29,41 @@ class HistoryActivity : AppCompatActivity() {
     private lateinit var preferences: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
     lateinit var theme: String
+    private var dark = false
+    private var light = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initPrefs()
-        theme = preferences.getString(getString(R.string.key_theme), getString(R.string.dark_theme)).toString()
-        if(theme == getString(R.string.dark_theme)){
+        theme = preferences.getString(getString(R.string.key_theme), getString(R.string.system_theme)).toString()
+
+        if(theme == getString(R.string.system_theme)){
+            val nightModeFlags: Int = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+            when (nightModeFlags) {
+                Configuration.UI_MODE_NIGHT_YES -> {
+                    dark = true
+                    light = false
+                    setTheme(R.style.yetCalcActivityThemeDark)
+                }
+                Configuration.UI_MODE_NIGHT_NO -> {
+                    dark = false
+                    light = true
+                    setTheme(R.style.yetCalcActivityThemeLight)
+                }
+                Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                    dark = true
+                    light = false
+                    setTheme(R.style.yetCalcActivityThemeDark)
+                }
+            }
+        }
+        else if(theme == getString(R.string.dark_theme)){
+            dark = true
+            light = false
             setTheme(R.style.yetCalcActivityThemeDark)
         }
         else{
+            dark = false
+            light = true
             setTheme(R.style.yetCalcActivityThemeLight)
         }
         super.onCreate(savedInstanceState)
@@ -43,7 +71,7 @@ class HistoryActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         toolbar = findViewById(R.id.history_app_bar)
-        if(theme == getString(R.string.light_theme)){
+        if(light){
             toolbar.navigationIcon = ContextCompat.getDrawable(applicationContext, R.drawable.ic_baseline_arrow_back_24light)
         }
         else{
@@ -60,7 +88,7 @@ class HistoryActivity : AppCompatActivity() {
         histHandler.ctx = applicationContext
         histArrList = histHandler.getHistoryItems()
 
-        if(theme == getString(R.string.light_theme)){
+        if(light){
             Paris.style(findViewById<TextView>(R.id.histbartitle)).apply(R.style.GenericTextLight)
             Paris.style(findViewById<Button>(R.id.histdelbutton)).apply(R.style.historyDelImgSrcStyleLight)
         }

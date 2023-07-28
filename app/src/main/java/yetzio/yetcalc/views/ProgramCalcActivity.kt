@@ -89,6 +89,9 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var editor: SharedPreferences.Editor
 
     private lateinit var theme: String
+    private var dark = false
+    private var light = false
+
     private lateinit var toolbar: Toolbar
 
     private lateinit var opsList: ArrayList<String>
@@ -96,11 +99,36 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initPrefs()
-        theme = preferences.getString(getString(R.string.key_theme), getString(R.string.dark_theme)).toString()
-        if(theme == getString(R.string.dark_theme)){
+        theme = preferences.getString(getString(R.string.key_theme), getString(R.string.system_theme)).toString()
+
+        if(theme == getString(R.string.system_theme)){
+            val nightModeFlags: Int = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+            when (nightModeFlags) {
+                Configuration.UI_MODE_NIGHT_YES -> {
+                    dark = true
+                    light = false
+                    setTheme(R.style.yetCalcActivityThemeDark)
+                }
+                Configuration.UI_MODE_NIGHT_NO -> {
+                    dark = false
+                    light = true
+                    setTheme(R.style.yetCalcActivityThemeLight)
+                }
+                Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                    dark = true
+                    light = false
+                    setTheme(R.style.yetCalcActivityThemeDark)
+                }
+            }
+        }
+        else if(theme == getString(R.string.dark_theme)){
+            dark = true
+            light = false
             setTheme(R.style.yetCalcActivityThemeDark)
         }
         else{
+            dark = false
+            light = true
             setTheme(R.style.yetCalcActivityThemeLight)
         }
         super.onCreate(savedInstanceState)
@@ -119,14 +147,14 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         modeselecSpin = findViewById(R.id.modeselector)
-        val spinnerModesList = if(theme == getString(R.string.dark_theme)){
+        val spinnerModesList = if(dark){
             getModesList("")
         }
         else{
             getModesList("light")
         }
 
-        val modeAdp: SpinnerItemAdapter = if(theme == getString(R.string.dark_theme)){
+        val modeAdp: SpinnerItemAdapter = if(dark){
             SpinnerItemAdapter(this, spinnerModesList, "default")
         } else{
             SpinnerItemAdapter(this, spinnerModesList, "light")
@@ -248,7 +276,7 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
 
         mViewModel.initialized = false
 
-        if(theme == getString(R.string.light_theme)){
+        if(light){
             Paris.style(findViewById<Toolbar>(R.id.prgmappbar)).apply(R.style.AppBarLight)
             Paris.style(modeselecSpin).apply(R.style.AppModeSpinnerStyleLight)
 
@@ -353,7 +381,7 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        if(theme == getString(R.string.light_theme)){
+        if(light){
             menuInflater.inflate(R.menu.menulight, menu)
         }
         else{
@@ -767,7 +795,7 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
 
         when (numSys) {
             NumberSystem.HEX -> {
-                if(theme == getString(R.string.light_theme)){
+                if(light){
                     btnForHex.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
                     tvHex.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
                     inputBtnA.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
@@ -812,7 +840,7 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
             }
             NumberSystem.DEC -> {
                 enableDecInputBtns()
-                if(theme == getString(R.string.light_theme)){
+                if(light){
                     btnForDec.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
                     tvDec.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
                     inputBtnA.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
@@ -857,7 +885,7 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
             }
             NumberSystem.OCT -> {
                 enableOctInputBtns()
-                if(theme == getString(R.string.light_theme)){
+                if(light){
                     btnForOct.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
                     tvOct.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
                     inputBtnA.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
@@ -903,7 +931,7 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
             }
             NumberSystem.BIN -> {
                 enableBinInputBtns()
-                if(theme == getString(R.string.light_theme)){
+                if(light){
                     btnForBin.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
                     tvBin.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
                     inputBtnA.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))

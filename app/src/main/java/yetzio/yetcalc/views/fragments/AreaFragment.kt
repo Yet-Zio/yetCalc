@@ -16,8 +16,8 @@ import kotlinx.coroutines.launch
 import yetzio.yetcalc.R
 import yetzio.yetcalc.component.UnitConv
 import yetzio.yetcalc.model.UnitConvViewModel
-import yetzio.yetcalc.utils.gigaChad_EasterEgg
 import yetzio.yetcalc.views.UnitConvActivity
+import kotlin.properties.Delegates
 
 class AreaFragment : Fragment() {
 
@@ -33,6 +33,8 @@ class AreaFragment : Fragment() {
     private val mCoroutineScope = CoroutineScope(Dispatchers.Main)
     private lateinit var pViewModel: UnitConvViewModel
     private lateinit var pTheme: String
+    private var pDark by Delegates.notNull<Boolean>()
+    private var pLight by Delegates.notNull<Boolean>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +45,8 @@ class AreaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         pTheme = (activity as? UnitConvActivity)?.theme.toString()
+        pDark = (activity as? UnitConvActivity)?.dark!!
+        pLight = (activity as? UnitConvActivity)?.light!!
 
         val v = inflater.inflate(R.layout.fragment_unitconversions, container, false)
 
@@ -57,7 +61,7 @@ class AreaFragment : Fragment() {
         setupSpinner()
         textChanged()
 
-        if(pTheme == getString(R.string.light_theme)){
+        if(pLight){
             Paris.style(firstConv).apply(R.style.ConvTextStyleLight)
             Paris.style(secondConv).apply(R.style.ConvTextStyleLight)
 
@@ -126,7 +130,7 @@ class AreaFragment : Fragment() {
 
     fun setupSpinner(){
         activity?.let {
-            if(pTheme == getString(R.string.light_theme)){
+            if(pLight){
                 ArrayAdapter.createFromResource(it, R.array.arealist, R.layout.spinner_itemlight)
                     .also { adapter ->
                         spinner?.adapter = adapter
@@ -141,7 +145,7 @@ class AreaFragment : Fragment() {
         }
 
         activity?.let {
-            if(pTheme == getString(R.string.light_theme)){
+            if(pLight){
                 ArrayAdapter.createFromResource(it, R.array.arealist, R.layout.spinner_itemlight)
                     .also { adapter ->
                         spinner2?.adapter = adapter

@@ -113,15 +113,42 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
     private lateinit var calculationPref: SharedPreferences
 
     private lateinit var theme: String
+    private var dark = false
+    private var light = false
 
     override fun onCreate(savedInstanceState: Bundle?){
         initPrefs()
         initCalculationPrefs()
-        theme = preferences.getString(getString(R.string.key_theme), getString(R.string.dark_theme)).toString()
-        if(theme == getString(R.string.dark_theme)){
+        theme = preferences.getString(getString(R.string.key_theme), getString(R.string.system_theme)).toString()
+
+        if(theme == getString(R.string.system_theme)){
+            val nightModeFlags: Int = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+            when (nightModeFlags) {
+                Configuration.UI_MODE_NIGHT_YES -> {
+                    dark = true
+                    light = false
+                    setTheme(R.style.yetCalcActivityThemeDark)
+                }
+                Configuration.UI_MODE_NIGHT_NO -> {
+                    dark = false
+                    light = true
+                    setTheme(R.style.yetCalcActivityThemeLight)
+                }
+                Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                    dark = true
+                    light = false
+                    setTheme(R.style.yetCalcActivityThemeDark)
+                }
+            }
+        }
+        else if(theme == getString(R.string.dark_theme)){
+            dark = true
+            light = false
             setTheme(R.style.yetCalcActivityThemeDark)
         }
         else{
+            dark = false
+            light = true
             setTheme(R.style.yetCalcActivityThemeLight)
         }
         super.onCreate(savedInstanceState)
@@ -172,14 +199,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
         textres = findViewById(R.id.textresult)
 
         modeselecSpin = findViewById(R.id.modeselector)
-        val spinnerModesList = if(theme == getString(R.string.dark_theme)){
+        val spinnerModesList = if(dark){
             getModesList("")
         }
         else{
             getModesList("light")
         }
 
-        val modeAdp: SpinnerItemAdapter = if(theme == getString(R.string.dark_theme)){
+        val modeAdp: SpinnerItemAdapter = if(dark){
             SpinnerItemAdapter(this, spinnerModesList, "default")
         } else{
             SpinnerItemAdapter(this, spinnerModesList, "light")
@@ -217,7 +244,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
             val specialSpSymList = getString(R.string.specialsym).split(",") as ArrayList<String>
 
             variable_charlist.addAll(specialSpSymList)
-            val varadapter = if(theme == getString(R.string.light_theme)){
+            val varadapter = if(light){
                 ArrayAdapter(this, R.layout.spinner_itemlight, variable_charlist)
             }
             else{
@@ -228,7 +255,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
             varSpinner.onItemSelectedListener = this
 
             modeSpinner = findViewById(R.id.calcmode_spinner)
-            if(theme == getString(R.string.light_theme)){
+            if(light){
                 ArrayAdapter.createFromResource(this, R.array.calcmode_array
                     , R.layout.spinner_itemlight).also {adapter ->
                     modeSpinner.adapter = adapter
@@ -298,7 +325,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
         pointbt = findViewById(R.id.pointbutton)
 
         // Set theme
-        if(theme == getString(R.string.light_theme)){
+        if(light){
             Paris.style(modeselecSpin).apply(R.style.AppModeSpinnerStyleLight)
             Paris.style(angleViewbt).apply(R.style.AngleViewStyleLight)
 
@@ -519,7 +546,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        if(theme == getString(R.string.light_theme)){
+        if(light){
             menuInflater.inflate(R.menu.menulight, menu)
         }
         else{
