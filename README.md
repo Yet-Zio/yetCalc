@@ -18,8 +18,10 @@ The free and open source calculator developed for Android 5.0 and above using Ko
 ## Features
 
 - Themes
-    - Dark mode
-    - Light mode
+    - System Theme(default)
+    - Dark mode🌃
+    - Light mode🏙️
+
 
 - Calculator
 
@@ -74,7 +76,8 @@ The free and open source calculator developed for Android 5.0 and above using Ko
 
 Or download the app from the [releases page](https://github.com/Yet-Zio/yetCalc/releases/latest).
 
-Note: Requires Android 5.0 and above
+Note: Requires Android 5.0 and above.
+
 Also, only download the app from sources provided by the developer.
 
 ## Donations
