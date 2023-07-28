@@ -1,0 +1,8 @@
+Enhancements
+———————————————
+
+This update adds the following requested features:
+
+- Support for the system theme, and from now on, yetCalc shall use the 'System' theme as its default theme. You can still select the dark or light theme regardless.
+
+- Symbols or abbreviations for units in converter mode.
