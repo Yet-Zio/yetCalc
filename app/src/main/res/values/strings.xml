@@ -1,7 +1,7 @@
 <resources>
     <string name="author_name">Yet Zio</string>
     <string name="app_name">yetCalc</string>
-    <string name="VERSION_NUM">1.0.8</string>
+    <string name="VERSION_NUM">1.0.9</string>
     <string name="app_descrp">Yet another calculator by Yet Zio</string>
     <string name="ghbtext">View on GitHub</string>
     <string name="app_details">Free and open source software\nLicensed under the BSD-3-Clause license.</string>
@@ -263,7 +263,9 @@
     <string name="lambwzero_func">LambW0(</string>
     <string name="lambwnegone_func">LambW1(</string>
     <string name="key_theme">chosenTheme</string>
-    <string name="dark_theme">Dark (Default)</string>
+    <string name="key_systheme">sysTheme</string>
+    <string name="dark_theme">Dark</string>
+    <string name="system_theme">System (Default)</string>
     <string name="light_theme">Light</string>
     <string name="lambertzerotext">W₀</string>
 
@@ -612,37 +614,37 @@
     </string-array>
 
     <string-array name="lengthlist">
-        <item>Femtometres</item>
-        <item>Picometres</item>
-        <item>Nanometres</item>
-        <item>Micrometres</item>
-        <item>Millimetres</item>
-        <item>Centimetres</item>
-        <item>Decimetres</item>
-        <item>Metres</item>
-        <item>Decametres</item>
-        <item>Hectometres</item>
-        <item>Kilometres</item>
-        <item>Inches</item>
-        <item>Feet</item>
-        <item>Yards</item>
-        <item>Miles</item>
-        <item>Nautical Miles</item>
-        <item>Megametres</item>
-        <item>Gigametres</item>
-        <item>Terametre</item>
-        <item>Petametres</item>
-        <item>Furlongs</item>
+        <item>Femtometres(fm)</item>
+        <item>Picometres(pm)</item>
+        <item>Nanometres(nm)</item>
+        <item>Micrometres(μm)</item>
+        <item>Millimetres(mm)</item>
+        <item>Centimetres(cm)</item>
+        <item>Decimetres(dm)</item>
+        <item>Metres(m)</item>
+        <item>Decametres(dam)</item>
+        <item>Hectometres(hm)</item>
+        <item>Kilometres(km)</item>
+        <item>Inches(in)</item>
+        <item>Feet(ft)</item>
+        <item>Yards(yd)</item>
+        <item>Miles(mi)</item>
+        <item>Nautical Miles(nmi)</item>
+        <item>Megametres(Mm)</item>
+        <item>Gigametres(Gm)</item>
+        <item>Terametre(Tm)</item>
+        <item>Petametres(Pm)</item>
+        <item>Furlongs(fur)</item>
     </string-array>
 
     <string-array name="volumelist">
-        <item>Microlitres</item>
-        <item>Drops</item>
-        <item>Millilitres</item>
-        <item>Cubic centimetres</item>
-        <item>Decilitres</item>
-        <item>Litres</item>
-        <item>Cubic metres</item>
+        <item>Microlitres(μl)</item>
+        <item>Drops(gt)</item>
+        <item>Millilitres(ml)</item>
+        <item>Cubic centimetres(cc)</item>
+        <item>Decilitres(dl)</item>
+        <item>Litres(l)</item>
+        <item>Cubic metres(m³)</item>
         <item>Cups(US)</item>
         <item>Cups(UK)</item>
         <item>Pints(US)</item>
@@ -656,9 +658,9 @@
         <item>Federal Barrels(US)</item>
         <item>Oil Barrels(US)</item>
         <item>Barrels(UK)</item>
-        <item>Cubic inches</item>
-        <item>Cubic feet</item>
-        <item>Cubic yards</item>
+        <item>Cubic inches(in³)</item>
+        <item>Cubic feet(ft³)</item>
+        <item>Cubic yards(yd³)</item>
         <item>Teaspoons(US)</item>
         <item>Teaspoons(UK)</item>
         <item>Tablespoons(US)</item>
@@ -668,203 +670,203 @@
     </string-array>
 
     <string-array name="arealist">
-        <item>Square millimetres</item>
-        <item>Square centimetres</item>
-        <item>Square decimetres</item>
-        <item>Square metres</item>
-        <item>Square decametres</item>
-        <item>Square hectometres</item>
-        <item>Square kilometres</item>
-        <item>Hectares</item>
-        <item>Square miles</item>
-        <item>Acres</item>
-        <item>Square inches</item>
-        <item>Square feet</item>
-        <item>Square yards</item>
-        <item>Square nautical miles</item>
+        <item>Square millimetres(mm²)</item>
+        <item>Square centimetres(cm²)</item>
+        <item>Square decimetres(dm²)</item>
+        <item>Square metres(m²)</item>
+        <item>Square decametres(dam²)</item>
+        <item>Square hectometres(hm²)</item>
+        <item>Square kilometres(km²)</item>
+        <item>Hectares(ha)</item>
+        <item>Square miles(mi²)</item>
+        <item>Acres(ac)</item>
+        <item>Square inches(in²)</item>
+        <item>Square feet(ft²)</item>
+        <item>Square yards(yd²)</item>
+        <item>Square nautical miles(nmi²)</item>
         <item>Dunams</item>
         <item>Tsubos</item>
-        <item>Pyeong</item>
-        <item>Cuerdas</item>
-        <item>Square megametres</item>
-        <item>Square gigametres</item>
-        <item>Square terametres</item>
-        <item>Square petametres</item>
+        <item>Pyeong(py)</item>
+        <item>Cuerdas(cda)</item>
+        <item>Square megametres(Mm²)</item>
+        <item>Square gigametres(Gm²)</item>
+        <item>Square terametres(Tm²)</item>
+        <item>Square petametres(Pm²)</item>
     </string-array>
 
     <string-array name="weightormasslist">
-        <item>Femtograms</item>
-        <item>Picograms</item>
-        <item>Nanograms</item>
-        <item>Micrograms</item>
-        <item>Carats</item>
-        <item>Milligrams</item>
-        <item>Centigrams</item>
-        <item>Decigrams</item>
-        <item>Grams</item>
-        <item>Decagrams</item>
-        <item>Hectograms</item>
-        <item>Kilograms</item>
+        <item>Femtograms(fg)</item>
+        <item>Picograms(pg)</item>
+        <item>Nanograms(ng)</item>
+        <item>Micrograms(µg)</item>
+        <item>Carats(ct)</item>
+        <item>Milligrams(mg)</item>
+        <item>Centigrams(cg)</item>
+        <item>Decigrams(dg)</item>
+        <item>Grams(g)</item>
+        <item>Decagrams(dag)</item>
+        <item>Hectograms(hg)</item>
+        <item>Kilograms(kg)</item>
         <item>Newtons(Earth)</item>
-        <item>Tonnes</item>
-        <item>Ounces</item>
-        <item>Pounds</item>
-        <item>Stones</item>
-        <item>TonsUS</item>
-        <item>TonsUK</item>
-        <item>Catties</item>
-        <item>Grains</item>
-        <item>Gigagrams</item>
-        <item>Teragrams</item>
-        <item>Petagrams</item>
+        <item>Tonnes(t)</item>
+        <item>Ounces(oz)</item>
+        <item>Pounds(lb)</item>
+        <item>Stones(st)</item>
+        <item>Tons(US)</item>
+        <item>Tons(UK)</item>
+        <item>Catties(斤)</item>
+        <item>Grains(gr)</item>
+        <item>Gigagrams(Gg)</item>
+        <item>Teragrams(Tg)</item>
+        <item>Petagrams(Pg)</item>
     </string-array>
 
     <string-array name="temperaturelist">
-        <item>Celsius</item>
-        <item>Fahrenheit</item>
-        <item>Kelvin</item>
-        <item>Rankine scale</item>
-        <item>Delisle scale</item>
-        <item>Newton scale</item>
-        <item>Réaumur scale</item>
-        <item>Rømer scale</item>
-        <item>Yoctokelvin</item>
-        <item>Attokelvin</item>
-        <item>Femtokelvin</item>
-        <item>Picokelvin</item>
-        <item>Nanokelvin</item>
-        <item>Microkelvin</item>
-        <item>Millikelvin</item>
-        <item>Kilokelvin</item>
-        <item>Megakelvin</item>
-        <item>Gigakelvin</item>
-        <item>Terakelvin</item>
-        <item>Petakelvin</item>
-        <item>Exakelvin</item>
-        <item>Zettakelvin</item>
-        <item>Yottakelvin</item>
+        <item>Celsius(°C)</item>
+        <item>Fahrenheit(°F)</item>
+        <item>Kelvin(K)</item>
+        <item>Rankine scale(°R)</item>
+        <item>Delisle scale(°De)</item>
+        <item>Newton scale(°N)</item>
+        <item>Réaumur scale(°Ré)</item>
+        <item>Rømer scale(°Rø)</item>
+        <item>Yoctokelvin(yK)</item>
+        <item>Attokelvin(aK)</item>
+        <item>Femtokelvin(fK)</item>
+        <item>Picokelvin(pK)</item>
+        <item>Nanokelvin(nK)</item>
+        <item>Microkelvin(µK)</item>
+        <item>Millikelvin(mK)</item>
+        <item>Kilokelvin(kK)</item>
+        <item>Megakelvin(MK)</item>
+        <item>Gigakelvin(GK)</item>
+        <item>Terakelvin(TK)</item>
+        <item>Petakelvin(PK)</item>
+        <item>Exakelvin(EK)</item>
+        <item>Zettakelvin(ZK)</item>
+        <item>Yottakelvin(YK)</item>
     </string-array>
 
     <string-array name="speedlist">
-        <item>Centimetres per second</item>
-        <item>Metres per second</item>
-        <item>Kilometres per hour</item>
-        <item>Miles per hour</item>
-        <item>Knots</item>
-        <item>Feet per second</item>
-        <item>Feet per minute</item>
-        <item>Inch per second</item>
-        <item>Mach</item>
-        <item>Furlongs per Fortnight</item>
-        <item>Bubnoff units</item>
+        <item>Centimetres per second(cm/s)</item>
+        <item>Metres per second(m/s)</item>
+        <item>Kilometres per hour(km/h)</item>
+        <item>Miles per hour(mi/h)</item>
+        <item>Knots(kn)</item>
+        <item>Feet per second(ft/s)</item>
+        <item>Feet per minute(ft/min)</item>
+        <item>Inch per second(in/s)</item>
+        <item>Mach(Ma)</item>
+        <item>Furlongs per Fortnight(fur/fn)</item>
+        <item>Bubnoff units(B)</item>
         <item>Natural units(speed of light)</item>
     </string-array>
 
     <string-array name="powerlist">
-        <item>Watts</item>
-        <item>Kilowatts</item>
-        <item>Horsepower</item>
-        <item>Ergs per second</item>
-        <item>Foot-pounds per minute</item>
-        <item>Decibel-milliwatts</item>
-        <item>Calories per hour</item>
-        <item>BTUs per hour</item>
-        <item>Tons of refrigeration</item>
+        <item>Watts(W)</item>
+        <item>Kilowatts(KW)</item>
+        <item>Horsepower(hp)</item>
+        <item>Ergs per second(erg/s)</item>
+        <item>Foot-pounds per minute(ft-lb/min)</item>
+        <item>Decibel-milliwatts(dBm)</item>
+        <item>Calories per hour(cal/h)</item>
+        <item>BTUs per hour(BTU/h)</item>
+        <item>Tons of refrigeration(TR)</item>
     </string-array>
 
     <string-array name="energylist">
-        <item>Electron volts</item>
-        <item>Joules</item>
-        <item>Kilojoules</item>
-        <item>Ergs</item>
-        <item>Calories</item>
-        <item>British Thermal units</item>
-        <item>Kilowatt hours</item>
-        <item>Kilocalories</item>
-        <item>Foot-pounds</item>
+        <item>Electron volts(eV)</item>
+        <item>Joules(J)</item>
+        <item>Kilojoules(kJ)</item>
+        <item>Ergs(erg)</item>
+        <item>Calories(cal)</item>
+        <item>British Thermal units(BTU)</item>
+        <item>Kilowatt hours(KWh)</item>
+        <item>Kilocalories(kcal)</item>
+        <item>Foot-pounds(ft-lb)</item>
     </string-array>
 
     <string-array name="pressurelist">
-        <item>Atmospheres</item>
-        <item>Torrs</item>
-        <item>Pascals</item>
-        <item>Kilopascals</item>
-        <item>Kips per square inch</item>
-        <item>Pounds per square inch</item>
+        <item>Atmospheres(atm)</item>
+        <item>Torrs(Torr)</item>
+        <item>Pascals(Pa)</item>
+        <item>Kilopascals(kPa)</item>
+        <item>Kips per square inch(kip/in²)</item>
+        <item>Pounds per square inch(lbf/in²)</item>
         <item>Feet Sea Water(15°C)</item>
         <item>Bars</item>
-        <item>Kilograms per square centimetre</item>
-        <item>Baryes</item>
-        <item>Sthenes</item>
-        <item>Millimetres of mercury</item>
+        <item>Kilograms per square centimetre(kg/cm²)</item>
+        <item>Baryes(Ba)</item>
+        <item>Sthenes(sn)</item>
+        <item>Millimetres of mercury(mmHg)</item>
     </string-array>
 
     <string-array name="timelist">
-        <item>Nanoseconds</item>
-        <item>Microseconds</item>
-        <item>Milliseconds</item>
+        <item>Nanoseconds(ns)</item>
+        <item>Microseconds(μs)</item>
+        <item>Milliseconds(ms)</item>
         <item>Jiffies</item>
-        <item>Seconds</item>
-        <item>Minutes</item>
-        <item>Hours</item>
+        <item>Seconds(s)</item>
+        <item>Minutes(min)</item>
+        <item>Hours(hr)</item>
         <item>Days</item>
-        <item>Weeks</item>
-        <item>Fortnights</item>
-        <item>Months</item>
-        <item>Years</item>
+        <item>Weeks(wk)</item>
+        <item>Fortnights(fn)</item>
+        <item>Months(mo)</item>
+        <item>Years(yr)</item>
         <item>Decades</item>
         <item>Centuries</item>
         <item>Millenniums</item>
-        <item>Galactic years</item>
+        <item>Galactic years(gal)</item>
     </string-array>
 
     <string-array name="anglelist">
-        <item>Degrees</item>
-        <item>Radians</item>
-        <item>Gradians</item>
-        <item>Turns</item>
-        <item>Milliradians</item>
-        <item>Minutes of arc</item>
-        <item>Seconds of arc</item>
+        <item>Degrees(°)</item>
+        <item>Radians(rad)</item>
+        <item>Gradians(grad)</item>
+        <item>Turns(tr)</item>
+        <item>Milliradians(mrad)</item>
+        <item>Minutes of arc(′)</item>
+        <item>Seconds of arc(″)</item>
     </string-array>
 
     <string-array name="datalist">
-        <item>Bits</item>
+        <item>Bits(b)</item>
         <item>Nibbles</item>
         <item>Crumbs</item>
-        <item>Bytes</item>
-        <item>Kilobits</item>
-        <item>Kibibits</item>
-        <item>Kilobytes</item>
-        <item>Kibibytes</item>
-        <item>Megabits</item>
-        <item>Mebibits</item>
-        <item>Megabytes</item>
-        <item>Mebibytes</item>
-        <item>Gigabits</item>
-        <item>Gibibits</item>
-        <item>Gigabytes</item>
-        <item>Gibibytes</item>
-        <item>Terabits</item>
-        <item>Tebibits</item>
-        <item>Terabytes</item>
-        <item>Tebibytes</item>
-        <item>Petabits</item>
-        <item>Pebibits</item>
-        <item>Petabytes</item>
-        <item>Pebibytes</item>
-        <item>Exabits</item>
-        <item>Exbibits</item>
-        <item>Exabytes</item>
-        <item>Exbibytes</item>
-        <item>Zetabits</item>
-        <item>Zebibits</item>
-        <item>Zetabytes</item>
-        <item>Zebibytes</item>
-        <item>Yottabits</item>
-        <item>Yobibits</item>
-        <item>Yottabytes</item>
-        <item>Yobibytes</item>
+        <item>Bytes(B)</item>
+        <item>Kilobits(kb)</item>
+        <item>Kibibits(Kib)</item>
+        <item>Kilobytes(kB)</item>
+        <item>Kibibytes(KiB)</item>
+        <item>Megabits(Mb)</item>
+        <item>Mebibits(Mib)</item>
+        <item>Megabytes(MB)</item>
+        <item>Mebibytes(MiB)</item>
+        <item>Gigabits(Gb)</item>
+        <item>Gibibits(Gib)</item>
+        <item>Gigabytes(GB)</item>
+        <item>Gibibytes(GiB)</item>
+        <item>Terabits(Tb)</item>
+        <item>Tebibits(Tib)</item>
+        <item>Terabytes(TB)</item>
+        <item>Tebibytes(TiB)</item>
+        <item>Petabits(Pb)</item>
+        <item>Pebibits(Pib)</item>
+        <item>Petabytes(PB)</item>
+        <item>Pebibytes(PiB)</item>
+        <item>Exabits(Eb)</item>
+        <item>Exbibits(Eib)</item>
+        <item>Exabytes(EB)</item>
+        <item>Exbibytes(EiB)</item>
+        <item>Zetabits(Zb)</item>
+        <item>Zebibits(Zib)</item>
+        <item>Zetabytes(ZB)</item>
+        <item>Zebibytes(ZiB)</item>
+        <item>Yottabits(Yb)</item>
+        <item>Yobibits(Yib)</item>
+        <item>Yottabytes(YB)</item>
+        <item>Yobibytes(YiB)</item>
     </string-array>
 
     <string-array name="numeralsystems">
@@ -880,21 +882,5 @@
         <item>Programmer Mode</item>
     </string-array>
     <string name="title_activity_settings">SettingsActivity</string>
-
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
-
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="open_source_licenses">Open Source Licenses</string>
 
 </resources>

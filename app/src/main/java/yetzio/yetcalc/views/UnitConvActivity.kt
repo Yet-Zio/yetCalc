@@ -3,6 +3,7 @@ package yetzio.yetcalc.views
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -55,19 +56,46 @@ class UnitConvActivity : AppCompatActivity() {
     lateinit var adp: ViewPagerAdapter
 
     lateinit var theme: String
+    var dark = false
+    var light = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initPrefs()
-        theme = preferences.getString(getString(R.string.key_theme), getString(R.string.dark_theme)).toString()
-        if(theme == getString(R.string.dark_theme)){
+        theme = preferences.getString(getString(R.string.key_theme), getString(R.string.system_theme)).toString()
+
+        if(theme == getString(R.string.system_theme)){
+            val nightModeFlags: Int = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+            when (nightModeFlags) {
+                Configuration.UI_MODE_NIGHT_YES -> {
+                    dark = true
+                    light = false
+                    setTheme(R.style.yetCalcActivityThemeDark)
+                }
+                Configuration.UI_MODE_NIGHT_NO -> {
+                    dark = false
+                    light = true
+                    setTheme(R.style.yetCalcActivityThemeLight)
+                }
+                Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                    dark = true
+                    light = false
+                    setTheme(R.style.yetCalcActivityThemeDark)
+                }
+            }
+        }
+        else if(theme == getString(R.string.dark_theme)){
+            dark = true
+            light = false
             setTheme(R.style.yetCalcActivityThemeDark)
         }
         else{
+            dark = false
+            light = true
             setTheme(R.style.yetCalcActivityThemeLight)
         }
         super.onCreate(savedInstanceState)
 
-        if(theme == getString(R.string.light_theme)){
+        if(light){
             setContentView(R.layout.activity_unit_convlight)
         }
         else{
@@ -81,14 +109,14 @@ class UnitConvActivity : AppCompatActivity() {
         mViewModel = ViewModelProvider(this)[UnitConvViewModel::class.java]
 
         modeselecSpin = findViewById(R.id.modeselector)
-        val spinnerModesList = if(theme == getString(R.string.dark_theme)){
+        val spinnerModesList = if(dark){
             getModesList("")
         }
         else{
             getModesList("light")
         }
 
-        val modeAdp: SpinnerItemAdapter = if(theme == getString(R.string.dark_theme)){
+        val modeAdp: SpinnerItemAdapter = if(dark){
             SpinnerItemAdapter(this, spinnerModesList, "default")
         } else{
             SpinnerItemAdapter(this, spinnerModesList, "light")
@@ -181,7 +209,7 @@ class UnitConvActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        if(theme == getString(R.string.light_theme)){
+        if(light){
             menuInflater.inflate(R.menu.menulight, menu)
         }
         else{
