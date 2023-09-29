@@ -4,13 +4,16 @@ import android.app.DatePickerDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.text.method.LinkMovementMethod
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
 import com.airbnb.paris.Paris
+import com.chivorn.smartmaterialspinner.SmartMaterialSpinner
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -25,7 +28,6 @@ import java.net.URL
 import java.util.*
 import kotlin.properties.Delegates
 
-
 class CurrencyFragment : Fragment() {
 
     var API = ""
@@ -34,9 +36,10 @@ class CurrencyFragment : Fragment() {
     private var secondConv: EditText? = null
     private var dateText: TextView? = null
     private var datePkr: ImageView? = null
+    private var dateinfoTV: TextView? = null
 
-    private var spinner: Spinner? = null
-    private var spinner2: Spinner? = null
+    private var spinner: SmartMaterialSpinner<String>? = null
+    private var spinner2: SmartMaterialSpinner<String>? = null
     private var baseCur = "INR"
     private var convCur = "USD"
     private var convRate = 0f
@@ -93,12 +96,19 @@ class CurrencyFragment : Fragment() {
     }
 
     private fun createConv(inflater: LayoutInflater, container: ViewGroup?): View{
-        val v = inflater.inflate(R.layout.fragment_currency, container, false)
+        val v = if(pLight){
+            inflater.inflate(R.layout.fragment_currencylight, container, false)
+        }
+        else{
+            inflater.inflate(R.layout.fragment_currency, container, false)
+        }
+
         pViewModel = (activity as? UnitConvActivity)?.mViewModel!!
 
         firstConv = v.findViewById(R.id.et_firstConversion)
         secondConv = v.findViewById(R.id.et_secondConversion)
         dateText = v.findViewById(R.id.datecurrencyconv)
+        dateinfoTV = v.findViewById(R.id.dateinfoTV)
 
         datePkr = v.findViewById(R.id.datepickerCurrency)
 
@@ -114,9 +124,6 @@ class CurrencyFragment : Fragment() {
         if(pLight){
             Paris.style(firstConv).apply(R.style.ConvTextStyleLight)
             Paris.style(secondConv).apply(R.style.ConvTextStyleLight)
-
-            Paris.style(spinner).apply(R.style.yetSpinnerStyleLight)
-            Paris.style(spinner2).apply(R.style.yetSpinnerStyleLight)
 
             Paris.style(dateText).apply(R.style.DateHintStyleLight)
             Paris.style(datePkr).apply(R.style.DatePickerImgSrcStyleLight)
@@ -139,11 +146,13 @@ class CurrencyFragment : Fragment() {
     }
 
     private fun fetchApiResults(id: Int){
-        API = "https://api.exchangerate.host/convert?from=$baseCur&to=$convCur"
+        val lowerConv = convCur.lowercase()
+        // thanks to https://github.com/fawazahmed0/currency-api
+        API = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${baseCur.lowercase()}/$lowerConv.json"
 
         if(dateText != null){
             if(dateText!!.text.isNotEmpty() && dateText!!.text.isNotBlank()){
-                API += "&date=${dateText!!.text}"
+                API = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${dateText!!.text}/currencies/${baseCur.lowercase()}/$lowerConv.json"
             }
         }
 
@@ -153,7 +162,7 @@ class CurrencyFragment : Fragment() {
                     val apiresult = URL(API).readText()
                     val jsonObj = JSONObject(apiresult)
 
-                    jsonObj.getJSONObject("info").getString("rate").toFloat()
+                    jsonObj.getDouble(lowerConv).toFloat()
                 }
 
                 convRate = resDeferred.await()
@@ -218,17 +227,18 @@ class CurrencyFragment : Fragment() {
     }
 
     private fun setupSpinner(){
-        activity?.let {
+
+        activity?.let{
             if(pLight){
                 ArrayAdapter.createFromResource(it, R.array.currencies_one, R.layout.spinner_itemlight)
                     .also { adapter ->
-                        spinner?.adapter= adapter
+                        spinner?.adapter = adapter
                     }
             }
             else{
                 ArrayAdapter.createFromResource(it, R.array.currencies_one, R.layout.spinner_item)
                     .also { adapter ->
-                        spinner?.adapter= adapter
+                        spinner?.adapter = adapter
                     }
             }
         }
@@ -261,7 +271,6 @@ class CurrencyFragment : Fragment() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
             }
 
         })
@@ -278,13 +287,15 @@ class CurrencyFragment : Fragment() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
             }
 
         })
     }
 
     private fun setupDatePicker(){
+        dateinfoTV?.movementMethod = LinkMovementMethod.getInstance()
+        dateinfoTV?.setText(HtmlCompat.fromHtml(getString(R.string.datecurrhint), HtmlCompat.FROM_HTML_MODE_LEGACY))
+
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
         val month = c.get(Calendar.MONTH)
@@ -295,16 +306,16 @@ class CurrencyFragment : Fragment() {
                 activity?.let { it1 ->
                     if(pDark){
                         DatePickerDialog(it1, R.style.DatePickerTheme, DatePickerDialog.OnDateSetListener{ _, mYear, mMonth, mDay ->
-                            pViewModel.current_date = "$mYear-$mMonth-$mDay"
+                            pViewModel.current_date = "$mYear-${mMonth+1}-$mDay"
                             println("Date pick: ${pViewModel.current_date}")
-                            dateText?.text = "$mYear-$mMonth-$mDay"
+                            dateText?.text = "$mYear-${mMonth+1}-$mDay"
                         }, year, month, day)
                     }
                     else{
                         DatePickerDialog(it1, R.style.DatePickerThemeLight, DatePickerDialog.OnDateSetListener{ _, mYear, mMonth, mDay ->
-                            pViewModel.current_date = "$mYear-$mMonth-$mDay"
+                            pViewModel.current_date = "$mYear-${mMonth+1}-$mDay"
                             println("Date pick: ${pViewModel.current_date}")
-                            dateText?.text = "$mYear-$mMonth-$mDay"
+                            dateText?.text = "$mYear-${mMonth+1}-$mDay"
                         }, year, month, day)
                     }
                 }
