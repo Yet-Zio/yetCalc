@@ -9,14 +9,14 @@ android {
             task.enabled = false
         }
     }
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "yetzio.yetcalc"
         minSdk 21
-        targetSdk 33
-        versionCode 10
-        versionName "1.0.9"
+        targetSdk 34
+        versionCode 11
+        versionName "1.1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -48,15 +48,15 @@ dependencies {
 
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
 
-    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     implementation("org.mariuszgromada.math:MathParser.org-mXparser:5.2.1")
 
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.2"
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
@@ -64,12 +64,13 @@ dependencies {
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'io.github.muddz:styleabletoast:2.4.0'
 
-    implementation 'androidx.preference:preference:1.2.1'
+    implementation 'androidx.preference:preference-ktx:1.2.1'
 
     implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2'
     implementation 'com.afollestad.material-dialogs:core:3.3.0'
 
     implementation 'com.airbnb.android:paris:2.0.2'
+    implementation 'com.github.Yet-Zio.SmartMaterialSpinner:smartmaterialspinner:1.0.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
