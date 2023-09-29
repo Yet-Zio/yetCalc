@@ -1,0 +1,6 @@
+Changes
+———————————————
+
+- Search view added for currency tab in Converter mode. Hooray! No more hassle with the large list of currencies.
+
+- The Currency API yetCalc uses has switched from https://exchangerate.host/ to https://github.com/fawazahmed0/currency-api due to exchangerate.host limitations.
