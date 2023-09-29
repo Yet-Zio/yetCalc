@@ -55,7 +55,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             app:smsp_hint="@string/default_basecurrency"
-                            style="@style/shSpinnerStyle" />
+                            style="@style/shSpinnerStyleLight" />
 
                     </LinearLayout>
 
@@ -81,7 +81,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             app:smsp_hint="@string/default_convcurrency"
-                            style="@style/shSpinnerStyle" />
+                            style="@style/shSpinnerStyleLight" />
 
                     </LinearLayout>
 

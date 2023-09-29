@@ -546,4 +546,46 @@
         <item name="android:background">@drawable/ic_baseline_delete_outline_24light</item>
     </style>
 
+    <style name="shSpinnerStyle">
+        <item name="smsp_enableSearchHeader">false</item>
+        <item name="smsp_enableFloatingLabel">false</item>
+        <item name="smsp_isSearchable">true</item>
+        <item name="smsp_hintColor">@color/calc_textdef</item>
+        <item name="smsp_itemColor">@color/calc_textdef</item>
+        <item name="smsp_itemListColor">@color/calc_textdef</item>
+        <item name="smsp_itemListHintBackgroundColor">@color/calc_bgdef</item>
+        <item name="smsp_itemListHintColor">@color/calc_bgdef</item>
+        <item name="smsp_itemListBackgroundColor">@color/calc_bgdef</item>
+        <item name="smsp_arrowColor">@color/calc_textdef</item>
+        <item name="smsp_multilineError">false</item>
+        <item name="smsp_selectedItemListColor">@color/greyish</item>
+        <item name="smsp_searchBackgroundColor">@color/calc_bgdef</item>
+        <item name="smsp_searchHintColor">@color/greyish</item>
+        <item name="smsp_searchTextColor">@color/greyish</item>
+        <item name="smsp_searchFilterColor">@color/white</item>
+        <item name="smsp_searchIconColor">@color/calc_textdef</item>
+        <item name="smsp_searchClearColor">@color/calc_textdef</item>
+    </style>
+
+    <style name="shSpinnerStyleLight">
+        <item name="smsp_enableSearchHeader">false</item>
+        <item name="smsp_enableFloatingLabel">false</item>
+        <item name="smsp_isSearchable">true</item>
+        <item name="smsp_hintColor">@color/calc_textdeflight</item>
+        <item name="smsp_itemColor">@color/calc_textdeflight</item>
+        <item name="smsp_itemListColor">@color/calc_textdeflight</item>
+        <item name="smsp_itemListHintBackgroundColor">@color/calc_bglight</item>
+        <item name="smsp_itemListHintColor">@color/calc_bglight</item>
+        <item name="smsp_itemListBackgroundColor">@color/calc_bglight</item>
+        <item name="smsp_arrowColor">@color/calc_textdeflight</item>
+        <item name="smsp_multilineError">false</item>
+        <item name="smsp_selectedItemListColor">@color/greyish</item>
+        <item name="smsp_searchBackgroundColor">@color/calc_bglight</item>
+        <item name="smsp_searchHintColor">@color/greyish</item>
+        <item name="smsp_searchTextColor">@color/greyish</item>
+        <item name="smsp_searchFilterColor">@color/black</item>
+        <item name="smsp_searchIconColor">@color/calc_textdeflight</item>
+        <item name="smsp_searchClearColor">@color/calc_textdeflight</item>
+    </style>
+
 </resources>
