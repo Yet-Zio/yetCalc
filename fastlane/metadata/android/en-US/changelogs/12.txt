@@ -1,0 +1,9 @@
+Bug Fixes
+
+- Fixed an issue that caused programmer mode to crash on input larger than the maximum 32-bit signed integer.
+
+Enhancements
+
+- Date format options for the currency converter tab and history view are available in settings.
+
+- Selectable text in programmer mode. Now you can copy and share your results!
