@@ -6,4 +6,20 @@
         <item>1e-99</item>
         <item>1e-323</item>
     </string-array>
+
+    <string-array name="date_array">
+        <item>YYYY-MM-DD</item>
+        <item>DD-MM-YYYY</item>
+        <item>DD-YYYY-MM</item>
+        <item>YYYY-DD-MM</item>
+        <item>MM-DD-YYYY</item>
+        <item>MM-YYYY-DD</item>
+    </string-array>
+
+    <string-array name="datetimearray">
+        <item>Default format</item>
+        <item>dd, MMMM yyyy HH:mm:ss</item>
+        <item>yyyy, MMMM dd HH:mm:ss</item>
+    </string-array>
+
 </resources>

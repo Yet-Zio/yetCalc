@@ -33,6 +33,15 @@
             app:title="Precision"
             app:useSimpleSummaryProvider="true" />
 
+        <ListPreference
+            app:title="Date Time Format (History)"
+            app:entries="@array/datetimearray"
+            app:entryValues="@array/datetimearray"
+            app:key="datehistkey"
+            app:defaultValue="Default format"
+            app:useSimpleSummaryProvider="true"
+            />
+
     </PreferenceCategory>
 
     <PreferenceCategory app:title="Converter">
@@ -42,6 +51,14 @@
             app:summary="Open the last used section by default."
             app:title="Use Recent Tab"
             app:defaultValue="true" />
+
+        <ListPreference
+            app:defaultValue="YYYY-MM-DD"
+            app:entries="@array/date_array"
+            app:entryValues="@array/date_array"
+            app:key="dateFormatKey"
+            app:title="Date Format (Currency Tab)"
+            app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
 

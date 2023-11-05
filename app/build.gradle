@@ -15,8 +15,8 @@ android {
         applicationId "yetzio.yetcalc"
         minSdk 21
         targetSdk 34
-        versionCode 11
-        versionName "1.1.0"
+        versionCode 12
+        versionName "1.1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -46,11 +46,11 @@ apply plugin: 'kotlin-kapt'
 
 dependencies {
 
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'com.google.android.material:material:1.10.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     implementation("org.mariuszgromada.math:MathParser.org-mXparser:5.2.1")
@@ -61,12 +61,12 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
 
-    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'com.google.android.material:material:1.10.0'
     implementation 'io.github.muddz:styleabletoast:2.4.0'
 
     implementation 'androidx.preference:preference-ktx:1.2.1'
 
-    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2'
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.15.3'
     implementation 'com.afollestad.material-dialogs:core:3.3.0'
 
     implementation 'com.airbnb.android:paris:2.0.2'

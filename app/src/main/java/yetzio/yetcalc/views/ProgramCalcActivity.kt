@@ -27,6 +27,7 @@ import yetzio.yetcalc.utils.getModesList
 import yetzio.yetcalc.utils.getScreenOrientation
 import yetzio.yetcalc.utils.setVibOnClick
 import yetzio.yetcalc.utils.showThemeDialog
+import java.math.BigInteger
 
 class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -570,7 +571,7 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
                 R.id.inputBtnAC -> {
                     tvExp.text = ""
                     tvResult.text = "0"
-                    mViewModel.prevResult = 0
+                    mViewModel.prevResult = BigInteger("0")
                     setResultText()
                     if (mViewModel.currentOp != null) {
                         mViewModel.currentOp = null
@@ -586,7 +587,7 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
                         mViewModel.isCalcPending = false
                     }
                     else{
-                        mViewModel.prevResult = tvResult.text.toString().toInt(mViewModel.numberSys.radix)
+                        mViewModel.prevResult = tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
                         setCurrentNumberSystem(mViewModel.numberSys)
                     }
                 }
@@ -603,12 +604,12 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
             if (operator == Operator.NOT) {
                 var temp = tvResult.text.toString().toInt(mViewModel.numberSys.radix)
                 tvResult.text = temp.inv().toString(mViewModel.numberSys.radix)
-                mViewModel.prevResult = tvResult.text.toString().toInt(mViewModel.numberSys.radix)
+                mViewModel.prevResult = tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
                 setResultText()
                 mViewModel.clearInput = true
                 return
             }
-            mViewModel.prevResult = tvResult.text.toString().toInt(mViewModel.numberSys.radix)
+            mViewModel.prevResult = tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
         } else if (mViewModel.currentOp != null) {
             mViewModel.clearInput = true
             if (operator == Operator.NOT) {
@@ -631,47 +632,47 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
         when (mViewModel.currentOp) {
 
             Operator.ADD -> {
-                mViewModel.prevResult += tvResult.text.toString().toInt(mViewModel.numberSys.radix)
+                mViewModel.prevResult += tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
             }
 
             Operator.SUB -> {
-                mViewModel.prevResult -= tvResult.text.toString().toInt(mViewModel.numberSys.radix)
+                mViewModel.prevResult -= tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
             }
 
             Operator.MUL -> {
-                mViewModel.prevResult *= tvResult.text.toString().toInt(mViewModel.numberSys.radix)
+                mViewModel.prevResult *= tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
             }
 
             Operator.DIV -> {
                 if(tvResult.text.toString().toInt(mViewModel.numberSys.radix) == 0){
                     mViewModel.divByZero = true
-                    mViewModel.prevResult = 0
+                    mViewModel.prevResult = BigInteger("0")
                 }
                 else{
-                    mViewModel.prevResult /= tvResult.text.toString().toInt(mViewModel.numberSys.radix)
+                    mViewModel.prevResult /= tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
                 }
             }
 
             Operator.AND -> {
-                mViewModel.prevResult = mViewModel.prevResult and tvResult.text.toString().toInt(mViewModel.numberSys.radix)
+                mViewModel.prevResult = mViewModel.prevResult and tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
             }
 
             Operator.OR -> {
-                mViewModel.prevResult = mViewModel.prevResult or tvResult.text.toString().toInt(mViewModel.numberSys.radix)
+                mViewModel.prevResult = mViewModel.prevResult or tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
             }
 
             Operator.NAND -> {
                 mViewModel.prevResult =
-                    (mViewModel.prevResult and tvResult.text.toString().toInt(mViewModel.numberSys.radix)).inv()
+                    (mViewModel.prevResult and tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)).inv()
             }
 
             Operator.NOR -> {
                 mViewModel.prevResult =
-                    (mViewModel.prevResult or tvResult.text.toString().toInt(mViewModel.numberSys.radix)).inv()
+                    (mViewModel.prevResult or tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)).inv()
             }
 
             Operator.XOR -> {
-                mViewModel.prevResult = mViewModel.prevResult xor tvResult.text.toString().toInt(mViewModel.numberSys.radix)
+                mViewModel.prevResult = mViewModel.prevResult xor tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
             }
 
             Operator.LSH -> {
@@ -773,8 +774,8 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
 
-        if (mViewModel.prevResult == 0 && tvResult.text.toString() != "0") {
-            mViewModel.prevResult = tvResult.text.toString().toInt(mViewModel.numberSys.radix)
+        if (mViewModel.prevResult == BigInteger("0") && tvResult.text.toString() != "0") {
+            mViewModel.prevResult = tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
         }
 
         mViewModel.numberSys = numSys

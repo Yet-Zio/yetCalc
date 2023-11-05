@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceManager
 import com.airbnb.paris.Paris
 import com.chivorn.smartmaterialspinner.SmartMaterialSpinner
 import kotlinx.coroutines.CoroutineScope
@@ -55,6 +56,7 @@ class CurrencyFragment : Fragment() {
     private lateinit var pTheme: String
     private var pDark by Delegates.notNull<Boolean>()
     private var pLight by Delegates.notNull<Boolean>()
+    private lateinit var selectedDateFormat: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,6 +70,10 @@ class CurrencyFragment : Fragment() {
         pTheme = (activity as? UnitConvActivity)?.theme.toString()
         pDark = (activity as? UnitConvActivity)?.dark!!
         pLight = (activity as? UnitConvActivity)?.light!!
+
+        val prefMgr = context?.let { PreferenceManager.getDefaultSharedPreferences(it.applicationContext) }
+        selectedDateFormat = prefMgr?.getString("dateFormatKey", "YYYY-MM-DD").toString()
+
 
         var v: View?
         if(isNetworkAvailable(context?.applicationContext)){
@@ -152,7 +158,7 @@ class CurrencyFragment : Fragment() {
 
         if(dateText != null){
             if(dateText!!.text.isNotEmpty() && dateText!!.text.isNotBlank()){
-                API = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${dateText!!.text}/currencies/${baseCur.lowercase()}/$lowerConv.json"
+                API = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${pViewModel.current_date}/currencies/${baseCur.lowercase()}/$lowerConv.json"
             }
         }
 
@@ -292,6 +298,10 @@ class CurrencyFragment : Fragment() {
         })
     }
 
+    private fun formatDate(dayormonth: String): String {
+        return if (dayormonth.length > 1) dayormonth else "0$dayormonth"
+    }
+
     private fun setupDatePicker(){
         dateinfoTV?.movementMethod = LinkMovementMethod.getInstance()
         dateinfoTV?.setText(HtmlCompat.fromHtml(getString(R.string.datecurrhint), HtmlCompat.FROM_HTML_MODE_LEGACY))
@@ -306,16 +316,30 @@ class CurrencyFragment : Fragment() {
                 activity?.let { it1 ->
                     if(pDark){
                         DatePickerDialog(it1, R.style.DatePickerTheme, DatePickerDialog.OnDateSetListener{ _, mYear, mMonth, mDay ->
-                            pViewModel.current_date = "$mYear-${mMonth+1}-$mDay"
+                            pViewModel.current_date = "$mYear-${formatDate((mMonth+1).toString())}-${formatDate((mDay).toString())}"
                             println("Date pick: ${pViewModel.current_date}")
-                            dateText?.text = "$mYear-${mMonth+1}-$mDay"
+                            dateText?.text = when(selectedDateFormat){
+                                "DD-MM-YYYY" -> "${formatDate((mDay).toString())}-${formatDate((mMonth+1).toString())}-$mYear"
+                                "DD-YYYY-MM" -> "${formatDate((mDay).toString())}-$mYear-${formatDate((mMonth+1).toString())}"
+                                "YYYY-DD-MM" -> "$mYear-${formatDate((mDay).toString())}-${formatDate((mMonth+1).toString())}"
+                                "MM-DD-YYYY" -> "${formatDate((mMonth+1).toString())}-${formatDate((mDay).toString())}-$mYear"
+                                "MM-YYYY-DD" -> "${formatDate((mMonth+1).toString())}-$mYear-${formatDate((mDay).toString())}"
+                                else -> "$mYear-${formatDate((mMonth+1).toString())}-${formatDate((mDay).toString())}"
+                            }
                         }, year, month, day)
                     }
                     else{
                         DatePickerDialog(it1, R.style.DatePickerThemeLight, DatePickerDialog.OnDateSetListener{ _, mYear, mMonth, mDay ->
-                            pViewModel.current_date = "$mYear-${mMonth+1}-$mDay"
+                            pViewModel.current_date = "$mYear-${formatDate((mMonth+1).toString())}-${formatDate((mDay).toString())}"
                             println("Date pick: ${pViewModel.current_date}")
-                            dateText?.text = "$mYear-${mMonth+1}-$mDay"
+                            dateText?.text = when(selectedDateFormat){
+                                "DD-MM-YYYY" -> "${formatDate((mDay).toString())}-${formatDate((mMonth+1).toString())}-$mYear"
+                                "DD-YYYY-MM" -> "${formatDate((mDay).toString())}-$mYear-${formatDate((mMonth+1).toString())}"
+                                "YYYY-DD-MM" -> "$mYear-${formatDate((mDay).toString())}-${formatDate((mMonth+1).toString())}"
+                                "MM-DD-YYYY" -> "${formatDate((mMonth+1).toString())}-${formatDate((mDay).toString())}-$mYear"
+                                "MM-YYYY-DD" -> "${formatDate((mMonth+1).toString())}-$mYear-${formatDate((mDay).toString())}"
+                                else -> "$mYear-${formatDate((mMonth+1).toString())}-${formatDate((mDay).toString())}"
+                            }
                         }, year, month, day)
                     }
                 }
