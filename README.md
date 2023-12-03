@@ -70,12 +70,7 @@ The free and open source calculator developed for Android 5.0 and above using Ko
 
 ## Install
 
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-     alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/yetzio.yetcalc/)
-
-Or download the app from the [releases page](https://github.com/Yet-Zio/yetCalc/releases/latest).
-
+Download the app from the [releases page](https://github.com/Yet-Zio/yetCalc/releases/latest).
 Note: Requires Android 5.0 and above.
 
 Also, only download the app from sources provided by the developer.
