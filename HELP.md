@@ -90,8 +90,19 @@
     Go to https://github.com/Yet-Zio/yetCalc/blob/main/DONATE.md
     or Settings -> Tap Donate
     takes you to the same link anyways.
+
+3. Why yetCalc got removed/archived on F-Droid? Also why isn't it available on Google Play?
+
+   Well, it got archived as the library yetCalc uses for the calculator component called mXparser has a dual license model which is considered non free by f-droid's terms and policies.
+   mXparser generally allows a non commercial use for free and open source projects and is similar to the BSD-2 Clause in that case but due to the extra conditions mentioned, it is considered non free.
+   Thus, yetCalc is now archived/removed from F-Droid :(. If you want to know more about this, [click here](https://github.com/Yet-Zio/yetCalc/issues/98)
+
+   As for Google play, I do want to, its that I have not setup a google play developer account to publish apps on play store which as far as I know requires a one time $25 fee unlike fdroid which is free.
+   Currently, I don't have enough balance to publish it on google play. There's personal things like college, life, etc to attend to.
+
+   This does not mean it will never come on Google Play, it might who knows ;)
     
-3. Why did you create this? There's already so many good calculators.
+4. Why did you create this? There's already so many good calculators.
     
     Well, there are actually. But maybe most of them are not open source or provide a necessary feature.
     Or one might provide a feature the other doesn't.
@@ -99,15 +110,16 @@
     Just so you know, this is going to be long...:)
     
     To be honest, I had Google's Calculator by default on my phone. It's pretty good but not that great either.
-    It doesn't provide progressive calculations(on scientific mode), more scientific functions, constants and features. It's like a simple enough calculator and don't tell me Google can't make a better calculator than that, oh wait took them years to add a screen recording feature in Android, can't create their own terminal emulator, well there's Termux, so why need anyway right. Aha, back to the point.
+    It doesn't provide progressive calculations(on scientific mode), more scientific functions, constants and features. It's like a simple enough calculator and don't tell me Google can't make a better calculator than       that, oh wait took them years to add a screen recording feature in Android, can't create their own terminal emulator, well there's Termux, so why need anyway right. Aha, back to the point.
     Either way the UI is pretty great tho, that's what yetCalc's design is based on.
     
-    Very well, why didn't I use some other vendor's calculator, like Samsung or Xiaomi. Yea Samsung's Calculator is pretty good and Xiaomi's one is even better. Samsung's one provides progressive calculations, simple and scientific features, history, a good converter etc. But it suffers from the same things Google's does, more effort has not been put into adding more scientific features like more functions, constants. As a company they could have added a graphing, programmer modes as well. Well, its not my calculator right?
+    Very well, why didn't I use some other vendor's calculator, like Samsung or Xiaomi. Yea Samsung's Calculator is pretty good and Xiaomi's one is even better. Samsung's one provides progressive calculations, simple        and scientific features, history, a good converter etc. But it suffers from the same things Google's does, more effort has not been put into adding more scientific features like more functions, constants. As a     
+    company they could have added a graphing, programmer modes as well. Well, its not my calculator right?
     
-    Talking about Xiaomi's one, this one's a pretty good one too, provides even more converters. But on the other side, the same mistake to not add more scientific features like the one's I mentioned for Samsung's and Google's one. Just look at this [calculator](https://play.google.com/store/apps/details?id=cz.hipercalc) and see how many features it contains, even has a pro version or look at this [one](https://play.google.com/store/apps/details?id=org.mathparser.scalar.lite&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1). Now that's what I call a good calculator, it might not have everything but atleast some effort is put into it. You can argue it doesn't have a user/beginner-friendly UI for someone coming from a different calculator, and that's a valid point too.
+    Talking about Xiaomi's one, this one's a pretty good one too, provides even more converters. But on the other side, the same mistake to not add more scientific features like the one's I mentioned for Samsung's and       Google's one. Just look at this [calculator](https://play.google.com/store/apps/details?id=cz.hipercalc) and see how many features it contains, even has a pro version or look at this [one](https://play.google.com/store/apps/details?id=org.mathparser.scalar.lite&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1). Now that's what I call a good calculator, it might not have everything but         atleast some effort is put into it. You can argue it doesn't have a user/beginner-friendly UI for someone coming from a different calculator, and that's a valid point too.
     
     Now if you want to look at a good calculator which is user-friendly and provides a ton of features, look at Microsoft's new [Windows Calculator](https://apps.microsoft.com/store/detail/windows-calculator/9WZDNCRFHVN5). It even has date calculation and graphing, some which I didn't even add to yetCalc(at the time of writing). It's even open source on [github](https://github.com/Microsoft/calculator)
     
-    In the end, I created this because I needed a calculator with a simple UI like Google's one with features that are usually and should be provided, more features that are typically not on Android or others. It didn't become so simple or advanced but it was worth it. It's free, it's open source and it's yet another calculator.
+    In the end, I created this because I needed a calculator with a simple UI like Google's one with features that are usually and should be provided, more features that are typically not on Android or others. It didn't     become so simple or advanced but it was worth it. It's free, it's open source and it's yet another calculator.
 
 (you can notify us if an issue is not mentioned here!)
