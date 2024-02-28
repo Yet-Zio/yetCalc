@@ -98,6 +98,9 @@ class History{
             }
         }
 
+        // sort in descending order
+        ret_list.reverse()
+
         return ret_list
     }
 

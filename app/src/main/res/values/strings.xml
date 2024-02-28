@@ -1,7 +1,7 @@
 <resources>
     <string name="author_name">Yet Zio</string>
     <string name="app_name">yetCalc</string>
-    <string name="VERSION_NUM">1.1.1</string>
+    <string name="VERSION_NUM">1.1.2</string>
     <string name="app_descrp">Yet another calculator by Yet Zio</string>
     <string name="ghbtext">View on GitHub</string>
     <string name="app_details">Free and open source software\nLicensed under the BSD-3-Clause license.</string>
@@ -25,6 +25,7 @@
     <string name="dividetext">÷</string>
     <string name="mulop">×</string>
     <string name="sqroot">√</string>
+    <string name="sqrootval">^(1/2)</string>
     <string name="numberfour">4</string>
     <string name="numberfive">5</string>
     <string name="numbersix">6</string>
@@ -48,7 +49,7 @@
     <string name="naturallogtext">ln</string>
     <string name="commonlogtext">log</string>
     <string name="divide_expr">/</string>
-    <string name="mul_expr">×</string>
+    <string name="mul_expr">*</string>
     <string name="zero_text">0</string>
     <string name="text_res">textres</string>
     <string name="mode_text">calcmode</string>
@@ -70,7 +71,7 @@
     <string name="cot_func">cot(</string>
     <string name="eraised_func">e^</string>
     <string name="naturallog_func">ln(</string>
-    <string name="commonlog_func">lg(</string>
+    <string name="commonlog_func">log10(</string>
     <string name="tenraised_func">10^</string>
     <string name="mx_parser_init">mxparse</string>
     <string name="eulermascheroni">γ</string>
@@ -153,22 +154,22 @@
     <string name="boltzmannconstnum">1.380648509796223E-23</string>
     <string name="ncr_func">nCr(n,r)</string>
     <string name="kdelta_func">KDelta(i, j)</string>
-    <string name="integralfunc">∫(expr, arg, from, to)</string>
-    <string name="backward_difffunc"><![CDATA[∇(expr, arg, <delta>)]]></string>
-    <string name="sigma_func"><![CDATA[∑(i, from, to, expr, <by>)]]></string>
-    <string name="derfunc"><![CDATA[∂(expr, arg, <point>)]]></string>
+    <string name="integralfunc">int(expr, arg, from, to)</string>
+    <string name="backward_difffunc"><![CDATA[difb(expr, arg, <delta>)]]></string>
+    <string name="sigma_func"><![CDATA[sum(i, from, to, expr, <by>)]]></string>
+    <string name="derfunc"><![CDATA[der(expr, arg, <point>)]]></string>
     <string name="eqsolvefunc">solve(expr, arg, from, to)</string>
-    <string name="prod_func"><![CDATA[∏(i, from, to, expr, <by>)]]></string>
+    <string name="prod_func"><![CDATA[prod(i, from, to, expr, <by>)]]></string>
     <string name="stirlingnumfunc">Stirl1(n, k)</string>
     <string name="avg_func"><![CDATA[avg(i, from, to, expr, <by>)]]></string>
     <string name="nderfunc">dern(expr, n, arg)</string>
     <string name="bernfunc">Bern(m,n)</string>
     <string name="vari_func"><![CDATA[vari(i, from, to, expr, <by>)]]></string>
-    <string name="fwd_func"><![CDATA[∆(expr, arg, <delta>)]]></string>
+    <string name="fwd_func"><![CDATA[diff(expr, arg, <delta>)]]></string>
     <string name="worpfunc">Worp(n, k)</string>
     <string name="stdi_func"><![CDATA[stdi(i, from, to, expr, <by>)]]></string>
-    <string name="leftderfunc"><![CDATA[∂-(expr, arg, <point>)]]></string>
-    <string name="rightderfunc"><![CDATA[∂+(expr, arg, <point>)]]></string>
+    <string name="leftderfunc"><![CDATA[der-(expr, arg, <point>)]]></string>
+    <string name="rightderfunc"><![CDATA[der+(expr, arg, <point>)]]></string>
     <string name="stirlingnum2func">Stirl2(n, k)</string>
     <string name="mean_func">mean(a1, …, an)</string>
     <string name="parabolicconstant">[P2]</string>
@@ -184,8 +185,10 @@
     <string name="deftext">x</string>
     <string name="drop_downarr">▼</string>
     <string name="modulotext">#(mod)</string>
-    <string name="cuberoottext">∛</string>
-    <string name="fourthroottext">∜</string>
+    <string name="cuberoottext">³√</string>
+    <string name="cuberootval">^(1/3)</string>
+    <string name="fourthroottext">⁴√</string>
+    <string name="fourthrootval">^(1/4)</string>
     <string name="powertower">^^</string>
     <string name="moduloop">#</string>
 

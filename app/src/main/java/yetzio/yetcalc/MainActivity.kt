@@ -24,7 +24,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import org.mariuszgromada.math.mxparser.License
 import yetzio.yetcalc.component.AngleMode
 import yetzio.yetcalc.component.CalcMode
 import yetzio.yetcalc.component.Calculator
@@ -46,6 +45,7 @@ val Calc = Calculator()
 class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSelectedListener{
     private lateinit var mviewModel: CalcViewModel
     private val mCoroutineScope = CoroutineScope(Dispatchers.Main)
+    private val IOCoroutineScope = CoroutineScope(Dispatchers.IO)
     private var variable_charlist = ArrayList<String>()
 
     private lateinit var histLauncher: ActivityResultLauncher<Intent>
@@ -153,9 +153,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
         }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        // mxParser non-commerical use confirmation
-        confirm_mXparserUse()
 
         mviewModel = ViewModelProvider(this)[CalcViewModel::class.java]
         if(getScreenOrientation(applicationContext) == Configuration.ORIENTATION_PORTRAIT){
@@ -626,24 +623,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
         TODO("Not yet implemented")
     }
 
-    private fun confirm_mXparserUse(){
-        // confirming use of mXParser for non commercial use
-        val mXparser_init = preferences.getBoolean(getString(R.string.mx_parser_init), false)
-
-        if(!mXparser_init){
-            val isCallSuccessful = License.iConfirmNonCommercialUse(getString(R.string.author_name))
-            val isConfirmed = License.checkIfUseTypeConfirmed()
-            val confirm_message = License.getUseTypeConfirmationMessage()
-
-            println("isCallSuccessful = $isCallSuccessful")
-            println("isConfirmed = $isConfirmed")
-            println("message = $confirm_message")
-
-            editor.putBoolean(getString(R.string.mx_parser_init), true)
-            editor.apply()
-        }
-    }
-
     private fun restoreModesAndConfiguration(savedInstanceState: Bundle?){
         if(savedInstanceState != null){
             textres.text = savedInstanceState.getString(getString(R.string.text_res))
@@ -884,7 +863,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
     private fun portraitButtonHandler(id: Int){
         when(id){
             R.id.sqrtbutton -> {
-                addExpression(getString(R.string.sqroot))
+                addExpression(getString(R.string.sqrootval))
                 evaluate_expr()
             }
             else -> {
@@ -919,7 +898,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
             }
             R.id.sqrtbutton -> {
                 if(mviewModel.calcMode == CalcMode.FIRSTMODE){
-                    addExpression(getString(R.string.sqroot))
+                    addExpression(getString(R.string.sqrootval))
                     evaluate_expr()
                 }
                 else if(mviewModel.calcMode == CalcMode.SECONDMODE){
@@ -1237,11 +1216,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
                     evaluate_expr()
                 }
                 else if(mviewModel.calcMode == CalcMode.THIRDMODE){
-                    addExpression(getString(R.string.cuberoottext))
+                    addExpression(getString(R.string.cuberootval))
                     evaluate_expr()
                 }
                 else if(mviewModel.calcMode == CalcMode.FOURTHMODE){
-                    addExpression(getString(R.string.fourthroottext))
+                    addExpression(getString(R.string.fourthrootval))
                     evaluate_expr()
                 }
                 else if(mviewModel.calcMode == CalcMode.FIFTHMODE){
@@ -1338,12 +1317,29 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
                 evaluate_expr()
             }
             R.id.equalop -> {
-                if(!textexpression.text.isEmpty() && !textres.text.isEmpty()){
-                    Calc.addToHistory(textexpression.text.toString(), textres.text.toString())
-                    textexpression.setText(textres.text)
-                    textres.setText("")
-                    textexpression.setSelection(textexpression.length())
-                    result = textres.text.toString()
+                if (textexpression.text.isNotEmpty() && textres.text.isNotEmpty()) {
+                    val expression = textexpression.text.toString()
+                    val resultText = textres.text.toString()
+
+                    IOCoroutineScope.launch {
+                        Calc.addToHistory(expression, resultText)
+                    }
+
+                    textexpression.setText(resultText)
+                    textres.text = ""
+                    textexpression.setSelection(textexpression.text.length)
+
+                    val prefMgr = PreferenceManager.getDefaultSharedPreferences(this)
+                    val leftjustres = prefMgr.getBoolean("leftjustifyres", true)
+
+                    if (leftjustres) {
+                        val maxScrollX = textexpression.layout.getLineLeft(0).toInt().coerceAtLeast(0)
+                        textexpression.post {
+                            textexpression.scrollTo(maxScrollX, 0)
+                        }
+                    }
+
+                    result = resultText
                 }
             }
             R.id.backspacebutton -> {

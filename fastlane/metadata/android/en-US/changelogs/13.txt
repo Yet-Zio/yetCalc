@@ -1,0 +1,9 @@
+Bug Fixes
+
+- Fixed a UI freezing issue caused by history reading whenever the equal to button was clicked.
+
+Enhancements
+
+- From now on, results will be left aligned in calculator component for easier reading. Can be turned off from settings.
+
+- Results are now sorted in descending order by default in history.
