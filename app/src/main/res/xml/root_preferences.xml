@@ -14,6 +14,12 @@
     <PreferenceCategory app:title="Calculator">
 
         <SwitchPreferenceCompat
+            app:key="leftjustifyres"
+            app:summary="Results are always left justified no matter small or large. Right justifies after pressing a button automatically."
+            app:title="Left Justify Result"
+            app:defaultValue="true"/>
+
+        <SwitchPreferenceCompat
             app:key="almostintkey"
             app:summary="A number is rounded to the nearest integer if it is close enough to an integer."
             app:title="Almost Integer Rounding"
