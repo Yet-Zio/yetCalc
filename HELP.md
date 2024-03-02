@@ -90,19 +90,8 @@
     Go to https://github.com/Yet-Zio/yetCalc/blob/main/DONATE.md
     or Settings -> Tap Donate
     takes you to the same link anyways.
-
-3. Why yetCalc got removed/archived on F-Droid? Also why isn't it available on Google Play?
-
-   Well, it got archived as the library yetCalc uses for the calculator component called mXparser has a dual license model which is considered non free by f-droid's terms and policies.
-   mXparser generally allows a non commercial use for free and open source projects and is similar to the BSD-2 Clause in that case but due to the extra conditions mentioned, it is considered non free.
-   Thus, yetCalc is now archived/removed from F-Droid :(. If you want to know more about this, [click here](https://github.com/Yet-Zio/yetCalc/issues/98)
-
-   As for Google play, I do want to, its that I have not setup a google play developer account to publish apps on play store which as far as I know requires a one time $25 fee unlike fdroid which is free.
-   Currently, I don't have enough balance to publish it on google play. There's personal things like college, life, etc to attend to.
-
-   This does not mean it will never come on Google Play, it might who knows ;)
     
-4. Why did you create this? There's already so many good calculators.
+3. Why did you create this? There's already so many good calculators.
     
     Well, there are actually. But maybe most of them are not open source or provide a necessary feature.
     Or one might provide a feature the other doesn't.
