@@ -57,7 +57,7 @@
 
 2. Currency conversion takes longer than others?
 
-    Yes, this is because when you enter data, an API request is made to [exchangeratehost](https://exchangerate.host/#/). So this depends upon your internet connection speed, the value entered, the currencies selected on both sides.
+    Yes, this is because when you enter data, an API request is made to [fawazahmed0/currency-api](https://github.com/fawazahmed0/currency-api) So this depends upon your internet connection speed, the value entered, the currencies selected on both sides.
 
 3. Does the converter remember the last tab and units I used?
 
