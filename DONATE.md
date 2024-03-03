@@ -22,6 +22,12 @@ Alternatively, you can even donate by entering the UPI ID below:
 
 UPI ID: **maheshdeluxe53@okhdfcbank**
 
+# Donate to F-Droid
+
+F-Droid is a really amazing alternative to the Google Play Store, as it only offers apps that are free and open source, and yetCalc is one such app as well.
+Thanks to its great community of developers, maintainers, and contributors, we can really explore the large abundance of free and open-source apps.
+Please consider donating to F-Droid if you can: [Donate to F-Droid](https://f-droid.org/en/donate/)
+
 # Donate to mXparser
 
 yetCalc uses mXparser for its calculator part. Show your support and help the developer continue this project.
