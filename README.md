@@ -1,3 +1,10 @@
+<div align="right">
+
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-yellow.svg)](https://github.com/Yet-Zio/yetCalc/blob/main/LICENSE)
+[![GitHub Release](https://img.shields.io/github/release/Yet-Zio/yetCalc.svg?style=flat)]()
+[![Donate](https://img.shields.io/badge/$-support-ff69b4.svg?style=flat)](https://www.buymeacoffee.com/yetzio)
+
+</div>
 <p align="center">
   <img src="./img/icons/appico.png?raw=true" alt="yetCalc Icon" width="60" height="60"/>
 </p>
@@ -70,7 +77,13 @@ The free and open source calculator developed for Android 5.0 and above using Ko
 
 ## Install
 
-Download the app from the [releases page](https://github.com/Yet-Zio/yetCalc/releases/latest).
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+     alt="Get it on F-Droid"
+     height="80">](https://f-droid.org/packages/yetzio.yetcalc/)
+
+
+Or download the app from the [releases page](https://github.com/Yet-Zio/yetCalc/releases/latest).
+
 Note: Requires Android 5.0 and above.
 
 Also, only download the app from sources provided by the developer.
