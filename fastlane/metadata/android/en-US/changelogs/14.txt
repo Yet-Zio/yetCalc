@@ -1,0 +1,3 @@
+Fixes:
+
+- The Currency API endpoints have been migrated to the new API provided by fawazahmed0 at: https://github.com/fawazahmed0/exchange-api. This fixes the issues with the currency converter not working.

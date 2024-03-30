@@ -1,7 +1,7 @@
 <resources>
     <string name="author_name">Yet Zio</string>
     <string name="app_name">yetCalc</string>
-    <string name="VERSION_NUM">1.1.2</string>
+    <string name="VERSION_NUM">1.1.3</string>
     <string name="app_descrp">Yet another calculator by Yet Zio</string>
     <string name="ghbtext">View on GitHub</string>
     <string name="app_details">Free and open source software\nLicensed under the BSD-3-Clause license.</string>
@@ -217,7 +217,7 @@
     <string name="result">Result</string>
     <string name="date">Date:</string>
     <string name="datehint">YYYY-MM-DD</string>
-    <string name="datecurrhint">If you want to convert based on historical exchange rate data, specify a date below.\n<![CDATA[ <a href="https://github.com/fawazahmed0/currency-api">Possible dates</a>]]></string>
+    <string name="datecurrhint">If you want to convert based on historical exchange rate data, specify a date below.\n<![CDATA[ <a href="https://data.jsdelivr.com/v1/package/npm/@fawazahmed0/currency-api">Possible dates</a> listed in tags.]]></string>
     <string name="nointInfoText">Currency conversion requires an Internet connection.</string>
     <string name="nointTitle">No Internet Connection</string>
     <string name="try_again">Try Again</string>
