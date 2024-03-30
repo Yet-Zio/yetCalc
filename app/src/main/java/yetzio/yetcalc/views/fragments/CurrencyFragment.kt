@@ -153,12 +153,12 @@ class CurrencyFragment : Fragment() {
 
     private fun fetchApiResults(id: Int){
         val lowerConv = convCur.lowercase()
-        // thanks to https://github.com/fawazahmed0/currency-api
-        API = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${baseCur.lowercase()}/$lowerConv.json"
+        // thanks to https://github.com/fawazahmed0/exchange-api
+        API = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${baseCur.lowercase()}.json"
 
         if(dateText != null){
             if(dateText!!.text.isNotEmpty() && dateText!!.text.isNotBlank()){
-                API = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${pViewModel.current_date}/currencies/${baseCur.lowercase()}/$lowerConv.json"
+                API = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${pViewModel.current_date}/v1/currencies/${baseCur.lowercase()}.json"
             }
         }
 
@@ -166,7 +166,7 @@ class CurrencyFragment : Fragment() {
             try{
                 val resDeferred = mCoroutineScope.async(Dispatchers.IO){
                     val apiresult = URL(API).readText()
-                    val jsonObj = JSONObject(apiresult)
+                    val jsonObj = JSONObject(apiresult).getJSONObject(baseCur.lowercase())
 
                     jsonObj.getDouble(lowerConv).toFloat()
                 }
