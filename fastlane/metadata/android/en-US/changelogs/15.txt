@@ -1,0 +1,5 @@
+Enhancements
+
+- Added monochromatic/themed icon support.
+
+- History button now available in views directly for easy access.
