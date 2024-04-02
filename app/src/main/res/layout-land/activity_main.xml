@@ -662,10 +662,18 @@
             style="@style/yetCalcBorderlessButtons"
             android:textSize="16sp"/>
 
+        <ImageButton
+            android:id="@+id/histOthBt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginStart="2dp"
+            android:textSize="16sp" />
+
         <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="15" />
+            android:layout_weight="11" />
 
         <Button
             android:id="@+id/varbutton"

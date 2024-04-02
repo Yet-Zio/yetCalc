@@ -134,6 +134,12 @@
         <item name="android:background">@drawable/extra_standard_land</item>
     </style>
 
+    <style name="yetCalcBorderlessButtonsHist" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/calc_textdef</item>
+        <item name="android:src">@drawable/ic_baseline_history_24</item>
+        <item name="android:background">@drawable/extra_standard_land</item>
+    </style>
+
     <style name="yetCalcACButton">
         <item name="android:textColor">@color/lint_light</item>
         <item name="android:background">@drawable/ac_button</item>
@@ -320,6 +326,13 @@
         <item name="android:background">@drawable/extra_standard_landlight</item>
     </style>
 
+    <style name="yetCalcBorderlessButtonsHistLight" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:src">@drawable/histothblack</item>
+        <item name="android:background">@drawable/extra_standard_landlight</item>
+    </style>
+
     <style name="yetCalcACButtonLight">
         <item name="android:textColor">@color/pinkdark</item>
         <item name="android:textSize">32sp</item>
@@ -385,6 +398,14 @@
         <item name="android:textColor">@color/calc_textdeflight</item>
         <item name="android:textSize">23sp</item>
         <item name="android:textAllCaps">false</item>
+        <item name="android:background">@drawable/extra_standard_landlight</item>
+    </style>
+
+    <style name="yetCalcBorderlessButtonsHistLDLight" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/calc_textdeflight</item>
+        <item name="android:textSize">23sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:src">@drawable/ic_baseline_history_24light</item>
         <item name="android:background">@drawable/extra_standard_landlight</item>
     </style>
 

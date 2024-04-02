@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
     // Buttons - All
     private lateinit var gradbt: Button
     private lateinit var lambertW0bt: Button
+    private lateinit var histOthBt: ImageButton
 
     private lateinit var anglebt: Button
     private lateinit var othconstbt: Button
@@ -320,6 +321,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
         num3bt = findViewById(R.id.numberthree)
         num0bt = findViewById(R.id.numberzero)
         pointbt = findViewById(R.id.pointbutton)
+        histOthBt = findViewById(R.id.histOthBt)
 
         // Set theme
         if(light){
@@ -347,6 +349,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
 
                 Paris.style(anglebt).apply(R.style.yetCalcBorderlessButtonsLDLight)
                 Paris.style(sqrootbt).apply(R.style.yetCalcBorderlessButtonsLDLight)
+                Paris.style(histOthBt).apply(R.style.yetCalcBorderlessButtonsHistLDLight)
                 Paris.style(pibt).apply(R.style.yetCalcBorderlessButtonsLDLight)
 
                 Paris.style(othconstbt).apply(R.style.yetCalcBorderlessButtonsLDLight)
@@ -387,6 +390,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
             }
             else{
                 Paris.style(sqrootbt).apply(R.style.yetCalcBorderlessButtonsLight)
+                Paris.style(histOthBt).apply(R.style.yetCalcBorderlessButtonsHistLight)
                 Paris.style(pibt).apply(R.style.yetCalcBorderlessButtonsLight)
                 Paris.style(leftbracbt).apply(R.style.yetCalcBorderlessButtonsLight)
                 Paris.style(rightbracbt).apply(R.style.yetCalcBorderlessButtonsLight)
@@ -419,6 +423,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
                 Paris.style(pointbt).apply(R.style.yetCalcNumberButtonLight)
                 Paris.style(bkspacebt).apply(R.style.yetCalcNumberButtonLight)
             }
+        }
+        else if(dark){
+            Paris.style(histOthBt).apply(R.style.yetCalcBorderlessButtonsHist)
         }
         else{
             // for future themes
@@ -662,6 +669,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
         for (bt in button_list){
             bt.setOnClickListener(this)
         }
+        histOthBt.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
@@ -1270,6 +1278,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
 
     private fun handleGeneralButtons(id: Int){
         when(id){
+            R.id.histOthBt -> {
+                val hisintent = Intent(this, HistoryActivity::class.java)
+                histLauncher.launch(hisintent)
+            }
             R.id.currentAngleView -> {
                 angleModeSetter()
             }
