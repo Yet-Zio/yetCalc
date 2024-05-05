@@ -1,0 +1,140 @@
+<resources>
+    <string name="ghbtext">Посмотреть на GitHub</string>
+    <string name="app_details">Свободное программное обеспечение с открытым исходным кодом\nЛицензируется по лицензии BSD-3-Clause.</string>
+    <string name="licensesText">Лицензии на открытый исходный код</string>
+    <string name="history_name">История</string>
+    <string name="theme_opt">Выберите тему</string>
+    <string name="feedback">Отправить отзыв</string>
+    <string name="about">О приложении</string>
+
+    <string-array name="calcmode_array">
+        <item>1й</item>
+        <item>2й</item>
+        <item>3й</item>
+        <item>4й</item>
+        <item>5й</item>
+        <item>6й</item>
+        <item>7й</item>
+        <item>8й</item>
+        <item>9й</item>
+    </string-array>
+
+    <string name="action_settings">Настройки</string>
+    <string name="settingsmenu">Настройки</string>
+    <string name="helpmenu">Помощь</string>
+    <string name="currency_convertertitle">\nВалюта</string>
+    <string name="converter">Конвертер единиц измерения</string>
+    <string name="from">Из</string>
+    <string name="to">В</string>
+    <string name="amount">Количество</string>
+    <string name="update_currency_rates">Обновление курсов валют</string>
+    <string name="result">Результат</string>
+    <string name="date">Дата:</string>
+    <string name="nointInfoText">Для конвертации валюты требуется подключение к Интернету.</string>
+    <string name="nointTitle">Проверьте подключение к сети</string>
+    <string name="try_again">Попробуйте еще раз</string>
+
+    <string name="difference">Разница</string>
+    <string name="add">Добавить</string>
+    <string name="subtract">Вычесть</string>
+    <string name="datetext">Дата</string>
+    <string name="dark_theme">Тёмная</string>
+    <string name="system_theme">Как в системе</string>
+    <string name="light_theme">Светлая</string>
+
+    <string-array name="arealist">
+        <item>Гектары (ha)</item>
+    </string-array>
+
+    <string-array name="speedlist">
+        <item>Естественные единицы (скорость света)</item>
+    </string-array>
+
+    <string-array name="energylist">
+        <item>Килоджоули (kJ)</item>
+        <item>Эрг (erg)</item>
+        <item>Калории (cal)</item>
+        <item>Британские тепловые единицы (BTU)</item>
+        <item>Киловатт-часы (KWh)</item>
+        <item>Килокалории (kcal)</item>
+        <item>Фут-фунты (ft-lb)</item>
+    </string-array>
+
+    <string-array name="pressurelist">
+        <item>Атмосфер (atm)</item>
+        <item>Торры (Torr)</item>
+        <item>Паскали (Pa)</item>
+        <item>Килопаскали (kPa)</item>
+        <item>Кипы на квадратный дюйм (kip/in²)</item>
+        <item>Фунты на квадратный дюйм (lbf/in²)</item>
+        <item>Футов морской воды (15°C)</item>
+        <item>Бары</item>
+        <item>Килограммы на квадратный сантиметр (kg/cm²)</item>
+        <item>Бариес (Ba)</item>
+        <item>Сфены (sn)</item>
+        <item>Миллиметры ртутного столба (mmHg)</item>
+    </string-array>
+
+    <string-array name="timelist">
+        <item>Наносекунды (ns)</item>
+        <item>Микросекунды (μs)</item>
+        <item>Миллисекунды (ms)</item>
+        <item>Секунды(s)</item>
+        <item>Минуты (min)</item>
+        <item>Часы (hr)</item>
+        <item>Дни</item>
+        <item>Недели (wk)</item>
+        <item>Две недели (fn)</item>
+        <item>Месяцы (mo)</item>
+        <item>Годы (yr)</item>
+        <item>Десятилетия</item>
+        <item>Столетия</item>
+        <item>Тысячелетия</item>
+        <item>Галактические годы (gal)</item>
+    </string-array>
+
+    <string-array name="anglelist">
+        <item>Градусы (°)</item>
+        <item>Радианы (rad)</item>
+        <item>Градианы (grad)</item>
+        <item>Миллирадианы (мрад)</item>
+    </string-array>
+
+    <string-array name="datalist">
+        <item>Терабиты (Tb)</item>
+        <item>Тебибиты (Tib)</item>
+        <item>Терабайт (TB)</item>
+        <item>Тебибайты (TiB)</item>
+        <item>Петабиты (Pb)</item>
+        <item>Пебибиты (Pib)</item>
+        <item>Петабайты (PB)</item>
+        <item>Пебибайты (PiB)</item>
+        <item>Экзабиты (Eb)</item>
+        <item>Эксбибиты (Eib)</item>
+        <item>Эксабайты (EB)</item>
+        <item>Эксбибайты (EiB)</item>
+        <item>Зетабиты (Zb)</item>
+        <item>Зебибиты (Zib)</item>
+        <item>Зетабайты (ZB)</item>
+        <item>Зебибайты (ZiB)</item>
+        <item>Йоттабиты (Yb)</item>
+        <item>Йобибиты (Yib)</item>
+        <item>Йоттабайты (YB)</item>
+        <item>Йобибайты (YiB)</item>
+    </string-array>
+
+    <string-array name="numeralsystems">
+        <item>Шестнадцатеричный</item>
+        <item>Десятиричный</item>
+        <item>Восьмеричный</item>
+        <item>Двоичный</item>
+    </string-array>
+
+    <string-array name="calcmodeslist">
+        <item>Калькулятор</item>
+        <item>Конвертер</item>
+        <item>Режим программиста</item>
+    </string-array>
+    <string name="default_basecurrency">RUB</string>
+
+</resources>
