@@ -1,5 +1,6 @@
 package yetzio.yetcalc.views.fragments
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -9,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.preference.PreferenceManager
 import com.airbnb.paris.Paris
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -36,6 +38,8 @@ class VolumeFragment : Fragment() {
     private var pDark by Delegates.notNull<Boolean>()
     private var pLight by Delegates.notNull<Boolean>()
 
+    private var prefMgr: SharedPreferences? = null;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -52,6 +56,8 @@ class VolumeFragment : Fragment() {
 
         pViewModel = (activity as? UnitConvActivity)?.mViewModel!!
 
+        prefMgr = context?.let { PreferenceManager.getDefaultSharedPreferences(it.applicationContext) }
+
         firstConv = v.findViewById(R.id.et_firstConversion)
         secondConv = v.findViewById(R.id.et_secondConversion)
 
@@ -60,6 +66,14 @@ class VolumeFragment : Fragment() {
 
         setupSpinner()
         textChanged()
+
+        // restore selections / select first if none
+        val initPos1 = prefMgr?.getInt("volumeft", 0)!!
+        val initPos2 = prefMgr?.getInt("volumesd", 0)!!
+        spinner?.setSelection(initPos1)
+        spinner2?.setSelection(initPos2)
+        pViewModel._volumeftpos = initPos1
+        pViewModel._volumesdpos = initPos2
 
         if(pLight){
             Paris.style(firstConv).apply(R.style.ConvTextStyleLight)
@@ -163,13 +177,14 @@ class VolumeFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>?, vw: View?, pos: Int, id: Long) {
                 if(!pViewModel._volumespinInit){
                     pViewModel._volumespinInit = true
-                    pViewModel._volumeftpos = pos
-                    pViewModel._volumesdpos = 0
-
                     getConversionResults(firstConv?.id!!)
                     getConversionResults(secondConv?.id!!)
                 }
                 else{
+                    with (prefMgr?.edit()) {
+                        this?.putInt("volumeft", pos)
+                        this?.apply()
+                    }
                     pViewModel._volumeftpos = pos
                     pViewModel._volumesdpos = spinner2?.selectedItemPosition!!
 
@@ -188,12 +203,13 @@ class VolumeFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>?, vw: View?, pos: Int, id: Long) {
                 if(!pViewModel._svolumespinInit){
                     pViewModel._svolumespinInit = true
-                    pViewModel._volumeftpos = 0
-                    pViewModel._volumesdpos = pos
-
                     getConversionResults(firstConv?.id!!)
                 }
                 else{
+                    with (prefMgr?.edit()) {
+                        this?.putInt("volumesd", pos)
+                        this?.apply()
+                    }
                     pViewModel._volumeftpos = spinner?.selectedItemPosition!!
                     pViewModel._volumesdpos = pos
 

@@ -1,5 +1,6 @@
 package yetzio.yetcalc.views.fragments
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -9,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.preference.PreferenceManager
 import com.airbnb.paris.Paris
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -36,6 +38,8 @@ class EnergyFragment : Fragment() {
     private var pDark by Delegates.notNull<Boolean>()
     private var pLight by Delegates.notNull<Boolean>()
 
+    private var prefMgr: SharedPreferences? = null;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -52,6 +56,8 @@ class EnergyFragment : Fragment() {
 
         pViewModel = (activity as? UnitConvActivity)?.mViewModel!!
 
+        prefMgr = context?.let { PreferenceManager.getDefaultSharedPreferences(it.applicationContext) }
+
         firstConv = v.findViewById(R.id.et_firstConversion)
         secondConv = v.findViewById(R.id.et_secondConversion)
 
@@ -60,6 +66,14 @@ class EnergyFragment : Fragment() {
 
         setupSpinner()
         textChanged()
+
+        // restore selections / select first if none
+        val initPos1 = prefMgr?.getInt("energyft", 0)!!
+        val initPos2 = prefMgr?.getInt("energysd", 0)!!
+        spinner?.setSelection(initPos1)
+        spinner2?.setSelection(initPos2)
+        pViewModel._energyftpos = initPos1
+        pViewModel._energysdpos = initPos2
 
         if(pLight){
             Paris.style(firstConv).apply(R.style.ConvTextStyleLight)
@@ -163,13 +177,14 @@ class EnergyFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>?, vw: View?, pos: Int, id: Long) {
                 if(!pViewModel._energyspinInit){
                     pViewModel._energyspinInit = true
-                    pViewModel._energyftpos = pos
-                    pViewModel._energysdpos = 0
-
                     getConversionResults(firstConv?.id!!)
                     getConversionResults(secondConv?.id!!)
                 }
                 else{
+                    with (prefMgr?.edit()) {
+                        this?.putInt("energyft", pos)
+                        this?.apply()
+                    }
                     pViewModel._energyftpos = pos
                     pViewModel._energysdpos = spinner2?.selectedItemPosition!!
 
@@ -188,12 +203,13 @@ class EnergyFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>?, vw: View?, pos: Int, id: Long) {
                 if(!pViewModel._senergyspinInit){
                     pViewModel._senergyspinInit = true
-                    pViewModel._energyftpos = 0
-                    pViewModel._energysdpos = pos
-
                     getConversionResults(firstConv?.id!!)
                 }
                 else{
+                    with (prefMgr?.edit()) {
+                        this?.putInt("energysd", pos)
+                        this?.apply()
+                    }
                     pViewModel._energyftpos = spinner?.selectedItemPosition!!
                     pViewModel._energysdpos = pos
 

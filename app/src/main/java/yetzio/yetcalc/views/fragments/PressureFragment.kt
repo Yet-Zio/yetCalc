@@ -1,5 +1,6 @@
 package yetzio.yetcalc.views.fragments
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -9,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.preference.PreferenceManager
 import com.airbnb.paris.Paris
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -36,6 +38,8 @@ class PressureFragment : Fragment() {
     private var pDark by Delegates.notNull<Boolean>()
     private var pLight by Delegates.notNull<Boolean>()
 
+    private var prefMgr: SharedPreferences? = null;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -52,6 +56,8 @@ class PressureFragment : Fragment() {
 
         pViewModel = (activity as? UnitConvActivity)?.mViewModel!!
 
+        prefMgr = context?.let { PreferenceManager.getDefaultSharedPreferences(it.applicationContext) }
+
         firstConv = v.findViewById(R.id.et_firstConversion)
         secondConv = v.findViewById(R.id.et_secondConversion)
 
@@ -60,6 +66,14 @@ class PressureFragment : Fragment() {
 
         setupSpinner()
         textChanged()
+
+        // restore selections / select first if none
+        val initPos1 = prefMgr?.getInt("pressureft", 0)!!
+        val initPos2 = prefMgr?.getInt("pressuresd", 0)!!
+        spinner?.setSelection(initPos1)
+        spinner2?.setSelection(initPos2)
+        pViewModel._preftpos = initPos1
+        pViewModel._presdpos = initPos2
 
         if(pLight){
             Paris.style(firstConv).apply(R.style.ConvTextStyleLight)
@@ -163,13 +177,15 @@ class PressureFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>?, vw: View?, pos: Int, id: Long) {
                 if(!pViewModel._prespinInit){
                     pViewModel._prespinInit = true
-                    pViewModel._preftpos = pos
-                    pViewModel._presdpos = 0
-
                     getConversionResults(firstConv?.id!!)
                     getConversionResults(secondConv?.id!!)
                 }
                 else{
+                    with (prefMgr?.edit()) {
+                        this?.putInt("pressureft", pos)
+                        this?.apply()
+                    }
+
                     pViewModel._preftpos = pos
                     pViewModel._presdpos = spinner2?.selectedItemPosition!!
 
@@ -188,12 +204,14 @@ class PressureFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>?, vw: View?, pos: Int, id: Long) {
                 if(!pViewModel._sprespinInit){
                     pViewModel._sprespinInit = true
-                    pViewModel._preftpos = 0
-                    pViewModel._presdpos = pos
-
                     getConversionResults(firstConv?.id!!)
                 }
                 else{
+                    with (prefMgr?.edit()) {
+                        this?.putInt("pressuresd", pos)
+                        this?.apply()
+                    }
+
                     pViewModel._preftpos = spinner?.selectedItemPosition!!
                     pViewModel._presdpos = pos
 

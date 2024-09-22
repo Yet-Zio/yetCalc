@@ -1,6 +1,7 @@
 package yetzio.yetcalc.views.fragments
 
 import android.app.DatePickerDialog
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -58,6 +59,8 @@ class CurrencyFragment : Fragment() {
     private var pLight by Delegates.notNull<Boolean>()
     private lateinit var selectedDateFormat: String
 
+    private var prefMgr: SharedPreferences? = null;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -71,7 +74,7 @@ class CurrencyFragment : Fragment() {
         pDark = (activity as? UnitConvActivity)?.dark!!
         pLight = (activity as? UnitConvActivity)?.light!!
 
-        val prefMgr = context?.let { PreferenceManager.getDefaultSharedPreferences(it.applicationContext) }
+        prefMgr = context?.let { PreferenceManager.getDefaultSharedPreferences(it.applicationContext) }
         selectedDateFormat = prefMgr?.getString("dateFormatKey", "YYYY-MM-DD").toString()
 
 
@@ -126,6 +129,12 @@ class CurrencyFragment : Fragment() {
         setupSpinner()
         setupDatePicker()
         textChanged()
+
+        // restore selections / select first if none
+        val initPos1 = prefMgr?.getInt("currencyft", 0)!!
+        val initPos2 = prefMgr?.getInt("currencysd", 0)!!
+        spinner?.setSelection(initPos1)
+        spinner2?.setSelection(initPos2)
 
         if(pLight){
             Paris.style(firstConv).apply(R.style.ConvTextStyleLight)
@@ -266,6 +275,10 @@ class CurrencyFragment : Fragment() {
 
         spinner?.onItemSelectedListener = (object: AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, spview: View?, pos: Int, id: Long) {
+                with (prefMgr?.edit()) {
+                    this?.putInt("currencyft", pos)
+                    this?.apply()
+                }
                 if(isNetworkAvailable(context?.applicationContext)){
                     baseCur = parent?.getItemAtPosition(pos).toString()
                     getApiResults(firstConv?.id!!)
@@ -283,6 +296,10 @@ class CurrencyFragment : Fragment() {
 
         spinner2?.onItemSelectedListener = (object: AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, spview: View?, pos: Int, id: Long) {
+                with (prefMgr?.edit()) {
+                    this?.putInt("currencysd", pos)
+                    this?.apply()
+                }
                 if(isNetworkAvailable(context?.applicationContext)){
                     convCur = parent?.getItemAtPosition(pos).toString()
                     getApiResults(firstConv?.id!!)
