@@ -5,15 +5,16 @@
 [![Donate](https://img.shields.io/badge/$-support-ff69b4.svg?style=flat)](https://www.buymeacoffee.com/yetzio)
 
 </div>
-<p align="center">
-  <img src="./img/icons/appico.png?raw=true" alt="yetCalc Icon" width="60" height="60"/>
-</p>
 
-<h1 align="center">yetCalc</h1>
+<img src="fastlane/metadata/android/en-US/images/featureGraphic.png" alt="yetCalc Brand" style="display: block; margin: 0 auto 30px;">
 
-The free and open source calculator developed for Android 5.0 and above using Kotlin. yetCalc's calculator mode uses the [mXparser](https://mathparser.org/) library. Large calculations are handled without device freezing and other issues, although some calculations might take time. 
-
-![yetCalc About](./img/snaps/calcbrand.png)
+<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="24%"/>
+<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="24%"/>
+<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" width="24%"/>
+<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" width="24%"/>
+<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="24%"/>
+<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/6.png" width="24%"/>
+<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/7.png" width="24%"/>
 
 ## Modes
 
@@ -28,6 +29,8 @@ The free and open source calculator developed for Android 5.0 and above using Ko
     - System Theme(default)
     - Dark mode🌃
     - Light mode🏙️
+    - Abyss mode (AMOLED Dark)
+    - Material You (Dynamic Colors)
 
 
 - Calculator
@@ -51,8 +54,6 @@ The free and open source calculator developed for Android 5.0 and above using Ko
 
     <br>
 
-    **DO NOTE**: Inorder to use scientific features, the device should be in landscape mode.
-
 - Unit Converter
     - **Currency**: Conversions are handled through [fawazahmed0/currency-api](https://github.com/fawazahmed0/currency-api) and requires an Internet connection.
     - **Length**: Conversions to and from Femtometres, Picometres, Nanometres, Micrometres, Millimetres, Centimetres, Decimetres, Metres, Decametres, Hectometres, Kilometres, Inches, Feet, Yards, Miles, Nautical Miles, Megametres, Gigametres, Terametres, Petametres, Furlongs
@@ -68,9 +69,9 @@ The free and open source calculator developed for Android 5.0 and above using Ko
     - **Angle**: Degrees, Radians, Gradians, Turns, Milliradians, Minutes of arc, Seconds of arc
     - **Data**: Bits, Nibbles, Crumbs, Bytes, Kilobits, Kibibits, Megabits, Mebibits, Gigabits, Gibibits, Terabits, Tebibits, Petabits, Pebibits, Exabits, Exbibits, Zetabits, Zebibits, Yottabits, Yobibits, Kilobytes, Kibibytes, Megabytes, Mebibytes, Gigabytes, Gibibytes, Terabytes, Tebibytes, Petabytes, Pebibytes, Exabytes, Exbibytes, Zetabytes, Zebibytes, Yottabytes, Yobibytes
 
-- Programmer(Extended from this [implementation](https://github.com/agam23/programmers-calculator-in-kotlin))
+- Programmer (Implemented using EvalEx)
     - Provides all basic operators like +, -, ×, ÷
-    - Provides logical operators like AND, OR, NOT, NAND, NOR, XOR
+    - Provides bitwise operators like AND, OR, NOT, NAND, NOR, XOR, XNOR, URSH, RoL, RoR
     - Provides operations like left shift(<<) and right shift(>>)
     - Support for commonly used number systems: Binary, Octal, Decimal and Hexadecimal
     
@@ -84,7 +85,7 @@ The free and open source calculator developed for Android 5.0 and above using Ko
 
 Or download the app from the [releases page](https://github.com/Yet-Zio/yetCalc/releases/latest).
 
-Note: Requires Android 5.0 and above.
+Note: Requires Android 9.0 and above.
 
 Also, only download the app from sources provided by the developer.
 
