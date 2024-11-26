@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Background Colors -->
+    <attr name="calcBackgroundDefault" format="color" />
+    <attr name="calendarBackgroundColor" format="color" />
+
+    <!-- Button Colors -->
+    <attr name="altButtonBgColor" format="color"/>
+    <attr name="altButtonTextColor" format="color" />
+    <attr name="altButtonClickedColor" format="color" />
+    <attr name="calcTextDefaultColor" format="color" />
+
+    <!-- UI Elements -->
+    <attr name="modeBorderColor" format="color" />
+    <attr name="popupBackgroundColor" format="color" />
+
+    <!-- Text Colors -->
+    <attr name="textResultColor" format="color" />
+    <attr name="disabledTextColor" format="color" />
+    <attr name="textExpressionColor" format="color" />
+    <attr name="altHeaderColor" format="color" />
+    <attr name="dangerColor" format="color" />
+    <attr name="altIconColor" format="color" />
+    <attr name="boxBackgroundColor" format="color" />
+
+    <!-- Calculator Buttons -->
+    <attr name="calcButtonColor" format="color" />
+    <attr name="calcButtonClickedColor" format="color" />
+    <attr name="altRippleColor" format="color" />
+
+    <!-- AC Button -->
+    <attr name="acButtonColor" format="color" />
+    <attr name="acButtonDarkColor" format="color" />
+    <attr name="acButtonLightColor" format="color" />
+
+    <!-- Dark Theme Elements -->
+    <attr name="darkViewColor" format="color" />
+    <attr name="darkCircleViewColor" format="color" />
+    <attr name="darkViewArrowColor" format="color" />
+
+    <!-- Number Buttons -->
+    <attr name="numberButtonColor" format="color" />
+    <attr name="numberButtonClickedColor" format="color" />
+
+    <!-- Equals Button -->
+    <attr name="equalsButtonColor" format="color" />
+    <attr name="equalsButtonClickedColor" format="color" />
+    <attr name="equalsButtonTextColor" format="color" />
+
+    <!-- Unit Conversion -->
+    <attr name="tabNotSelectedColor" format="color" />
+    <attr name="tabSelectedColor" format="color" />
+</resources>

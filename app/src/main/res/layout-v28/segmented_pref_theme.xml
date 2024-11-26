@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/themeTitleContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/themetogglegroup"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/round_format_paint_24"
+            app:tint="?attr/calcTextDefaultColor" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="10dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/selectthemeforcalc"
+                android:textColor="?attr/textExpressionColor"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/choose_a_theme_for_the_app"
+                android:textColor="?attr/textResultColor"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/themetogglegroup"
+        app:singleSelection="true"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/themeTitleContainer"
+        android:gravity="center_horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/systemDefaultBt"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/round_sysdefault_24"
+            android:fontFamily="@font/nunitosans"
+            app:iconTint="?attr/textExpressionColor"
+            />
+        <com.google.android.material.button.MaterialButton
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/lightThBt"
+            android:layout_width="70dp"
+            android:fontFamily="@font/nunitosans"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/outline_light_mode_24"
+            app:iconTint="?attr/textExpressionColor"
+            android:textColor="?attr/textExpressionColor"
+            />
+        <com.google.android.material.button.MaterialButton
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/darkThBt"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans"
+            app:icon="@drawable/outline_dark_mode_24"
+            app:iconTint="?attr/textExpressionColor"
+            android:textColor="?attr/textExpressionColor"
+            />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <LinearLayout
+        android:id="@+id/amoledDarkContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/themetogglegroup"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/eye_circle"
+            app:tint="?attr/calcTextDefaultColor" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/theme_from_the_abyss"
+                android:textColor="?attr/textExpressionColor"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/offers_a_fully_black_background_nhelps_preserve_battery_life_nalso_called_amoled_dark"
+                android:textColor="?attr/textResultColor"/>
+        </LinearLayout>
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/abyssSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            app:thumbTint="@color/switch_thumb_tint"
+            app:trackTint="@color/switch_track_tint"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/materialYouSwitchContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/amoledDarkContainer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/matYouImg"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/palette_swatch_variant"
+            app:tint="?attr/calcTextDefaultColor" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/matYouText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/material_youthemetitle"
+                android:textColor="?attr/textExpressionColor"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/matYouSubText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/apply_dynamic_colors_to_the_app"
+                android:textColor="?attr/textResultColor"/>
+        </LinearLayout>
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/materialYouSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            app:thumbTint="@color/switch_thumb_tint"
+            app:trackTint="@color/switch_track_tint"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

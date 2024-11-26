@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="20dp"
+                android:id="@+id/firstConvFieldContainer"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cursorColor="?attr/textExpressionColor"
+                style="@style/UnitConvInputLayout">
+
+                <yetzio.yetcalc.widget.CalcText
+                    android:id="@+id/firstConvField"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:fontFamily="@font/nunitosans"
+                    style="@style/UnitConvTextField"
+                    android:inputType="numberDecimal|textNoSuggestions"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                app:layout_constraintTop_toBottomOf="@id/firstConvFieldContainer"
+                android:id="@+id/firstConvDropDown"
+                android:layout_width="200dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                style="@style/UnitConvSelectorTheme">
+
+                <AutoCompleteTextView
+                    android:id="@+id/firstConvDropDownField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/AutoCompleteTVTheme"
+                    android:textSize="16sp"
+                    android:textColor="?attr/textExpressionColor"
+                    android:fontFamily="@font/nunitosans"
+                    android:inputType="none" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/switchUnitsButton"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/firstConvDropDown"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:fontFamily="@font/nunitosans"
+                style="@style/CircularButton"
+                android:layout_marginStart="5dp"
+                app:icon="@drawable/round_swap_vert_24"
+                app:iconSize="40dp"
+                android:backgroundTint="?attr/altButtonBgColor"
+                app:iconGravity="textStart"
+                app:iconTint="?attr/altIconColor"
+                app:rippleColor="?attr/altButtonClickedColor"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/secondConvFieldContainer"
+                app:layout_constraintTop_toBottomOf="@id/switchUnitsButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cursorColor="?attr/textExpressionColor"
+                style="@style/UnitConvInputLayout">
+
+                <yetzio.yetcalc.widget.CalcText
+                    android:id="@+id/secondConvField"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    style="@style/UnitConvTextField"
+                    android:fontFamily="@font/nunitosans"
+                    android:inputType="numberDecimal|textNoSuggestions"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/secondConvDropDown"
+                app:layout_constraintTop_toBottomOf="@id/secondConvFieldContainer"
+                android:layout_width="200dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="wrap_content"
+                style="@style/UnitConvSelectorTheme">
+
+                <AutoCompleteTextView
+                    android:id="@+id/secondConvDropDownField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/AutoCompleteTVTheme"
+                    android:textSize="16sp"
+                    android:textColor="?attr/textExpressionColor"
+                    android:fontFamily="@font/nunitosans"
+                    android:inputType="none" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                app:layout_constraintTop_toBottomOf="@id/secondConvDropDown"
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/datecurrencyconv"
+                        android:layout_width="wrap_content"
+                        android:hint=""
+                        android:fontFamily="@font/nunitosans"
+                        android:inputType="date"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/calenderFloatButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="20dp"
+                    app:elevation="0dp"
+                    android:src="@drawable/calendar_edit"
+                    android:backgroundTint="?attr/calcButtonClickedColor"
+                    app:tint="?attr/textExpressionColor"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

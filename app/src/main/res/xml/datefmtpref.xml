@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <yetzio.yetcalc.widget.DateFormatPreference
+        android:key="datefmtmenu"
+        app:icon="@drawable/round_calendar_today_24"
+        app:title="Date Format (Currency)"
+        android:summary="Select the desired date format that you understand"
+        android:layout="@layout/datefmtlayout"
+        />
+
+</androidx.preference.PreferenceScreen>

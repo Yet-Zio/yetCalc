@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- BG Color -->
+    <color name="calc_bgdef">#191919</color>
+    <color name="calenderbgcolor">#101010</color>
+
+    <!-- Alt Button Colors -->
+    <color name="altbuttonbgcolor">#191919</color>
+    <color name="altbuttontext">#A0A0A0</color>
+    <color name="altbuttonclicked">#313131</color>
+
+    <color name="calc_textdef">#A0CAAB</color>
+    <color name="eastereggTextColor">#A0CAAB</color>
+
+    <color name="modeborder">#50A0CAAB</color>
+    <color name="popupBG">#464646</color>
+
+    <color name="textres">#A0A0A0</color>
+    <color name="disabledTextPG">#9D3E3E3E</color>
+    <color name="textexp">#E3E3E3</color>
+    <color name="altheader">#E0E0E0</color>
+    <color name="danger">#BDBDBD</color>
+    <color name="alticoncolor">#C7C7C7</color>
+    <color name="boxbg">#2C2C2C</color>
+
+    <color name="calcbutton">@android:color/transparent</color>
+    <color name="calcbutton_clicked">#3F5344</color>
+    <color name="altripple">#4A6451</color>
+
+    <color name="ac">#3F5344</color>
+    <color name="ac_dark">@android:color/transparent</color>
+    <color name="ac_light">#BACC81</color>
+
+    <color name="darkview">#18251b</color>
+    <color name="darkcircleview">#18251b</color>
+    <color name="darkviewarrow">#A0CAAB</color>
+
+    <color name="numberbutton">@android:color/transparent</color>
+    <color name="numberbutton_clicked">#3F5344</color>
+
+    <color name="eqbutton">#387149</color>
+    <color name="eqbutton_clicked">#85BD96</color>
+    <color name="eqbuttonText">#A0CAAB</color>
+
+    <!-- Unit Conv -->
+    <color name="tabnotselected">#B2C5B7</color>
+    <color name="tabselected">#A0CAAB</color>
+
+    <!-- AMOLED variants -->
+    <color name="amoled_calc_bgdef">@android:color/black</color>
+    <color name="amoled_calenderbgcolor">@android:color/black</color>
+
+    <color name="amoled_altbuttonbgcolor">@android:color/black</color>
+    <color name="amoled_altbuttontext">#A0A0A0</color>
+    <color name="amoled_altbuttonclicked">#1A1A1A</color>
+
+    <color name="amoled_calc_textdef">#A0A0A0</color>
+
+    <color name="amoled_modeborder">#404040</color>
+    <color name="amoled_popupBG">#121212</color>
+
+    <color name="amoled_textres">#A0A0A0</color>
+    <color name="amoled_disabled">#4B4B4B</color>
+    <color name="amoled_textexp">#FFFFFF</color>
+    <color name="amoled_altheader">#FFFFFF</color>
+    <color name="amoled_danger">#BDBDBD</color>
+    <color name="amoled_alticoncolor">#FFFFFF</color>
+    <color name="amoled_boxbg">#121212</color>
+
+    <color name="amoled_calcbutton_clicked">#1A1A1A</color>
+    <color name="amoled_altripple">#1A1A1A</color>
+
+    <color name="amoled_ac">#1A1A1A</color>
+    <color name="amoled_ac_light">#A0A0A0</color>
+
+    <color name="amoled_darkview">@android:color/black</color>
+    <color name="amoled_darkcircleview">@android:color/black</color>
+    <color name="amoled_darkviewarrow">#A0A0A0</color>
+
+    <color name="amoled_numberbutton_clicked">#1A1A1A</color>
+
+    <color name="amoled_eqbutton">#1A1A1A</color>
+    <color name="amoled_eqbutton_clicked">#2D2D2D</color>
+    <color name="amoled_eqbuttonText">#A0A0A0</color>
+
+    <color name="amoled_tabnotselected">#808080</color>
+    <color name="amoled_tabselected">#A0A0A0</color>
+</resources>

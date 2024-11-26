@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        app:key="ossprefkey"
+        app:title="Open source licenses"
+        app:icon="@drawable/round_copyright_24">
+    </Preference>
+
+</androidx.preference.PreferenceScreen>

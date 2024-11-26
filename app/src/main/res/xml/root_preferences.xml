@@ -1,0 +1,57 @@
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.preference.Preference
+        android:key="appearance"
+        app:title="@string/appearancetitle"
+        android:summary="@string/appearancesubtext"
+        app:icon="@drawable/outline_palette_24" />
+
+    <androidx.preference.Preference
+        android:key="general"
+        app:title="@string/generaltitle"
+        android:summary="@string/generalsubtext"
+        app:icon="@drawable/round_tune_24" />
+
+    <androidx.preference.Preference
+        android:key="calculator"
+        app:title="@string/calculatortitle"
+        android:summary="@string/calculatorsubtext"
+        app:icon="@drawable/ic_baseline_calculate_24" />
+
+    <androidx.preference.Preference
+        android:key="unitconv"
+        app:title="@string/unitconvtitle"
+        android:summary="@string/unitconvsubtext"
+        app:icon="@drawable/ic_baseline_cyclone_24" />
+
+    <androidx.preference.Preference
+        android:key="programmer"
+        app:title="@string/programmertitle"
+        android:summary="@string/programmersubtext"
+        app:icon="@drawable/ic_baseline_code_24" />
+
+    <PreferenceCategory
+        app:allowDividerAbove="false"
+        app:title="@string/appctgtitle">
+
+        <Preference
+            app:title="@string/donatetitle"
+            app:summary="@string/donatesubtext"
+            app:icon="@drawable/round_volunteer_activism_24">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Yet-Zio/yetCalc/blob/main/DONATE.md"/>
+        </Preference>
+
+        <Preference
+            android:key="aboutkey"
+            app:title="@string/abouttitle"
+            app:summary="@string/aboutsubtext"
+            app:icon="@drawable/round_info_24">
+        </Preference>
+
+    </PreferenceCategory>
+    
+
+</androidx.preference.PreferenceScreen>

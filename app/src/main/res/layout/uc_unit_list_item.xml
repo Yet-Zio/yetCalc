@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/unitTextContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/container_round_ripple"
+    android:clickable="true"
+    android:focusable="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:paddingTop="5dp"
+    android:paddingStart="5dp"
+    android:paddingEnd="5dp"
+    android:paddingBottom="5dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/unitTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_weight="1"
+        android:textColor="?attr/textExpressionColor"
+        android:gravity="center|start"
+        android:text="Item Name" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/pinItemButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        style="@style/PinButton"
+        app:icon="@drawable/outline_push_pin_24"
+        app:iconSize="24dp"
+        app:iconGravity="textStart"
+        app:iconTint="?attr/textExpressionColor"
+        app:rippleColor="?attr/altRippleColor"
+        android:clickable="true"
+        android:focusable="true"
+        />
+</LinearLayout>

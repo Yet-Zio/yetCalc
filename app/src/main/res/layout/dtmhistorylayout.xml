@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/firstFormatLyt"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/firstFormat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Default format"
+            android:textColor="?attr/textExpressionColor"
+            android:fontFamily="@font/nunitosans"
+            android:textSize="18sp"
+            app:buttonTint="@color/radiobuttontint"
+            android:paddingStart="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@id/firstFormatLyt"
+        android:id="@+id/secondFormatLyt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/secondFormat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="dd, MMMM yyyy HH:mm:ss"
+            android:textColor="?attr/textExpressionColor"
+            android:fontFamily="@font/nunitosans"
+            android:textSize="18sp"
+            app:buttonTint="@color/radiobuttontint"
+            android:paddingStart="10dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@id/secondFormatLyt"
+        android:id="@+id/thirdFormatLyt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/thirdFormat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="yyyy, MMMM dd HH:mm:ss"
+            android:textColor="?attr/textExpressionColor"
+            android:textSize="18sp"
+            android:fontFamily="@font/nunitosans"
+            app:buttonTint="@color/radiobuttontint"
+            android:paddingStart="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/thirdFormatLyt"
+        android:layout_marginTop="10dp"
+        android:id="@+id/dtmHistFormatPreview"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/precisionbg">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/dateHistExampleView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans"
+                android:textColor="?attr/textExpressionColor"
+                android:textSize="25sp"
+                android:singleLine="true"
+                android:padding="20dp" />
+
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <yetzio.yetcalc.widget.HomePreference
+        android:key="prefmodekey"
+        app:icon="@drawable/outline_home_24"
+        app:title="Preferred Mode"
+        android:summary="Choose your default starting screen"
+        android:layout="@layout/prefmodelayout"
+        />
+</androidx.preference.PreferenceScreen>

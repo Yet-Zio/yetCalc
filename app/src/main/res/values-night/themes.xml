@@ -1,0 +1,697 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.YetCalc.Night" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="calcBackgroundDefault">@color/calc_bgdef</item>
+        <item name="calendarBackgroundColor">@color/calenderbgcolor</item>
+
+        <!-- Button Colors -->
+        <item name="altButtonBgColor">@color/altbuttonbgcolor</item>
+        <item name="altButtonTextColor">@color/altbuttontext</item>
+        <item name="altButtonClickedColor">@color/altbuttonclicked</item>
+        <item name="calcTextDefaultColor">@color/calc_textdef</item>
+
+        <!-- UI Elements -->
+        <item name="modeBorderColor">@color/modeborder</item>
+        <item name="popupBackgroundColor">@color/popupBG</item>
+
+        <!-- Text Colors -->
+        <item name="textResultColor">@color/textres</item>
+        <item name="disabledTextColor">@color/textres</item>
+        <item name="textExpressionColor">@color/textexp</item>
+        <item name="altHeaderColor">@color/altheader</item>
+        <item name="dangerColor">@color/danger</item>
+        <item name="altIconColor">@color/alticoncolor</item>
+        <item name="boxBackgroundColor">@color/boxbg</item>
+
+        <!-- Calculator Buttons -->
+        <item name="calcButtonColor">@android:color/transparent</item>
+        <item name="calcButtonClickedColor">@color/calcbutton_clicked</item>
+        <item name="altRippleColor">@color/altripple</item>
+
+        <!-- AC Button -->
+        <item name="acButtonColor">@color/ac</item>
+        <item name="acButtonDarkColor">@android:color/transparent</item>
+        <item name="acButtonLightColor">@color/ac_light</item>
+
+        <!-- Dark Theme Elements -->
+        <item name="darkViewColor">@color/darkview</item>
+        <item name="darkCircleViewColor">@color/darkcircleview</item>
+        <item name="darkViewArrowColor">@color/darkviewarrow</item>
+
+        <!-- Number Buttons -->
+        <item name="numberButtonColor">@android:color/transparent</item>
+        <item name="numberButtonClickedColor">@color/numberbutton_clicked</item>
+
+        <!-- Equals Button -->
+        <item name="equalsButtonColor">@color/eqbutton</item>
+        <item name="equalsButtonClickedColor">@color/eqbutton_clicked</item>
+        <item name="equalsButtonTextColor">@color/eqbuttonText</item>
+
+        <!-- Unit Conversion -->
+        <item name="tabNotSelectedColor">@color/tabnotselected</item>
+        <item name="tabSelectedColor">@color/tabselected</item>
+
+        <item name="colorPrimary">?attr/calcBackgroundDefault</item>
+        <item name="colorSurface">?attr/calcBackgroundDefault</item>
+        <item name="android:navigationBarColor">?attr/darkViewColor</item>
+        <item name="android:statusBarColor">?attr/calcBackgroundDefault</item>
+        <item name="android:windowBackground">?attr/calcBackgroundDefault</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+        <item name="android:textColorPrimary">?attr/textExpressionColor</item>
+        <item name="android:textColorSecondary">?attr/textResultColor</item>
+        <item name="preferenceTheme">@style/PrefTheme</item>
+    </style>
+
+    <style name="AbyssTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="calcBackgroundDefault">@color/amoled_calc_bgdef</item>
+        <item name="calendarBackgroundColor">@color/amoled_calenderbgcolor</item>
+
+        <!-- Button Colors -->
+        <item name="altButtonBgColor">@color/amoled_altbuttonbgcolor</item>
+        <item name="altButtonTextColor">@color/amoled_altbuttontext</item>
+        <item name="altButtonClickedColor">@color/amoled_altbuttonclicked</item>
+        <item name="calcTextDefaultColor">@color/amoled_calc_textdef</item>
+
+        <!-- UI Elements -->
+        <item name="modeBorderColor">@color/amoled_modeborder</item>
+        <item name="popupBackgroundColor">@color/amoled_popupBG</item>
+
+        <!-- Text Colors -->
+        <item name="textResultColor">@color/amoled_textres</item>
+        <item name="disabledTextColor">@color/amoled_disabled</item>
+        <item name="textExpressionColor">@color/amoled_textexp</item>
+        <item name="altHeaderColor">@color/amoled_altheader</item>
+        <item name="dangerColor">@color/amoled_danger</item>
+        <item name="altIconColor">@color/amoled_alticoncolor</item>
+        <item name="boxBackgroundColor">@color/amoled_boxbg</item>
+
+        <!-- Calculator Buttons -->
+        <item name="calcButtonColor">@android:color/transparent</item>
+        <item name="calcButtonClickedColor">@color/amoled_calcbutton_clicked</item>
+        <item name="altRippleColor">@color/amoled_altripple</item>
+
+        <!-- AC Button -->
+        <item name="acButtonColor">@color/amoled_ac</item>
+        <item name="acButtonDarkColor">@android:color/transparent</item>
+        <item name="acButtonLightColor">@color/amoled_ac_light</item>
+
+        <!-- Dark Theme Elements -->
+        <item name="darkViewColor">@color/amoled_darkview</item>
+        <item name="darkCircleViewColor">@color/amoled_darkcircleview</item>
+        <item name="darkViewArrowColor">@color/amoled_darkviewarrow</item>
+
+        <!-- Number Buttons -->
+        <item name="numberButtonColor">@android:color/transparent</item>
+        <item name="numberButtonClickedColor">@color/amoled_numberbutton_clicked</item>
+
+        <!-- Equals Button -->
+        <item name="equalsButtonColor">@color/amoled_eqbutton</item>
+        <item name="equalsButtonClickedColor">@color/amoled_eqbutton_clicked</item>
+        <item name="equalsButtonTextColor">@color/amoled_eqbuttonText</item>
+
+        <!-- Unit Conversion -->
+        <item name="tabNotSelectedColor">@color/amoled_tabnotselected</item>
+        <item name="tabSelectedColor">@color/amoled_tabselected</item>
+
+        <item name="colorPrimary">?attr/calcBackgroundDefault</item>
+        <item name="colorSurface">?attr/calcBackgroundDefault</item>
+        <item name="android:navigationBarColor">?attr/darkViewColor</item>
+        <item name="android:statusBarColor">?attr/calcBackgroundDefault</item>
+        <item name="android:windowBackground">?attr/calcBackgroundDefault</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+        <item name="android:textColorPrimary">?attr/textExpressionColor</item>
+        <item name="android:textColorSecondary">?attr/textResultColor</item>
+        <item name="preferenceTheme">@style/PrefTheme</item>
+    </style>
+
+    <style name="MatYouAboutLibStyle">
+        <item name="aboutLibrariesCardBackground">?attr/calcBackgroundDefault</item>
+        <item name="aboutLibrariesDescriptionTitle">?android:textColorPrimary</item>
+        <item name="aboutLibrariesDescriptionText">?android:textColorSecondary</item>
+        <item name="aboutLibrariesDescriptionDivider">@color/description_divider</item>
+        <item name="aboutLibrariesOpenSourceTitle">?android:textColorPrimary</item>
+        <item name="aboutLibrariesOpenSourceText">?android:textColorSecondary</item>
+        <item name="aboutLibrariesSpecialButtonText">?android:textColorPrimary</item>
+        <item name="aboutLibrariesOpenSourceDivider">@color/opensource_divider</item>
+    </style>
+
+    <style name="MaterialYouTheme" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="calcBackgroundDefault" tools:targetApi="s">@android:color/system_neutral1_900</item>
+        <item name="calendarBackgroundColor" tools:targetApi="s">@android:color/system_neutral2_800</item>
+        <item name="aboutLibrariesStyle">@style/MatYouAboutLibStyle</item>
+
+        <!-- Button Colors -->
+        <item name="altButtonBgColor" tools:targetApi="s">@android:color/system_neutral1_900</item>
+        <item name="altButtonTextColor" tools:targetApi="s">@android:color/system_neutral1_50</item>
+        <item name="altButtonClickedColor" tools:targetApi="s">@android:color/system_neutral1_800</item>
+        <item name="calcTextDefaultColor" tools:targetApi="s">@android:color/system_neutral1_50</item>
+
+        <!-- UI Elements -->
+        <item name="modeBorderColor" tools:targetApi="s">@android:color/system_neutral1_400</item>
+        <item name="popupBackgroundColor" tools:targetApi="s">@android:color/system_neutral1_900</item>
+
+        <!-- Text Colors -->
+        <item name="textResultColor" tools:targetApi="s">@android:color/system_neutral1_100</item>
+        <item name="disabledTextColor">@color/textres</item>
+        <item name="textExpressionColor" tools:targetApi="s">@android:color/system_neutral1_50</item>
+        <item name="altHeaderColor" tools:targetApi="s">@android:color/system_accent1_100</item>
+        <item name="dangerColor" tools:targetApi="s">@android:color/system_neutral1_50</item>
+        <item name="altIconColor" tools:targetApi="s">@android:color/system_neutral2_200</item>
+        <item name="boxBackgroundColor" tools:targetApi="s">@android:color/system_neutral1_800</item>
+
+        <!-- Calculator Buttons -->
+        <item name="calcButtonColor" tools:targetApi="s">@android:color/transparent</item>
+        <item name="calcButtonClickedColor" tools:targetApi="s">@android:color/system_neutral1_600</item>
+        <item name="altRippleColor" tools:targetApi="s">@android:color/system_accent1_600</item>
+
+        <!-- AC Button -->
+        <item name="acButtonColor" tools:targetApi="s">@android:color/system_neutral1_600</item>
+        <item name="acButtonDarkColor" tools:targetApi="s">@android:color/transparent</item>
+        <item name="acButtonLightColor" tools:targetApi="s">@android:color/system_neutral1_50</item>
+
+        <!-- Dark Theme Elements -->
+        <item name="darkViewColor" tools:targetApi="s">@android:color/system_neutral1_800</item>
+        <item name="darkCircleViewColor" tools:targetApi="s">@android:color/system_neutral1_800</item>
+        <item name="darkViewArrowColor" tools:targetApi="s">@android:color/system_neutral1_50</item>
+
+        <!-- Number Buttons -->
+        <item name="numberButtonColor" tools:targetApi="s">@android:color/transparent</item>
+        <item name="numberButtonClickedColor" tools:targetApi="s">@android:color/system_neutral1_600</item>
+
+        <!-- Equals Button -->
+        <item name="equalsButtonColor" tools:targetApi="s">@android:color/system_accent1_200</item>
+        <item name="equalsButtonClickedColor" tools:targetApi="s">@android:color/system_accent1_300</item>
+        <item name="equalsButtonTextColor" tools:targetApi="s">@android:color/system_neutral1_900</item>
+
+        <!-- Unit Conversion -->
+        <item name="tabNotSelectedColor" tools:targetApi="s">@android:color/system_neutral1_100</item>
+        <item name="tabSelectedColor" tools:targetApi="s">@android:color/system_accent1_100</item>
+
+        <item name="android:navigationBarColor" tools:targetApi="s">@android:color/system_neutral1_800</item>
+        <item name="android:statusBarColor">?attr/calcBackgroundDefault</item>
+        <item name="android:windowBackground">?attr/calcBackgroundDefault</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+        <item name="android:textColorPrimary">?attr/textExpressionColor</item>
+        <item name="android:textColorSecondary">?attr/textResultColor</item>
+        <item name="preferenceTheme">@style/PrefTheme</item>
+    </style>
+
+    <style name="PrefTheme" parent="PreferenceThemeOverlay">
+        <item name="switchPreferenceCompatStyle">@style/PreferenceMaterialSwitch</item>
+        <item name="android:fontFamily">@font/nunitosans</item>
+        <item name="android:textSize">16sp</item>
+        <item name="preferenceCategoryTitleTextColor">?attr/calcTextDefaultColor</item>
+    </style>
+
+    <style name="PreferenceMaterialSwitch" parent="@style/Preference.SwitchPreferenceCompat.Material">
+        <item name="widgetLayout">@layout/material_switch</item>
+    </style>
+
+    <style name="AltButtonTheme">
+        <item name="backgroundTint">?attr/calcBackgroundDefault</item>
+        <item name="rippleColor">?attr/altButtonClickedColor</item>
+        <item name="android:textColor">?attr/altButtonTextColor</item>
+    </style>
+
+    <style name="ModeSelectorTheme" parent="Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="android:textColorHint">?attr/calcTextDefaultColor</item>
+        <item name="hintTextColor">?attr/calcTextDefaultColor</item>
+        <item name="android:textColor">?attr/calcTextDefaultColor</item>
+        <item name="boxCornerRadiusTopStart">100dp</item>
+        <item name="boxCornerRadiusTopEnd">100dp</item>
+        <item name="boxCornerRadiusBottomStart">100dp</item>
+        <item name="boxCornerRadiusBottomEnd">100dp</item>
+        <item name="boxStrokeColor">@color/selector</item>
+        <item name="endIconMode">dropdown_menu</item>
+        <item name="endIconDrawable">@drawable/dropdownicon</item>
+        <item name="endIconTint">?attr/calcTextDefaultColor</item>
+    </style>
+
+    <style name="OthModeSelector" parent="Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="android:textColorHint">?attr/calcTextDefaultColor</item>
+        <item name="hintTextColor">?attr/calcTextDefaultColor</item>
+        <item name="android:textColor">?attr/calcTextDefaultColor</item>
+        <item name="boxCornerRadiusTopStart">100dp</item>
+        <item name="boxCornerRadiusTopEnd">100dp</item>
+        <item name="boxCornerRadiusBottomStart">100dp</item>
+        <item name="boxCornerRadiusBottomEnd">100dp</item>
+        <item name="boxStrokeColor">@color/othselector</item>
+        <item name="endIconMode">dropdown_menu</item>
+        <item name="endIconDrawable">@drawable/dropdownicon</item>
+        <item name="endIconTint">?attr/calcTextDefaultColor</item>
+    </style>
+
+    <style name="AutoCompleteTVTheme">
+        <item name="android:textColor">?attr/calcTextDefaultColor</item>
+        <item name="android:popupBackground">@drawable/dropdown_last_bg</item>
+    </style>
+
+    <style name="AutoCompleteTVThemePort">
+        <item name="android:textColor">?attr/calcTextDefaultColor</item>
+        <item name="android:popupBackground">@drawable/dropdown_last_bg</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="CalcTextRes">
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_height">28dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">?attr/textResultColor</item>
+    </style>
+
+    <style name="CalcTextResLand">
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?attr/textResultColor</item>
+    </style>
+
+    <style name="CalcTextExp">
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:textSize">55sp</item>
+        <item name="android:textColor">?attr/textExpressionColor</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:inputType">textNoSuggestions</item>
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+
+    <style name="CalcTextExpLand">
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">?attr/textExpressionColor</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:inputType">textNoSuggestions</item>
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+
+    <style name="PinButton" parent="Widget.Material3.Button.IconButton">
+        <item name="android:background">@drawable/pinbg</item>
+        <item name="backgroundTint">@null</item>
+        <item name="rippleColor">?attr/altButtonClickedColor</item>
+        <item name="elevation">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="shapeAppearance">@style/CircularButtonOverlay</item>
+    </style>
+
+    <style name="CircularButtonOverlay" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ACButton" parent="CircularButton">
+        <item name="backgroundTint">?attr/acButtonDarkColor</item>
+        <item name="rippleColor">?attr/acButtonColor</item>
+        <item name="android:textColor">?attr/acButtonLightColor</item>
+    </style>
+
+    <style name="SpecialButtons" parent="CircularButton">
+        <item name="backgroundTint">?attr/calcButtonColor</item>
+        <item name="rippleColor">?attr/calcButtonClickedColor</item>
+        <item name="android:textColor">?attr/calcTextDefaultColor</item>
+    </style>
+
+    <style name="NumberButton" parent="CircularButton">
+        <item name="backgroundTint">?attr/numberButtonColor</item>
+        <item name="rippleColor">?attr/numberButtonClickedColor</item>
+        <item name="android:textColor">?attr/calcTextDefaultColor</item>
+    </style>
+
+    <style name="EqualButton" parent="CircularButton">
+        <item name="backgroundTint">?attr/equalsButtonColor</item>
+        <item name="rippleColor">?attr/equalsButtonClickedColor</item>
+        <item name="android:textColor">?attr/equalsButtonTextColor</item>
+    </style>
+
+    <style name="UnitConvTabLyt" parent="Widget.Material3.TabLayout">
+        <item name="tabTextColor">?attr/tabNotSelectedColor</item>
+        <item name="tabIconTint">@color/uctabselector</item>
+        <item name="tabIndicatorColor">?attr/tabSelectedColor</item>
+        <item name="tabSelectedTextColor">?attr/tabSelectedColor</item>
+        <item name="tabTextAppearance">@style/UnitConvTabTextStyle</item>
+    </style>
+
+    <style name="UnitConvTabTextStyle" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">10sp</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="UnitConvInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="endIconDrawable">@drawable/close_circle</item>
+        <item name="endIconTint">?attr/textExpressionColor</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="endIconMinSize">20dp</item>
+        <item name="startIconDrawable">@drawable/uc_copy</item>
+        <item name="startIconTint">?attr/altIconColor</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="startIconMinSize">20dp</item>
+        <item name="boxBackgroundMode">filled</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="boxStrokeColor">@android:color/transparent</item>
+        <item name="boxBackgroundColor">?attr/boxBackgroundColor</item>
+        <item name="boxCornerRadiusTopStart">100dp</item>
+        <item name="boxCornerRadiusTopEnd">100dp</item>
+        <item name="boxCornerRadiusBottomStart">100dp</item>
+        <item name="boxCornerRadiusBottomEnd">100dp</item>
+    </style>
+
+    <style name="UnitConvTextField">
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">?attr/textExpressionColor</item>
+        <item name="android:inputType">textNoSuggestions</item>
+        <item name="android:textSelectHandle">@drawable/textmiddlehandle</item>
+        <item name="android:textSelectHandleLeft">@drawable/textlefthandle</item>
+        <item name="android:textSelectHandleRight">@drawable/textrighthandle</item>
+    </style>
+
+    <style name="UnitConvSelectorTheme" parent="Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="android:textColorHint">?attr/tabSelectedColor</item>
+        <item name="hintTextColor">?attr/tabSelectedColor</item>
+        <item name="android:textColor">?attr/tabSelectedColor</item>
+        <item name="boxStrokeColor">@color/selector</item>
+        <item name="endIconMode">dropdown_menu</item>
+        <item name="endIconDrawable">@drawable/dropdownicon</item>
+        <item name="endIconTint">?attr/textResultColor</item>
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxBackgroundColor">?attr/boxBackgroundColor</item>
+        <item name="boxCornerRadiusTopStart">100dp</item>
+        <item name="boxCornerRadiusTopEnd">100dp</item>
+        <item name="boxCornerRadiusBottomStart">100dp</item>
+        <item name="boxCornerRadiusBottomEnd">100dp</item>
+    </style>
+
+    <style name="UnitConvSearchLyt" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="endIconDrawable">@drawable/close_circle</item>
+        <item name="endIconTint">?attr/textExpressionColor</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="endIconMinSize">20dp</item>
+        <item name="startIconDrawable">@drawable/uc_search</item>
+        <item name="startIconTint">?attr/altIconColor</item>
+        <item name="startIconMinSize">20dp</item>
+        <item name="boxBackgroundMode">filled</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="boxStrokeColor">@android:color/transparent</item>
+        <item name="boxBackgroundColor">?attr/boxBackgroundColor</item>
+        <item name="boxCornerRadiusTopStart">100dp</item>
+        <item name="boxCornerRadiusTopEnd">100dp</item>
+        <item name="boxCornerRadiusBottomStart">100dp</item>
+        <item name="boxCornerRadiusBottomEnd">100dp</item>
+    </style>
+
+    <style name="UnitConvSearchField" parent="UnitConvTextField">
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">?attr/textExpressionColor</item>
+        <item name="android:inputType">textNoSuggestions</item>
+        <item name="android:textSelectHandle">@drawable/textmiddlehandle</item>
+        <item name="android:textSelectHandleLeft">@drawable/textlefthandle</item>
+        <item name="android:textSelectHandleRight">@drawable/textrighthandle</item>
+    </style>
+
+    <style name="UnitConvDialogTheme" parent="MaterialAlertDialog.Material3">
+        <item name="android:backgroundTint">?attr/calcBackgroundDefault</item>
+    </style>
+
+    <style name="TryAgainIntButton" parent="@style/Widget.Material3.Button">
+        <item name="backgroundTint">?attr/darkViewArrowColor</item>
+        <item name="android:text">@string/try_again</item>
+        <item name="fontFamily">@font/nunitosans</item>
+        <item name="rippleColor">?attr/altRippleColor</item>
+        <item name="android:textColor">?attr/calcBackgroundDefault</item>
+    </style>
+
+    <style name="DatePickerTheme" parent="ThemeOverlay.Material3.MaterialCalendar">
+        <item name="materialCalendarStyle">@style/yetCalcCalenderTheme</item>
+        <item name="materialCalendarHeaderTitle">@style/headerTitleTheme</item>
+        <item name="materialCalendarFullscreenTheme">@style/yetCalcCalenderTheme</item>
+        <item name="colorPrimary">?attr/calcTextDefaultColor</item>
+        <item name="colorOnPrimary">?attr/darkViewColor</item>
+    </style>
+
+    <style name="yetCalcCalenderTheme" parent="@style/Widget.Material3.MaterialCalendar">
+        <item name="android:textColorPrimary">?attr/calcTextDefaultColor</item>
+        <item name="backgroundTint">?attr/calendarBackgroundColor</item>
+        <item name="android:colorAccent">?attr/calcTextDefaultColor</item>
+        <item name="colorSurface">?attr/calcTextDefaultColor</item>
+    </style>
+
+    <style name="headerTitleTheme" parent="@style/Widget.Material3.MaterialCalendar.HeaderTitle">
+        <item name="android:textColor">?attr/calcTextDefaultColor</item>
+    </style>
+
+    <style name="UnitConvChipStyle" parent="@style/Widget.MaterialComponents.Chip.Action">
+        <item name="chipBackgroundColor">?attr/calcButtonClickedColor</item>
+        <item name="android:textColor">?attr/textExpressionColor</item>
+        <item name="chipStrokeColor">?attr/calcButtonClickedColor</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="closeIconTint">?attr/textExpressionColor</item>
+        <item name="chipIconTint">?attr/equalsButtonColor</item>
+    </style>
+
+    <style name="emptyHistoryStyle">
+        <item name="android:src">@drawable/emptyhistory</item>
+    </style>
+
+    <style name="YouStyle2" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="calcBackgroundDefault" tools:targetApi="s">@android:color/system_accent2_900</item>
+        <item name="calendarBackgroundColor" tools:targetApi="s">@android:color/system_accent2_800</item>
+        <item name="aboutLibrariesStyle">@style/MatYouAboutLibStyle</item>
+
+        <!-- Button Colors -->
+        <item name="altButtonBgColor" tools:targetApi="s">@android:color/system_accent2_900</item>
+        <item name="altButtonTextColor" tools:targetApi="s">@android:color/system_accent2_50</item>
+        <item name="altButtonClickedColor" tools:targetApi="s">@android:color/system_accent2_800</item>
+        <item name="calcTextDefaultColor" tools:targetApi="s">@android:color/system_accent2_50</item>
+
+        <!-- UI Elements -->
+        <item name="modeBorderColor" tools:targetApi="s">@android:color/system_accent2_400</item>
+        <item name="popupBackgroundColor" tools:targetApi="s">@android:color/system_accent2_900</item>
+
+        <!-- Text Colors -->
+        <item name="textResultColor" tools:targetApi="s">@android:color/system_accent2_100</item>
+        <item name="disabledTextColor">@color/textres</item>
+        <item name="textExpressionColor" tools:targetApi="s">@android:color/system_accent2_50</item>
+        <item name="altHeaderColor" tools:targetApi="s">@android:color/system_accent1_100</item>
+        <item name="dangerColor" tools:targetApi="s">@android:color/system_accent2_50</item>
+        <item name="altIconColor" tools:targetApi="s">@android:color/system_neutral2_200</item>
+        <item name="boxBackgroundColor" tools:targetApi="s">@android:color/system_accent2_800</item>
+
+        <!-- Calculator Buttons -->
+        <item name="calcButtonColor" tools:targetApi="s">@android:color/transparent</item>
+        <item name="calcButtonClickedColor" tools:targetApi="s">@android:color/system_neutral1_600</item>
+        <item name="altRippleColor" tools:targetApi="s">@android:color/system_accent1_600</item>
+
+        <!-- AC Button -->
+        <item name="acButtonColor" tools:targetApi="s">@android:color/system_neutral1_600</item>
+        <item name="acButtonDarkColor" tools:targetApi="s">@android:color/transparent</item>
+        <item name="acButtonLightColor" tools:targetApi="s">@android:color/system_accent2_50</item>
+
+        <!-- Dark Theme Elements -->
+        <item name="darkViewColor" tools:targetApi="s">@android:color/system_accent2_800</item>
+        <item name="darkCircleViewColor" tools:targetApi="s">@android:color/system_accent2_800</item>
+        <item name="darkViewArrowColor" tools:targetApi="s">@android:color/system_accent2_50</item>
+
+        <!-- Number Buttons -->
+        <item name="numberButtonColor" tools:targetApi="s">@android:color/transparent</item>
+        <item name="numberButtonClickedColor" tools:targetApi="s">@android:color/system_neutral1_600</item>
+
+        <!-- Equals Button -->
+        <item name="equalsButtonColor" tools:targetApi="s">@android:color/system_accent1_200</item>
+        <item name="equalsButtonClickedColor" tools:targetApi="s">@android:color/system_accent1_300</item>
+        <item name="equalsButtonTextColor" tools:targetApi="s">@android:color/system_accent2_900</item>
+
+        <!-- Unit Conversion -->
+        <item name="tabNotSelectedColor" tools:targetApi="s">@android:color/system_accent2_100</item>
+        <item name="tabSelectedColor" tools:targetApi="s">@android:color/system_accent1_100</item>
+
+        <item name="android:navigationBarColor" tools:targetApi="s">@android:color/system_accent2_800</item>
+        <item name="android:statusBarColor">?attr/calcBackgroundDefault</item>
+        <item name="android:windowBackground">?attr/calcBackgroundDefault</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+        <item name="android:textColorPrimary">?attr/textExpressionColor</item>
+        <item name="android:textColorSecondary">?attr/textResultColor</item>
+        <item name="preferenceTheme">@style/PrefTheme</item>
+    </style>
+
+    <style name="YouStyle3" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="calcBackgroundDefault" tools:targetApi="s">@android:color/system_accent1_900</item>
+        <item name="calendarBackgroundColor" tools:targetApi="s">@android:color/system_accent2_800</item>
+        <item name="aboutLibrariesStyle">@style/MatYouAboutLibStyle</item>
+
+        <!-- Button Colors -->
+        <item name="altButtonBgColor" tools:targetApi="s">@android:color/system_accent1_900</item>
+        <item name="altButtonTextColor" tools:targetApi="s">@android:color/system_accent1_50</item>
+        <item name="altButtonClickedColor" tools:targetApi="s">@android:color/system_accent1_800</item>
+        <item name="calcTextDefaultColor" tools:targetApi="s">@android:color/system_accent1_50</item>
+
+        <!-- UI Elements -->
+        <item name="modeBorderColor" tools:targetApi="s">@android:color/system_neutral1_400</item>
+        <item name="popupBackgroundColor" tools:targetApi="s">@android:color/system_accent1_900</item>
+
+        <!-- Text Colors -->
+        <item name="textResultColor" tools:targetApi="s">@android:color/system_accent1_100</item>
+        <item name="disabledTextColor">@color/textres</item>
+        <item name="textExpressionColor" tools:targetApi="s">@android:color/system_accent1_50</item>
+        <item name="altHeaderColor" tools:targetApi="s">@android:color/system_accent3_100</item>
+        <item name="dangerColor" tools:targetApi="s">@android:color/system_accent1_50</item>
+        <item name="altIconColor" tools:targetApi="s">@android:color/system_accent2_200</item>
+        <item name="boxBackgroundColor" tools:targetApi="s">@android:color/system_accent1_800</item>
+
+        <!-- Calculator Buttons -->
+        <item name="calcButtonColor" tools:targetApi="s">@android:color/transparent</item>
+        <item name="calcButtonClickedColor" tools:targetApi="s">@android:color/system_accent1_600</item>
+        <item name="altRippleColor" tools:targetApi="s">@android:color/system_accent3_600</item>
+
+        <!-- AC Button -->
+        <item name="acButtonColor" tools:targetApi="s">@android:color/system_accent1_600</item>
+        <item name="acButtonDarkColor" tools:targetApi="s">@android:color/transparent</item>
+        <item name="acButtonLightColor" tools:targetApi="s">@android:color/system_accent1_50</item>
+
+        <!-- Dark Theme Elements -->
+        <item name="darkViewColor" tools:targetApi="s">@android:color/system_accent1_800</item>
+        <item name="darkCircleViewColor" tools:targetApi="s">@android:color/system_accent1_800</item>
+        <item name="darkViewArrowColor" tools:targetApi="s">@android:color/system_accent1_50</item>
+
+        <!-- Number Buttons -->
+        <item name="numberButtonColor" tools:targetApi="s">@android:color/transparent</item>
+        <item name="numberButtonClickedColor" tools:targetApi="s">@android:color/system_accent1_600</item>
+
+        <!-- Equals Button -->
+        <item name="equalsButtonColor" tools:targetApi="s">@android:color/system_accent3_200</item>
+        <item name="equalsButtonClickedColor" tools:targetApi="s">@android:color/system_accent3_300</item>
+        <item name="equalsButtonTextColor" tools:targetApi="s">@android:color/system_accent1_900</item>
+
+        <!-- Unit Conversion -->
+        <item name="tabNotSelectedColor" tools:targetApi="s">@android:color/system_accent1_100</item>
+        <item name="tabSelectedColor" tools:targetApi="s">@android:color/system_accent3_100</item>
+
+        <item name="android:navigationBarColor" tools:targetApi="s">@android:color/system_accent1_800</item>
+        <item name="android:statusBarColor">?attr/calcBackgroundDefault</item>
+        <item name="android:windowBackground">?attr/calcBackgroundDefault</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+        <item name="android:textColorPrimary">?attr/textExpressionColor</item>
+        <item name="android:textColorSecondary">?attr/textResultColor</item>
+        <item name="preferenceTheme">@style/PrefTheme</item>
+    </style>
+
+    <style name="YouStyle4" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="calcBackgroundDefault" tools:targetApi="s">@android:color/system_accent3_900</item>
+        <item name="calendarBackgroundColor" tools:targetApi="s">@android:color/system_accent2_800</item>
+        <item name="aboutLibrariesStyle">@style/MatYouAboutLibStyle</item>
+
+        <!-- Button Colors -->
+        <item name="altButtonBgColor" tools:targetApi="s">@android:color/system_accent3_900</item>
+        <item name="altButtonTextColor" tools:targetApi="s">@android:color/system_accent3_50</item>
+        <item name="altButtonClickedColor" tools:targetApi="s">@android:color/system_accent3_800</item>
+        <item name="calcTextDefaultColor" tools:targetApi="s">@android:color/system_accent3_50</item>
+
+        <!-- UI Elements -->
+        <item name="modeBorderColor" tools:targetApi="s">@android:color/system_accent3_400</item>
+        <item name="popupBackgroundColor" tools:targetApi="s">@android:color/system_accent3_900</item>
+
+        <!-- Text Colors -->
+        <item name="textResultColor" tools:targetApi="s">@android:color/system_accent3_100</item>
+        <item name="disabledTextColor">@color/textres</item>
+        <item name="textExpressionColor" tools:targetApi="s">@android:color/system_accent3_50</item>
+        <item name="altHeaderColor" tools:targetApi="s">@android:color/system_accent3_100</item>
+        <item name="dangerColor" tools:targetApi="s">@android:color/system_accent3_50</item>
+        <item name="altIconColor" tools:targetApi="s">@android:color/system_accent2_200</item>
+        <item name="boxBackgroundColor" tools:targetApi="s">@android:color/system_accent3_800</item>
+
+        <!-- Calculator Buttons -->
+        <item name="calcButtonColor" tools:targetApi="s">@android:color/transparent</item>
+        <item name="calcButtonClickedColor" tools:targetApi="s">@android:color/system_accent3_600</item>
+        <item name="altRippleColor" tools:targetApi="s">@android:color/system_accent3_600</item>
+
+        <!-- AC Button -->
+        <item name="acButtonColor" tools:targetApi="s">@android:color/system_accent3_600</item>
+        <item name="acButtonDarkColor" tools:targetApi="s">@android:color/transparent</item>
+        <item name="acButtonLightColor" tools:targetApi="s">@android:color/system_accent3_50</item>
+
+        <!-- Dark Theme Elements -->
+        <item name="darkViewColor" tools:targetApi="s">@android:color/system_accent3_800</item>
+        <item name="darkCircleViewColor" tools:targetApi="s">@android:color/system_accent3_800</item>
+        <item name="darkViewArrowColor" tools:targetApi="s">@android:color/system_accent3_50</item>
+
+        <!-- Number Buttons -->
+        <item name="numberButtonColor" tools:targetApi="s">@android:color/transparent</item>
+        <item name="numberButtonClickedColor" tools:targetApi="s">@android:color/system_accent3_600</item>
+
+        <!-- Equals Button -->
+        <item name="equalsButtonColor" tools:targetApi="s">@android:color/system_accent3_200</item>
+        <item name="equalsButtonClickedColor" tools:targetApi="s">@android:color/system_accent3_300</item>
+        <item name="equalsButtonTextColor" tools:targetApi="s">@android:color/system_accent3_900</item>
+
+        <!-- Unit Conversion -->
+        <item name="tabNotSelectedColor" tools:targetApi="s">@android:color/system_accent3_100</item>
+        <item name="tabSelectedColor" tools:targetApi="s">@android:color/system_accent3_100</item>
+
+        <item name="android:navigationBarColor" tools:targetApi="s">@android:color/system_accent3_800</item>
+        <item name="android:statusBarColor">?attr/calcBackgroundDefault</item>
+        <item name="android:windowBackground">?attr/calcBackgroundDefault</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+        <item name="android:textColorPrimary">?attr/textExpressionColor</item>
+        <item name="android:textColorSecondary">?attr/textResultColor</item>
+        <item name="preferenceTheme">@style/PrefTheme</item>
+    </style>
+
+    <style name="YouStyleChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStrokeColor">@color/youstyle_chipborder</item>
+    </style>
+
+    <style name="UnitConvContainerChip" parent="@style/Widget.MaterialComponents.Chip.Action">
+        <item name="chipBackgroundColor">@color/unitchipbg</item>
+        <item name="android:textColor">?attr/textExpressionColor</item>
+        <item name="chipStrokeColor">?attr/calcButtonClickedColor</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipIconTint">?attr/textExpressionColor</item>
+        <item name="chipIconSize">20dp</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="android:checkable">true</item>
+        <item name="iconStartPadding">5dp</item>
+        <item name="paddingStart">10dp</item>
+        <item name="paddingEnd">10dp</item>
+    </style>
+
+</resources>

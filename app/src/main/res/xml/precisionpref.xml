@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <yetzio.yetcalc.widget.PrecisionPreference
+        android:key="precisionmenupref"
+        app:icon="@drawable/math_compass"
+        app:title="Precision"
+        android:summary="Choose the number of decimal places for calculations"
+        android:layout="@layout/precisionlayout"
+        />
+
+</androidx.preference.PreferenceScreen>
