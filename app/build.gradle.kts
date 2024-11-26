@@ -8,6 +8,11 @@ android {
     namespace = "yetzio.yetcalc"
     compileSdk = 35
 
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
+    }
+
     aboutLibraries {
         excludeFields = arrayOf("generated")
     }
@@ -16,8 +21,8 @@ android {
         applicationId = "yetzio.yetcalc"
         minSdk = 28
         targetSdk = 35
-        versionCode = 17
-        versionName = "2.0.1"
+        versionCode = 18
+        versionName = "2.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
