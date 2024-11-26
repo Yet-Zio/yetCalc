@@ -20,6 +20,10 @@
     <img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/7.png" width="24%"/>
 </div>
 
+## Requirements
+
+- Android 9.0 or above.
+
 ## Modes
 
 - (🔢)Basic Calculator
@@ -38,13 +42,6 @@
 
 
 - Calculator
-
-    <p align="center">
-        <img src="./img/snaps/snap2.png?raw=true" alt="yetCalc Landscape" width="575" height="279"/>
-    </p>
-    <p align="center">
-        <img src="./img/snaps/lightsnap2.png?raw=true" alt="yetCalc Landscape" width="575" height="279"/>
-    </p>
 
     - Support for all basic operators.
     - Progressive calculations.```(results appear on top and change side by side as you change the expression)```
