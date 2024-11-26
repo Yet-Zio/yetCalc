@@ -1,156 +1,89 @@
 package yetzio.yetcalc.views
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
-import android.content.res.Configuration
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.widget.AdapterView
-import android.widget.Spinner
+import android.view.ViewGroup
+import android.view.ViewTreeObserver
+import android.widget.HorizontalScrollView
 import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isNotEmpty
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.preference.PreferenceManager
-import androidx.viewpager2.widget.ViewPager2
-import com.fasterxml.jackson.core.type.TypeReference
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
-import yetzio.yetcalc.MainActivity
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import yetzio.yetcalc.R
-import yetzio.yetcalc.component.SpinnerItemAdapter
-import yetzio.yetcalc.model.ConverterPref
-import yetzio.yetcalc.model.UnitConvViewModel
-import yetzio.yetcalc.utils.getModesList
-import yetzio.yetcalc.utils.showThemeDialog
-import yetzio.yetcalc.views.fragments.*
-import yetzio.yetcalc.views.fragments.adapters.ViewPagerAdapter
-import java.io.File
+import yetzio.yetcalc.component.SharedPrefs
+import yetzio.yetcalc.config.CalcBaseActivity
+import yetzio.yetcalc.config.CalcView
+import yetzio.yetcalc.models.UnitConvRecentTab
+import yetzio.yetcalc.models.UnitConvViewModel
+import yetzio.yetcalc.models.UnitGroup
+import yetzio.yetcalc.utils.doesChipGroupContain
+import yetzio.yetcalc.views.fragments.AngleFragment
+import yetzio.yetcalc.views.fragments.AreaFragment
+import yetzio.yetcalc.views.fragments.CurrencyFragment
+import yetzio.yetcalc.views.fragments.DataFragment
+import yetzio.yetcalc.views.fragments.EnergyFragment
+import yetzio.yetcalc.views.fragments.LengthFragment
+import yetzio.yetcalc.views.fragments.PowerFragment
+import yetzio.yetcalc.views.fragments.PressureFragment
+import yetzio.yetcalc.views.fragments.SpeedFragment
+import yetzio.yetcalc.views.fragments.TemperatureFragment
+import yetzio.yetcalc.views.fragments.TimeFragment
+import yetzio.yetcalc.views.fragments.VolumeFragment
+import yetzio.yetcalc.views.fragments.WeightFragment
+import kotlin.properties.Delegates
 
-class UnitConvActivity : AppCompatActivity() {
-    val tabPrefName = "tabpref.json"
-    val m_Mapper = jacksonObjectMapper()
-
-    lateinit var viewPager: ViewPager2
-    private lateinit var tabs: TabLayout
-    private lateinit var toolbar: Toolbar
+class UnitConvActivity : CalcBaseActivity() {
+    var recentTab by Delegates.notNull<Boolean>()
+    lateinit var lastTab: UnitConvRecentTab
 
     lateinit var mViewModel: UnitConvViewModel
+    lateinit var unitChipsContainer: ChipGroup
+    lateinit var horizontalScrollView: HorizontalScrollView
+    private lateinit var settingsLauncher: ActivityResultLauncher<Intent>
+    private lateinit var settingsBt: MaterialButton
+    private var orderChanged: Boolean = false
 
-    private val titles = arrayListOf("Currency", "Length", "Volume",
-        "Area", "Weight/Mass", "Temperature",
-        "Speed", "Power", "Energy",
-        "Pressure", "Time", "Angle",
-        "Data")
+    private val enabledGroups = mutableListOf<UnitGroup>()
 
-    private lateinit var modeselecSpin: Spinner
-
-    lateinit var preferences: SharedPreferences
-    lateinit var editor: SharedPreferences.Editor
-    lateinit var adp: ViewPagerAdapter
-
-    lateinit var theme: String
-    var dark = false
-    var light = false
+    private val deflist = "Currency,Length,Volume,Area,Weight/Mass,Temperature,Speed,Power,Energy,Pressure,Time,Angle,Data"
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        initPrefs()
-        theme = preferences.getString(getString(R.string.key_theme), getString(R.string.system_theme)).toString()
-
-        if(theme == getString(R.string.system_theme)){
-            val nightModeFlags: Int = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-            when (nightModeFlags) {
-                Configuration.UI_MODE_NIGHT_YES -> {
-                    dark = true
-                    light = false
-                    setTheme(R.style.yetCalcActivityThemeDark)
-                }
-                Configuration.UI_MODE_NIGHT_NO -> {
-                    dark = false
-                    light = true
-                    setTheme(R.style.yetCalcActivityThemeLight)
-                }
-                Configuration.UI_MODE_NIGHT_UNDEFINED -> {
-                    dark = true
-                    light = false
-                    setTheme(R.style.yetCalcActivityThemeDark)
-                }
-            }
-        }
-        else if(theme == getString(R.string.dark_theme)){
-            dark = true
-            light = false
-            setTheme(R.style.yetCalcActivityThemeDark)
-        }
-        else{
-            dark = false
-            light = true
-            setTheme(R.style.yetCalcActivityThemeLight)
-        }
+        currentView = CalcView.CONVERTER
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_unit_conv)
 
-        if(light){
-            setContentView(R.layout.activity_unit_convlight)
-        }
-        else{
-            setContentView(R.layout.activity_unit_conv)
-        }
-
-        toolbar = findViewById(R.id.unitconvappbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
+        modeSelector = findViewById(R.id.modeselector)
+        setupModeSelector()
 
         mViewModel = ViewModelProvider(this)[UnitConvViewModel::class.java]
+        settingsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+            orderChanged = preferences.getBoolean(SharedPrefs.UNITGROUPPREF, false)
 
-        modeselecSpin = findViewById(R.id.modeselector)
-        val spinnerModesList = if(dark){
-            getModesList("")
-        }
-        else{
-            getModesList("light")
-        }
-
-        val modeAdp: SpinnerItemAdapter = if(dark){
-            SpinnerItemAdapter(this, spinnerModesList, "default")
-        } else{
-            SpinnerItemAdapter(this, spinnerModesList, "light")
-        }
-
-        modeselecSpin.adapter = modeAdp
-        modeselecSpin.setSelection(1)
-        modeselecSpin.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                if(pos == 0){
-                    saveTabPrefs()
-                    startActivity(Intent(applicationContext, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
-                }
-                else if(pos == 2){
-                    saveTabPrefs()
-                    startActivity(Intent(applicationContext, ProgramCalcActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
-                }
+            if(orderChanged){
+                editor.putBoolean(SharedPrefs.UNITGROUPPREF, false)
+                recreate()
             }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
-            }
-
+        }
+        settingsBt = findViewById(R.id.settingsButton)
+        settingsBt.setOnClickListener {
+            launchSettings()
         }
 
-        viewPager = findViewById(R.id.unitviewpager)
-        tabs = findViewById(R.id.unittabslyt)
-        //tabs.setSelectedTabIndicatorColor(ContextCompat.getColor(applicationContext, R.color.lint))
+        recentTab = preferences.getBoolean(SharedPrefs.SAVE_RECENT_TABKEY, true)
+        lastTab = UnitConvRecentTab(preferences.getInt(SharedPrefs.RECENT_TAB_VALUEKEY, 0))
+        horizontalScrollView = findViewById(R.id.horizontalChipContainer)
 
-        setUpTabLayout()
+        loadUnitGroups()
+        setupChipTabLayout()
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                Log.d("CDA", "onBackPressed Called")
                 val setIntent = Intent(Intent.ACTION_MAIN)
                 setIntent.addCategory(Intent.CATEGORY_HOME)
                 setIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
@@ -159,133 +92,175 @@ class UnitConvActivity : AppCompatActivity() {
         })
     }
 
-    private fun initPrefs(){
-        preferences = getSharedPreferences("CalcPrefs", Context.MODE_PRIVATE)
-        editor = preferences.edit()
+    private fun launchSettings(){
+        val settingsIntent = Intent(this, SettingsActivity::class.java)
+        settingsLauncher.launch(settingsIntent)
     }
 
-    private fun initTabPrefs(){
-        val prefMgr = PreferenceManager.getDefaultSharedPreferences(this)
-        val tabPrefer = prefMgr.getBoolean("lastusedtabkey", true)
+    private fun loadUnitGroups() {
+        val enabledGroupNames = preferences.getString(SharedPrefs.KEY_ENABLED_GROUPS, deflist)
+        val enabledGroupList = enabledGroupNames?.split(",") ?: listOf()
 
-        if(tabPrefer){
-            val tabPrefFile = File(filesDir, tabPrefName)
-
-            var tabPref = ConverterPref(0)
-
-            if(tabPrefFile.exists()){
-                val tabcontent = openFileInput(tabPrefName)?.bufferedReader().use {
-                    it?.readText().toString()
-                }
-
-                try{
-                    tabPref = m_Mapper.readValue(tabcontent, object: TypeReference<ConverterPref>(){})
-                }
-                catch (e: Exception){
-                    println("tab preference read error occurred")
+        if (enabledGroupList.isNotEmpty()) {
+            enabledGroups.clear()
+            enabledGroupList.forEach { enabledGroupName ->
+                if(enabledGroupName.isNotEmpty()){
+                    enabledGroups.add(UnitGroup(enabledGroupName, true))
                 }
             }
-
-            tabs.selectTab(tabs.getTabAt(tabPref.tabnum))
         }
     }
 
-    private fun saveTabPrefs(){
-        val tabPrefFile = File(filesDir, tabPrefName)
+    fun refreshCurrentFragment() {
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.unitFragmentContainer)
+        currentFragment?.let {
+            supportFragmentManager.beginTransaction()
+                .detach(it)
+                .commitNow()
 
-        val currentTabPref = ConverterPref(tabs.selectedTabPosition)
-        if(!tabPrefFile.exists()){
-            tabPrefFile.createNewFile()
+            supportFragmentManager.beginTransaction()
+                .attach(it)
+                .commit()
         }
-        else{
-            tabPrefFile.delete()
-            tabPrefFile.createNewFile()
-        }
-
-        openFileOutput(tabPrefName, Context.MODE_PRIVATE or Context.MODE_APPEND).use {
-            it?.write(m_Mapper.writeValueAsString(currentTabPref).toByteArray())
-        }
-
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        if(light){
-            menuInflater.inflate(R.menu.menulight, menu)
-        }
-        else{
-            menuInflater.inflate(R.menu.menu, menu)
-        }
-
-        val historyopt = menu.findItem(R.id.historyopt)
-        historyopt.isVisible = false
-
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val item_id = item.itemId
-
-        when(item_id){
-            R.id.selecthemeopt -> { showThemeDialog(this) }
-            R.id.settingsopt -> {
-                val setIntent = Intent(this, SettingsActivity::class.java)
-                startActivity(setIntent)
-            }
-            R.id.helpopt -> {
-                val helpuri = Uri.parse("https://github.com/Yet-Zio/yetCalc/blob/main/HELP.md")
-                val helpIntent = Intent(Intent.ACTION_VIEW, helpuri)
-                startActivity(helpIntent)
+    private fun initTabPrefs() {
+        if (recentTab) {
+            if(doesChipGroupContain(unitChipsContainer, lastTab.tabnum)){
+                unitChipsContainer.check(lastTab.tabnum)
+                mViewModel.currentCheckedChip = unitChipsContainer.checkedChipId
+                loadCheckedChip(lastTab.tabnum)
             }
         }
-        return true
     }
 
-    private fun setUpTabLayout(){
-        val adapter = ViewPagerAdapter(this)
-        adapter.addFragment(CurrencyFragment())
-        adapter.addFragment(LengthFragment())
-        adapter.addFragment(VolumeFragment())
+    private fun saveTabPrefs() {
+        editor.putInt(SharedPrefs.RECENT_TAB_VALUEKEY, unitChipsContainer.checkedChipId)
+        editor.apply()
+    }
 
-        adapter.addFragment(AreaFragment())
-        adapter.addFragment(WeightFragment())
-        adapter.addFragment(TemperatureFragment())
+    private fun loadCheckedChip(checkedId: Int) {
+        when (checkedId) {
+            R.id.currencyChip -> loadFragment(CurrencyFragment())
+            R.id.lengthChip -> loadFragment(LengthFragment())
+            R.id.volChip -> loadFragment(VolumeFragment())
+            R.id.areaChip -> loadFragment(AreaFragment())
+            R.id.wmChip -> loadFragment(WeightFragment())
+            R.id.tempChip -> loadFragment(TemperatureFragment())
+            R.id.speedChip -> loadFragment(SpeedFragment())
+            R.id.powerChip -> loadFragment(PowerFragment())
+            R.id.energyChip -> loadFragment(EnergyFragment())
+            R.id.pressureChip -> loadFragment(PressureFragment())
+            R.id.timeChip -> loadFragment(TimeFragment())
+            R.id.angleChip -> loadFragment(AngleFragment())
+            R.id.dataChip -> loadFragment(DataFragment())
+            else -> loadFragment(CurrencyFragment())
+        }
+    }
 
-        adapter.addFragment(SpeedFragment())
-        adapter.addFragment(PowerFragment())
-        adapter.addFragment(EnergyFragment())
+    private fun setupChipTabLayout() {
+        unitChipsContainer = findViewById(R.id.unitChipGroup)
+        unitChipsContainer.removeAllViews()
 
-        adapter.addFragment(PressureFragment())
-        adapter.addFragment(TimeFragment())
-        adapter.addFragment(AngleFragment())
+        enabledGroups.forEachIndexed { index, group ->
+            val chipId = getChipIdForGroup(group.name)
+            if (chipId != null) {
+                val chip = layoutInflater.inflate(R.layout.unit_chip_item, unitChipsContainer, false) as Chip
+                chip.id = chipId
+                chip.text = group.name
+                chip.isChecked = false
+                chip.setChipIconResource(getIconForGroup(group.name))
+                if (index == enabledGroups.lastIndex) {
+                    val layoutParams = chip.layoutParams as ViewGroup.MarginLayoutParams
+                    layoutParams.marginEnd = resources.getDimensionPixelSize(R.dimen.last_chip_margin_end)
+                    chip.layoutParams = layoutParams
+                }
+                unitChipsContainer.addView(chip)
+            }
+        }
 
-        adapter.addFragment(DataFragment())
-        viewPager.adapter = adapter
-        adp = adapter
-
-        TabLayoutMediator(tabs, viewPager) {tab, position ->
-            tab.text = titles[position]
-        }.attach()
-
-        tabs.getTabAt(0)!!.setIcon(R.drawable.ic_baseline_currency_exchange_60)
-        tabs.getTabAt(1)!!.setIcon(R.drawable.ic_baseline_straighten_60)
-        tabs.getTabAt(2)!!.setIcon(R.drawable.ic_baseline_local_drink_60)
-
-        tabs.getTabAt(3)!!.setIcon(R.drawable.ic_baseline_area_chart_60)
-        tabs.getTabAt(4)!!.setIcon(R.drawable.ic_baseline_monitor_weight_60)
-        tabs.getTabAt(5)!!.setIcon(R.drawable.ic_baseline_thermostat_60)
-
-        tabs.getTabAt(6)!!.setIcon(R.drawable.ic_baseline_speed_60)
-        tabs.getTabAt(7)!!.setIcon(R.drawable.ic_baseline_bolt_60)
-        tabs.getTabAt(8)!!.setIcon(R.drawable.ic_baseline_local_fire_department_60)
-
-        tabs.getTabAt(9)!!.setIcon(R.drawable.ic_baseline_compress_60)
-        tabs.getTabAt(10)!!.setIcon(R.drawable.ic_baseline_access_time_60)
-        tabs.getTabAt(11)!!.setIcon(R.drawable.ic_baseline_incomplete_circle_60)
-
-        tabs.getTabAt(12)!!.setIcon(R.drawable.ic_baseline_text_snippet_60)
+        if (unitChipsContainer.checkedChipId == View.NO_ID) {
+            if(unitChipsContainer.isNotEmpty()){
+                val firstEnabledChip = unitChipsContainer.findViewById<Chip>(
+                    unitChipsContainer.getChildAt(0).id
+                )
+                unitChipsContainer.check(firstEnabledChip.id)
+                mViewModel.currentCheckedChip = unitChipsContainer.checkedChipId
+                loadCheckedChip(firstEnabledChip.id)
+            }
+        }
 
         initTabPrefs()
 
+        unitChipsContainer.setOnCheckedStateChangeListener { group, checkedIds ->
+            if (checkedIds.isNotEmpty() && checkedIds[0] != mViewModel.currentCheckedChip) {
+                mViewModel.currentCheckedChip = checkedIds[0]
+                loadCheckedChip(mViewModel.currentCheckedChip)
+            } else {
+                unitChipsContainer.check(mViewModel.currentCheckedChip)
+            }
+        }
+
+        horizontalScrollView.viewTreeObserver.addOnPreDrawListener(object : ViewTreeObserver.OnPreDrawListener {
+            override fun onPreDraw(): Boolean {
+                horizontalScrollView.viewTreeObserver.removeOnPreDrawListener(this)
+
+                val selectedChipId = unitChipsContainer.checkedChipId
+
+                if (selectedChipId != View.NO_ID) {
+                    val selectedChip: Chip = findViewById(selectedChipId)
+
+                    horizontalScrollView.post {
+                        val chipLeftPosition = selectedChip.left
+                        horizontalScrollView.smoothScrollTo(chipLeftPosition, 0)
+                    }
+                }
+
+                return true
+            }
+        })
+    }
+
+    private fun getChipIdForGroup(groupName: String): Int? {
+        return when (groupName) {
+            "Currency" -> R.id.currencyChip
+            "Length" -> R.id.lengthChip
+            "Volume" -> R.id.volChip
+            "Area" -> R.id.areaChip
+            "Weight/Mass" -> R.id.wmChip
+            "Temperature" -> R.id.tempChip
+            "Speed" -> R.id.speedChip
+            "Power" -> R.id.powerChip
+            "Energy" -> R.id.energyChip
+            "Pressure" -> R.id.pressureChip
+            "Time" -> R.id.timeChip
+            "Angle" -> R.id.angleChip
+            "Data" -> R.id.dataChip
+            else -> null
+        }
+    }
+
+    private fun getIconForGroup(groupName: String): Int {
+        return when (groupName) {
+            "Currency" -> R.drawable.ic_currency_exchange_24
+            "Length" -> R.drawable.ic_straighten_24
+            "Volume" -> R.drawable.ic_local_drink_24
+            "Area" -> R.drawable.ic_area_chart_24
+            "Weight/Mass" -> R.drawable.ic_monitor_weight_24
+            "Temperature" -> R.drawable.ic_thermostat_24
+            "Speed" -> R.drawable.ic_speed_24
+            "Power" -> R.drawable.ic_bolt_24
+            "Energy" -> R.drawable.ic_energy_24
+            "Pressure" -> R.drawable.ic_pressure_24
+            "Time" -> R.drawable.ic_time_24
+            "Angle" -> R.drawable.ic_incomplete_circle_24
+            "Data" -> R.drawable.ic_text_snippet_24
+            else -> R.drawable.ic_currency_exchange_24
+        }
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(R.id.unitFragmentContainer, fragment).commit()
     }
 
     override fun onPause() {

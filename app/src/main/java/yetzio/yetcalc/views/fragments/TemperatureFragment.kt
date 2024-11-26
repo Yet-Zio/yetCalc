@@ -1,105 +1,151 @@
 package yetzio.yetcalc.views.fragments
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
-import com.airbnb.paris.Paris
+import android.widget.AutoCompleteTextView
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import yetzio.yetcalc.R
+import yetzio.yetcalc.component.SharedPrefs
 import yetzio.yetcalc.component.UnitConv
-import yetzio.yetcalc.model.UnitConvViewModel
+import yetzio.yetcalc.dialogs.showUnitConvSearchDialog
+import yetzio.yetcalc.enums.UnitType
+import yetzio.yetcalc.models.UnitConvViewModel
+import yetzio.yetcalc.utils.copyToClipboard
+import yetzio.yetcalc.utils.getUnitsList
 import yetzio.yetcalc.views.UnitConvActivity
-import kotlin.properties.Delegates
+import yetzio.yetcalc.widget.CalcText
 
 class TemperatureFragment : Fragment() {
 
-    private var firstConv: EditText? = null
-    private var secondConv: EditText? = null
+    // Text Container - First
+    private lateinit var firstConvField: TextInputLayout
+    private lateinit var firstConvTV: CalcText
 
-    private var spinner: Spinner? = null
-    private var spinner2: Spinner? = null
+    // Dropdown Container - First
+    private lateinit var firstConvDropField: TextInputLayout
+    private lateinit var firstConvDropDownField: AutoCompleteTextView
 
-    private var firstConvWatcher: TextWatcher? = null
-    private var secondConvWatcher: TextWatcher? = null
+    // Text Container - Second
+    private lateinit var secondConvField: TextInputLayout
+    private lateinit var secondConvTV: CalcText
 
-    private val mCoroutineScope = CoroutineScope(Dispatchers.Main)
+    // Dropdown Container - Second
+    private lateinit var secondConvDropField: TextInputLayout
+    private lateinit var secondConvDropDownField: AutoCompleteTextView
+
+    private lateinit var switchUnitsButton: MaterialButton
+
     private lateinit var pViewModel: UnitConvViewModel
-    private lateinit var pTheme: String
-    private var pDark by Delegates.notNull<Boolean>()
-    private var pLight by Delegates.notNull<Boolean>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var p_preferences: SharedPreferences
+    private lateinit var p_editor: SharedPreferences.Editor
+
+    var unitConvDialog: AlertDialog? = null
+    private val mCoroutineScope = CoroutineScope(Dispatchers.Main)
+
+    private lateinit var firstTextWatcher: TextWatcher
+    private lateinit var secondTextWatcher: TextWatcher
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        pTheme = (activity as? UnitConvActivity)?.theme.toString()
-        pDark = (activity as? UnitConvActivity)?.dark!!
-        pLight = (activity as? UnitConvActivity)?.light!!
 
-        val v = inflater.inflate(R.layout.fragment_unitconversions, container, false)
+        val view = inflater.inflate(R.layout.fragment_unitconversions, container, false)
 
         pViewModel = (activity as? UnitConvActivity)?.mViewModel!!
+        p_preferences = (activity as? UnitConvActivity)?.preferences!!
+        p_editor = (activity as? UnitConvActivity)?.editor!!
 
-        firstConv = v.findViewById(R.id.et_firstConversion)
-        secondConv = v.findViewById(R.id.et_secondConversion)
+        val saveRecentUnitPref = p_preferences.getBoolean(SharedPrefs.SAVE_RECENT_UNITKEY, true)
+        val initFirst = p_preferences.getInt(SharedPrefs.TEMPERATURE_FIRST, 0)
+        val initSecond = p_preferences.getInt(SharedPrefs.TEMPERATURE_SECOND, 0)
 
-        spinner = v.findViewById(R.id.spinner_firstConversion)
-        spinner2 = v.findViewById(R.id.spinner_secondConversion)
-
-        setupSpinner()
-        textChanged()
-
-        if(pLight){
-            Paris.style(firstConv).apply(R.style.ConvTextStyleLight)
-            Paris.style(secondConv).apply(R.style.ConvTextStyleLight)
-
-            Paris.style(spinner).apply(R.style.yetSpinnerStyleLight)
-            Paris.style(spinner2).apply(R.style.yetSpinnerStyleLight)
-
-            Paris.style(v.findViewById<LinearLayout>(R.id.ll_parent)).apply(R.style.GenericLight)
-            Paris.style(v.findViewById<LinearLayout>(R.id.cardll_parent)).apply(R.style.GenericLight)
+        if(saveRecentUnitPref){
+            pViewModel._tempftpos.value = initFirst
+            pViewModel._tempsdpos.value = initSecond
         }
         else{
-            Paris.style(v.findViewById<LinearLayout>(R.id.ll_parent)).apply(R.style.GenericDark)
-            Paris.style(v.findViewById<LinearLayout>(R.id.cardll_parent)).apply(R.style.GenericDark)
+            pViewModel._tempftpos.value = 0
+            pViewModel._tempsdpos.value = 0
         }
-        return v
+
+        firstConvField = view.findViewById(R.id.firstConvFieldContainer)!!
+        firstConvTV = view.findViewById(R.id.firstConvField)!!
+
+        firstConvDropField = view.findViewById(R.id.firstConvDropDown)
+        firstConvDropDownField = view.findViewById(R.id.firstConvDropDownField)
+
+        secondConvField = view.findViewById(R.id.secondConvFieldContainer)
+        secondConvTV = view.findViewById(R.id.secondConvField)
+
+        secondConvDropField = view.findViewById(R.id.secondConvDropDown)
+        secondConvDropDownField = view.findViewById(R.id.secondConvDropDownField)
+
+        switchUnitsButton = view.findViewById(R.id.switchUnitsButton)
+
+        firstConvDropDownField.setText(requireContext().getUnitsList(UnitType.TEMPERATURE)[initFirst])
+        secondConvDropDownField.setText(requireContext().getUnitsList(UnitType.TEMPERATURE)[initSecond])
+
+        setupClipboardEvent()
+        setupSelections()
+        textChanged()
+
+        return view
     }
 
-    fun convert(id: Int){
+    private fun setupClipboardEvent(){
+        firstConvField.setStartIconOnClickListener {
+            parentFragment?.activity?.applicationContext?.copyToClipboard(firstConvTV.text.toString())
+        }
+
+        secondConvField.setStartIconOnClickListener {
+            parentFragment?.activity?.applicationContext?.copyToClipboard(secondConvTV.text.toString())
+        }
+    }
+
+    private fun convert(id: Int){
         mCoroutineScope.launch {
             try {
                 when(id){
-                    R.id.et_firstConversion -> {
-                        val res = UnitConv.Temperature.convert(pViewModel._tempftpos, pViewModel._tempsdpos
-                            , firstConv?.text.toString().toDouble())
+                    R.id.firstConvField -> {
+                        val res = pViewModel._tempftpos.value?.let {
+                            pViewModel._tempsdpos.value?.let { it1 ->
+                                UnitConv.Temperature.convert(
+                                    it, it1, firstConvTV.text.toString().toDouble())
+                            }
+                        }
 
-                        if(res.toString() != secondConv?.text.toString()){
-                            secondConv?.removeTextChangedListener(secondConvWatcher)
-                            secondConv?.setText(res.toString())
-                            secondConv?.addTextChangedListener(secondConvWatcher)
+                        if(res.toString() != secondConvTV.text.toString()){
+                            secondConvTV.removeTextChangedListener(secondTextWatcher)
+                            secondConvTV.setText(res.toString())
+                            secondConvTV.addTextChangedListener(secondTextWatcher)
                         }
                     }
-                    R.id.et_secondConversion -> {
-                        val res = UnitConv.Temperature.convert(pViewModel._tempsdpos, pViewModel._tempftpos
-                            , secondConv?.text.toString().toDouble())
+                    R.id.secondConvField -> {
+                        val res = pViewModel._tempsdpos.value?.let {
+                            pViewModel._tempftpos.value?.let { it1 ->
+                                UnitConv.Temperature.convert(
+                                    it, it1, secondConvTV.text.toString().toDouble())
+                            }
+                        }
 
-                        if(res.toString() != firstConv?.text.toString()){
-                            firstConv?.removeTextChangedListener(firstConvWatcher)
-                            firstConv?.setText(res.toString())
-                            firstConv?.addTextChangedListener(firstConvWatcher)
+                        if(res.toString() != firstConvTV.text.toString()){
+                            firstConvTV.removeTextChangedListener(firstTextWatcher)
+                            firstConvTV.setText(res.toString())
+                            firstConvTV.addTextChangedListener(firstTextWatcher)
                         }
                     }
                 }
@@ -109,18 +155,18 @@ class TemperatureFragment : Fragment() {
         }
     }
 
-    fun getConversionResults(id: Int){
+    private fun getConversionResults(id: Int){
         when(id){
-            R.id.et_firstConversion -> {
-                if(firstConv != null){
-                    if(firstConv!!.text.isNotEmpty() && firstConv!!.text.isNotBlank()){
+            R.id.firstConvField -> {
+                if(firstConvTV.text!!.isNotEmpty() && firstConvTV.text!!.isNotBlank()){
+                    if(pViewModel._tempftpos.value != pViewModel._tempsdpos.value){
                         convert(id)
                     }
                 }
             }
-            R.id.et_secondConversion -> {
-                if(secondConv != null){
-                    if(secondConv!!.text.isNotEmpty() && secondConv!!.text.isNotBlank()){
+            R.id.secondConvField -> {
+                if(secondConvTV.text!!.isNotEmpty() && secondConvTV.text!!.isNotBlank()){
+                    if(pViewModel._tempftpos.value != pViewModel._tempsdpos.value){
                         convert(id)
                     }
                 }
@@ -128,88 +174,65 @@ class TemperatureFragment : Fragment() {
         }
     }
 
-    fun setupSpinner(){
-        activity?.let {
-            if(pLight){
-                ArrayAdapter.createFromResource(it, R.array.temperaturelist, R.layout.spinner_itemlight)
-                    .also { adapter ->
-                        spinner?.adapter = adapter
-                    }
-            }
-            else{
-                ArrayAdapter.createFromResource(it, R.array.temperaturelist, R.layout.spinner_item)
-                    .also { adapter ->
-                        spinner?.adapter = adapter
-                    }
-            }
+    private fun setupSelections(){
+        firstConvDropField.setEndIconOnClickListener {
+            pViewModel.currentUnit.value = UnitType.TEMPERATURE
+            pViewModel.first.value = true
+            unitConvDialog = showUnitConvSearchDialog(requireContext(), requireActivity().applicationContext, resources.getStringArray(R.array.temperaturelist).toCollection(ArrayList()), pViewModel, viewLifecycleOwner)
         }
 
-        activity?.let {
-            if(pLight){
-                ArrayAdapter.createFromResource(it, R.array.temperaturelist, R.layout.spinner_itemlight)
-                    .also { adapter ->
-                        spinner2?.adapter = adapter
-                    }
-            }
-            else{
-                ArrayAdapter.createFromResource(it, R.array.temperaturelist, R.layout.spinner_item)
-                    .also { adapter ->
-                        spinner2?.adapter = adapter
-                    }
-            }
+        firstConvDropDownField.setOnClickListener {
+            pViewModel.currentUnit.value = UnitType.TEMPERATURE
+            pViewModel.first.value = true
+            unitConvDialog = showUnitConvSearchDialog(requireContext(), requireActivity().applicationContext, resources.getStringArray(R.array.temperaturelist).toCollection(ArrayList()), pViewModel, viewLifecycleOwner)
         }
 
-        spinner?.onItemSelectedListener = (object: AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, vw: View?, pos: Int, id: Long) {
-                if(!pViewModel._tempspinInit){
-                    pViewModel._tempspinInit = true
-                    pViewModel._tempftpos = pos
-                    pViewModel._tempsdpos = 0
+        secondConvDropField.setEndIconOnClickListener {
+            pViewModel.currentUnit.value = UnitType.TEMPERATURE
+            pViewModel.first.value = false
+            unitConvDialog = showUnitConvSearchDialog(requireContext(), requireActivity().applicationContext, resources.getStringArray(R.array.temperaturelist).toCollection(ArrayList()), pViewModel, viewLifecycleOwner)
+        }
 
-                    getConversionResults(firstConv?.id!!)
-                    getConversionResults(secondConv?.id!!)
-                }
-                else{
-                    pViewModel._tempftpos = pos
-                    pViewModel._tempsdpos = spinner2?.selectedItemPosition!!
+        secondConvDropDownField.setOnClickListener {
+            pViewModel.currentUnit.value = UnitType.TEMPERATURE
+            pViewModel.first.value = false
+            unitConvDialog = showUnitConvSearchDialog(requireContext(), requireActivity().applicationContext, resources.getStringArray(R.array.temperaturelist).toCollection(ArrayList()), pViewModel, viewLifecycleOwner)
+        }
 
-                    getConversionResults(firstConv?.id!!)
-                    getConversionResults(secondConv?.id!!)
-                }
+        switchUnitsButton.setOnClickListener {
+            val temp = pViewModel._tempftpos.value
+            pViewModel._tempftpos.value = pViewModel._tempsdpos.value
+            pViewModel._tempsdpos.value = temp
+        }
+
+        pViewModel._tempftpos.observe(viewLifecycleOwner) { newValue ->
+            if (newValue != null) {
+                p_editor.putInt(SharedPrefs.TEMPERATURE_FIRST, newValue)
             }
+            p_editor.apply()
 
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
+            firstConvDropDownField.setText(requireContext().getUnitsList(UnitType.TEMPERATURE)[newValue!!])
+            unitConvDialog?.dismiss()
+
+            firstConvTV.id.let { getConversionResults(it) }
+            secondConvTV.id.let { getConversionResults(it) }
+        }
+
+        pViewModel._tempsdpos.observe(viewLifecycleOwner) { newValue ->
+            if (newValue != null) {
+                p_editor.putInt(SharedPrefs.TEMPERATURE_SECOND, newValue)
             }
+            p_editor.apply()
 
-        })
+            secondConvDropDownField.setText(requireContext().getUnitsList(UnitType.TEMPERATURE)[newValue!!])
+            unitConvDialog?.dismiss()
 
-        spinner2?.onItemSelectedListener = (object: AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, vw: View?, pos: Int, id: Long) {
-                if(!pViewModel._stempspinInit){
-                    pViewModel._stempspinInit = true
-                    pViewModel._tempftpos = 0
-                    pViewModel._tempsdpos = pos
-
-                    getConversionResults(firstConv?.id!!)
-                }
-                else{
-                    pViewModel._tempftpos = spinner?.selectedItemPosition!!
-                    pViewModel._tempsdpos = pos
-
-                    getConversionResults(firstConv?.id!!)
-                }
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
-            }
-
-        })
+            firstConvTV.id.let { getConversionResults(it) }
+        }
     }
 
     private fun textChanged(){
-        firstConvWatcher = object: TextWatcher{
+        firstTextWatcher = object: TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 Log.d("Main", "beforeTextChanged")
             }
@@ -220,7 +243,7 @@ class TemperatureFragment : Fragment() {
 
             override fun afterTextChanged(p0: Editable?) {
                 try{
-                    getConversionResults(firstConv?.id!!)
+                    firstConvTV.id.let { getConversionResults(it) }
                 }catch (e: Exception){
                     Log.e("Main:", "$e")
                 }
@@ -228,7 +251,8 @@ class TemperatureFragment : Fragment() {
 
         }
 
-        secondConvWatcher = object: TextWatcher{
+
+        secondTextWatcher = object: TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 Log.d("Main", "beforeTextChanged")
             }
@@ -239,14 +263,14 @@ class TemperatureFragment : Fragment() {
 
             override fun afterTextChanged(p0: Editable?) {
                 try{
-                    getConversionResults(secondConv?.id!!)
+                    getConversionResults(secondConvTV.id)
                 }catch (e: Exception){
                     Log.e("Main:", "$e")
                 }
             }
         }
 
-        firstConv?.addTextChangedListener(firstConvWatcher)
-        secondConv?.addTextChangedListener(secondConvWatcher)
+        firstConvTV.addTextChangedListener(firstTextWatcher)
+        secondConvTV.addTextChangedListener(secondTextWatcher)
     }
 }

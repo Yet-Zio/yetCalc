@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <yetzio.yetcalc.widget.DateHistoryPreference
+        android:key="dtmhistorypref"
+        app:icon="@drawable/round_view_timeline_24"
+        app:title="Date Time Format (History)"
+        android:summary="Select your desired date format for history"
+        android:layout="@layout/dtmhistorylayout"
+        />
+
+</androidx.preference.PreferenceScreen>

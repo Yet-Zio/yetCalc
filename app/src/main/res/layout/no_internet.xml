@@ -1,65 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/nointernetcontainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <RelativeLayout
-            android:id="@+id/nointlyt"
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/web_off"
+            app:tint="?attr/darkViewArrowColor" />
+
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:text="Whoops!"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:textFontWeight="600"
+            android:fontFamily="@font/nunitosans"/>
 
-            <ImageView
-                android:id="@+id/nointimg"
-                android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="128dp"
-                android:src="@drawable/ic_baseline_mobiledata_off_600" />
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/nointTitle"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:fontFamily="@font/nunitosans"/>
+        
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tryAgainIntBt"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            style="@style/TryAgainIntButton"
+            android:layout_gravity="center"
+            android:textFontWeight="600"
+            android:layout_marginTop="50dp"/>
 
-            <TextView
-                android:id="@+id/nointtext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nointTitle"
-                android:layout_centerHorizontal="true"
-                android:textAllCaps="true"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textStyle="bold"
-                android:textColor="@color/lint"
-                android:layout_below="@id/nointimg"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/nointInfoText"
+            android:layout_weight="1"
+            android:gravity="center|bottom"
+            android:layout_gravity="center"
+            android:textSize="14sp"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/nunitosans"/>
 
-            <TextView
-                android:id="@+id/nointpara"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/nointtext"
-                android:layout_centerHorizontal="true"
-                android:layout_marginHorizontal="32dp"
-                android:layout_marginVertical="64dp"
-                android:gravity="center"
-                android:text="@string/nointInfoText"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/greyish" />
+    </LinearLayout>
 
-            <Button
-                android:id="@+id/nointtryagain"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/nointpara"
-                android:layout_centerHorizontal="true"
-                android:backgroundTint="@color/lint"
-                android:paddingHorizontal="32dp"
-                android:text="@string/try_again"
-                android:textAllCaps="false"
-                android:textColor="@color/lint_light"
-                app:cornerRadius="16dp" />
-        </RelativeLayout>
-
-    </ScrollView>
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,24 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.appbar.MaterialToolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:popupTheme="?popupOverlayStyle">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <Spinner
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/modeselector"
+        android:layout_marginEnd="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_gravity="start"
-        style="@style/AppModeSpinnerStyle"/>
+        style="@style/ModeSelectorTheme">
 
-    <Button
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/AutoCompleteTVTheme"
+            android:fontFamily="@font/nunitosans"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/currentAngleView"
-        android:layout_width="30dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:text="@string/degreetext"
-        style="@style/AngleViewStyle"/>
+        android:backgroundTint="?attr/altButtonBgColor"
+        android:fontFamily="@font/nunitosans"
+        style="@style/CircularButton"
+        app:rippleColor="?attr/altButtonClickedColor"
+        android:textColor="?attr/altButtonTextColor"/>
 
-</androidx.appcompat.widget.Toolbar>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/settingsButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        style="@style/CircularButton"
+        android:backgroundTint="?attr/altButtonBgColor"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
+        app:icon="@drawable/ic_settings_24"
+        app:iconSize="24dp"
+        app:iconGravity="textStart"
+        app:iconTint="?attr/altButtonTextColor"
+        app:rippleColor="?attr/altButtonClickedColor"
+        />
+
+</com.google.android.material.appbar.MaterialToolbar>

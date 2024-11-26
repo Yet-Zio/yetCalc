@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <yetzio.yetcalc.widget.UnitGroupPreference
+        android:key="unitgrouppref"
+        app:icon="@drawable/outline_home_24"
+        app:title="Unit Groups"
+        android:summary="Select the unit groups that you need"
+        android:layout="@layout/unitgrouppreflyt"
+        />
+</androidx.preference.PreferenceScreen>

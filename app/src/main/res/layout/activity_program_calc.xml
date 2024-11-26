@@ -1,494 +1,855 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="0dp"
     tools:context=".views.ProgramCalcActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/prgmappbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        app:popupTheme="?popupOverlayStyle"
-        style="@style/AppBarDark">
-
-        <Spinner
-            android:id="@+id/modeselector"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_gravity="start"
-            style="@style/AppModeSpinnerStyle"/>
-
-    </androidx.appcompat.widget.Toolbar>
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar_alt"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <LinearLayout
+        android:id="@+id/textContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/numberSysContainer">
 
-        <TextView
-            android:id="@+id/tvExp"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textres"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="end"
-            android:paddingEnd="10dp"
-            android:text=""
-            style="@style/yetCalcTVDarkRes"
-            android:textSize="19sp"  />
+            style="@style/CalcTextRes"
+            android:fontFamily="@font/nunitosans"
+            tools:ignore="RtlSymmetry" />
 
-        <TextView
-            android:id="@+id/tvResult"
+        <yetzio.yetcalc.widget.CalcText
+            android:id="@+id/textexpression"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="end"
-            android:textIsSelectable="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:text="0"
-            android:textCursorDrawable="@null"
-            style="@style/yetCalcTVDark"
-            android:textSize="55sp" />
-
-        <View
-            android:id="@+id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="5dp"
-            android:background="?android:attr/listDivider" />
-
+            android:fontFamily="@font/nunitosans"
+            style="@style/CalcTextExp"/>
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="5dp"
+        android:id="@+id/numberSysContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintTop_toBottomOf="@id/textContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/hexContainer"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/container_round_ripple"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
 
-            <Button
-                android:id="@+id/btnForHex"
-                android:layout_width="match_parent"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/HEXhead"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:fontFamily="@font/nunitosans"
                 android:text="@string/hexStr"
-                style="@style/programCalcBorderless"/>
+                android:textColor="?attr/textResultColor"
+                android:layout_marginBottom="8dp"
+                app:textAllCaps="true" />
 
-            <TextView
-                android:id="@+id/tvHex"
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:layout_weight="1"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/HEXres"
+                android:layout_width="60dp"
                 android:gravity="center"
-                android:text="Base 16"
-                style="@style/programCalcTV"/>
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans"
+                android:textColor="?attr/textResultColor"
+                android:text="Base 16"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Space
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_weight="1" />
 
-            <Button
-                android:id="@+id/btnForDec"
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/decContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/container_round_ripple"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/DEChead"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:fontFamily="@font/nunitosans"
                 android:text="@string/decstr"
-                style="@style/programCalcBorderless"
-                android:textColor="@color/calc_textdef" />
+                android:textColor="?attr/textResultColor"
+                android:layout_marginBottom="8dp"
+                app:textAllCaps="true" />
 
-            <TextView
-                android:id="@+id/tvDec"
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:layout_weight="1"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/DECres"
+                android:layout_width="60dp"
                 android:gravity="center"
-                android:text="Base 10"
-                style="@style/programCalcTV"
-                android:textColor="@color/calc_textdef" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans"
+                android:textColor="?attr/textResultColor"
+                android:text="Base 10"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Space
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_weight="1" />
 
-            <Button
-                android:id="@+id/btnForOct"
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/octContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/container_round_ripple"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/OCThead"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:fontFamily="@font/nunitosans"
                 android:text="@string/octstr"
-                style="@style/programCalcBorderless"/>
+                android:textColor="?attr/textResultColor"
+                android:layout_marginBottom="8dp"
+                app:textAllCaps="true" />
 
-            <TextView
-                android:id="@+id/tvOct"
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:layout_weight="1"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/OCTres"
+                android:layout_width="50dp"
                 android:gravity="center"
-                android:text="Base 8"
-                style="@style/programCalcTV"/>
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans"
+                android:textColor="?attr/textResultColor"
+                android:text="Base 8"/>
         </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/binContainer"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:background="@drawable/container_round_ripple"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
 
-            <Button
-                android:id="@+id/btnForBin"
-                android:layout_width="match_parent"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/BINhead"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:fontFamily="@font/nunitosans"
                 android:text="@string/binstr"
-                style="@style/programCalcBorderless"/>
+                android:textColor="?attr/textResultColor"
+                android:layout_marginBottom="8dp"
+                app:textAllCaps="true" />
 
-            <TextView
-                android:id="@+id/tvBin"
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:layout_weight="1"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/BINres"
+                android:layout_width="50dp"
                 android:gravity="center"
-                android:text="Base 2"
-                style="@style/programCalcTV"/>
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans"
+                android:textColor="?attr/textResultColor"
+                android:text="Base 2"/>
+
         </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/backspacebutton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="@style/CircularButton"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="?attr/altButtonBgColor"
+            android:layout_marginBottom="5dp"
+            app:icon="@drawable/backspace_outline"
+            app:iconSize="24dp"
+            app:iconGravity="textStart"
+            app:iconTint="?attr/altButtonTextColor"
+            app:rippleColor="?attr/altButtonClickedColor"
+            />
 
     </LinearLayout>
 
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="10dp"
-        android:background="?android:attr/listDivider" />
-
-    <TableRow
+    <FrameLayout
+        android:id="@+id/btnContainer"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="10dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="10dp">
+        app:layout_constraintTop_toBottomOf="@id/numberSysContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <Button
-            android:id="@+id/inputBtnLSH"
+        <!-- Main Buttons Layout -->
+        <FrameLayout
+            android:id="@+id/buttonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="32dp"
+                android:layout_weight="1"
+                android:background="?attr/darkViewColor" />
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Calc Buttons -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="50dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/acbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/ACButton"
+                            android:text="@string/ac_buttontext"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/leftshiftbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/ACButton"
+                            android:textColor="?attr/darkViewArrowColor"
+                            android:text="@string/lshstr"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/rightshiftbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/ACButton"
+                            android:textColor="?attr/darkViewArrowColor"
+                            android:text="@string/rshstr"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/divideop"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/SpecialButtons"
+                            android:text="@string/dividetext"
+                            android:textSize="28sp"
+                            />
+                    </LinearLayout>
+
+                    <!-- Calc Buttons - 2 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numberseven"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numberseven"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numbereight"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numbereight"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numbernine"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numbernine"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/mulop"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/mulop"
+                            style="@style/SpecialButtons"
+                            android:textSize="28sp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numberfour"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numberfour"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numberfive"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numberfive"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numbersix"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numbersix"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/minusop"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/minusop"
+                            style="@style/SpecialButtons"
+                            android:textSize="28sp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numberone"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numberone"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numbertwo"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numbertwo"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numberthree"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numberthree"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/plusop"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/plusop"
+                            style="@style/SpecialButtons"
+                            android:textSize="28sp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numberzero"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/zero_text"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/doublezerobt"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/doublezero_text"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/percentbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/percent_bttext"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/equalop"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/equalop"
+                            style="@style/EqualButton"
+                            android:textSize="28sp"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </FrameLayout>
+
+        <!-- Alt Buttons (Overlay) -->
+        <FrameLayout
+            android:id="@+id/altButtonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="0dp"
+            android:visibility="gone"
+            android:layout_gravity="top|center_horizontal"
+            android:background="?attr/darkViewColor"
+            app:layout_constraintTop_toBottomOf="@id/commonContainer">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="32dp"
+                android:layout_weight="1"
+                android:background="?attr/darkViewColor"/>
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="50dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/andbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/ANDstr"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/orbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/ORstr"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/notbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/NOTstr"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/nandbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/NANDstr"
+                            style="@style/SpecialButtons"
+                            android:textSize="18sp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/norbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/NORstr"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/xorbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/XORstr"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/xnorbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/XNORstr"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/ushrbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/ushrtext"
+                            style="@style/SpecialButtons"
+                            android:textSize="18sp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/Abutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/a"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/Bbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/b"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/Cbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/c"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/leftbracbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/leftbracket"
+                            style="@style/SpecialButtons"
+                            android:textSize="18sp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/Dbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/d"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/Ebutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/e"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/Fbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/f"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/rightbracbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/rightbracket"
+                            style="@style/SpecialButtons"
+                            android:textSize="18sp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numberzerosecond"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/zero_text"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/rolbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/RoLstr"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/rorbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/RoRstr"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/equalopsecond"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/equalop"
+                            style="@style/EqualButton"
+                            android:textSize="28sp"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+        </FrameLayout>
+
+        <!-- Lines for drop arrow -->
+        <LinearLayout
+            android:id="@+id/dropLineContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:elevation="5dp"
+            app:layout_constraintTop_toBottomOf="@id/commonContainer">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/drop_container_lines"/>
+
+        </LinearLayout>
+
+        <!-- Drop Arrow (Always on Top) -->
+        <FrameLayout
+            android:id="@+id/dropContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/lshstr"
-            style="@style/programCalcBorderlessButton" />
+            android:translationY="-4dp"
+            android:layout_gravity="top|center_horizontal"
+            android:clickable="true"
+            android:backgroundTint="?attr/modeBorderColor"
+            android:focusable="true"
+            android:elevation="5dp"
+            app:layout_constraintTop_toBottomOf="@id/commonContainer">
 
-        <Button
-            android:id="@+id/inputBtnRSH"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/rshstr"
-            style="@style/programCalcBorderlessButton"/>
-    </TableRow>
+            <ImageView
+                android:id="@+id/dropCircle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_circle_48"
+                app:tint="?attr/darkCircleViewColor" />
 
+            <ImageView
+                android:id="@+id/dropArrow"
+                android:translationY="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_drop_down_48"
+                app:tint="?attr/darkViewArrowColor" />
+        </FrameLayout>
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="10dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="10dp">
+    </FrameLayout>
 
-        <Button
-            android:id="@+id/inputBtnD"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/d"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtnE"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/e"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtnF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/f"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtnAC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/ac_buttontext"
-            style="@style/programCalcBorderlessButtonAlt"/>
-
-        <Button
-            android:id="@+id/inputBtnCl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/cl"
-            style="@style/programCalcBorderlessButtonAlt"/>
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp">
-
-        <Button
-            android:id="@+id/inputBtnA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/a"
-            style="@style/programCalcBorderlessButton" />
-
-        <Button
-            android:id="@+id/inputBtnB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/b"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtnC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/c"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtnAnd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/ANDstr"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtnOr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/ORstr"
-            style="@style/programCalcBorderlessButton"/>
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp">
-
-        <Button
-            android:id="@+id/inputBtn7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/numberseven"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtn8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/numbereight"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtn9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/numbernine"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtnNot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/NOTstr"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtnNand"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/NANDstr"
-            style="@style/programCalcBorderlessButton"/>
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp">
-
-        <Button
-            android:id="@+id/inputBtn4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/numberfour"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtn5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/numberfive"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtn6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/numbersix"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtnNor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/NORstr"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtnXor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/XORstr"
-            style="@style/programCalcBorderlessButton"/>
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp">
-
-        <Button
-            android:id="@+id/inputBtn1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/numberone"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtn2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/numbertwo"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtn3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/numberthree"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtnAddition"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/plusop"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtnSubtraction"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/minusop"
-            style="@style/programCalcBorderlessButton"/>
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp">
-
-        <Button
-            android:id="@+id/inputBtnDouble0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/numberdouble0"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtn0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/zero_text"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtnEqual"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/equalop"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtnMultiply"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/mulop"
-            style="@style/programCalcBorderlessButton"/>
-
-        <Button
-            android:id="@+id/inputBtnDivide"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/dividetext"
-            style="@style/programCalcBorderlessButton"/>
-    </TableRow>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/unitGroupLytContainer"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:background="@drawable/unitgroupbg"
+    android:padding="16dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp">
+
+    <ImageButton
+        android:id="@+id/toggleButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="?attr/textResultColor"
+        android:src="@drawable/round_remove_circle_24"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/nameTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="16dp"
+        android:textColor="?attr/textExpressionColor"
+        android:textSize="16sp"/>
+
+    <ImageView
+        android:id="@+id/dragHandle"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="?attr/textResultColor"
+        android:src="@drawable/round_drag_handle_24"/>
+
+</LinearLayout>

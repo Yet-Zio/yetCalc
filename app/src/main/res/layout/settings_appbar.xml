@@ -1,17 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.appbar.AppBarLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:popupTheme="?popupOverlayStyle">
+    android:backgroundTint="?attr/calcBackgroundDefault">
 
-    <TextView
-        android:id="@+id/settingstitle"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="@string/action_settings"
-        android:gravity="center"
-        style="@style/GenericTextDark">
-    </TextView>
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:id="@+id/settingsCollapseToolbar"
+        android:layout_width="match_parent"
+        style="?attr/collapsingToolbarLayoutLargeStyle"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed"
+        app:collapsedTitleTextColor="?attr/calcTextDefaultColor"
+        app:expandedTitleTextColor="?attr/calcTextDefaultColor"
+        app:contentScrim="?attr/calcBackgroundDefault"
+        android:layout_height="?attr/collapsingToolbarLayoutLargeSize">
 
-</androidx.appcompat.widget.Toolbar>
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/settingsMaterialToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/action_settings"
+            app:titleTextColor="?attr/calcTextDefaultColor"
+            app:layout_collapseMode="pin"
+            android:backgroundTint="?attr/calcBackgroundDefault"
+            app:navigationIcon="@drawable/round_arrow_back_24"
+            app:navigationIconTint="?attr/calcTextDefaultColor">
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+</com.google.android.material.appbar.AppBarLayout>

@@ -5,15 +5,41 @@
 [![Donate](https://img.shields.io/badge/$-support-ff69b4.svg?style=flat)](https://www.buymeacoffee.com/yetzio)
 
 </div>
-<p align="center">
-  <img src="./img/icons/appico.png?raw=true" alt="yetCalc Icon" width="60" height="60"/>
-</p>
 
-<h1 align="center">yetCalc</h1>
+<img src="fastlane/metadata/android/en-US/images/featureGraphic.png" alt="yetCalc Brand" style="display: block; margin: 0 auto 30px;">
 
-The free and open source calculator developed for Android 5.0 and above using Kotlin. yetCalc's calculator mode uses the [mXparser](https://mathparser.org/) library. Large calculations are handled without device freezing and other issues, although some calculations might take time. 
+<div>
+    <img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="24%"/>
+    <img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="24%"/>
+    <img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" width="24%"/>
+    <img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" width="24%"/>
+</div>
+<div>
+    <img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="24%"/>
+    <img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/6.png" width="24%"/>
+    <img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/7.png" width="24%"/>
+    <img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/8.png" width="24%"/>
+</div>
 
-![yetCalc About](./img/snaps/calcbrand.png)
+## Major Version Upgrade
+
+yetCalc v2.0.0 comes with the following features:
+
+- Redesigned Calculator with scientific mode in both Portrait and Landscape mode
+- Customizable Unit Converter with selectable unit groups, unit pins, search and much more...
+- Fully Redesigned Programmer mode with new operators and functions.
+- Selectable starting mode.
+- Shortcuts for home screen with themed icons support.
+- New and Improved Settings providing endless customizability.
+
+Theme Changes
+
+- New Abyss mode (AMOLED Dark) for those wanting to preserve battery life.
+- Material You Support or Dynamic Colors, with 4 unique styles to serve your needs.
+
+## Requirements
+
+- Android 9.0 or above.
 
 ## Modes
 
@@ -28,16 +54,11 @@ The free and open source calculator developed for Android 5.0 and above using Ko
     - System Theme(default)
     - Dark mode🌃
     - Light mode🏙️
+    - Abyss mode (AMOLED Dark)
+    - Material You (Dynamic Colors)
 
 
 - Calculator
-
-    <p align="center">
-        <img src="./img/snaps/snap2.png?raw=true" alt="yetCalc Landscape" width="575" height="279"/>
-    </p>
-    <p align="center">
-        <img src="./img/snaps/lightsnap2.png?raw=true" alt="yetCalc Landscape" width="575" height="279"/>
-    </p>
 
     - Support for all basic operators.
     - Progressive calculations.```(results appear on top and change side by side as you change the expression)```
@@ -50,8 +71,6 @@ The free and open source calculator developed for Android 5.0 and above using Ko
     - Vibrations when clicking buttons?(don't know if I should have mentioned it here)
 
     <br>
-
-    **DO NOTE**: Inorder to use scientific features, the device should be in landscape mode.
 
 - Unit Converter
     - **Currency**: Conversions are handled through [fawazahmed0/currency-api](https://github.com/fawazahmed0/currency-api) and requires an Internet connection.
@@ -68,9 +87,9 @@ The free and open source calculator developed for Android 5.0 and above using Ko
     - **Angle**: Degrees, Radians, Gradians, Turns, Milliradians, Minutes of arc, Seconds of arc
     - **Data**: Bits, Nibbles, Crumbs, Bytes, Kilobits, Kibibits, Megabits, Mebibits, Gigabits, Gibibits, Terabits, Tebibits, Petabits, Pebibits, Exabits, Exbibits, Zetabits, Zebibits, Yottabits, Yobibits, Kilobytes, Kibibytes, Megabytes, Mebibytes, Gigabytes, Gibibytes, Terabytes, Tebibytes, Petabytes, Pebibytes, Exabytes, Exbibytes, Zetabytes, Zebibytes, Yottabytes, Yobibytes
 
-- Programmer(Extended from this [implementation](https://github.com/agam23/programmers-calculator-in-kotlin))
+- Programmer (Implemented using EvalEx)
     - Provides all basic operators like +, -, ×, ÷
-    - Provides logical operators like AND, OR, NOT, NAND, NOR, XOR
+    - Provides bitwise operators like AND, OR, NOT, NAND, NOR, XOR, XNOR, URSH, RoL, RoR
     - Provides operations like left shift(<<) and right shift(>>)
     - Support for commonly used number systems: Binary, Octal, Decimal and Hexadecimal
     
@@ -84,7 +103,7 @@ The free and open source calculator developed for Android 5.0 and above using Ko
 
 Or download the app from the [releases page](https://github.com/Yet-Zio/yetCalc/releases/latest).
 
-Note: Requires Android 5.0 and above.
+Note: Requires Android 9.0 and above.
 
 Also, only download the app from sources provided by the developer.
 

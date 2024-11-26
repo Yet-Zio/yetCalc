@@ -1,29 +1,27 @@
 package yetzio.yetcalc.widget
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
-import android.widget.EditText
+import com.google.android.material.textfield.TextInputEditText
 
 interface CalcTextListener {
     fun onUpdate()
     fun onCutText()
 }
 
-@SuppressLint("AppCompatCustomView")
-class CalcText : EditText {
+class CalcText : TextInputEditText {
     var listeners: ArrayList<CalcTextListener>
 
-    constructor(context: Context?) : super(context) {
+    constructor(context: Context?) : super(context!!) {
         listeners = ArrayList()
     }
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(context: Context?, attrs: AttributeSet?) : super(context!!, attrs) {
         listeners = ArrayList()
     }
 
     constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(
-        context,
+        context!!,
         attrs,
         defStyle
     ) {

@@ -1,354 +1,286 @@
 package yetzio.yetcalc.views
 
-import android.content.Context
+import android.animation.ObjectAnimator
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.res.Configuration
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.widget.*
+import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isVisible
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.airbnb.paris.Paris
-import yetzio.yetcalc.MainActivity
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textview.MaterialTextView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import yetzio.yetcalc.R
-import yetzio.yetcalc.component.NumberSystem
-import yetzio.yetcalc.component.Operator
-import yetzio.yetcalc.component.SpinnerItemAdapter
-import yetzio.yetcalc.model.ProgramCalcViewModel
-import yetzio.yetcalc.utils.getModesList
+import yetzio.yetcalc.component.SharedPrefs
+import yetzio.yetcalc.config.CalcBaseActivity
+import yetzio.yetcalc.config.CalcView
+import yetzio.yetcalc.enums.NumberSystem
+import yetzio.yetcalc.models.ProgramCalcViewModel
 import yetzio.yetcalc.utils.getScreenOrientation
+import yetzio.yetcalc.utils.getThemeColor
+import yetzio.yetcalc.utils.hideLayoutWithAnimationF
 import yetzio.yetcalc.utils.setVibOnClick
-import yetzio.yetcalc.utils.showThemeDialog
-import java.math.BigInteger
+import yetzio.yetcalc.utils.showLayoutWithAnimationF
+import yetzio.yetcalc.widget.CalcText
+import yetzio.yetcalc.widget.CalcTextListener
 
-class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
+class ProgramCalcActivity : CalcBaseActivity(), View.OnClickListener{
 
-    private lateinit var tvExp: TextView
-    private lateinit var tvResult: TextView
-    private lateinit var tvHex: TextView
-    private lateinit var tvDec: TextView
-    private lateinit var tvOct: TextView
-    private lateinit var tvBin: TextView
+    // Buttons list
+    private var button_list = ArrayList<MaterialButton>()
 
-    private var buttonlist = ArrayList<Button>()
+    private val mCoroutineScope = CoroutineScope(Dispatchers.Main)
 
-    private lateinit var btnForHex: Button
-    private lateinit var btnForDec: Button
-    private lateinit var btnForOct: Button
-    private lateinit var btnForBin: Button
+    private lateinit var acbutton: MaterialButton
+    private lateinit var leftshbutton: MaterialButton
+    private lateinit var rightshbutton: MaterialButton
 
-    private lateinit var inputBtnLSH: Button
-    private lateinit var inputBtnRSH: Button
+    private lateinit var divideop: MaterialButton
+    private lateinit var mulop: MaterialButton
+    private lateinit var minusop: MaterialButton
+    private lateinit var plusop: MaterialButton
 
-    private lateinit var inputBtnDouble0: Button
-    private lateinit var inputBtn0: Button
-    private lateinit var inputBtn1: Button
-    private lateinit var inputBtn2: Button
-    private lateinit var inputBtn3: Button
-    private lateinit var inputBtn4: Button
-    private lateinit var inputBtn5: Button
-    private lateinit var inputBtn6: Button
-    private lateinit var inputBtn7: Button
-    private lateinit var inputBtn8: Button
-    private lateinit var inputBtn9: Button
+    // Bitwise operators
+    private lateinit var andbt: MaterialButton
+    private lateinit var orbt: MaterialButton
+    private lateinit var notbt: MaterialButton
+    private lateinit var nandbt: MaterialButton
+    private lateinit var norbt: MaterialButton
+    private lateinit var xorbt: MaterialButton
+    private lateinit var xnorbt: MaterialButton
+    private lateinit var ushrbt: MaterialButton
 
-    private lateinit var inputBtnA: Button
-    private lateinit var inputBtnB: Button
-    private lateinit var inputBtnC: Button
-    private lateinit var inputBtnD: Button
-    private lateinit var inputBtnE: Button
-    private lateinit var inputBtnF: Button
+    private lateinit var leftbracbt: MaterialButton
+    private lateinit var rightbracbt: MaterialButton
 
-    private lateinit var inputBtnAddition: Button
-    private lateinit var inputBtnSubtraction: Button
-    private lateinit var inputBtnMultiply: Button
-    private lateinit var inputBtnDivide: Button
+    private lateinit var equalop: MaterialButton
+    private lateinit var equalopsecond: MaterialButton
 
-    private lateinit var inputBtnAnd: Button
-    private lateinit var inputBtnOr: Button
-    private lateinit var inputBtnNot: Button
-    private lateinit var inputBtnNand: Button
-    private lateinit var inputBtnNor: Button
-    private lateinit var inputBtnXor: Button
+    private lateinit var doublezerobt: MaterialButton
+    private lateinit var percentbutton: MaterialButton
 
-    private lateinit var inputBtnCl: Button
-    private lateinit var inputBtnAC: Button
-    private lateinit var inputBtnEqual: Button
+    private lateinit var num0bt: MaterialButton
+    private lateinit var num0second: MaterialButton
 
-    private lateinit var modeselecSpin: Spinner
-    lateinit var mViewModel: ProgramCalcViewModel
+    private lateinit var bkspacebt: MaterialButton
+    private lateinit var num7bt: MaterialButton
+    private lateinit var num8bt: MaterialButton
+    private lateinit var num9bt: MaterialButton
+    private lateinit var num4bt: MaterialButton
+    private lateinit var num5bt: MaterialButton
+    private lateinit var num6bt: MaterialButton
+    private lateinit var num1bt: MaterialButton
+    private lateinit var num2bt: MaterialButton
+    private lateinit var num3bt: MaterialButton
 
-    private lateinit var preferences: SharedPreferences
-    private lateinit var editor: SharedPreferences.Editor
+    // Hexadecimal characters
+    private lateinit var Abutton: MaterialButton
+    private lateinit var Bbutton: MaterialButton
+    private lateinit var Cbutton: MaterialButton
+    private lateinit var Dbutton: MaterialButton
+    private lateinit var Ebutton: MaterialButton
+    private lateinit var Fbutton: MaterialButton
 
-    private lateinit var theme: String
-    private var dark = false
-    private var light = false
+    private lateinit var rolbutton: MaterialButton
+    private lateinit var rorbutton: MaterialButton
 
-    private lateinit var toolbar: Toolbar
+    private lateinit var textexpression: CalcText
+    private lateinit var textres: MaterialTextView
 
-    private lateinit var opsList: ArrayList<String>
-    private var booleanOpsList = arrayListOf("AND", "OR", "NAND", "NOR", "XOR", "Lsh", "Rsh") // NOT is unary, so not required
+    // Drop Container
+    private lateinit var dropContainer: FrameLayout
+    private lateinit var dropLineContainer: LinearLayout
+    private lateinit var dropImgView: ImageView
+
+    // Main Containers - Portrait
+    private lateinit var droppedBtnLyt: FrameLayout
+    private lateinit var mainbuttonlyt: FrameLayout
+
+    // Number System Containers
+    private lateinit var hexContainer: LinearLayout
+    private lateinit var decContainer: LinearLayout
+    private lateinit var octContainer: LinearLayout
+    private lateinit var binContainer: LinearLayout
+
+    private lateinit var hexHead: MaterialTextView
+    private lateinit var decHead: MaterialTextView
+    private lateinit var octHead: MaterialTextView
+    private lateinit var binHead: MaterialTextView
+
+    private lateinit var hexRes: MaterialTextView
+    private lateinit var decRes: MaterialTextView
+    private lateinit var octRes: MaterialTextView
+    private lateinit var binRes: MaterialTextView
+
+    private lateinit var settingsLauncher: ActivityResultLauncher<Intent>
+    private lateinit var settingsBt: MaterialButton
+
+    private lateinit var mviewModel: ProgramCalcViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        initPrefs()
-        theme = preferences.getString(getString(R.string.key_theme), getString(R.string.system_theme)).toString()
-
-        if(theme == getString(R.string.system_theme)){
-            val nightModeFlags: Int = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-            when (nightModeFlags) {
-                Configuration.UI_MODE_NIGHT_YES -> {
-                    dark = true
-                    light = false
-                    setTheme(R.style.yetCalcActivityThemeDark)
-                }
-                Configuration.UI_MODE_NIGHT_NO -> {
-                    dark = false
-                    light = true
-                    setTheme(R.style.yetCalcActivityThemeLight)
-                }
-                Configuration.UI_MODE_NIGHT_UNDEFINED -> {
-                    dark = true
-                    light = false
-                    setTheme(R.style.yetCalcActivityThemeDark)
-                }
-            }
-        }
-        else if(theme == getString(R.string.dark_theme)){
-            dark = true
-            light = false
-            setTheme(R.style.yetCalcActivityThemeDark)
-        }
-        else{
-            dark = false
-            light = true
-            setTheme(R.style.yetCalcActivityThemeLight)
-        }
+        currentView = CalcView.PROGRAMMER
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_program_calc)
 
-        opsList = arrayListOf()
+        modeSelector = findViewById(R.id.modeselector)
+        setupModeSelector()
 
-        for(i in Operator.values()){
-            i.str?.let { opsList.add(it) }
+        mviewModel = ViewModelProvider(this)[ProgramCalcViewModel::class.java]
+        mviewModel.hapticPref = preferences.getBoolean(SharedPrefs.HAPTICKEY, true)
+        settingsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+            mviewModel.hapticPref = preferences.getBoolean(SharedPrefs.HAPTICKEY, true)
+        }
+        settingsBt = findViewById(R.id.settingsButton)
+        settingsBt.setOnClickListener {
+            launchSettings()
         }
 
-        mViewModel = ViewModelProvider(this)[ProgramCalcViewModel::class.java]
+        textexpression = findViewById(R.id.textexpression)
+        textexpression.showSoftInputOnFocus = false
 
-        toolbar = findViewById(R.id.prgmappbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
+        textexpression.addListener(object: CalcTextListener {
+            // evaluates expression on paste event
+            override fun onUpdate() {
+                evaluate_expr()
+            }
 
-        modeselecSpin = findViewById(R.id.modeselector)
-        val spinnerModesList = if(dark){
-            getModesList("")
-        }
-        else{
-            getModesList("light")
-        }
-
-        val modeAdp: SpinnerItemAdapter = if(dark){
-            SpinnerItemAdapter(this, spinnerModesList, "default")
-        } else{
-            SpinnerItemAdapter(this, spinnerModesList, "light")
-        }
-
-        modeselecSpin.adapter = modeAdp
-        modeselecSpin.setSelection(2)
-        modeselecSpin.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                if(pos == 0){
-                    startActivity(Intent(applicationContext, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
+            override fun onCutText() {
+                if(textexpression.text?.isNotEmpty()!!){
+                    evaluate_expr()
                 }
-                else if(pos == 1){
-                    startActivity(Intent(applicationContext, UnitConvActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
+                else{
+                    mviewModel.result = ""
+                    textres.setText("")
                 }
             }
+        })
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
+        textres = findViewById(R.id.textres)
+
+        if(getScreenOrientation(applicationContext) == Configuration.ORIENTATION_PORTRAIT){
+            dropContainer = findViewById(R.id.dropContainer)
+            dropImgView = findViewById(R.id.dropArrow)
+            droppedBtnLyt = findViewById(R.id.altButtonContainer)
+            mainbuttonlyt = findViewById(R.id.buttonContainer)
+
+            dropLineContainer = findViewById(R.id.dropLineContainer)
+
+            var rotAnimator = ObjectAnimator()
+            rotAnimator.setDuration(1000)
+
+            dropContainer.setOnClickListener { view ->
+                if (!droppedBtnLyt.isVisible) {
+                    rotAnimator = ObjectAnimator.ofFloat(dropImgView, "rotation", 0f, 180f)
+                    rotAnimator.start()
+                    hideLayoutWithAnimationF(mainbuttonlyt, dropLineContainer, mainbuttonlyt, droppedBtnLyt)
+                    showLayoutWithAnimationF(droppedBtnLyt, dropLineContainer)
+                } else {
+                    rotAnimator = ObjectAnimator.ofFloat(dropImgView, "rotation", 180f, 0f)
+                    rotAnimator.start()
+                    hideLayoutWithAnimationF(droppedBtnLyt, dropLineContainer, mainbuttonlyt, droppedBtnLyt)
+                    showLayoutWithAnimationF(mainbuttonlyt, dropLineContainer)
+                }
             }
 
+            num0second = findViewById(R.id.numberzerosecond)
+            equalopsecond = findViewById(R.id.equalopsecond)
+            button_list.addAll(arrayListOf(num0second, equalopsecond))
         }
 
-        tvExp = findViewById(R.id.tvExp)
-        tvResult = findViewById(R.id.tvResult)
+        num7bt = findViewById(R.id.numberseven)
+        num8bt = findViewById(R.id.numbereight)
+        num9bt = findViewById(R.id.numbernine)
+        num4bt = findViewById(R.id.numberfour)
+        num5bt = findViewById(R.id.numberfive)
+        num6bt = findViewById(R.id.numbersix)
+        num1bt = findViewById(R.id.numberone)
+        num2bt = findViewById(R.id.numbertwo)
+        num3bt = findViewById(R.id.numberthree)
+        num0bt = findViewById(R.id.numberzero)
 
-        tvHex = findViewById(R.id.tvHex)
-        tvDec = findViewById(R.id.tvDec)
-        tvOct = findViewById(R.id.tvOct)
-        tvBin = findViewById(R.id.tvBin)
+        doublezerobt = findViewById(R.id.doublezerobt)
+        percentbutton = findViewById(R.id.percentbutton)
 
-        btnForHex = findViewById(R.id.btnForHex)
-        btnForDec = findViewById(R.id.btnForDec)
-        btnForOct = findViewById(R.id.btnForOct)
-        btnForBin = findViewById(R.id.btnForBin)
+        equalop = findViewById(R.id.equalop)
+        bkspacebt = findViewById(R.id.backspacebutton)
 
-        inputBtnDouble0 = findViewById(R.id.inputBtnDouble0)
-        inputBtn0 = findViewById(R.id.inputBtn0)
-        inputBtn1 = findViewById(R.id.inputBtn1)
-        inputBtn2 = findViewById(R.id.inputBtn2)
-        inputBtn3 = findViewById(R.id.inputBtn3)
-        inputBtn4 = findViewById(R.id.inputBtn4)
-        inputBtn5 = findViewById(R.id.inputBtn5)
-        inputBtn6 = findViewById(R.id.inputBtn6)
-        inputBtn7 = findViewById(R.id.inputBtn7)
-        inputBtn8 = findViewById(R.id.inputBtn8)
-        inputBtn9 = findViewById(R.id.inputBtn9)
+        acbutton = findViewById(R.id.acbutton)
+        leftshbutton = findViewById(R.id.leftshiftbutton)
+        rightshbutton = findViewById(R.id.rightshiftbutton)
 
-        inputBtnA = findViewById(R.id.inputBtnA)
-        inputBtnB = findViewById(R.id.inputBtnB)
-        inputBtnC = findViewById(R.id.inputBtnC)
-        inputBtnD = findViewById(R.id.inputBtnD)
-        inputBtnE = findViewById(R.id.inputBtnE)
-        inputBtnF = findViewById(R.id.inputBtnF)
+        divideop = findViewById(R.id.divideop)
+        mulop = findViewById(R.id.mulop)
+        minusop = findViewById(R.id.minusop)
+        plusop = findViewById(R.id.plusop)
 
-        inputBtnAddition = findViewById(R.id.inputBtnAddition)
-        inputBtnSubtraction = findViewById(R.id.inputBtnSubtraction)
-        inputBtnMultiply = findViewById(R.id.inputBtnMultiply)
-        inputBtnDivide = findViewById(R.id.inputBtnDivide)
+        andbt = findViewById(R.id.andbutton)
+        orbt = findViewById(R.id.orbutton)
+        notbt = findViewById(R.id.notbutton)
+        nandbt = findViewById(R.id.nandbutton)
+        norbt = findViewById(R.id.norbutton)
+        xorbt = findViewById(R.id.xorbutton)
+        xnorbt = findViewById(R.id.xnorbutton)
+        ushrbt = findViewById(R.id.ushrbutton)
+        rolbutton = findViewById(R.id.rolbutton)
+        rorbutton = findViewById(R.id.rorbutton)
 
-        inputBtnAnd = findViewById(R.id.inputBtnAnd)
-        inputBtnOr = findViewById(R.id.inputBtnOr)
-        inputBtnNot = findViewById(R.id.inputBtnNot)
-        inputBtnNand = findViewById(R.id.inputBtnNand)
-        inputBtnNor = findViewById(R.id.inputBtnNor)
-        inputBtnXor = findViewById(R.id.inputBtnXor)
+        leftbracbt = findViewById(R.id.leftbracbutton)
+        rightbracbt = findViewById(R.id.rightbracbutton)
 
-        inputBtnLSH = findViewById(R.id.inputBtnLSH)
-        inputBtnRSH = findViewById(R.id.inputBtnRSH)
+        Abutton = findViewById(R.id.Abutton)
+        Bbutton = findViewById(R.id.Bbutton)
+        Cbutton = findViewById(R.id.Cbutton)
+        Dbutton = findViewById(R.id.Dbutton)
+        Ebutton = findViewById(R.id.Ebutton)
+        Fbutton = findViewById(R.id.Fbutton)
 
-        inputBtnCl = findViewById(R.id.inputBtnCl)
-        inputBtnAC = findViewById(R.id.inputBtnAC)
-        inputBtnEqual = findViewById(R.id.inputBtnEqual)
+        hexContainer = findViewById(R.id.hexContainer)
+        decContainer = findViewById(R.id.decContainer)
+        octContainer = findViewById(R.id.octContainer)
+        binContainer = findViewById(R.id.binContainer)
 
-        buttonlist.add(btnForHex)
-        buttonlist.add(btnForDec)
-        buttonlist.add(btnForOct)
-        buttonlist.add(btnForBin)
+        hexHead = findViewById(R.id.HEXhead)
+        decHead = findViewById(R.id.DEChead)
+        octHead = findViewById(R.id.OCThead)
+        binHead = findViewById(R.id.BINhead)
 
-        buttonlist.add(inputBtnDouble0)
-        buttonlist.add(inputBtn0)
-        buttonlist.add(inputBtn1)
-        buttonlist.add(inputBtn2)
-        buttonlist.add(inputBtn3)
-        buttonlist.add(inputBtn4)
-        buttonlist.add(inputBtn5)
-        buttonlist.add(inputBtn6)
-        buttonlist.add(inputBtn7)
-        buttonlist.add(inputBtn8)
-        buttonlist.add(inputBtn9)
+        hexRes = findViewById(R.id.HEXres)
+        decRes = findViewById(R.id.DECres)
+        octRes = findViewById(R.id.OCTres)
+        binRes = findViewById(R.id.BINres)
 
-        buttonlist.add(inputBtnA)
-        buttonlist.add(inputBtnB)
-        buttonlist.add(inputBtnC)
-        buttonlist.add(inputBtnD)
-        buttonlist.add(inputBtnE)
-        buttonlist.add(inputBtnF)
-
-        buttonlist.add(inputBtnAddition)
-        buttonlist.add(inputBtnSubtraction)
-        buttonlist.add(inputBtnMultiply)
-        buttonlist.add(inputBtnDivide)
-
-        buttonlist.add(inputBtnAnd)
-        buttonlist.add(inputBtnOr)
-        buttonlist.add(inputBtnNot)
-        buttonlist.add(inputBtnNand)
-        buttonlist.add(inputBtnNor)
-        buttonlist.add(inputBtnXor)
-
-        buttonlist.add(inputBtnLSH)
-        buttonlist.add(inputBtnRSH)
-
-        buttonlist.add(inputBtnCl)
-        buttonlist.add(inputBtnAC)
-        buttonlist.add(inputBtnEqual)
-
-        restoreExp()
-
-        mViewModel.initialized = false
-
-        if(light){
-            Paris.style(findViewById<Toolbar>(R.id.prgmappbar)).apply(R.style.AppBarLight)
-            Paris.style(modeselecSpin).apply(R.style.AppModeSpinnerStyleLight)
-
-            Paris.style(tvExp).apply(R.style.yetCalcTVDarkResLight)
-
-            if(getScreenOrientation(applicationContext) == Configuration.ORIENTATION_LANDSCAPE){
-                Paris.style(tvResult).apply(R.style.programCalcTVLandLight)
-            }
-            else{
-                Paris.style(tvResult).apply(R.style.yetCalcTVDarkLight)
-            }
-
-            Paris.style(tvHex).apply(R.style.programCalcTVLight)
-            Paris.style(tvDec).apply(R.style.programCalcTVLight)
-            Paris.style(tvOct).apply(R.style.programCalcTVLight)
-            Paris.style(tvBin).apply(R.style.programCalcTVLight)
-
-            Paris.style(btnForHex).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(btnForDec).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(btnForOct).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(btnForBin).apply(R.style.programCalcBorderlessButtonLight)
-
-            Paris.style(inputBtnAC).apply(R.style.programCalcBorderlessButtonAltLight)
-            Paris.style(inputBtnCl).apply(R.style.programCalcBorderlessButtonAltLight)
-
-            Paris.style(inputBtnLSH).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtnRSH).apply(R.style.programCalcBorderlessButtonLight)
-
-            Paris.style(inputBtnDouble0).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtnEqual).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtn0).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtn1).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtn2).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtn3).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtn4).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtn5).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtn6).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtn7).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtn8).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtn9).apply(R.style.programCalcBorderlessButtonLight)
-
-            Paris.style(inputBtnA).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtnB).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtnC).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtnD).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtnE).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtnF).apply(R.style.programCalcBorderlessButtonLight)
-
-            Paris.style(inputBtnAddition).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtnSubtraction).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtnMultiply).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtnDivide).apply(R.style.programCalcBorderlessButtonLight)
-
-            Paris.style(inputBtnAnd).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtnOr).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtnNot).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtnNand).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtnNor).apply(R.style.programCalcBorderlessButtonLight)
-            Paris.style(inputBtnXor).apply(R.style.programCalcBorderlessButtonLight)
-        }
-
-        // sets the current number system, by default it is 'Decimal'
-        setCurrentNumberSystem(mViewModel.numberSys)
-
-        mViewModel.initialized = true
+        button_list.addAll(arrayListOf(
+            rolbutton,
+            num7bt, num8bt, num9bt,
+            num4bt, num5bt, num6bt,
+            num1bt, num2bt, num3bt,
+            num0bt, doublezerobt, percentbutton,
+            equalop, bkspacebt, rorbutton,
+            acbutton, leftbracbt, rightbracbt,
+            leftshbutton, rightshbutton, ushrbt,
+            divideop, mulop, minusop, plusop,
+            andbt, orbt, notbt, nandbt, norbt, xorbt, xnorbt,
+            Abutton, Bbutton, Cbutton, Dbutton, Ebutton, Fbutton
+        ))
 
         setOnClickListeners()
+        setOnLongClickListeners()
+        setupNumberSystemContainers()
+
+        restoreModesAndConfiguration(savedInstanceState)
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                Log.d("CDA", "onBackPressed Called")
                 val setIntent = Intent(Intent.ACTION_MAIN)
                 setIntent.addCategory(Intent.CATEGORY_HOME)
                 setIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
@@ -357,686 +289,695 @@ class ProgramCalcActivity : AppCompatActivity(), View.OnClickListener {
         })
     }
 
-    private fun initPrefs(){
-        preferences = getSharedPreferences("CalcPrefs", Context.MODE_PRIVATE)
-        editor = preferences.edit()
+    private fun launchSettings(){
+        val settingsIntent = Intent(this, SettingsActivity::class.java)
+        settingsLauncher.launch(settingsIntent)
     }
 
-    private fun restoreExp(){
-        if(mViewModel.textRES.isNotEmpty()){
-            tvResult.text = mViewModel.textRES
-        }
-        else{
-            tvResult.text = "0"
-        }
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putString(getString(R.string.text_res), mviewModel.result)
 
-        if(mViewModel.textEXP.isNotEmpty()){
-            tvExp.text = mViewModel.textEXP
-        }
+        super.onSaveInstanceState(outState)
     }
 
-    private fun setOnClickListeners(){
-        for(btn in buttonlist){
-            btn.setOnClickListener(this)
+    private fun restoreModesAndConfiguration(savedInstanceState: Bundle?){
+        if(savedInstanceState != null){
+            textres.text = savedInstanceState.getString(getString(R.string.text_res))
+            mviewModel.result = textres.text.toString()
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        if(light){
-            menuInflater.inflate(R.menu.menulight, menu)
+    fun setOnClickListeners(){
+        for (bt in button_list){
+            bt.setOnClickListener(this)
         }
-        else{
-            menuInflater.inflate(R.menu.menu, menu)
-        }
-
-        val historyopt = menu.findItem(R.id.historyopt)
-        historyopt.isVisible = false
-
-        return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val item_id = item.itemId
-
-        when(item_id){
-            R.id.selecthemeopt -> { showThemeDialog(this) }
-            R.id.settingsopt -> {
-                val setIntent = Intent(this, SettingsActivity::class.java)
-                startActivity(setIntent)
+    private fun setOnLongClickListeners() {
+        bkspacebt.setOnLongClickListener {
+            if(mviewModel.hapticPref){
+                bkspacebt.isHapticFeedbackEnabled = true
             }
-            R.id.helpopt -> {
-                val helpuri = Uri.parse("https://github.com/Yet-Zio/yetCalc/blob/main/HELP.md")
-                val helpIntent = Intent(Intent.ACTION_VIEW, helpuri)
-                startActivity(helpIntent)
+            else{
+                bkspacebt.isHapticFeedbackEnabled = false
             }
+            clearFields()
+            true
         }
-        return true
     }
 
     override fun onClick(view: View?) {
         val buttonId = view?.id
 
-        if(mViewModel.divByZero){
-            tvResult.text = "0"
-            tvExp.text = "0"
-            mViewModel.divByZero = false
-        }
-
-        if(buttonId != null){
-            when(buttonId){
-                R.id.btnForHex -> {
-                    setCurrentNumberSystem(NumberSystem.HEX)
-                }
-                R.id.btnForDec -> {
-                    setCurrentNumberSystem(NumberSystem.DEC)
-                }
-                R.id.btnForOct -> {
-                    setCurrentNumberSystem(NumberSystem.OCT)
-                }
-                R.id.btnForBin -> {
-                    setCurrentNumberSystem(NumberSystem.BIN)
-                }
-                R.id.inputBtnDouble0 -> {
-                    tvExp.append(inputBtnDouble0.text)
-                    inputReceived(inputBtnDouble0.text)
-                }
-                R.id.inputBtn0 -> {
-                    tvExp.append(inputBtn0.text)
-                    inputReceived(inputBtn0.text)
-                }
-                R.id.inputBtn1 -> {
-                    tvExp.append(inputBtn1.text)
-                    inputReceived(inputBtn1.text)
-                }
-                R.id.inputBtn2 -> {
-                    tvExp.append(inputBtn2.text)
-                    inputReceived(inputBtn2.text)
-                }
-                R.id.inputBtn3 -> {
-                    tvExp.append(inputBtn3.text)
-                    inputReceived(inputBtn3.text)
-                }
-                R.id.inputBtn4 -> {
-                    tvExp.append(inputBtn4.text)
-                    inputReceived(inputBtn4.text)
-                }
-                R.id.inputBtn5 -> {
-                    tvExp.append(inputBtn5.text)
-                    inputReceived(inputBtn5.text)
-                }
-                R.id.inputBtn6 -> {
-                    tvExp.append(inputBtn6.text)
-                    inputReceived(inputBtn6.text)
-                }
-                R.id.inputBtn7 -> {
-                    tvExp.append(inputBtn7.text)
-                    inputReceived(inputBtn7.text)
-                }
-                R.id.inputBtn8 -> {
-                    tvExp.append(inputBtn8.text)
-                    inputReceived(inputBtn8.text)
-                }
-                R.id.inputBtn9 -> {
-                    tvExp.append(inputBtn9.text)
-                    inputReceived(inputBtn9.text)
-                }
-                R.id.inputBtnA -> {
-                    tvExp.append(inputBtnA.text)
-                    inputReceived(inputBtnA.text)
-                }
-                R.id.inputBtnB -> {
-                    tvExp.append(inputBtnB.text)
-                    inputReceived(inputBtnB.text)
-                }
-                R.id.inputBtnC -> {
-                    tvExp.append(inputBtnC.text)
-                    inputReceived(inputBtnC.text)
-                }
-                R.id.inputBtnD -> {
-                    tvExp.append(inputBtnD.text)
-                    inputReceived(inputBtnD.text)
-                }
-                R.id.inputBtnE -> {
-                    tvExp.append(inputBtnE.text)
-                    inputReceived(inputBtnE.text)
-                }
-                R.id.inputBtnF -> {
-                    tvExp.append(inputBtnF.text)
-                    inputReceived(inputBtnF.text)
-                }
-                R.id.inputBtnAddition -> {
-                    operatorSelected(Operator.ADD)
-                    tvExp.append(" " + getString(R.string.plusop) + " ")
-                    mViewModel.textEXP = tvExp.text.toString()
-                }
-                R.id.inputBtnSubtraction -> {
-                    operatorSelected(Operator.SUB)
-                    tvExp.append(" " + getString(R.string.minusop) + " ")
-                    mViewModel.textEXP = tvExp.text.toString()
-                }
-                R.id.inputBtnMultiply -> {
-                    operatorSelected(Operator.MUL)
-                    tvExp.append(" " + getString(R.string.mulop) + " ")
-                    mViewModel.textEXP = tvExp.text.toString()
-                }
-                R.id.inputBtnDivide -> {
-                    operatorSelected(Operator.DIV)
-                    tvExp.append(" " + getString(R.string.divide_expr) + " ")
-                    mViewModel.textEXP = tvExp.text.toString()
-                }
-                R.id.inputBtnAnd -> {
-                    operatorSelected(Operator.AND)
-                    tvExp.append(" " + getString(R.string.ANDstr) + " ")
-                    mViewModel.textEXP = tvExp.text.toString()
-                }
-                R.id.inputBtnOr -> {
-                    operatorSelected(Operator.OR)
-                    tvExp.append(" " + getString(R.string.ORstr) + " ")
-                    mViewModel.textEXP = tvExp.text.toString()
-                }
-                R.id.inputBtnNot -> {
-                    operatorSelected(Operator.NOT)
-                    tvExp.append(" " + getString(R.string.NOTstr) + " ")
-                    mViewModel.textEXP = tvExp.text.toString()
-                }
-                R.id.inputBtnNand -> {
-                    operatorSelected(Operator.NAND)
-                    tvExp.append(" " + getString(R.string.NANDstr) + " ")
-                    mViewModel.textEXP = tvExp.text.toString()
-                }
-                R.id.inputBtnNor -> {
-                    operatorSelected(Operator.NOR)
-                    tvExp.append(" " + getString(R.string.NORstr) + " ")
-                    mViewModel.textEXP = tvExp.text.toString()
-                }
-                R.id.inputBtnXor -> {
-                    operatorSelected(Operator.XOR)
-                    tvExp.append(" " + getString(R.string.XORstr) + " ")
-                    mViewModel.textEXP = tvExp.text.toString()
-                }
-                R.id.inputBtnLSH -> {
-                    operatorSelected(Operator.LSH)
-                    tvExp.append(" " + getString(R.string.LSHstr) + " ")
-                    mViewModel.textEXP = tvExp.text.toString()
-                }
-                R.id.inputBtnRSH -> {
-                    operatorSelected(Operator.RSH)
-                    tvExp.append(" " + getString(R.string.RSHstr) + " ")
-                    mViewModel.textEXP = tvExp.text.toString()
-                }
-                R.id.inputBtnCl -> {
-                    tvExp.text = ""
-                    tvResult.text = "0"
-                }
-                R.id.inputBtnAC -> {
-                    tvExp.text = ""
-                    tvResult.text = "0"
-                    mViewModel.prevResult = BigInteger("0")
-                    setResultText()
-                    if (mViewModel.currentOp != null) {
-                        mViewModel.currentOp = null
-                        mViewModel.isCalcPending = false
-                        mViewModel.clearInput = false
-                    }
-                }
-                R.id.inputBtnEqual -> {
-                    tvExp.text = ""
-                    if (mViewModel.isCalcPending) {
-                        calculate()
-                        mViewModel.currentOp = null
-                        mViewModel.isCalcPending = false
-                    }
-                    else{
-                        mViewModel.prevResult = tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
-                        setCurrentNumberSystem(mViewModel.numberSys)
-                    }
-                }
-            }
+        if(buttonId!= null){
+            buttonHandler(buttonId)
         }
 
         setVibOnClick(applicationContext)
     }
 
-    private fun operatorSelected(operator: Operator) {
+    private fun setupNumberSystemContainers(){
+        setCurrentNumberSystem()
 
-        if (mViewModel.currentOp == null) {
-
-            if (operator == Operator.NOT) {
-                var temp = tvResult.text.toString().toInt(mViewModel.numberSys.radix)
-                tvResult.text = temp.inv().toString(mViewModel.numberSys.radix)
-                mViewModel.prevResult = tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
-                setResultText()
-                mViewModel.clearInput = true
-                return
-            }
-            mViewModel.prevResult = tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
-        } else if (mViewModel.currentOp != null) {
-            mViewModel.clearInput = true
-            if (operator == Operator.NOT) {
-                var temp = tvResult.text.toString().toInt(mViewModel.numberSys.radix)
-                tvResult.text = temp.inv().toString(mViewModel.numberSys.radix)
-                calculate()
-                mViewModel.isCalcPending = false
-                mViewModel.clearInput = true
-                mViewModel.currentOp = null
-                return
-            }
-            calculate()
+        if(mviewModel.init){
+            decRes.text = mviewModel.decResult
+            hexRes.text = mviewModel.hexResult
+            octRes.text = mviewModel.octResult
+            binRes.text = mviewModel.binResult
         }
-        mViewModel.currentOp = operator
-        mViewModel.isCalcPending = true
-        mViewModel.clearInput = true
+        mviewModel.init = true
+
+        decContainer.setOnClickListener {
+            mviewModel.numberSys.value = NumberSystem.DEC
+            println("DEC now active")
+        }
+
+        hexContainer.setOnClickListener {
+            mviewModel.numberSys.value = NumberSystem.HEX
+            println("HEX now active")
+        }
+
+        octContainer.setOnClickListener {
+            mviewModel.numberSys.value = NumberSystem.OCT
+            println("OCT now active")
+        }
+
+        binContainer.setOnClickListener {
+            mviewModel.numberSys.value = NumberSystem.BIN
+            println("BIN now active")
+        }
+
+        mviewModel.numberSys.observe(this, Observer { _ ->
+            println("Number sys changed")
+            setCurrentNumberSystem()
+        })
     }
 
-    private fun calculate() {
-        when (mViewModel.currentOp) {
+    private fun setCurrentNumberSystem(){
+        when(mviewModel.numberSys.value){
+            NumberSystem.DEC -> {
+                decHead.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+                decRes.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
 
-            Operator.ADD -> {
-                mViewModel.prevResult += tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
+                hexHead.setTextColor(getThemeColor(R.attr.disabledTextColor))
+                hexRes.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+                octHead.setTextColor(getThemeColor(R.attr.disabledTextColor))
+                octRes.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+                binHead.setTextColor(getThemeColor(R.attr.disabledTextColor))
+                binRes.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+                setResultonNumSys()
+                setDecimalButtons()
             }
+            NumberSystem.HEX -> {
+                hexHead.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+                hexRes.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
 
-            Operator.SUB -> {
-                mViewModel.prevResult -= tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
+                decHead.setTextColor(getThemeColor(R.attr.disabledTextColor))
+                decRes.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+                octHead.setTextColor(getThemeColor(R.attr.disabledTextColor))
+                octRes.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+                binHead.setTextColor(getThemeColor(R.attr.disabledTextColor))
+                binRes.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+                setResultonNumSys()
+                setHexaDecimalButtons()
             }
+            NumberSystem.OCT -> {
+                octHead.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+                octRes.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
 
-            Operator.MUL -> {
-                mViewModel.prevResult *= tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
+                decHead.setTextColor(getThemeColor(R.attr.disabledTextColor))
+                decRes.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+                hexHead.setTextColor(getThemeColor(R.attr.disabledTextColor))
+                hexRes.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+                binHead.setTextColor(getThemeColor(R.attr.disabledTextColor))
+                binRes.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+                setResultonNumSys()
+                setOctalButtons()
             }
+            NumberSystem.BIN -> {
+                binHead.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+                binRes.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
 
-            Operator.DIV -> {
-                if(tvResult.text.toString().toInt(mViewModel.numberSys.radix) == 0){
-                    mViewModel.divByZero = true
-                    mViewModel.prevResult = BigInteger("0")
-                }
-                else{
-                    mViewModel.prevResult /= tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
-                }
-            }
+                decHead.setTextColor(getThemeColor(R.attr.disabledTextColor))
+                decRes.setTextColor(getThemeColor(R.attr.disabledTextColor))
 
-            Operator.AND -> {
-                mViewModel.prevResult = mViewModel.prevResult and tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
-            }
+                hexHead.setTextColor(getThemeColor(R.attr.disabledTextColor))
+                hexRes.setTextColor(getThemeColor(R.attr.disabledTextColor))
 
-            Operator.OR -> {
-                mViewModel.prevResult = mViewModel.prevResult or tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
-            }
+                octHead.setTextColor(getThemeColor(R.attr.disabledTextColor))
+                octRes.setTextColor(getThemeColor(R.attr.disabledTextColor))
 
-            Operator.NAND -> {
-                mViewModel.prevResult =
-                    (mViewModel.prevResult and tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)).inv()
-            }
-
-            Operator.NOR -> {
-                mViewModel.prevResult =
-                    (mViewModel.prevResult or tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)).inv()
-            }
-
-            Operator.XOR -> {
-                mViewModel.prevResult = mViewModel.prevResult xor tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
-            }
-
-            Operator.LSH -> {
-                mViewModel.prevResult = mViewModel.prevResult shl tvResult.text.toString().toInt(mViewModel.numberSys.radix)
-            }
-
-            Operator.RSH -> {
-                mViewModel.prevResult = mViewModel.prevResult shr tvResult.text.toString().toInt(mViewModel.numberSys.radix)
+                setResultonNumSys()
+                setBinaryButtons()
             }
 
             else -> {
-                // do nothing
+                decHead.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+                decRes.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+                hexHead.setTextColor(getThemeColor(R.attr.disabledTextColor))
+                hexRes.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+                octHead.setTextColor(getThemeColor(R.attr.disabledTextColor))
+                octRes.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+                binHead.setTextColor(getThemeColor(R.attr.disabledTextColor))
+                binRes.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+                setResultonNumSys()
+                setDecimalButtons()
             }
-        }
-        setResultText()
-
-    }
-
-    private fun inputReceived(input: CharSequence) {
-        if (tvResult.text.trim() == "0" || mViewModel.clearInput) {
-            tvResult.text = input
-            mViewModel.clearInput = false
-        } else {
-            tvResult.text = tvResult.text.toString() + input
-        }
-        mViewModel.textEXP = tvExp.text.toString()
-        mViewModel.textRES = tvResult.text.toString()
-    }
-
-    private fun setResultText() {
-
-        tvHex.text = mViewModel.prevResult.toString(NumberSystem.HEX.radix)
-        tvDec.text = mViewModel.prevResult.toString()
-        tvOct.text = mViewModel.prevResult.toString(NumberSystem.OCT.radix)
-        tvBin.text = mViewModel.prevResult.toString(NumberSystem.BIN.radix)
-
-        when (mViewModel.numberSys) {
-            NumberSystem.HEX -> {
-                tvExp.text = tvHex.text
-                tvResult.text = tvHex.text
-            }
-            NumberSystem.DEC -> {
-                tvExp.text = tvDec.text
-                tvResult.text = tvDec.text
-            }
-            NumberSystem.OCT -> {
-                tvExp.text = tvOct.text
-                tvResult.text = tvOct.text
-            }
-            NumberSystem.BIN -> {
-                tvExp.text = tvBin.text
-                tvResult.text = tvBin.text
-            }
-        }
-
-        mViewModel.textEXP = tvExp.text.toString()
-        mViewModel.textRES = tvResult.text.toString()
-
-        if(mViewModel.divByZero) {
-            tvResult.text = "Cannot divide by zero!"
         }
     }
 
-    private fun setCurrentNumberSystem(numSys: NumberSystem) {
+    private fun setHexaDecimalButtons(){
+        Abutton.isEnabled = true
+        Abutton.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
 
-        for(i in opsList){
-            if(tvExp.text.toString().contains(i) && tvExp.text.toString().trim().indexOf(i) == tvExp.text.toString().trim().lastIndex){
-                mViewModel.opPresent = true
-                break
+        Bbutton.isEnabled = true
+        Bbutton.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        Cbutton.isEnabled = true
+        Cbutton.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        Dbutton.isEnabled = true
+        Dbutton.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        Ebutton.isEnabled = true
+        Ebutton.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        Fbutton.isEnabled = true
+        Fbutton.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num1bt.isEnabled = true
+        num1bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num2bt.isEnabled = true
+        num2bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num3bt.isEnabled = true
+        num3bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num4bt.isEnabled = true
+        num4bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num5bt.isEnabled = true
+        num5bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num6bt.isEnabled = true
+        num6bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num7bt.isEnabled = true
+        num7bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num8bt.isEnabled = true
+        num8bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num9bt.isEnabled = true
+        num9bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+    }
+
+    private fun setDecimalButtons(){
+        Abutton.isEnabled = false
+        Abutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        Bbutton.isEnabled = false
+        Bbutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        Cbutton.isEnabled = false
+        Cbutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        Dbutton.isEnabled = false
+        Dbutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        Ebutton.isEnabled = false
+        Ebutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        Fbutton.isEnabled = false
+        Fbutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        num1bt.isEnabled = true
+        num1bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num2bt.isEnabled = true
+        num2bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num3bt.isEnabled = true
+        num3bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num4bt.isEnabled = true
+        num4bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num5bt.isEnabled = true
+        num5bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num6bt.isEnabled = true
+        num6bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num7bt.isEnabled = true
+        num7bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num8bt.isEnabled = true
+        num8bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num9bt.isEnabled = true
+        num9bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+    }
+
+    private fun setOctalButtons(){
+        Abutton.isEnabled = false
+        Abutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        Bbutton.isEnabled = false
+        Bbutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        Cbutton.isEnabled = false
+        Cbutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        Dbutton.isEnabled = false
+        Dbutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        Ebutton.isEnabled = false
+        Ebutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        Fbutton.isEnabled = false
+        Fbutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        num1bt.isEnabled = true
+        num1bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num2bt.isEnabled = true
+        num2bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num3bt.isEnabled = true
+        num3bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num4bt.isEnabled = true
+        num4bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num5bt.isEnabled = true
+        num5bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num6bt.isEnabled = true
+        num6bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num7bt.isEnabled = true
+        num7bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num8bt.isEnabled = false
+        num8bt.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        num9bt.isEnabled = false
+        num9bt.setTextColor(getThemeColor(R.attr.disabledTextColor))
+    }
+
+    private fun setBinaryButtons(){
+        Abutton.isEnabled = false
+        Abutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        Bbutton.isEnabled = false
+        Bbutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        Cbutton.isEnabled = false
+        Cbutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        Dbutton.isEnabled = false
+        Dbutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        Ebutton.isEnabled = false
+        Ebutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        Fbutton.isEnabled = false
+        Fbutton.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        num1bt.isEnabled = true
+        num1bt.setTextColor(getThemeColor(R.attr.calcTextDefaultColor))
+
+        num2bt.isEnabled = false
+        num2bt.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        num3bt.isEnabled = false
+        num3bt.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        num4bt.isEnabled = false
+        num4bt.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        num5bt.isEnabled = false
+        num5bt.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        num6bt.isEnabled = false
+        num6bt.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        num7bt.isEnabled = false
+        num7bt.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        num8bt.isEnabled = false
+        num8bt.setTextColor(getThemeColor(R.attr.disabledTextColor))
+
+        num9bt.isEnabled = false
+        num9bt.setTextColor(getThemeColor(R.attr.disabledTextColor))
+    }
+
+    private fun setResult(){
+        if (textexpression.text!!.isNotEmpty() && textres.text.isNotEmpty()) {
+            val resultText = textres.text.toString()
+
+            textexpression.setText(resultText)
+            textres.text = ""
+            textexpression.setSelection(textexpression.text!!.length)
+
+            val leftjustres = preferences.getBoolean(SharedPrefs.LEFTJUSTPGRES, true)
+
+            if (leftjustres) {
+                val maxScrollX = textexpression.layout.getLineLeft(0).toInt().coerceAtLeast(0)
+                textexpression.post {
+                    textexpression.scrollTo(maxScrollX, 0)
+                }
             }
 
-            if(i in booleanOpsList){
-                val inc = when (i) {
-                    "OR" -> {
-                        1
+            mviewModel.result = resultText
+        }
+    }
+
+    private fun setResultonNumSys(){
+        if (textexpression.text!!.isNotEmpty()) {
+            val resultText = when(mviewModel.numberSys.value){
+                NumberSystem.DEC -> decRes.text.toString()
+                NumberSystem.HEX -> hexRes.text.toString()
+                NumberSystem.OCT -> octRes.text.toString()
+                NumberSystem.BIN -> binRes.text.toString()
+                else -> decRes.text.toString()
+            }
+
+            textexpression.setText(resultText)
+            textres.text = ""
+            textexpression.setSelection(textexpression.text!!.length)
+
+            val leftjustres = preferences.getBoolean(SharedPrefs.LEFTJUSTPGRES, true)
+
+            if (leftjustres) {
+                val maxScrollX = textexpression.layout.getLineLeft(0).toInt().coerceAtLeast(0)
+                textexpression.post {
+                    textexpression.scrollTo(maxScrollX, 0)
+                }
+            }
+
+            mviewModel.result = resultText
+        }
+    }
+
+    private fun clearFields() {
+        textexpression.setText("")
+        textres.setText("")
+        mviewModel.result = textres.text.toString()
+
+        decRes.text = ""
+        hexRes.text = ""
+        octRes.text = ""
+        binRes.text = ""
+
+        mviewModel.decResult = ""
+        mviewModel.hexResult = ""
+        mviewModel.octResult = ""
+        mviewModel.binResult = ""
+    }
+
+    private fun addExpression(ex: String, tostart: Boolean = false){
+        if(tostart){
+            val start = Math.max(textexpression.selectionStart, 0)
+            val end = Math.max(textexpression.selectionEnd, 0)
+            if (start == end) {
+                textexpression.text?.replace(0, 0, ex, 0, ex.length)
+            } else {
+                textexpression.text?.replace(Math.min(start, end), Math.max(start, end), ex, 0, ex.length)
+            }
+        }
+        else{
+            val start = Math.max(textexpression.selectionStart, 0)
+            val end = Math.max(textexpression.selectionEnd, 0)
+            textexpression.text?.replace(Math.min(start, end), Math.max(start, end), ex, 0, ex.length)
+        }
+    }
+
+    private fun evaluate_expr(){
+        // Because calculations are CPU-intensive, the default dispatcher is recommended.
+        mCoroutineScope.launch {
+            val resDeferred = mCoroutineScope.async(Dispatchers.Default){
+                mviewModel.numberSys.value?.let {
+                    PGCalc.calculate(textexpression.text.toString(),
+                        it
+                    )
+                }
+            }
+
+            val res = resDeferred.await()
+            textres.text = res
+            mviewModel.result = textres.text.toString()
+
+            res?.let {
+                decRes.text = convertToBase(it, mviewModel.numberSys.value?.radix!!, 10)?.uppercase() ?: "NaN"
+                mviewModel.decResult = decRes.text.toString()
+
+                hexRes.text = convertToBase(it, mviewModel.numberSys.value?.radix!!, 16)?.uppercase() ?: "NaN"
+                mviewModel.hexResult = hexRes.text.toString()
+
+                octRes.text = convertToBase(it, mviewModel.numberSys.value?.radix!!, 8)?.uppercase() ?: "NaN"
+                mviewModel.octResult = octRes.text.toString()
+
+                binRes.text = convertToBase(it, mviewModel.numberSys.value?.radix!!, 2)?.uppercase() ?: "NaN"
+                mviewModel.binResult = binRes.text.toString()
+            }
+        }
+    }
+
+    fun convertToBase(numberString: String, fromBase: Int, toBase: Int): String? {
+        return try {
+            val decimalValue = numberString.toLong(fromBase)
+
+            when (toBase) {
+                2 -> decimalValue.toString(NumberSystem.BIN.radix)
+                8 -> decimalValue.toString(NumberSystem.OCT.radix)
+                10 -> decimalValue.toString(NumberSystem.DEC.radix)
+                16 -> decimalValue.toString(NumberSystem.HEX.radix)
+                else -> null
+            }
+        } catch (e: NumberFormatException) {
+            null
+        }
+    }
+
+    private fun buttonHandler(id: Int){
+        normalButtonHandler(id)
+        hexButtonHandler(id)
+        numberButtonHandler(id)
+    }
+
+    private fun normalButtonHandler(id: Int){
+        when(id){
+            R.id.leftbracbutton -> {
+                addExpression(getString(R.string.leftbracket))
+                evaluate_expr()
+            }
+            R.id.rightbracbutton -> {
+                addExpression(getString(R.string.rightbracket))
+                evaluate_expr()
+            }
+            R.id.doublezerobt -> {
+                addExpression(getString(R.string.doublezero_text))
+                evaluate_expr()
+            }
+            R.id.percentbutton -> {
+                addExpression(getString(R.string.percent_bttext))
+                evaluate_expr()
+            }
+            R.id.acbutton -> {
+                clearFields()
+            }
+            R.id.leftshiftbutton -> {
+                addExpression(" " + getString(R.string.LSHstr) + " ")
+                evaluate_expr()
+            }
+            R.id.rightshiftbutton -> {
+                addExpression(" " + getString(R.string.RSHstr) + " ")
+                evaluate_expr()
+            }
+            R.id.andbutton -> {
+                addExpression(" " + getString(R.string.ANDstr) + " ")
+                evaluate_expr()
+            }
+            R.id.orbutton -> {
+                addExpression(" " + getString(R.string.ORstr) + " ")
+                evaluate_expr()
+            }
+            R.id.notbutton -> {
+                addExpression(" " + getString(R.string.NOTstr) + " ", tostart = true)
+                evaluate_expr()
+            }
+            R.id.nandbutton -> {
+                addExpression(" " + getString(R.string.NANDstr) + " ")
+                evaluate_expr()
+            }
+            R.id.norbutton -> {
+                addExpression(" " + getString(R.string.NORstr) + " ")
+                evaluate_expr()
+            }
+            R.id.xorbutton -> {
+                addExpression(" " + getString(R.string.XORstr) + " ")
+                evaluate_expr()
+            }
+            R.id.xnorbutton -> {
+                addExpression(" " + getString(R.string.XNORstr) + " ")
+                evaluate_expr()
+            }
+            R.id.ushrbutton -> {
+                addExpression(" " + getString(R.string.URSHstr) + " ")
+                evaluate_expr()
+            }
+            R.id.rolbutton -> {
+                addExpression(" " + getString(R.string.RoLstr) + " ")
+                evaluate_expr()
+            }
+            R.id.rorbutton -> {
+                addExpression(" " + getString(R.string.RoRstr) + " ")
+                evaluate_expr()
+            }
+            R.id.divideop -> {
+                addExpression(getString(R.string.divide_expr))
+                evaluate_expr()
+            }
+            R.id.mulop -> {
+                addExpression(getString(R.string.mul_expr))
+                evaluate_expr()
+            }
+            R.id.minusop -> {
+                addExpression(getString(R.string.minusop))
+                evaluate_expr()
+            }
+            R.id.plusop -> {
+                addExpression(getString(R.string.plusop))
+                evaluate_expr()
+            }
+            R.id.equalop -> {
+                setResult()
+            }
+            R.id.equalopsecond -> {
+                setResult()
+            }
+            R.id.backspacebutton -> {
+                val cursorPos = textexpression.selectionStart - 1
+                val textexprstr = textexpression.text.toString()
+
+                if(textexprstr.isNotEmpty()){
+                    try {
+                        if(textexpression.hasSelection()){
+                            addExpression("")
+                        }
+                        else{
+                            val rem1 = textexprstr.substring(0, cursorPos)
+                            val rem2 = textexprstr.substring(cursorPos+1)
+                            textexpression.setText(rem1 + rem2)
+                            textexpression.setSelection(cursorPos)
+                        }
+
+                        if(textexpression.text.toString().isNotEmpty()){
+                            evaluate_expr()
+                        }
+                        else{
+                            textres.setText("")
+                            mviewModel.result = textres.text.toString()
+                        }
+                    }catch (e: Exception){
+                        println("LOG: ATBKSPACE ${e.message}")
                     }
-                    "NAND" -> {
-                        3
-                    }
-                    else -> {
-                        2
-                    }
-                }
-
-                if(tvExp.text.toString().contains(i) && tvExp.text.toString().trim().indexOf(i) + inc == tvExp.text.toString().trim().lastIndex){
-                    mViewModel.opPresent = true
-                    break
                 }
             }
-
-        }
-
-        if(!mViewModel.opPresent){
-            tvExp.text = ""
-            if (mViewModel.isCalcPending) {
-                calculate()
-                mViewModel.currentOp = null
-                mViewModel.isCalcPending = false
-            }
-        }
-
-        if (mViewModel.prevResult == BigInteger("0") && tvResult.text.toString() != "0") {
-            mViewModel.prevResult = tvResult.text.toString().toBigInteger(mViewModel.numberSys.radix)
-        }
-
-        mViewModel.numberSys = numSys
-
-        btnForHex.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-        tvHex.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-
-        btnForDec.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-        tvDec.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-
-        btnForOct.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-        tvOct.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-
-        btnForBin.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-        tvBin.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-
-        enableAllInput()
-
-        when (numSys) {
-            NumberSystem.HEX -> {
-                if(light){
-                    btnForHex.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    tvHex.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtnA.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtnB.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtnC.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtnD.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtnE.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtnF.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-
-                    inputBtn7.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn8.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn9.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-
-                    inputBtn4.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn5.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn6.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-
-                    inputBtn2.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn3.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                }
-                else{
-                    btnForHex.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    tvHex.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtnA.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtnB.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtnC.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtnD.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtnE.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtnF.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-
-                    inputBtn7.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtn8.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtn9.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-
-                    inputBtn4.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtn5.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtn6.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-
-                    inputBtn2.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtn3.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                }
-            }
-            NumberSystem.DEC -> {
-                enableDecInputBtns()
-                if(light){
-                    btnForDec.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    tvDec.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtnA.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnB.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnC.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnD.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnE.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnF.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-
-                    inputBtn7.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn8.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn9.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-
-                    inputBtn4.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn5.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn6.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-
-                    inputBtn2.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn3.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                }
-                else{
-                    btnForDec.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    tvDec.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtnA.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtnB.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtnC.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtnD.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtnE.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtnF.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-
-                    inputBtn7.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtn8.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtn9.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-
-                    inputBtn4.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtn5.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtn6.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-
-                    inputBtn2.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtn3.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                }
-            }
-            NumberSystem.OCT -> {
-                enableOctInputBtns()
-                if(light){
-                    btnForOct.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    tvOct.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtnA.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnB.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnC.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnD.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnE.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnF.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-
-                    inputBtn7.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn8.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtn9.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-
-                    inputBtn4.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn5.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn6.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-
-                    inputBtn2.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtn3.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                }
-                else{
-                    btnForOct.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    tvOct.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtnA.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtnB.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtnC.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtnD.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtnE.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtnF.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-
-                    inputBtn7.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtn8.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtn9.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-
-                    inputBtn4.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtn5.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtn6.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-
-                    inputBtn2.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtn3.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                }
-
-            }
-            NumberSystem.BIN -> {
-                enableBinInputBtns()
-                if(light){
-                    btnForBin.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    tvBin.setTextColor(ContextCompat.getColor(this, R.color.calc_textdeflight))
-                    inputBtnA.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnB.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnC.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnD.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnE.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtnF.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-
-                    inputBtn7.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtn8.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtn9.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-
-                    inputBtn4.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtn5.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtn6.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-
-                    inputBtn2.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                    inputBtn3.setTextColor(ContextCompat.getColor(this, R.color.greyishlight))
-                }
-                else{
-                    btnForBin.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    tvBin.setTextColor(ContextCompat.getColor(this, R.color.calc_textdef))
-                    inputBtnA.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtnB.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtnC.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtnD.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtnE.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtnF.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-
-                    inputBtn7.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtn8.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtn9.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-
-                    inputBtn4.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtn5.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtn6.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-
-                    inputBtn2.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                    inputBtn3.setTextColor(ContextCompat.getColor(this, R.color.greyish))
-                }
-            }
-        }
-
-        if(mViewModel.initialized){
-            setResultText()
-        }
-
-        if(mViewModel.opPresent){
-            tvExp.append(" " + mViewModel.currentOp!!.str + " ")
-            mViewModel.textEXP = tvExp.text.toString()
-            mViewModel.opPresent = false
         }
     }
 
-    private fun enableAllInput() {
-        inputBtnA.isEnabled = true
-        inputBtnB.isEnabled = true
-        inputBtnC.isEnabled = true
-        inputBtnD.isEnabled = true
-        inputBtnE.isEnabled = true
-        inputBtnF.isEnabled = true
-
-        inputBtn2.isEnabled = true
-        inputBtn3.isEnabled = true
-        inputBtn4.isEnabled = true
-        inputBtn5.isEnabled = true
-        inputBtn6.isEnabled = true
-        inputBtn7.isEnabled = true
-        inputBtn8.isEnabled = true
-        inputBtn9.isEnabled = true
+    private fun hexButtonHandler(id: Int){
+        when(id){
+            R.id.Abutton -> {
+                addExpression(getString(R.string.a))
+                evaluate_expr()
+            }
+            R.id.Bbutton -> {
+                addExpression(getString(R.string.b))
+                evaluate_expr()
+            }
+            R.id.Cbutton -> {
+                addExpression(getString(R.string.c))
+                evaluate_expr()
+            }
+            R.id.Dbutton -> {
+                addExpression(getString(R.string.d))
+                evaluate_expr()
+            }
+            R.id.Ebutton -> {
+                addExpression(getString(R.string.e))
+                evaluate_expr()
+            }
+            R.id.Fbutton -> {
+                addExpression(getString(R.string.f))
+                evaluate_expr()
+            }
+        }
     }
 
-    private fun enableBinInputBtns() {
-        enableOctInputBtns()
-
-        inputBtn2.isEnabled = false
-        inputBtn3.isEnabled = false
-        inputBtn4.isEnabled = false
-        inputBtn5.isEnabled = false
-        inputBtn6.isEnabled = false
-        inputBtn7.isEnabled = false
-
+    private fun numberButtonHandler(id: Int){
+        when(id){
+            R.id.numberseven -> {
+                addExpression(getString(R.string.numberseven))
+                evaluate_expr()
+            }
+            R.id.numbereight -> {
+                addExpression(getString(R.string.numbereight))
+                evaluate_expr()
+            }
+            R.id.numbernine -> {
+                addExpression(getString(R.string.numbernine))
+                evaluate_expr()
+            }
+            R.id.numberfour -> {
+                addExpression(getString(R.string.numberfour))
+                evaluate_expr()
+            }
+            R.id.numberfive -> {
+                addExpression(getString(R.string.numberfive))
+                evaluate_expr()
+            }
+            R.id.numbersix -> {
+                addExpression(getString(R.string.numbersix))
+                evaluate_expr()
+            }
+            R.id.numberone -> {
+                addExpression(getString(R.string.numberone))
+                evaluate_expr()
+            }
+            R.id.numbertwo -> {
+                addExpression(getString(R.string.numbertwo))
+                evaluate_expr()
+            }
+            R.id.numberthree -> {
+                addExpression(getString(R.string.numberthree))
+                evaluate_expr()
+            }
+            R.id.numberzero -> {
+                addExpression(getString(R.string.zero_text))
+                evaluate_expr()
+            }
+            R.id.numberzerosecond -> {
+                addExpression(getString(R.string.zero_text))
+                evaluate_expr()
+            }
+        }
     }
-
-    private fun enableOctInputBtns() {
-
-        inputBtnA.isEnabled = false
-        inputBtnB.isEnabled = false
-        inputBtnC.isEnabled = false
-        inputBtnD.isEnabled = false
-        inputBtnE.isEnabled = false
-        inputBtnF.isEnabled = false
-
-        inputBtn8.isEnabled = false
-        inputBtn9.isEnabled = false
-    }
-
-    private fun enableDecInputBtns() {
-
-        enableOctInputBtns()
-
-        inputBtn8.isEnabled = true
-        inputBtn9.isEnabled = true
-    }
-
 }

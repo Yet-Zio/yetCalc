@@ -1,92 +1,57 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory app:title="General">
+    <androidx.preference.Preference
+        android:key="appearance"
+        app:title="@string/appearancetitle"
+        android:summary="@string/appearancesubtext"
+        app:icon="@drawable/outline_palette_24" />
 
-        <SwitchPreferenceCompat
-            app:key="hapticfdkey"
-            app:summary="All sorts of forces and vibrations from different interactions in the app."
-            app:title="Haptic Feedback"
-            app:defaultValue="true"/>
+    <androidx.preference.Preference
+        android:key="general"
+        app:title="@string/generaltitle"
+        android:summary="@string/generalsubtext"
+        app:icon="@drawable/round_tune_24" />
 
-    </PreferenceCategory>
+    <androidx.preference.Preference
+        android:key="calculator"
+        app:title="@string/calculatortitle"
+        android:summary="@string/calculatorsubtext"
+        app:icon="@drawable/ic_baseline_calculate_24" />
 
-    <PreferenceCategory app:title="Calculator">
+    <androidx.preference.Preference
+        android:key="unitconv"
+        app:title="@string/unitconvtitle"
+        android:summary="@string/unitconvsubtext"
+        app:icon="@drawable/ic_baseline_cyclone_24" />
 
-        <SwitchPreferenceCompat
-            app:key="leftjustifyres"
-            app:summary="Results are always left justified no matter small or large. Right justifies after pressing a button automatically."
-            app:title="Left Justify Result"
-            app:defaultValue="true"/>
+    <androidx.preference.Preference
+        android:key="programmer"
+        app:title="@string/programmertitle"
+        android:summary="@string/programmersubtext"
+        app:icon="@drawable/ic_baseline_code_24" />
 
-        <SwitchPreferenceCompat
-            app:key="almostintkey"
-            app:summary="A number is rounded to the nearest integer if it is close enough to an integer."
-            app:title="Almost Integer Rounding"
-            app:defaultValue="true"/>
+    <PreferenceCategory
+        app:allowDividerAbove="false"
+        app:title="@string/appctgtitle">
 
-        <SwitchPreferenceCompat
-            app:key="canonintkey"
-            app:summary="Solves precision problems like 0.1 + 0.2. Enabling this might cause losing precision in really small numbers."
-            app:title="Canonical Rounding"
-            app:defaultValue="false"/>
-
-        <ListPreference
-            app:defaultValue="Default precision"
-            app:entries="@array/precision_array"
-            app:entryValues="@array/precision_array"
-            app:key="precisionkey"
-            app:title="Precision"
-            app:useSimpleSummaryProvider="true" />
-
-        <ListPreference
-            app:title="Date Time Format (History)"
-            app:entries="@array/datetimearray"
-            app:entryValues="@array/datetimearray"
-            app:key="datehistkey"
-            app:defaultValue="Default format"
-            app:useSimpleSummaryProvider="true"
-            />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory app:title="Converter">
-
-        <SwitchPreferenceCompat
-            app:key="lastusedtabkey"
-            app:summary="Open the last used section by default."
-            app:title="Use Recent Tab"
-            app:defaultValue="true" />
-
-        <ListPreference
-            app:defaultValue="YYYY-MM-DD"
-            app:entries="@array/date_array"
-            app:entryValues="@array/date_array"
-            app:key="dateFormatKey"
-            app:title="Date Format (Currency Tab)"
-            app:useSimpleSummaryProvider="true" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory app:title="App">
         <Preference
-            app:title="Donate"
-            app:icon="@drawable/ic_baseline_volunteer_activism_24">
+            app:title="@string/donatetitle"
+            app:summary="@string/donatesubtext"
+            app:icon="@drawable/round_volunteer_activism_24">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/Yet-Zio/yetCalc/blob/main/DONATE.md"/>
         </Preference>
 
         <Preference
-            app:title="About"
-            app:icon="@drawable/ic_outline_info_24">
-            <intent
-                android:action="yetzio.yetcalc.ABOUT_NEW_ACTIVITY"
-                android:targetPackage="yetzio.yetcalc"
-                android:targetClass="yetzio.yetcalc.views.AboutActivity"
-                />
+            android:key="aboutkey"
+            app:title="@string/abouttitle"
+            app:summary="@string/aboutsubtext"
+            app:icon="@drawable/round_info_24">
         </Preference>
 
     </PreferenceCategory>
+    
 
-</PreferenceScreen>
+</androidx.preference.PreferenceScreen>

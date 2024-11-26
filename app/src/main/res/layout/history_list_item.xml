@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -12,47 +14,54 @@
             android:id = "@+id/histLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
+            android:layout_marginVertical="5dp"
             android:orientation="vertical">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/timestamptext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:text=""
                 android:textSize="15sp"
+                app:fontFamily="@font/nunitosans"
                 android:fontFamily="sans-serif-medium"
-                android:textColor="@color/greyish"/>
+                android:textColor="?attr/textResultColor"/>
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="20dp"/>
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/histexp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="10dp"
+                android:paddingEnd="20dp"
+                android:paddingStart="10dp"
                 android:text=""
                 android:textAlignment="textEnd"
                 android:textSize="30sp"
-                android:background="?attr/selectableItemBackground"
+                android:fontFamily="@font/nunitosans"
+                android:background="@drawable/container_round_ripple"
                 android:clickable="true"
-                android:textColor="@color/inputcolor"
+                android:textColor="?attr/textExpressionColor"
                 android:focusable="true" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/histres"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="10dp"
+                android:paddingEnd="20dp"
+                android:paddingStart="10dp"
                 android:text=""
+                android:fontFamily="@font/nunitosans"
                 android:textAlignment="textEnd"
                 android:textSize="33sp"
-                android:background="?attr/selectableItemBackground"
+                android:background="@drawable/container_round_ripple"
                 android:clickable="true"
-                android:textColor="@color/greyish"
+                android:textColor="?attr/textResultColor"
                 android:focusable="true" />
 
         </LinearLayout>

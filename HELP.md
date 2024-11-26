@@ -4,13 +4,14 @@
 
 1. How to turn off vibrations/haptic feedback?
 
-    Go to Settings -> Turn the switch off for disabling Haptic Feedback
+    Go to Settings > General > Turn the switch off for disabling Haptic Feedback
 
 ## Calculator
 
 1. How do I access Scientific mode?
 
-    Scientific mode can only be viewed if you are in landscape orientation.
+    In Portrait mode, just toggle the arrow to view scientific mode.
+    In Landscape mode, the default is scientific view.
 
 2. Some constants/values do not work or yield to 0?
 
@@ -46,23 +47,22 @@
 6. The screen gets cuts off and the buttons look weird?
 
     You might have a really small screen to support this app. Minimum 5 or 5.5 inches is required since the buttons, result, progressive result tab take up space. We are extremely sorry. Nowadays, vendors provide devices with larger screen sizes so this is not a concerning issue but still this feels bad.
-    
-    NOTE: On taller screens and foldables, only the buttons may look weird(like crushed or oval shaped). We promise to provide a layout with support for larger screens/resolutions.
 
 ## Converter
 
 1. Does the converter require an Internet connections?
 
     An internet connection is only required for currency conversions and nothing else. All other conversions should work fine without it.
+    You can even remove the currency feature if you don't need it from Settings.
 
 2. Currency conversion takes longer than others?
 
     Yes, this is because when you enter data, an API request is made to [fawazahmed0/currency-api](https://github.com/fawazahmed0/currency-api) So this depends upon your internet connection speed, the value entered, the currencies selected on both sides.
 
-3. Does the converter remember the last tab and units I used?
+3. Does the converter remember the last group and units I used?
 
-    Yes, the converter does remember the last tab you opened if you have enabled 'Use Recent Tab' in Settings. 
-    However, the units are not remembered since there are some issues with spinner(combobox/unit selector).
+    In older version of yetCalc, this didn't used to be the case but now yetCalc will remember the last unit and group.
+    You can enable/disable this feature from Settings > Unit Converter > Recently Used Group and Recently Used Units
 
 4. Is there a limit to the unit you can type?
 
@@ -105,7 +105,7 @@
     Very well, why didn't I use some other vendor's calculator, like Samsung or Xiaomi. Yea Samsung's Calculator is pretty good and Xiaomi's one is even better. Samsung's one provides progressive calculations, simple        and scientific features, history, a good converter etc. But it suffers from the same things Google's does, more effort has not been put into adding more scientific features like more functions, constants. As a     
     company they could have added a graphing, programmer modes as well. Well, its not my calculator right?
     
-    Talking about Xiaomi's one, this one's a pretty good one too, provides even more converters. But on the other side, the same mistake to not add more scientific features like the one's I mentioned for Samsung's and       Google's one. Just look at this [calculator](https://play.google.com/store/apps/details?id=cz.hipercalc) and see how many features it contains, even has a pro version or look at this [one](https://play.google.com/store/apps/details?id=org.mathparser.scalar.lite&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1). Now that's what I call a good calculator, it might not have everything but         atleast some effort is put into it. You can argue it doesn't have a user/beginner-friendly UI for someone coming from a different calculator, and that's a valid point too.
+    Talking about Xiaomi's, this one's a pretty good one too, provides even more converters. But on the other side, the same mistake to not add more scientific features. Just look at this [calculator](https://play.google.com/store/apps/details?id=cz.hipercalc) and see how many features it contains, even has a pro version or look at this [one](https://play.google.com/store/apps/details?id=org.mathparser.scalar.lite&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1). Now that's what I call a good calculator, it might not have everything but         atleast some effort is put into it. You can argue it doesn't have a user/beginner-friendly UI for someone coming from a different calculator, and that's a valid point too.
     
     Now if you want to look at a good calculator which is user-friendly and provides a ton of features, look at Microsoft's new [Windows Calculator](https://apps.microsoft.com/store/detail/windows-calculator/9WZDNCRFHVN5). It even has date calculation and graphing, some which I didn't even add to yetCalc(at the time of writing). It's even open source on [github](https://github.com/Microsoft/calculator)
     

@@ -1,0 +1,19 @@
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.preference.Preference
+        android:key="prefmode"
+        app:icon="@drawable/outline_home_24"
+        android:title="@string/prefmodetitle"
+        android:summary="@string/prefmodesubtext"
+        />
+
+    <SwitchPreferenceCompat
+        android:key="hapticfdkey"
+        app:icon="@drawable/round_vibration_24"
+        android:title="@string/hapticfeedbacktitle"
+        android:defaultValue="true"
+        android:summary="@string/hapticfeedbacksubtext"
+        />
+
+</androidx.preference.PreferenceScreen>

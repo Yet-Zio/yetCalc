@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreferenceCompat
+        app:key="leftjustifypgres"
+        app:icon="@drawable/round_align_horizontal_left_24"
+        app:summary="@string/leftjustifysubtext"
+        app:title="@string/leftjustifytitle"
+        app:defaultValue="true"/>
+</androidx.preference.PreferenceScreen>

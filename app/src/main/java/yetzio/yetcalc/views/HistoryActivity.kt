@@ -1,112 +1,64 @@
 package yetzio.yetcalc.views
 
-import android.content.Context
-import android.content.SharedPreferences
-import android.content.res.Configuration
-import android.os.*
-import androidx.appcompat.app.AppCompatActivity
-import android.widget.Button
-import android.widget.TextView
-import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
-import com.airbnb.paris.Paris
+import android.os.Bundle
+import android.view.View
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.button.MaterialButton
 import yetzio.yetcalc.R
-import yetzio.yetcalc.component.History
-import yetzio.yetcalc.component.HistoryAdapter
-import yetzio.yetcalc.databinding.ActivityHistoryBinding
-import yetzio.yetcalc.model.HistoryItem
+import yetzio.yetcalc.adapters.HistoryAdapter
+import yetzio.yetcalc.config.CalcBaseActivity
+import yetzio.yetcalc.utils.getThemeColor
 import yetzio.yetcalc.utils.setVibOnClick
 
-class HistoryActivity : AppCompatActivity() {
-
-    private lateinit var toolbar: Toolbar
-    private lateinit var binding: ActivityHistoryBinding
-    private lateinit var histArrList: ArrayList<HistoryItem>
-
-    private lateinit var delBt: Button
-    private val histHandler = History()
-
-    private lateinit var preferences: SharedPreferences
-    private lateinit var editor: SharedPreferences.Editor
-    lateinit var theme: String
-    private var dark = false
-    private var light = false
+class HistoryActivity : CalcBaseActivity() {
+    private lateinit var toolbar: MaterialToolbar
+    private lateinit var histListView: RecyclerView
+    private lateinit var clearBt: MaterialButton
+    private lateinit var nohistorycontainer: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        initPrefs()
-        theme = preferences.getString(getString(R.string.key_theme), getString(R.string.system_theme)).toString()
-
-        if(theme == getString(R.string.system_theme)){
-            val nightModeFlags: Int = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-            when (nightModeFlags) {
-                Configuration.UI_MODE_NIGHT_YES -> {
-                    dark = true
-                    light = false
-                    setTheme(R.style.yetCalcActivityThemeDark)
-                }
-                Configuration.UI_MODE_NIGHT_NO -> {
-                    dark = false
-                    light = true
-                    setTheme(R.style.yetCalcActivityThemeLight)
-                }
-                Configuration.UI_MODE_NIGHT_UNDEFINED -> {
-                    dark = true
-                    light = false
-                    setTheme(R.style.yetCalcActivityThemeDark)
-                }
-            }
-        }
-        else if(theme == getString(R.string.dark_theme)){
-            dark = true
-            light = false
-            setTheme(R.style.yetCalcActivityThemeDark)
-        }
-        else{
-            dark = false
-            light = true
-            setTheme(R.style.yetCalcActivityThemeLight)
-        }
         super.onCreate(savedInstanceState)
-        binding = ActivityHistoryBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_history)
 
-        toolbar = findViewById(R.id.history_app_bar)
-        if(light){
-            toolbar.navigationIcon = ContextCompat.getDrawable(applicationContext, R.drawable.ic_baseline_arrow_back_24light)
-        }
-        else{
-            toolbar.navigationIcon = ContextCompat.getDrawable(applicationContext, R.drawable.ic_baseline_arrow_back_24)
-        }
-
+        toolbar = findViewById(R.id.app_bar)
         setSupportActionBar(toolbar)
+        nohistorycontainer = findViewById(R.id.nohistorycontainer)
+
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        toolbar.setNavigationOnClickListener { finish() }
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
+        toolbar.navigationIcon?.setTint(getThemeColor(R.attr.calcTextDefaultColor))
 
-        histHandler.ctx = applicationContext
-        histArrList = histHandler.getHistoryItems()
+        histListView = findViewById(R.id.historyContainer)
+        histListView.layoutManager = LinearLayoutManager(this)
 
-        if(light){
-            Paris.style(findViewById<TextView>(R.id.histbartitle)).apply(R.style.GenericTextLight)
-            Paris.style(findViewById<Button>(R.id.histdelbutton)).apply(R.style.historyDelImgSrcStyleLight)
+        Calc.m_history.histViewModel?.histArrList?.observe(this) { newlist ->
+            histListView.adapter = HistoryAdapter(this, newlist)
+            if(newlist.isNotEmpty()){
+                nohistorycontainer.visibility = View.GONE
+                histListView.visibility = View.VISIBLE
+            }
         }
 
-        binding.histListview.adapter = HistoryAdapter(this, histArrList)
-        val emptyAdapter = HistoryAdapter(this, ArrayList<HistoryItem>())
+        Calc.m_history.histViewModel?.listCount?.observe(this) { newcount ->
+            Calc.m_history.histViewModel?.histArrList?.value = Calc.m_history.getHistoryItems()
+        }
 
-        delBt = findViewById(R.id.histdelbutton)
-        delBt.setOnClickListener {
+        clearBt = findViewById(R.id.histdelbutton)
+        clearBt.setOnClickListener {
             setVibOnClick(applicationContext)
-            histHandler.emptyDb()
-            binding.histListview.adapter = emptyAdapter
+            Calc.m_history.emptyDB()
+            histListView.adapter = HistoryAdapter(this, ArrayList())
+
+            histListView.visibility = View.GONE
+            nohistorycontainer.visibility = View.VISIBLE
         }
-
-    }
-
-    private fun initPrefs(){
-        preferences = getSharedPreferences("CalcPrefs", Context.MODE_PRIVATE)
-        editor = preferences.edit()
     }
 }

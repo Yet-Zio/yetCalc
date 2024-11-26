@@ -1,105 +1,151 @@
 package yetzio.yetcalc.views.fragments
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
-import com.airbnb.paris.Paris
+import android.widget.AutoCompleteTextView
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import yetzio.yetcalc.R
+import yetzio.yetcalc.component.SharedPrefs
 import yetzio.yetcalc.component.UnitConv
-import yetzio.yetcalc.model.UnitConvViewModel
+import yetzio.yetcalc.dialogs.showUnitConvSearchDialog
+import yetzio.yetcalc.enums.UnitType
+import yetzio.yetcalc.models.UnitConvViewModel
+import yetzio.yetcalc.utils.copyToClipboard
+import yetzio.yetcalc.utils.getUnitsList
 import yetzio.yetcalc.views.UnitConvActivity
-import kotlin.properties.Delegates
+import yetzio.yetcalc.widget.CalcText
 
 class PressureFragment : Fragment() {
 
-    private var firstConv: EditText? = null
-    private var secondConv: EditText? = null
+    // Text Container - First
+    private lateinit var firstConvField: TextInputLayout
+    private lateinit var firstConvTV: CalcText
 
-    private var spinner: Spinner? = null
-    private var spinner2: Spinner? = null
+    // Dropdown Container - First
+    private lateinit var firstConvDropField: TextInputLayout
+    private lateinit var firstConvDropDownField: AutoCompleteTextView
 
-    private var firstConvWatcher: TextWatcher? = null
-    private var secondConvWatcher: TextWatcher? = null
+    // Text Container - Second
+    private lateinit var secondConvField: TextInputLayout
+    private lateinit var secondConvTV: CalcText
 
-    private val mCoroutineScope = CoroutineScope(Dispatchers.Main)
+    // Dropdown Container - Second
+    private lateinit var secondConvDropField: TextInputLayout
+    private lateinit var secondConvDropDownField: AutoCompleteTextView
+
+    private lateinit var switchUnitsButton: MaterialButton
+
     private lateinit var pViewModel: UnitConvViewModel
-    private lateinit var pTheme: String
-    private var pDark by Delegates.notNull<Boolean>()
-    private var pLight by Delegates.notNull<Boolean>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var p_preferences: SharedPreferences
+    private lateinit var p_editor: SharedPreferences.Editor
+
+    var unitConvDialog: AlertDialog? = null
+    private val mCoroutineScope = CoroutineScope(Dispatchers.Main)
+
+    private lateinit var firstTextWatcher: TextWatcher
+    private lateinit var secondTextWatcher: TextWatcher
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        pTheme = (activity as? UnitConvActivity)?.theme.toString()
-        pDark = (activity as? UnitConvActivity)?.dark!!
-        pLight = (activity as? UnitConvActivity)?.light!!
 
-        val v = inflater.inflate(R.layout.fragment_unitconversions, container, false)
+        val view = inflater.inflate(R.layout.fragment_unitconversions, container, false)
 
         pViewModel = (activity as? UnitConvActivity)?.mViewModel!!
+        p_preferences = (activity as? UnitConvActivity)?.preferences!!
+        p_editor = (activity as? UnitConvActivity)?.editor!!
 
-        firstConv = v.findViewById(R.id.et_firstConversion)
-        secondConv = v.findViewById(R.id.et_secondConversion)
+        val saveRecentUnitPref = p_preferences.getBoolean(SharedPrefs.SAVE_RECENT_UNITKEY, true)
+        val initFirst = p_preferences.getInt(SharedPrefs.PRESSURE_FIRST, 0)
+        val initSecond = p_preferences.getInt(SharedPrefs.PRESSURE_SECOND, 0)
 
-        spinner = v.findViewById(R.id.spinner_firstConversion)
-        spinner2 = v.findViewById(R.id.spinner_secondConversion)
-
-        setupSpinner()
-        textChanged()
-
-        if(pLight){
-            Paris.style(firstConv).apply(R.style.ConvTextStyleLight)
-            Paris.style(secondConv).apply(R.style.ConvTextStyleLight)
-
-            Paris.style(spinner).apply(R.style.yetSpinnerStyleLight)
-            Paris.style(spinner2).apply(R.style.yetSpinnerStyleLight)
-
-            Paris.style(v.findViewById<LinearLayout>(R.id.ll_parent)).apply(R.style.GenericLight)
-            Paris.style(v.findViewById<LinearLayout>(R.id.cardll_parent)).apply(R.style.GenericLight)
+        if(saveRecentUnitPref){
+            pViewModel._preftpos.value = initFirst
+            pViewModel._presdpos.value = initSecond
         }
         else{
-            Paris.style(v.findViewById<LinearLayout>(R.id.ll_parent)).apply(R.style.GenericDark)
-            Paris.style(v.findViewById<LinearLayout>(R.id.cardll_parent)).apply(R.style.GenericDark)
+            pViewModel._preftpos.value = 0
+            pViewModel._presdpos.value = 0
         }
-        return v
+
+        firstConvField = view.findViewById(R.id.firstConvFieldContainer)!!
+        firstConvTV = view.findViewById(R.id.firstConvField)!!
+
+        firstConvDropField = view.findViewById(R.id.firstConvDropDown)
+        firstConvDropDownField = view.findViewById(R.id.firstConvDropDownField)
+
+        secondConvField = view.findViewById(R.id.secondConvFieldContainer)
+        secondConvTV = view.findViewById(R.id.secondConvField)
+
+        secondConvDropField = view.findViewById(R.id.secondConvDropDown)
+        secondConvDropDownField = view.findViewById(R.id.secondConvDropDownField)
+
+        switchUnitsButton = view.findViewById(R.id.switchUnitsButton)
+
+        firstConvDropDownField.setText(requireContext().getUnitsList(UnitType.PRESSURE)[initFirst])
+        secondConvDropDownField.setText(requireContext().getUnitsList(UnitType.PRESSURE)[initSecond])
+
+        setupClipboardEvent()
+        setupSelections()
+        textChanged()
+
+        return view
     }
 
-    fun convert(id: Int){
+    private fun setupClipboardEvent(){
+        firstConvField.setStartIconOnClickListener {
+            parentFragment?.activity?.applicationContext?.copyToClipboard(firstConvTV.text.toString())
+        }
+
+        secondConvField.setStartIconOnClickListener {
+            parentFragment?.activity?.applicationContext?.copyToClipboard(secondConvTV.text.toString())
+        }
+    }
+
+    private fun convert(id: Int){
         mCoroutineScope.launch {
             try {
                 when(id){
-                    R.id.et_firstConversion -> {
-                        val res = UnitConv.Pressure.convert(pViewModel._preftpos, pViewModel._presdpos
-                            , firstConv?.text.toString().toDouble())
+                    R.id.firstConvField -> {
+                        val res = pViewModel._preftpos.value?.let {
+                            pViewModel._presdpos.value?.let { it1 ->
+                                UnitConv.Pressure.convert(
+                                    it, it1, firstConvTV.text.toString().toDouble())
+                            }
+                        }
 
-                        if(res.toString() != secondConv?.text.toString()){
-                            secondConv?.removeTextChangedListener(secondConvWatcher)
-                            secondConv?.setText(res.toString())
-                            secondConv?.addTextChangedListener(secondConvWatcher)
+                        if(res.toString() != secondConvTV.text.toString()){
+                            secondConvTV.removeTextChangedListener(secondTextWatcher)
+                            secondConvTV.setText(res.toString())
+                            secondConvTV.addTextChangedListener(secondTextWatcher)
                         }
                     }
-                    R.id.et_secondConversion -> {
-                        val res = UnitConv.Pressure.convert(pViewModel._presdpos, pViewModel._preftpos
-                            , secondConv?.text.toString().toDouble())
+                    R.id.secondConvField -> {
+                        val res = pViewModel._presdpos.value?.let {
+                            pViewModel._preftpos.value?.let { it1 ->
+                                UnitConv.Pressure.convert(
+                                    it, it1, secondConvTV.text.toString().toDouble())
+                            }
+                        }
 
-                        if(res.toString() != firstConv?.text.toString()){
-                            firstConv?.removeTextChangedListener(firstConvWatcher)
-                            firstConv?.setText(res.toString())
-                            firstConv?.addTextChangedListener(firstConvWatcher)
+                        if(res.toString() != firstConvTV.text.toString()){
+                            firstConvTV.removeTextChangedListener(firstTextWatcher)
+                            firstConvTV.setText(res.toString())
+                            firstConvTV.addTextChangedListener(firstTextWatcher)
                         }
                     }
                 }
@@ -109,18 +155,18 @@ class PressureFragment : Fragment() {
         }
     }
 
-    fun getConversionResults(id: Int){
+    private fun getConversionResults(id: Int){
         when(id){
-            R.id.et_firstConversion -> {
-                if(firstConv != null){
-                    if(firstConv!!.text.isNotEmpty() && firstConv!!.text.isNotBlank()){
+            R.id.firstConvField -> {
+                if(firstConvTV.text!!.isNotEmpty() && firstConvTV.text!!.isNotBlank()){
+                    if(pViewModel._preftpos.value != pViewModel._presdpos.value){
                         convert(id)
                     }
                 }
             }
-            R.id.et_secondConversion -> {
-                if(secondConv != null){
-                    if(secondConv!!.text.isNotEmpty() && secondConv!!.text.isNotBlank()){
+            R.id.secondConvField -> {
+                if(secondConvTV.text!!.isNotEmpty() && secondConvTV.text!!.isNotBlank()){
+                    if(pViewModel._preftpos.value != pViewModel._presdpos.value){
                         convert(id)
                     }
                 }
@@ -128,88 +174,65 @@ class PressureFragment : Fragment() {
         }
     }
 
-    fun setupSpinner(){
-        activity?.let {
-            if(pLight){
-                ArrayAdapter.createFromResource(it, R.array.pressurelist, R.layout.spinner_itemlight)
-                    .also { adapter ->
-                        spinner?.adapter = adapter
-                    }
-            }
-            else{
-                ArrayAdapter.createFromResource(it, R.array.pressurelist, R.layout.spinner_item)
-                    .also { adapter ->
-                        spinner?.adapter = adapter
-                    }
-            }
+    private fun setupSelections(){
+        firstConvDropField.setEndIconOnClickListener {
+            pViewModel.currentUnit.value = UnitType.PRESSURE
+            pViewModel.first.value = true
+            unitConvDialog = showUnitConvSearchDialog(requireContext(), requireActivity().applicationContext, resources.getStringArray(R.array.pressurelist).toCollection(ArrayList()), pViewModel, viewLifecycleOwner)
         }
 
-        activity?.let {
-            if(pLight){
-                ArrayAdapter.createFromResource(it, R.array.pressurelist, R.layout.spinner_itemlight)
-                    .also { adapter ->
-                        spinner2?.adapter = adapter
-                    }
-            }
-            else{
-                ArrayAdapter.createFromResource(it, R.array.pressurelist, R.layout.spinner_item)
-                    .also { adapter ->
-                        spinner2?.adapter = adapter
-                    }
-            }
+        firstConvDropDownField.setOnClickListener {
+            pViewModel.currentUnit.value = UnitType.PRESSURE
+            pViewModel.first.value = true
+            unitConvDialog = showUnitConvSearchDialog(requireContext(), requireActivity().applicationContext, resources.getStringArray(R.array.pressurelist).toCollection(ArrayList()), pViewModel, viewLifecycleOwner)
         }
 
-        spinner?.onItemSelectedListener = (object: AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, vw: View?, pos: Int, id: Long) {
-                if(!pViewModel._prespinInit){
-                    pViewModel._prespinInit = true
-                    pViewModel._preftpos = pos
-                    pViewModel._presdpos = 0
+        secondConvDropField.setEndIconOnClickListener {
+            pViewModel.currentUnit.value = UnitType.PRESSURE
+            pViewModel.first.value = false
+            unitConvDialog = showUnitConvSearchDialog(requireContext(), requireActivity().applicationContext, resources.getStringArray(R.array.pressurelist).toCollection(ArrayList()), pViewModel, viewLifecycleOwner)
+        }
 
-                    getConversionResults(firstConv?.id!!)
-                    getConversionResults(secondConv?.id!!)
-                }
-                else{
-                    pViewModel._preftpos = pos
-                    pViewModel._presdpos = spinner2?.selectedItemPosition!!
+        secondConvDropDownField.setOnClickListener {
+            pViewModel.currentUnit.value = UnitType.PRESSURE
+            pViewModel.first.value = false
+            unitConvDialog = showUnitConvSearchDialog(requireContext(), requireActivity().applicationContext, resources.getStringArray(R.array.pressurelist).toCollection(ArrayList()), pViewModel, viewLifecycleOwner)
+        }
 
-                    getConversionResults(firstConv?.id!!)
-                    getConversionResults(secondConv?.id!!)
-                }
+        switchUnitsButton.setOnClickListener {
+            val temp = pViewModel._preftpos.value
+            pViewModel._preftpos.value = pViewModel._presdpos.value
+            pViewModel._presdpos.value = temp
+        }
+
+        pViewModel._preftpos.observe(viewLifecycleOwner) { newValue ->
+            if (newValue != null) {
+                p_editor.putInt(SharedPrefs.PRESSURE_FIRST, newValue)
             }
+            p_editor.apply()
 
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
+            firstConvDropDownField.setText(requireContext().getUnitsList(UnitType.PRESSURE)[newValue!!])
+            unitConvDialog?.dismiss()
+
+            firstConvTV.id.let { getConversionResults(it) }
+            secondConvTV.id.let { getConversionResults(it) }
+        }
+
+        pViewModel._presdpos.observe(viewLifecycleOwner) { newValue ->
+            if (newValue != null) {
+                p_editor.putInt(SharedPrefs.PRESSURE_SECOND, newValue)
             }
+            p_editor.apply()
 
-        })
+            secondConvDropDownField.setText(requireContext().getUnitsList(UnitType.PRESSURE)[newValue!!])
+            unitConvDialog?.dismiss()
 
-        spinner2?.onItemSelectedListener = (object: AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, vw: View?, pos: Int, id: Long) {
-                if(!pViewModel._sprespinInit){
-                    pViewModel._sprespinInit = true
-                    pViewModel._preftpos = 0
-                    pViewModel._presdpos = pos
-
-                    getConversionResults(firstConv?.id!!)
-                }
-                else{
-                    pViewModel._preftpos = spinner?.selectedItemPosition!!
-                    pViewModel._presdpos = pos
-
-                    getConversionResults(firstConv?.id!!)
-                }
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
-            }
-
-        })
+            firstConvTV.id.let { getConversionResults(it) }
+        }
     }
 
     private fun textChanged(){
-        firstConvWatcher = object: TextWatcher{
+        firstTextWatcher = object: TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 Log.d("Main", "beforeTextChanged")
             }
@@ -220,7 +243,7 @@ class PressureFragment : Fragment() {
 
             override fun afterTextChanged(p0: Editable?) {
                 try{
-                    getConversionResults(firstConv?.id!!)
+                    firstConvTV.id.let { getConversionResults(it) }
                 }catch (e: Exception){
                     Log.e("Main:", "$e")
                 }
@@ -228,7 +251,8 @@ class PressureFragment : Fragment() {
 
         }
 
-        secondConvWatcher = object: TextWatcher{
+
+        secondTextWatcher = object: TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 Log.d("Main", "beforeTextChanged")
             }
@@ -239,14 +263,14 @@ class PressureFragment : Fragment() {
 
             override fun afterTextChanged(p0: Editable?) {
                 try{
-                    getConversionResults(secondConv?.id!!)
+                    getConversionResults(secondConvTV.id)
                 }catch (e: Exception){
                     Log.e("Main:", "$e")
                 }
             }
         }
 
-        firstConv?.addTextChangedListener(firstConvWatcher)
-        secondConv?.addTextChangedListener(secondConvWatcher)
+        firstConvTV.addTextChangedListener(firstTextWatcher)
+        secondConvTV.addTextChangedListener(secondTextWatcher)
     }
 }

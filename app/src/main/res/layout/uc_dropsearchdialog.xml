@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/unitSearchFieldContainer"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cursorColor="?attr/textExpressionColor"
+        style="@style/UnitConvSearchLyt"
+        android:layout_marginBottom="10dp">
+
+        <yetzio.yetcalc.widget.CalcText
+            android:id="@+id/unitSearchField"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:fontFamily="@font/nunitosans"
+            style="@style/UnitConvSearchField" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/unitPinsContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal"/>
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/unitsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="16dp"/>
+
+</LinearLayout>

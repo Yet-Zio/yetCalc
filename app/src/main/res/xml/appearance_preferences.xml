@@ -1,0 +1,11 @@
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <yetzio.yetcalc.widget.ThemePreference
+        android:key="chosenTheme"
+        android:title="Theme"
+        android:summary="Select your preferred theme"
+        android:defaultValue="@string/system_theme"
+        android:layout="@layout/segmented_pref_theme" />
+
+</androidx.preference.PreferenceScreen>

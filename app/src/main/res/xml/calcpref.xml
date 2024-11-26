@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.preference.Preference
+        android:key="precision"
+        app:icon="@drawable/math_compass"
+        android:title="@string/precisiontitle"
+        android:summary="@string/precisionsubtext"
+        />
+
+    <SwitchPreferenceCompat
+        app:key="leftjustifyres"
+        app:icon="@drawable/round_align_horizontal_left_24"
+        app:summary="@string/leftjustifysubtext"
+        app:title="@string/leftjustifytitle"
+        app:defaultValue="true"/>
+
+    <SwitchPreferenceCompat
+        app:key="almostintkey"
+        app:icon="@drawable/ceiling_fan"
+        app:summary="@string/almostintrsubtext"
+        app:title="@string/almostintrtitle"
+        app:defaultValue="true"/>
+
+    <SwitchPreferenceCompat
+        app:key="canonintkey"
+        android:icon="@drawable/round_123_24"
+        app:summary="@string/canonicalrsubtext"
+        app:title="@string/canonicalrtitle"
+        app:defaultValue="false"/>
+
+    <androidx.preference.Preference
+        android:key="datetimeformat"
+        app:icon="@drawable/round_view_timeline_24"
+        android:title="@string/datehisttitle"
+        android:summary="@string/datehistrsubtext"
+        />
+
+</androidx.preference.PreferenceScreen>

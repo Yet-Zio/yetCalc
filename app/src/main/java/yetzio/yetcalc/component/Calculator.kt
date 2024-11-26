@@ -3,6 +3,7 @@ package yetzio.yetcalc.component
 import org.mariuszgromada.math.mxparser.Expression
 import org.mariuszgromada.math.mxparser.Function
 import org.mariuszgromada.math.mxparser.mXparser
+import yetzio.yetcalc.enums.AngleMode
 
 class Calculator{
     var angleMode = AngleMode.DEGREE
@@ -12,11 +13,11 @@ class Calculator{
     val m_history = History()
     val MAXREP = 9999999
 
+    val ncr = Function("nCr(n, r) = nCk(n, r)")
+    val npr = Function("nPr(n, r) = nPk(n, r)")
+
     fun calculate(expr: String): String {
         mXparser.setUlpRounding(false)
-
-        val ncr = Function("nCr(n, r) = nCk(n, r)")
-        val npr = Function("nPr(n, r) = nPk(n, r)")
 
         when (precision) {
             "Default precision" -> mXparser.setDefaultEpsilon()
@@ -48,6 +49,7 @@ class Calculator{
 
         val e = Expression(expr, grad, npr, ncr)
 
+
         return if(e.calculate() > MAXREP){
             e.calculate().toString()
         }
@@ -59,7 +61,7 @@ class Calculator{
         }
     }
 
-    fun addToHistory(ex: String, res: String){
+    fun addToHistory(ex: String, res: String) {
         m_history.addToDb(ex, res)
     }
 }

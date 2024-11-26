@@ -1,56 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.UnitConvActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/unitconvappbar"
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar_alt"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <HorizontalScrollView
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        android:id="@+id/horizontalChipContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentInsetLeft="0dp"
-        android:contentInsetStart="0dp"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
-        android:contentInsetRight="0dp"
-        android:contentInsetEnd="0dp"
-        app:contentInsetRight="0dp"
-        app:contentInsetEnd="0dp"
-        app:popupTheme="?popupOverlayStyle"
-        style="@style/AppBarDark">
+        android:scrollbars="none">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/unitChipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:singleSelection="true"
+            app:singleLine="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp">
 
-            <Spinner
-                android:id="@+id/modeselector"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/currencyChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_gravity="start"
-                style="@style/AppModeSpinnerStyle"/>
+                android:text="@string/currency"
+                style="@style/UnitConvContainerChip"
+                app:chipIcon="@drawable/ic_currency_exchange_24"/>
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/unittabslyt"
-                android:layout_width="match_parent"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/lengthChip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:tabTextAppearance="@style/UnitConvTabTextStyle"
-                app:tabGravity="fill"
-                app:tabMode="scrollable"
-                style="@style/UnitConvTabLytStyleDark" />
+                android:text="@string/length"
+                style="@style/UnitConvContainerChip"
+                app:chipIcon="@drawable/ic_straighten_24"/>
 
-        </LinearLayout>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/volChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/volume"
+                style="@style/UnitConvContainerChip"
+                app:chipIcon="@drawable/ic_local_drink_24"/>
 
-    </androidx.appcompat.widget.Toolbar>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/areaChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/area"
+                style="@style/UnitConvContainerChip"
+                app:chipIcon="@drawable/ic_area_chart_24"/>
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/unitviewpager"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/wmChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/weight_mass"
+                style="@style/UnitConvContainerChip"
+                app:chipIcon="@drawable/ic_monitor_weight_24"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/tempChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temperature"
+                style="@style/UnitConvContainerChip"
+                app:chipIcon="@drawable/ic_thermostat_24"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/speedChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/speed"
+                style="@style/UnitConvContainerChip"
+                app:chipIcon="@drawable/ic_speed_24"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/powerChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/power"
+                style="@style/UnitConvContainerChip"
+                app:chipIcon="@drawable/ic_bolt_24"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/energyChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/energy"
+                style="@style/UnitConvContainerChip"
+                app:chipIcon="@drawable/ic_energy_24"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/pressureChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pressure"
+                style="@style/UnitConvContainerChip"
+                app:chipIcon="@drawable/ic_pressure_24"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/timeChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time"
+                style="@style/UnitConvContainerChip"
+                app:chipIcon="@drawable/ic_time_24"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/angleChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/angle"
+                style="@style/UnitConvContainerChip"
+                app:chipIcon="@drawable/ic_incomplete_circle_24"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/dataChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/data"
+                style="@style/UnitConvContainerChip"
+                app:chipIcon="@drawable/ic_text_snippet_24"
+                android:layout_marginEnd="10dp"/>
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </HorizontalScrollView>
+
+    <FrameLayout
+        android:id="@+id/unitFragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/unitconvappbar" />
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/horizontalChipContainer"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

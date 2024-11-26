@@ -1,7 +1,9 @@
 <resources>
     <string name="author_name">Yet Zio</string>
     <string name="app_name">yetCalc</string>
-    <string name="VERSION_NUM">1.1.4</string>
+    <string name="VERSION_NUM">2.0.0</string>
+    <string name="VERSION_NAMEANDNUM">Back in Action (2.0.0)</string>
+    <string name="eastereggtoast">Congratulations, Now you are a Gigachad!</string>
     <string name="app_descrp">Yet another calculator by Yet Zio</string>
     <string name="ghbtext">View on GitHub</string>
     <string name="app_details">Free and open source software\nLicensed under the BSD-3-Clause license.</string>
@@ -13,7 +15,7 @@
     <string name="theme_opt">Select theme</string>
     <string name="feedback">Send feedback</string>
     <string name="about">About</string>
-    <string name="pi_symbol">𝝅</string>
+    <string name="pi_symbol">𝝿</string>
     <string name="pi_text">pi</string>
     <string name="numberseven">7</string>
     <string name="numbereight">8</string>
@@ -51,6 +53,7 @@
     <string name="divide_expr">/</string>
     <string name="mul_expr">*</string>
     <string name="zero_text">0</string>
+    <string name="doublezero_text">00</string>
     <string name="text_res">textres</string>
     <string name="mode_text">calcmode</string>
     <string name="angle_mode_text">anglemode</string>
@@ -119,7 +122,7 @@
     <string name="invcsch_func">arccsch(</string>
     <string name="invsech_func">arcsech(</string>
     <string name="invcoth_func">arccoth(</string>
-    <string name="gradtext">\u0020grad(θ)\u0020</string>
+    <string name="gradtext">grad(θ)</string>
     <string name="grad_func">grad(</string>
     <string name="goldenratio">ϕ</string>
     <string name="goldenratio_text">[phi]</string>
@@ -219,18 +222,25 @@
     <string name="datehint">YYYY-MM-DD</string>
     <string name="datecurrhint">If you want to convert based on historical exchange rate data, specify a date below.\n<![CDATA[ <a href="https://data.jsdelivr.com/v1/package/npm/@fawazahmed0/currency-api">Possible dates</a> listed in tags.]]></string>
     <string name="nointInfoText">Currency conversion requires an Internet connection.</string>
-    <string name="nointTitle">No Internet Connection</string>
+    <string name="nointTitle">No internet connection was found. Check\nyour connection or try again.</string>
+    <string name="nohistory">No calculation history found. You haven\'t saved any calculations yet.</string>
     <string name="try_again">Try Again</string>
     <string name="lshstr"><![CDATA[<<]]></string>
     <string name="rshstr"><![CDATA[>>]]></string>
     <string name="ANDstr">AND</string>
     <string name="ORstr">OR</string>
     <string name="NOTstr">NOT</string>
+    <string name="NOTsymbol">!</string>
     <string name="NANDstr">NAND</string>
     <string name="NORstr">NOR</string>
     <string name="XORstr">XOR</string>
-    <string name="LSHstr">Lsh</string>
-    <string name="RSHstr">Rsh</string>
+    <string name="XNORstr">XNOR</string>
+    <string name="LSHstr">LSH</string>
+    <string name="RSHstr">RSH</string>
+    <string name="URSHstr">URSH</string>
+    <string name="RoLstr">RoL</string>
+    <string name="RoRstr">RoR</string>
+    <string name="ushrtext">&gt;&gt;&gt;</string>
     <string name="d">D</string>
     <string name="e">E</string>
     <string name="f">F</string>
@@ -266,554 +276,15 @@
     <string name="lambwzero_func">LambW0(</string>
     <string name="lambwnegone_func">LambW1(</string>
     <string name="key_theme">chosenTheme</string>
-    <string name="key_systheme">sysTheme</string>
     <string name="dark_theme">Dark</string>
     <string name="system_theme">System (Default)</string>
     <string name="light_theme">Light</string>
+    <string name="abyss_theme">Abyss</string>
+    <string name="materialyou_theme">Material You</string>
     <string name="lambertzerotext">W₀</string>
+    <string name="messageFromAbyss">You\'ve unlocked the secrets of the void. Embrace the shadows—your battery thanks you.</string>
 
     <string-array name="currencies_one">
-        <item>INR</item>
-        <item>00</item>
-        <item>1INCH</item>
-        <item>AAVE</item>
-        <item>ABT</item>
-        <item>ACH</item>
-        <item>ACS</item>
-        <item>ADA</item>
-        <item>AED</item>
-        <item>AERGO</item>
-        <item>AFN</item>
-        <item>AGLD</item>
-        <item>AIOZ</item>
-        <item>AKT</item>
-        <item>ALCX</item>
-        <item>ALEPH</item>
-        <item>ALGO</item>
-        <item>ALICE</item>
-        <item>ALL</item>
-        <item>AMD</item>
-        <item>AMP</item>
-        <item>ANG</item>
-        <item>ANKR</item>
-        <item>ANT</item>
-        <item>AOA</item>
-        <item>APE</item>
-        <item>API3</item>
-        <item>APT</item>
-        <item>AR</item>
-        <item>ARB</item>
-        <item>ARPA</item>
-        <item>ARS</item>
-        <item>ASM</item>
-        <item>AST</item>
-        <item>ATA</item>
-        <item>ATOM</item>
-        <item>ATS</item>
-        <item>AUCTION</item>
-        <item>AUD</item>
-        <item>AUDIO</item>
-        <item>AURORA</item>
-        <item>AVAX</item>
-        <item>AVT</item>
-        <item>AWG</item>
-        <item>AXL</item>
-        <item>AXS</item>
-        <item>AZM</item>
-        <item>AZN</item>
-        <item>BADGER</item>
-        <item>BAKE</item>
-        <item>BAL</item>
-        <item>BAM</item>
-        <item>BAND</item>
-        <item>BAT</item>
-        <item>BBD</item>
-        <item>BCH</item>
-        <item>BDT</item>
-        <item>BEF</item>
-        <item>BGN</item>
-        <item>BHD</item>
-        <item>BICO</item>
-        <item>BIF</item>
-        <item>BIT</item>
-        <item>BLUR</item>
-        <item>BLZ</item>
-        <item>BMD</item>
-        <item>BNB</item>
-        <item>BND</item>
-        <item>BNT</item>
-        <item>BOB</item>
-        <item>BOBA</item>
-        <item>BOND</item>
-        <item>BRL</item>
-        <item>BSD</item>
-        <item>BSV</item>
-        <item>BSW</item>
-        <item>BTC</item>
-        <item>BTCB</item>
-        <item>BTG</item>
-        <item>BTN</item>
-        <item>BTRST</item>
-        <item>BTT</item>
-        <item>BUSD</item>
-        <item>BWP</item>
-        <item>BYN</item>
-        <item>BYR</item>
-        <item>BZD</item>
-        <item>C98</item>
-        <item>CAD</item>
-        <item>CAKE</item>
-        <item>CBETH</item>
-        <item>CDF</item>
-        <item>CELO</item>
-        <item>CELR</item>
-        <item>CFX</item>
-        <item>CGLD</item>
-        <item>CHF</item>
-        <item>CHZ</item>
-        <item>CLP</item>
-        <item>CLV</item>
-        <item>CNH</item>
-        <item>CNY</item>
-        <item>COMP</item>
-        <item>COP</item>
-        <item>COTI</item>
-        <item>COVAL</item>
-        <item>CRC</item>
-        <item>CRO</item>
-        <item>CRPT</item>
-        <item>CRV</item>
-        <item>CSPR</item>
-        <item>CTSI</item>
-        <item>CTX</item>
-        <item>CUC</item>
-        <item>CUP</item>
-        <item>CVC</item>
-        <item>CVE</item>
-        <item>CVX</item>
-        <item>CYP</item>
-        <item>CZK</item>
-        <item>DAI</item>
-        <item>DAR</item>
-        <item>DASH</item>
-        <item>DCR</item>
-        <item>DDX</item>
-        <item>DEM</item>
-        <item>DESO</item>
-        <item>DEXT</item>
-        <item>DFI</item>
-        <item>DIA</item>
-        <item>DIMO</item>
-        <item>DJF</item>
-        <item>DKK</item>
-        <item>DNT</item>
-        <item>DOGE</item>
-        <item>DOP</item>
-        <item>DOT</item>
-        <item>DREP</item>
-        <item>DYDX</item>
-        <item>DYP</item>
-        <item>DZD</item>
-        <item>EEK</item>
-        <item>EGLD</item>
-        <item>EGP</item>
-        <item>ELA</item>
-        <item>ENJ</item>
-        <item>ENS</item>
-        <item>EOS</item>
-        <item>ERN</item>
-        <item>ESP</item>
-        <item>ETB</item>
-        <item>ETC</item>
-        <item>ETH</item>
-        <item>ETH2</item>
-        <item>EUR</item>
-        <item>EUROC</item>
-        <item>FARM</item>
-        <item>FEI</item>
-        <item>FET</item>
-        <item>FIDA</item>
-        <item>FIL</item>
-        <item>FIM</item>
-        <item>FIS</item>
-        <item>FJD</item>
-        <item>FKP</item>
-        <item>FLOW</item>
-        <item>FLR</item>
-        <item>FORT</item>
-        <item>FORTH</item>
-        <item>FOX</item>
-        <item>FRAX</item>
-        <item>FRF</item>
-        <item>FTM</item>
-        <item>FTT</item>
-        <item>FX</item>
-        <item>FXS</item>
-        <item>GAL</item>
-        <item>GALA</item>
-        <item>GBP</item>
-        <item>GEL</item>
-        <item>GFI</item>
-        <item>GGP</item>
-        <item>GHC</item>
-        <item>GHS</item>
-        <item>GHST</item>
-        <item>GIP</item>
-        <item>GLM</item>
-        <item>GMD</item>
-        <item>GMT</item>
-        <item>GMX</item>
-        <item>GNF</item>
-        <item>GNO</item>
-        <item>GNT</item>
-        <item>GODS</item>
-        <item>GRD</item>
-        <item>GRT</item>
-        <item>GST</item>
-        <item>GT</item>
-        <item>GTC</item>
-        <item>GTQ</item>
-        <item>GUSD</item>
-        <item>GYD</item>
-        <item>GYEN</item>
-        <item>HBAR</item>
-        <item>HFT</item>
-        <item>HIGH</item>
-        <item>HKD</item>
-        <item>HNL</item>
-        <item>HNT</item>
-        <item>HOPR</item>
-        <item>HOT</item>
-        <item>HRK</item>
-        <item>HT</item>
-        <item>HTG</item>
-        <item>HUF</item>
-        <item>ICP</item>
-        <item>IDEX</item>
-        <item>IDR</item>
-        <item>IEP</item>
-        <item>ILS</item>
-        <item>ILV</item>
-        <item>IMP</item>
-        <item>IMX</item>
-        <item>INDEX</item>
-        <item>INJ</item>
-        <item>INV</item>
-        <item>IOTX</item>
-        <item>IQD</item>
-        <item>IRR</item>
-        <item>ISK</item>
-        <item>ITL</item>
-        <item>JASMY</item>
-        <item>JEP</item>
-        <item>JMD</item>
-        <item>JOD</item>
-        <item>JPY</item>
-        <item>JUP</item>
-        <item>KAS</item>
-        <item>KAVA</item>
-        <item>KCS</item>
-        <item>KDA</item>
-        <item>KEEP</item>
-        <item>KES</item>
-        <item>KGS</item>
-        <item>KHR</item>
-        <item>KLAY</item>
-        <item>KMF</item>
-        <item>KNC</item>
-        <item>KPW</item>
-        <item>KRL</item>
-        <item>KRW</item>
-        <item>KSM</item>
-        <item>KWD</item>
-        <item>KYD</item>
-        <item>KZT</item>
-        <item>LAK</item>
-        <item>LBP</item>
-        <item>LCX</item>
-        <item>LDO</item>
-        <item>LEO</item>
-        <item>LINK</item>
-        <item>LIT</item>
-        <item>LKR</item>
-        <item>LOKA</item>
-        <item>LOOM</item>
-        <item>LPT</item>
-        <item>LQTY</item>
-        <item>LRC</item>
-        <item>LRD</item>
-        <item>LSETH</item>
-        <item>LSL</item>
-        <item>LTC</item>
-        <item>LTL</item>
-        <item>LUF</item>
-        <item>LUNA</item>
-        <item>LUNC</item>
-        <item>LVL</item>
-        <item>LYD</item>
-        <item>MAD</item>
-        <item>MAGIC</item>
-        <item>MANA</item>
-        <item>MASK</item>
-        <item>MATH</item>
-        <item>MATIC</item>
-        <item>MCO2</item>
-        <item>MDL</item>
-        <item>MDT</item>
-        <item>MEDIA</item>
-        <item>METIS</item>
-        <item>MGA</item>
-        <item>MGF</item>
-        <item>MINA</item>
-        <item>MIOTA</item>
-        <item>MIR</item>
-        <item>MKD</item>
-        <item>MKR</item>
-        <item>MLN</item>
-        <item>MMK</item>
-        <item>MNDE</item>
-        <item>MNT</item>
-        <item>MONA</item>
-        <item>MOP</item>
-        <item>MPL</item>
-        <item>MRO</item>
-        <item>MRU</item>
-        <item>MSOL</item>
-        <item>MTL</item>
-        <item>MULTI</item>
-        <item>MUR</item>
-        <item>MUSD</item>
-        <item>MUSE</item>
-        <item>MVR</item>
-        <item>MWK</item>
-        <item>MXC</item>
-        <item>MXN</item>
-        <item>MXV</item>
-        <item>MYR</item>
-        <item>MZM</item>
-        <item>MZN</item>
-        <item>NAD</item>
-        <item>NCT</item>
-        <item>NEAR</item>
-        <item>NEO</item>
-        <item>NEST</item>
-        <item>NEXO</item>
-        <item>NFT</item>
-        <item>NGN</item>
-        <item>NIO</item>
-        <item>NKN</item>
-        <item>NLG</item>
-        <item>NMR</item>
-        <item>NOK</item>
-        <item>NPR</item>
-        <item>NU</item>
-        <item>NZD</item>
-        <item>OCEAN</item>
-        <item>OGN</item>
-        <item>OKB</item>
-        <item>OMG</item>
-        <item>OMR</item>
-        <item>ONE</item>
-        <item>OOKI</item>
-        <item>OP</item>
-        <item>ORCA</item>
-        <item>ORN</item>
-        <item>OSMO</item>
-        <item>OXT</item>
-        <item>PAB</item>
-        <item>PAX</item>
-        <item>PAXG</item>
-        <item>PEN</item>
-        <item>PEPE</item>
-        <item>PERP</item>
-        <item>PGK</item>
-        <item>PHP</item>
-        <item>PKR</item>
-        <item>PLA</item>
-        <item>PLN</item>
-        <item>PLU</item>
-        <item>PNG</item>
-        <item>POLS</item>
-        <item>POLY</item>
-        <item>POND</item>
-        <item>POWR</item>
-        <item>PRIME</item>
-        <item>PRO</item>
-        <item>PRQ</item>
-        <item>PTE</item>
-        <item>PUNDIX</item>
-        <item>PYG</item>
-        <item>PYR</item>
-        <item>PYUSD</item>
-        <item>QAR</item>
-        <item>QI</item>
-        <item>QNT</item>
-        <item>QSP</item>
-        <item>QTUM</item>
-        <item>QUICK</item>
-        <item>RAD</item>
-        <item>RAI</item>
-        <item>RARE</item>
-        <item>RARI</item>
-        <item>RBN</item>
-        <item>REN</item>
-        <item>REP</item>
-        <item>REPV2</item>
-        <item>REQ</item>
-        <item>RGT</item>
-        <item>RLC</item>
-        <item>RLY</item>
-        <item>RNDR</item>
-        <item>ROL</item>
-        <item>RON</item>
-        <item>ROSE</item>
-        <item>RPL</item>
-        <item>RSD</item>
-        <item>RUB</item>
-        <item>RUNE</item>
-        <item>RVN</item>
-        <item>RWF</item>
-        <item>SAND</item>
-        <item>SAR</item>
-        <item>SBD</item>
-        <item>SCR</item>
-        <item>SDD</item>
-        <item>SDG</item>
-        <item>SEI</item>
-        <item>SEK</item>
-        <item>SGD</item>
-        <item>SHIB</item>
-        <item>SHP</item>
-        <item>SHPING</item>
-        <item>SIT</item>
-        <item>SKK</item>
-        <item>SKL</item>
-        <item>SLE</item>
-        <item>SLL</item>
-        <item>SNT</item>
-        <item>SNX</item>
-        <item>SOL</item>
-        <item>SOS</item>
-        <item>SPA</item>
-        <item>SPELL</item>
-        <item>SPL</item>
-        <item>SRD</item>
-        <item>SRG</item>
-        <item>SSP</item>
-        <item>STD</item>
-        <item>STG</item>
-        <item>STN</item>
-        <item>STORJ</item>
-        <item>STX</item>
-        <item>SUI</item>
-        <item>SUKU</item>
-        <item>SUPER</item>
-        <item>SUSHI</item>
-        <item>SVC</item>
-        <item>SWFTC</item>
-        <item>SYLO</item>
-        <item>SYN</item>
-        <item>SYP</item>
-        <item>SZL</item>
-        <item>T</item>
-        <item>THB</item>
-        <item>THETA</item>
-        <item>TIME</item>
-        <item>TJS</item>
-        <item>TMM</item>
-        <item>TMT</item>
-        <item>TND</item>
-        <item>TON</item>
-        <item>TONE</item>
-        <item>TOP</item>
-        <item>TRAC</item>
-        <item>TRB</item>
-        <item>TRIBE</item>
-        <item>TRL</item>
-        <item>TRU</item>
-        <item>TRX</item>
-        <item>TRY</item>
-        <item>TTD</item>
-        <item>TTT</item>
-        <item>TUSD</item>
-        <item>TVD</item>
-        <item>TVK</item>
-        <item>TWD</item>
-        <item>TWT</item>
-        <item>TZS</item>
-        <item>UAH</item>
-        <item>UGX</item>
-        <item>UMA</item>
-        <item>UNFI</item>
-        <item>UNI</item>
-        <item>UPI</item>
-        <item>USD</item>
-        <item>USDC</item>
-        <item>USDD</item>
-        <item>USDP</item>
-        <item>USDT</item>
-        <item>UST</item>
-        <item>UYU</item>
-        <item>UZS</item>
-        <item>VAL</item>
-        <item>VARA</item>
-        <item>VEB</item>
-        <item>VED</item>
-        <item>VEF</item>
-        <item>VES</item>
-        <item>VET</item>
-        <item>VGX</item>
-        <item>VND</item>
-        <item>VOXEL</item>
-        <item>VTHO</item>
-        <item>VUV</item>
-        <item>WAMPL</item>
-        <item>WAVES</item>
-        <item>WAXL</item>
-        <item>WBTC</item>
-        <item>WCFG</item>
-        <item>WEMIX</item>
-        <item>WLUNA</item>
-        <item>WOO</item>
-        <item>WST</item>
-        <item>XAF</item>
-        <item>XAG</item>
-        <item>XAU</item>
-        <item>XAUT</item>
-        <item>XBT</item>
-        <item>XCD</item>
-        <item>XCH</item>
-        <item>XCN</item>
-        <item>XDC</item>
-        <item>XDR</item>
-        <item>XEC</item>
-        <item>XEM</item>
-        <item>XLM</item>
-        <item>XMON</item>
-        <item>XMR</item>
-        <item>XOF</item>
-        <item>XPD</item>
-        <item>XPF</item>
-        <item>XPT</item>
-        <item>XRP</item>
-        <item>XTZ</item>
-        <item>XYO</item>
-        <item>YER</item>
-        <item>YFI</item>
-        <item>YFII</item>
-        <item>ZAR</item>
-        <item>ZEC</item>
-        <item>ZEN</item>
-        <item>ZIL</item>
-        <item>ZMK</item>
-        <item>ZMW</item>
-        <item>ZRX</item>
-        <item>ZWD</item>
-        <item>ZWL</item>
-    </string-array>
-
-    <string-array name="currencies_two">
-        <item>USD</item>
         <item>00</item>
         <item>1INCH</item>
         <item>AAVE</item>
@@ -1288,6 +759,7 @@
         <item>UNFI</item>
         <item>UNI</item>
         <item>UPI</item>
+        <item>USD</item>
         <item>USDC</item>
         <item>USDD</item>
         <item>USDP</item>
@@ -1623,5 +1095,99 @@
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="default_basecurrency">INR</string>
     <string name="default_convcurrency">USD</string>
+    <string name="default_vartext">x</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="currency">Currency</string>
+    <string name="length">Length</string>
+    <string name="volume">Volume</string>
+    <string name="area">Area</string>
+    <string name="weight_mass">Weight/Mass</string>
+    <string name="temperature">Temperature</string>
+    <string name="speed">Speed</string>
+    <string name="power">Power</string>
+    <string name="energy">Energy</string>
+    <string name="pressure">Pressure</string>
+    <string name="time">Time</string>
+    <string name="angle">Angle</string>
+    <string name="data">Data</string>
+    <string name="calculator">Calculator</string>
+    <string name="programmer">Programmer</string>
 
+    <string name="defaultprectext">1.00000000000001</string>
+    <string name="secondprectext">1.000000000000000000000000000000000000000000000000000000000001</string>
+    <string name="thirdprectext">1.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001</string>
+    <string name="fourthprectext">1.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001</string>
+    <string name="back_nin_naction">Back\nIn\nAction</string>
+
+    <!-- prefs -->
+    <string name="viewsourcetitle">View Source Code</string>
+    <string name="interestedinsource">Interested in contributing?</string>
+    <string name="osslicenses">Open source licenses</string>
+    <string name="appversiontitle">App version</string>
+    <string name="selectthemeforcalc">Theme</string>
+    <string name="choose_a_theme_for_the_app">Choose a theme for the app</string>
+    <string name="theme_from_the_abyss">Theme from the Abyss</string>
+    <string name="offers_a_fully_black_background_nhelps_preserve_battery_life_nalso_called_amoled_dark">Offers a fully black background,\nhelps preserve battery life.\nAlso called AMOLED Dark.</string>
+    <string name="material_youthemetitle">Material You</string>
+    <string name="apply_dynamic_colors_to_the_app">Apply dynamic colors to the app.</string>
+    <string name="styles">Styles</string>
+
+    <string name="precisiontitle">Precision</string>
+    <string name="precisionsubtext">Choose the number of decimal places for calculations</string>
+
+    <string name="leftjustifytitle">Left Justify Result</string>
+    <string name="leftjustifysubtext">Results are always left justified no matter small or large. Right justifies after pressing a button automatically</string>
+
+    <string name="almostintrtitle">Almost Integer Rounding</string>
+    <string name="almostintrsubtext">A number is rounded to the nearest integer if it is close enough to an integer</string>
+
+    <string name="canonicalrtitle">Canonical Rounding</string>
+    <string name="canonicalrsubtext">Solves precision problems like 0.1 + 0.2. Enabling this might cause losing precision in really small numbers</string>
+
+    <string name="datehisttitle">Date History Format</string>
+    <string name="datehistrsubtext">Select your desired date format for history</string>
+
+    <string name="prefmodetitle">Preferred Mode</string>
+    <string name="prefmodesubtext">Choose your default starting screen</string>
+
+    <string name="hapticfeedbacktitle">Haptic Feedback</string>
+    <string name="hapticfeedbacksubtext">All sorts of forces and vibrations from different interactions in the app</string>
+    <string name="refresh_shortcuts">Refresh Shortcuts</string>
+    <string name="shortcut_icons_are_refreshed_non_theme_change">Shortcut icons are refreshed\non theme change.</string>
+
+
+    <string name="appearancetitle">Appearance</string>
+    <string name="appearancesubtext">Customize how the app looks</string>
+
+    <string name="generaltitle">General</string>
+    <string name="generalsubtext">Adjust the app according to your needs</string>
+
+    <string name="calculatortitle">Calculator</string>
+    <string name="calculatorsubtext">Rounding, precision, date format</string>
+
+    <string name="unitconvtitle">Unit Converter</string>
+    <string name="unitconvsubtext">Recently used group, units and unit groups</string>
+
+    <string name="programmertitle">Programmer</string>
+    <string name="programmersubtext">Adjust how the programmer mode works</string>
+
+    <string name="appctgtitle">App</string>
+
+    <string name="donatetitle">Donate</string>
+    <string name="donatesubtext">Make a difference with your contribution.</string>
+
+    <string name="abouttitle">About</string>
+    <string name="aboutsubtext">Learn more about the app</string>
+
+    <string name="unitgroupstitle">Unit Groups</string>
+    <string name="unitgroupssubtext">Select the unit groups that you need</string>
+
+    <string name="recentlyusedgrptitle">Recently Used Group</string>
+    <string name="recentusedgrpsubtext">Load the recently used group at start</string>
+
+    <string name="recentlyusedunittitle">Recently Used Unit</string>
+    <string name="recentusedunitsubtext">Load the recently used units at start</string>
+
+    <string name="dtmFormattitle">Date Format (Currency)</string>
+    <string name="dtmFormatsubtext">Select the desired date format that you understand</string>
 </resources>
