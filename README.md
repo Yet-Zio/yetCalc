@@ -20,6 +20,22 @@
     <img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/7.png" width="24%"/>
 </div>
 
+## Major Version Upgrade
+
+yetCalc v2.0.0 comes with the following features:
+
+- Redesigned Calculator with scientific mode in both Portrait and Landscape mode
+- Customizable Unit Converter with selectable unit groups, unit pins, search and much more...
+- Fully Redesigned Programmer mode with new operators and functions.
+- Selectable starting mode.
+- Shortcuts for home screen with themed icons support.
+- New and Improved Settings providing endless customizability.
+
+Theme Changes
+
+- New Abyss mode (AMOLED Dark) for those wanting to preserve battery life.
+- Material You Support or Dynamic Colors, with 4 unique styles to serve your needs.
+
 ## Requirements
 
 - Android 9.0 or above.
