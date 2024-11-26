@@ -8,13 +8,14 @@
 
 <img src="fastlane/metadata/android/en-US/images/featureGraphic.png" alt="yetCalc Brand" style="display: block; margin: 0 auto 30px;">
 
-<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="10%"/>
-<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="10%"/>
-<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" width="10%"/>
-<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" width="20%"/>
-<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="10%"/>
-<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/6.png" width="10%"/>
-<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/7.png" width="10%"/>
+<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="24%"/>
+<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="24%"/>
+<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" width="24%"/>
+<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" width="24%"/>
+
+<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="24%"/>
+<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/6.png" width="24%"/>
+<img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/7.png" width="24%"/>
 
 ## Modes
 
