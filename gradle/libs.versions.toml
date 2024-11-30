@@ -46,5 +46,5 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-aboutLibraries = { id = "com.mikepenz.aboutlibraries.plugin", version = "11.3.0-rc01" }
+aboutLibraries = { id = "com.mikepenz.aboutlibraries.plugin", version = "11.3.0-rc02" }
 
