@@ -178,25 +178,25 @@ class WeightFragment : Fragment() {
         firstConvDropField.setEndIconOnClickListener {
             pViewModel.currentUnit.value = UnitType.WEIGHT
             pViewModel.first.value = true
-            unitConvDialog = showUnitConvSearchDialog(requireContext(), requireActivity().applicationContext, resources.getStringArray(R.array.volumelist).toCollection(ArrayList()), pViewModel, viewLifecycleOwner)
+            unitConvDialog = showUnitConvSearchDialog(requireContext(), requireActivity().applicationContext, resources.getStringArray(R.array.weightormasslist).toCollection(ArrayList()), pViewModel, viewLifecycleOwner)
         }
 
         firstConvDropDownField.setOnClickListener {
             pViewModel.currentUnit.value = UnitType.WEIGHT
             pViewModel.first.value = true
-            unitConvDialog = showUnitConvSearchDialog(requireContext(), requireActivity().applicationContext, resources.getStringArray(R.array.volumelist).toCollection(ArrayList()), pViewModel, viewLifecycleOwner)
+            unitConvDialog = showUnitConvSearchDialog(requireContext(), requireActivity().applicationContext, resources.getStringArray(R.array.weightormasslist).toCollection(ArrayList()), pViewModel, viewLifecycleOwner)
         }
 
         secondConvDropField.setEndIconOnClickListener {
             pViewModel.currentUnit.value = UnitType.WEIGHT
             pViewModel.first.value = false
-            unitConvDialog = showUnitConvSearchDialog(requireContext(), requireActivity().applicationContext, resources.getStringArray(R.array.volumelist).toCollection(ArrayList()), pViewModel, viewLifecycleOwner)
+            unitConvDialog = showUnitConvSearchDialog(requireContext(), requireActivity().applicationContext, resources.getStringArray(R.array.weightormasslist).toCollection(ArrayList()), pViewModel, viewLifecycleOwner)
         }
 
         secondConvDropDownField.setOnClickListener {
             pViewModel.currentUnit.value = UnitType.WEIGHT
             pViewModel.first.value = false
-            unitConvDialog = showUnitConvSearchDialog(requireContext(), requireActivity().applicationContext, resources.getStringArray(R.array.volumelist).toCollection(ArrayList()), pViewModel, viewLifecycleOwner)
+            unitConvDialog = showUnitConvSearchDialog(requireContext(), requireActivity().applicationContext, resources.getStringArray(R.array.weightormasslist).toCollection(ArrayList()), pViewModel, viewLifecycleOwner)
         }
 
         switchUnitsButton.setOnClickListener {
