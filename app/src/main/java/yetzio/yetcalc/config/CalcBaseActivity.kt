@@ -158,20 +158,20 @@ open class CalcBaseActivity : AppCompatActivity() {
         val items = when (currentView) {
             CalcView.CALCULATOR -> {
                 listOf(
-                    Pair("Converter", R.drawable.ic_baseline_cyclone_24),
-                    Pair("Programmer", R.drawable.ic_baseline_code_24)
+                    Pair(getString(R.string.converter), R.drawable.ic_baseline_cyclone_24),
+                    Pair(getString(R.string.programmer), R.drawable.ic_baseline_code_24)
                 )
             }
             CalcView.CONVERTER -> {
                 listOf(
-                    Pair("Calculator", R.drawable.ic_baseline_calculate_24),
-                    Pair("Programmer", R.drawable.ic_baseline_code_24)
+                    Pair(getString(R.string.calculator), R.drawable.ic_baseline_calculate_24),
+                    Pair(getString(R.string.programmer), R.drawable.ic_baseline_code_24)
                 )
             }
             else -> {
                 listOf(
-                    Pair("Calculator", R.drawable.ic_baseline_calculate_24),
-                    Pair("Converter", R.drawable.ic_baseline_cyclone_24)
+                    Pair(getString(R.string.calculator), R.drawable.ic_baseline_calculate_24),
+                    Pair(getString(R.string.converter), R.drawable.ic_baseline_cyclone_24)
                 )
             }
         }
@@ -183,15 +183,15 @@ open class CalcBaseActivity : AppCompatActivity() {
 
         when(currentView){
             CalcView.CALCULATOR -> {
-                modeTV?.setText("Calculator", false)
+                modeTV?.setText(getString(R.string.calculator), false)
                 modeSelector.setStartIconDrawable(R.drawable.ic_baseline_calculate_24)
             }
             CalcView.CONVERTER -> {
-                modeTV?.setText("Converter", false)
+                modeTV?.setText(getString(R.string.converter), false)
                 modeSelector.setStartIconDrawable(R.drawable.ic_baseline_cyclone_24)
             }
             else -> {
-                modeTV?.setText("Programmer", false)
+                modeTV?.setText(getString(R.string.programmer), false)
                 modeSelector.setStartIconDrawable(R.drawable.ic_baseline_code_24)
             }
         }

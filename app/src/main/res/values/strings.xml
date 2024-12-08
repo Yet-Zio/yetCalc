@@ -1,7 +1,7 @@
 <resources>
-    <string name="author_name">Yet Zio</string>
-    <string name="app_name">yetCalc</string>
-    <string name="VERSION_NUM">2.0.3</string>
+    <string name="author_name" translatable="false">Yet Zio</string>
+    <string name="app_name" translatable="false">yetCalc</string>
+    <string name="VERSION_NUM" translatable="false">2.0.3</string>
     <string name="VERSION_NAMEANDNUM">Back in Action (2.0.3)</string>
     <string name="eastereggtoast">Congratulations, Now you are a Gigachad!</string>
     <string name="app_descrp">Yet another calculator by Yet Zio</string>
@@ -9,191 +9,191 @@
     <string name="app_details">Free and open source software\nLicensed under the BSD-3-Clause license.</string>
     <string name="licensesText">Open source licenses</string>
     <string name="ac_buttontext">AC</string>
-    <string name="backspacebt_text">\u232b</string>
-    <string name="percent_bttext">%</string>
+    <string name="backspacebt_text" translatable="false">\u232b</string>
+    <string name="percent_bttext" translatable="false">%</string>
     <string name="history_name">History</string>
     <string name="theme_opt">Select theme</string>
     <string name="feedback">Send feedback</string>
     <string name="about">About</string>
-    <string name="pi_symbol">𝝿</string>
-    <string name="pi_text">pi</string>
-    <string name="numberseven">7</string>
-    <string name="numbereight">8</string>
-    <string name="numbernine">9</string>
-    <string name="leftbracket">(</string>
-    <string name="rightbracket">)</string>
-    <string name="powerbutton">xʸ</string>
-    <string name="power_text">^</string>
-    <string name="dividetext">÷</string>
-    <string name="mulop">×</string>
-    <string name="sqroot">√</string>
-    <string name="sqrootval">^(1/2)</string>
-    <string name="numberfour">4</string>
-    <string name="numberfive">5</string>
-    <string name="numbersix">6</string>
-    <string name="minusop">-</string>
-    <string name="numberone">1</string>
-    <string name="numbertwo">2</string>
-    <string name="numberthree">3</string>
-    <string name="plusop">+</string>
-    <string name="numberzero">𝟬</string>
-    <string name="point_text">.</string>
-    <string name="equalop">=</string>
-    <string name="radiantext">RAD</string>
+    <string name="pi_symbol" translatable="false">𝝿</string>
+    <string name="pi_text" translatable="false">pi</string>
+    <string name="numberseven" translatable="false">7</string>
+    <string name="numbereight" translatable="false">8</string>
+    <string name="numbernine" translatable="false">9</string>
+    <string name="leftbracket" translatable="false">(</string>
+    <string name="rightbracket" translatable="false">)</string>
+    <string name="powerbutton" translatable="false">xʸ</string>
+    <string name="power_text" translatable="false">^</string>
+    <string name="dividetext" translatable="false">÷</string>
+    <string name="mulop" translatable="false">×</string>
+    <string name="sqroot" translatable="false">√</string>
+    <string name="sqrootval" translatable="false">^(1/2)</string>
+    <string name="numberfour" translatable="false">4</string>
+    <string name="numberfive" translatable="false">5</string>
+    <string name="numbersix" translatable="false">6</string>
+    <string name="minusop" translatable="false">-</string>
+    <string name="numberone" translatable="false">1</string>
+    <string name="numbertwo" translatable="false">2</string>
+    <string name="numberthree" translatable="false">3</string>
+    <string name="plusop" translatable="false">+</string>
+    <string name="numberzero" translatable="false">𝟬</string>
+    <string name="point_text" translatable="false">.</string>
+    <string name="equalop" translatable="false">=</string>
+    <string name="radiantext" translatable="false">RAD</string>
     <string name="secondmodetext">2nd</string>
-    <string name="factorialtext">!</string>
-    <string name="degconvtext">DEG(θ)</string>
-    <string name="radconvtext">RAD(θ)</string>
-    <string name="sintext">sin</string>
-    <string name="costext">cos</string>
-    <string name="tantext">tan</string>
-    <string name="eulersnumber">e</string>
-    <string name="naturallogtext">ln</string>
-    <string name="commonlogtext">log</string>
-    <string name="divide_expr">/</string>
-    <string name="mul_expr">*</string>
-    <string name="zero_text">0</string>
-    <string name="doublezero_text">00</string>
+    <string name="factorialtext" translatable="false">!</string>
+    <string name="degconvtext" translatable="false">DEG(θ)</string>
+    <string name="radconvtext" translatable="false">RAD(θ)</string>
+    <string name="sintext" translatable="false">sin</string>
+    <string name="costext" translatable="false">cos</string>
+    <string name="tantext" translatable="false">tan</string>
+    <string name="eulersnumber" translatable="false">e</string>
+    <string name="naturallogtext" translatable="false">ln</string>
+    <string name="commonlogtext" translatable="false">log</string>
+    <string name="divide_expr" translatable="false">/</string>
+    <string name="mul_expr" translatable="false">*</string>
+    <string name="zero_text" translatable="false">0</string>
+    <string name="doublezero_text" translatable="false">00</string>
     <string name="text_res">textres</string>
     <string name="mode_text">calcmode</string>
     <string name="angle_mode_text">anglemode</string>
-    <string name="squaretext">x\u00B2</string>
-    <string name="cosectext">csc</string>
-    <string name="sectext">sec</string>
-    <string name="cottext">cot</string>
-    <string name="eraisedtext">e\u02E3</string>
-    <string name="tenraisedtext">10\u02E3</string>
-    <string name="square_func">^2</string>
-    <string name="rad_func">rad(</string>
-    <string name="deg_func">deg(</string>
-    <string name="sine_func">sin(</string>
-    <string name="cosine_func">cos(</string>
-    <string name="cosec_func">csc(</string>
-    <string name="sec_func">sec(</string>
-    <string name="tan_func">tan(</string>
-    <string name="cot_func">cot(</string>
-    <string name="eraised_func">e^</string>
-    <string name="naturallog_func">ln(</string>
-    <string name="commonlog_func">log10(</string>
-    <string name="tenraised_func">10^</string>
-    <string name="mx_parser_init">mxparse</string>
-    <string name="eulermascheroni">γ</string>
-    <string name="eulermascheroni_text">[gam]</string>
-    <string name="degreetext">DEG</string>
-    <string name="modulustext">|x|</string>
-    <string name="invsintext">sin⁻¹</string>
-    <string name="invcostext">cos⁻¹</string>
-    <string name="invtantext">tan⁻¹</string>
-    <string name="invcosectext">csc⁻¹</string>
-    <string name="invsectext">sec⁻¹</string>
-    <string name="invcottext">cot⁻¹</string>
-    <string name="abs_func">abs(</string>
-    <string name="invsin_func">arcsin(</string>
-    <string name="invcos_func">arccos(</string>
-    <string name="invtan_func">arctan(</string>
-    <string name="invcsc_func">arccsc(</string>
-    <string name="invsec_func">arcsec(</string>
-    <string name="invcot_func">arccot(</string>
-    <string name="signum_text">sgn</string>
-    <string name="sinhtext">sinh</string>
-    <string name="coshtext">cosh</string>
-    <string name="tanhtext">tanh</string>
-    <string name="cschtext">csch</string>
-    <string name="sechtext">sech</string>
-    <string name="cothtext">coth</string>
-    <string name="signum_func">sgn(</string>
-    <string name="sinh_func">sinh(</string>
-    <string name="cosh_func">cosh(</string>
-    <string name="tanh_func">tanh(</string>
-    <string name="csch_func">csch(</string>
-    <string name="sech_func">sech(</string>
-    <string name="coth_func">coth(</string>
-    <string name="sinc_text">sinc</string>
-    <string name="invsinhtext">sinh⁻¹</string>
-    <string name="invcoshtext">cosh⁻¹</string>
-    <string name="invtanhtext">tanh⁻¹</string>
-    <string name="invcosechtext">csch⁻¹</string>
-    <string name="invsechtext">sech⁻¹</string>
-    <string name="invcothtext">coth⁻¹</string>
-    <string name="sinc_func">sinc(</string>
-    <string name="invsinh_func">arcsinh(</string>
-    <string name="invcosh_func">arccosh(</string>
-    <string name="invtanh_func">arctanh(</string>
-    <string name="invcsch_func">arccsch(</string>
-    <string name="invsech_func">arcsech(</string>
-    <string name="invcoth_func">arccoth(</string>
-    <string name="gradtext">grad(θ)</string>
-    <string name="grad_func">grad(</string>
-    <string name="goldenratio">ϕ</string>
-    <string name="goldenratio_text">[phi]</string>
-    <string name="ncr_text">nCr</string>
-    <string name="plancksconst">h</string>
-    <string name="speedoflight">c</string>
-    <string name="parabolicconst">P</string>
-    <string name="boltzmannconst">k</string>
-    <string name="integraltext">∫</string>
-    <string name="derivativetext">∂</string>
-    <string name="leftdertext">∂-</string>
-    <string name="rightdertext">∂+</string>
-    <string name="nthdertext">∂n</string>
-    <string name="fwd_difftext">∆</string>
-    <string name="npr_text">nPr</string>
-    <string name="viswanathconst">K</string>
-    <string name="backdifftext">∇</string>
-    <string name="eqsolvtext">sol</string>
-    <string name="stirlingnumonetext">Stirl1</string>
-    <string name="strlingnumtwotext">Stirl2</string>
-    <string name="berntext">Bern</string>
-    <string name="worptext">Worp</string>
-    <string name="kdelta_text">KDelta</string>
-    <string name="plasticconst">ρ</string>
-    <string name="sigmatext">∑</string>
-    <string name="prodtext">∏</string>
-    <string name="avgtext">avg</string>
-    <string name="varitext">vari</string>
-    <string name="stditext">stdi</string>
-    <string name="meantext">mean</string>
-    <string name="npr_func">nPr(n, r)</string>
-    <string name="boltzmannconstnum">1.380648509796223E-23</string>
-    <string name="ncr_func">nCr(n,r)</string>
-    <string name="kdelta_func">KDelta(i, j)</string>
-    <string name="integralfunc">int(expr, arg, from, to)</string>
-    <string name="backward_difffunc"><![CDATA[difb(expr, arg, <delta>)]]></string>
-    <string name="sigma_func"><![CDATA[sum(i, from, to, expr, <by>)]]></string>
-    <string name="derfunc"><![CDATA[der(expr, arg, <point>)]]></string>
-    <string name="eqsolvefunc">solve(expr, arg, from, to)</string>
-    <string name="prod_func"><![CDATA[prod(i, from, to, expr, <by>)]]></string>
-    <string name="stirlingnumfunc">Stirl1(n, k)</string>
-    <string name="avg_func"><![CDATA[avg(i, from, to, expr, <by>)]]></string>
-    <string name="nderfunc">dern(expr, n, arg)</string>
-    <string name="bernfunc">Bern(m,n)</string>
-    <string name="vari_func"><![CDATA[vari(i, from, to, expr, <by>)]]></string>
-    <string name="fwd_func"><![CDATA[diff(expr, arg, <delta>)]]></string>
-    <string name="worpfunc">Worp(n, k)</string>
-    <string name="stdi_func"><![CDATA[stdi(i, from, to, expr, <by>)]]></string>
-    <string name="leftderfunc"><![CDATA[der-(expr, arg, <point>)]]></string>
-    <string name="rightderfunc"><![CDATA[der+(expr, arg, <point>)]]></string>
-    <string name="stirlingnum2func">Stirl2(n, k)</string>
-    <string name="mean_func">mean(a1, …, an)</string>
-    <string name="parabolicconstant">[P2]</string>
-    <string name="lightspeed">2.99792458E8</string>
-    <string name="plancksconstant">[hP]</string>
-    <string name="viswanathconstant">[K.]</string>
-    <string name="plasticconstant">[PN]</string>
-    <string name="commachar">,</string>
+    <string name="squaretext" translatable="false">x\u00B2</string>
+    <string name="cosectext" translatable="false">csc</string>
+    <string name="sectext" translatable="false">sec</string>
+    <string name="cottext" translatable="false">cot</string>
+    <string name="eraisedtext" translatable="false">e\u02E3</string>
+    <string name="tenraisedtext" translatable="false">10\u02E3</string>
+    <string name="square_func" translatable="false">^2</string>
+    <string name="rad_func" translatable="false">rad(</string>
+    <string name="deg_func" translatable="false">deg(</string>
+    <string name="sine_func" translatable="false">sin(</string>
+    <string name="cosine_func" translatable="false">cos(</string>
+    <string name="cosec_func" translatable="false">csc(</string>
+    <string name="sec_func" translatable="false">sec(</string>
+    <string name="tan_func" translatable="false">tan(</string>
+    <string name="cot_func" translatable="false">cot(</string>
+    <string name="eraised_func" translatable="false">e^</string>
+    <string name="naturallog_func" translatable="false">ln(</string>
+    <string name="commonlog_func" translatable="false">log10(</string>
+    <string name="tenraised_func" translatable="false">10^</string>
+    <string name="mx_parser_init" translatable="false">mxparse</string>
+    <string name="eulermascheroni" translatable="false">γ</string>
+    <string name="eulermascheroni_text" translatable="false">[gam]</string>
+    <string name="degreetext" translatable="false">DEG</string>
+    <string name="modulustext" translatable="false">|x|</string>
+    <string name="invsintext" translatable="false">sin⁻¹</string>
+    <string name="invcostext" translatable="false">cos⁻¹</string>
+    <string name="invtantext" translatable="false">tan⁻¹</string>
+    <string name="invcosectext" translatable="false">csc⁻¹</string>
+    <string name="invsectext" translatable="false">sec⁻¹</string>
+    <string name="invcottext" translatable="false">cot⁻¹</string>
+    <string name="abs_func" translatable="false">abs(</string>
+    <string name="invsin_func" translatable="false">arcsin(</string>
+    <string name="invcos_func" translatable="false">arccos(</string>
+    <string name="invtan_func" translatable="false">arctan(</string>
+    <string name="invcsc_func" translatable="false">arccsc(</string>
+    <string name="invsec_func" translatable="false">arcsec(</string>
+    <string name="invcot_func" translatable="false">arccot(</string>
+    <string name="signum_text" translatable="false">sgn</string>
+    <string name="sinhtext" translatable="false">sinh</string>
+    <string name="coshtext" translatable="false">cosh</string>
+    <string name="tanhtext" translatable="false">tanh</string>
+    <string name="cschtext" translatable="false">csch</string>
+    <string name="sechtext" translatable="false">sech</string>
+    <string name="cothtext" translatable="false">coth</string>
+    <string name="signum_func" translatable="false">sgn(</string>
+    <string name="sinh_func" translatable="false">sinh(</string>
+    <string name="cosh_func" translatable="false">cosh(</string>
+    <string name="tanh_func" translatable="false">tanh(</string>
+    <string name="csch_func" translatable="false">csch(</string>
+    <string name="sech_func" translatable="false">sech(</string>
+    <string name="coth_func" translatable="false">coth(</string>
+    <string name="sinc_text" translatable="false">sinc</string>
+    <string name="invsinhtext" translatable="false">sinh⁻¹</string>
+    <string name="invcoshtext" translatable="false">cosh⁻¹</string>
+    <string name="invtanhtext" translatable="false">tanh⁻¹</string>
+    <string name="invcosechtext" translatable="false">csch⁻¹</string>
+    <string name="invsechtext" translatable="false">sech⁻¹</string>
+    <string name="invcothtext" translatable="false">coth⁻¹</string>
+    <string name="sinc_func" translatable="false">sinc(</string>
+    <string name="invsinh_func" translatable="false">arcsinh(</string>
+    <string name="invcosh_func" translatable="false">arccosh(</string>
+    <string name="invtanh_func" translatable="false">arctanh(</string>
+    <string name="invcsch_func" translatable="false">arccsch(</string>
+    <string name="invsech_func" translatable="false">arcsech(</string>
+    <string name="invcoth_func" translatable="false">arccoth(</string>
+    <string name="gradtext" translatable="false">grad(θ)</string>
+    <string name="grad_func" translatable="false">grad(</string>
+    <string name="goldenratio" translatable="false">ϕ</string>
+    <string name="goldenratio_text" translatable="false">[phi]</string>
+    <string name="ncr_text" translatable="false">nCr</string>
+    <string name="plancksconst" translatable="false">h</string>
+    <string name="speedoflight" translatable="false">c</string>
+    <string name="parabolicconst" translatable="false">P</string>
+    <string name="boltzmannconst" translatable="false">k</string>
+    <string name="integraltext" translatable="false">∫</string>
+    <string name="derivativetext" translatable="false">∂</string>
+    <string name="leftdertext" translatable="false">∂-</string>
+    <string name="rightdertext" translatable="false">∂+</string>
+    <string name="nthdertext" translatable="false">∂n</string>
+    <string name="fwd_difftext" translatable="false">∆</string>
+    <string name="npr_text" translatable="false">nPr</string>
+    <string name="viswanathconst" translatable="false">K</string>
+    <string name="backdifftext" translatable="false">∇</string>
+    <string name="eqsolvtext" translatable="false">sol</string>
+    <string name="stirlingnumonetext" translatable="false">Stirl1</string>
+    <string name="strlingnumtwotext" translatable="false">Stirl2</string>
+    <string name="berntext" translatable="false">Bern</string>
+    <string name="worptext" translatable="false">Worp</string>
+    <string name="kdelta_text" translatable="false">KDelta</string>
+    <string name="plasticconst" translatable="false">ρ</string>
+    <string name="sigmatext" translatable="false">∑</string>
+    <string name="prodtext" translatable="false">∏</string>
+    <string name="avgtext" translatable="false">avg</string>
+    <string name="varitext" translatable="false">vari</string>
+    <string name="stditext" translatable="false">stdi</string>
+    <string name="meantext" translatable="false">mean</string>
+    <string name="npr_func" translatable="false">nPr(n, r)</string>
+    <string name="boltzmannconstnum" translatable="false">1.380648509796223E-23</string>
+    <string name="ncr_func" translatable="false">nCr(n,r)</string>
+    <string name="kdelta_func" translatable="false">KDelta(i, j)</string>
+    <string name="integralfunc" translatable="false">int(expr, arg, from, to)</string>
+    <string name="backward_difffunc" translatable="false"><![CDATA[difb(expr, arg, <delta>)]]></string>
+    <string name="sigma_func" translatable="false"><![CDATA[sum(i, from, to, expr, <by>)]]></string>
+    <string name="derfunc" translatable="false"><![CDATA[der(expr, arg, <point>)]]></string>
+    <string name="eqsolvefunc" translatable="false">solve(expr, arg, from, to)</string>
+    <string name="prod_func" translatable="false"><![CDATA[prod(i, from, to, expr, <by>)]]></string>
+    <string name="stirlingnumfunc" translatable="false">Stirl1(n, k)</string>
+    <string name="avg_func" translatable="false"><![CDATA[avg(i, from, to, expr, <by>)]]></string>
+    <string name="nderfunc" translatable="false">dern(expr, n, arg)</string>
+    <string name="bernfunc" translatable="false">Bern(m,n)</string>
+    <string name="vari_func" translatable="false"><![CDATA[vari(i, from, to, expr, <by>)]]></string>
+    <string name="fwd_func" translatable="false"><![CDATA[diff(expr, arg, <delta>)]]></string>
+    <string name="worpfunc" translatable="false">Worp(n, k)</string>
+    <string name="stdi_func" translatable="false"><![CDATA[stdi(i, from, to, expr, <by>)]]></string>
+    <string name="leftderfunc" translatable="false"><![CDATA[der-(expr, arg, <point>)]]></string>
+    <string name="rightderfunc" translatable="false"><![CDATA[der+(expr, arg, <point>)]]></string>
+    <string name="stirlingnum2func" translatable="false">Stirl2(n, k)</string>
+    <string name="mean_func" translatable="false">mean(a1, …, an)</string>
+    <string name="parabolicconstant" translatable="false">[P2]</string>
+    <string name="lightspeed" translatable="false">2.99792458E8</string>
+    <string name="plancksconstant" translatable="false">[hP]</string>
+    <string name="viswanathconstant" translatable="false">[K.]</string>
+    <string name="plasticconstant" translatable="false">[PN]</string>
+    <string name="commachar" translatable="false">,</string>
     <string name="spacetext">space</string>
-    <string name="spacechar">" "</string>
-    <string name="alphabets">a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z</string>
-    <string name="specialsym">=,θ,α,β</string>
-    <string name="deftext">x</string>
-    <string name="drop_downarr">▼</string>
-    <string name="modulotext">#(mod)</string>
-    <string name="cuberoottext">³√</string>
-    <string name="cuberootval">^(1/3)</string>
-    <string name="fourthroottext">⁴√</string>
-    <string name="fourthrootval">^(1/4)</string>
-    <string name="powertower">^^</string>
-    <string name="moduloop">#</string>
+    <string name="spacechar" translatable="false">" "</string>
+    <string name="alphabets" translatable="false">a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z</string>
+    <string name="specialsym" translatable="false">=,θ,α,β</string>
+    <string name="deftext" translatable="false">x</string>
+    <string name="drop_downarr" translatable="false">▼</string>
+    <string name="modulotext" translatable="false">#(mod)</string>
+    <string name="cuberoottext" translatable="false">³√</string>
+    <string name="cuberootval" translatable="false">^(1/3)</string>
+    <string name="fourthroottext" translatable="false">⁴√</string>
+    <string name="fourthrootval" translatable="false">^(1/4)</string>
+    <string name="powertower" translatable="false">^^</string>
+    <string name="moduloop" translatable="false">#</string>
 
     <string-array name="calcmode_array">
         <item>1ST</item>
@@ -225,63 +225,63 @@
     <string name="nointTitle">No internet connection was found. Check\nyour connection or try again.</string>
     <string name="nohistory">No calculation history found. You haven\'t saved any calculations yet.</string>
     <string name="try_again">Try Again</string>
-    <string name="lshstr"><![CDATA[<<]]></string>
-    <string name="rshstr"><![CDATA[>>]]></string>
-    <string name="ANDstr">AND</string>
-    <string name="ORstr">OR</string>
-    <string name="NOTstr">NOT</string>
-    <string name="NOTsymbol">!</string>
-    <string name="NANDstr">NAND</string>
-    <string name="NORstr">NOR</string>
-    <string name="XORstr">XOR</string>
-    <string name="XNORstr">XNOR</string>
-    <string name="LSHstr">LSH</string>
-    <string name="RSHstr">RSH</string>
-    <string name="URSHstr">URSH</string>
-    <string name="RoLstr">RoL</string>
-    <string name="RoRstr">RoR</string>
-    <string name="ushrtext">&gt;&gt;&gt;</string>
-    <string name="d">D</string>
-    <string name="e">E</string>
-    <string name="f">F</string>
-    <string name="cl">CL</string>
-    <string name="a">A</string>
-    <string name="b">B</string>
-    <string name="c">C</string>
-    <string name="numberdouble0">00</string>
-    <string name="hexStr">Hex</string>
-    <string name="decstr">Dec</string>
-    <string name="octstr">OCT</string>
-    <string name="binstr">BIN</string>
-    <string name="difference">Difference</string>
-    <string name="add">Add</string>
-    <string name="subtract">Subtract</string>
-    <string name="datetext">Date</string>
-    <string name="erf">erf</string>
-    <string name="erfc">erfc</string>
-    <string name="erfInv">erf⁻¹</string>
-    <string name="erfcInv">erfc⁻¹</string>
-    <string name="gamma">Γ</string>
-    <string name="sgngamma">sgnΓ</string>
-    <string name="loggamma">lnΓ</string>
-    <string name="digamma">ψ</string>
-    <string name="gamma_func">Gamma(</string>
-    <string name="loggamma_func">logGamma(</string>
-    <string name="erf_func">erf(</string>
-    <string name="erfc_func">erfc(</string>
-    <string name="digamma_func">diGamma(</string>
-    <string name="erfInv_func">erfInv(</string>
-    <string name="erfcInv_func">erfcInv(</string>
-    <string name="sgngamma_func">sgnGamma(</string>
-    <string name="lambwzero_func">LambW0(</string>
-    <string name="lambwnegone_func">LambW1(</string>
+    <string name="lshstr" translatable="false"><![CDATA[<<]]></string>
+    <string name="rshstr" translatable="false"><![CDATA[>>]]></string>
+    <string name="ANDstr" translatable="false">AND</string>
+    <string name="ORstr" translatable="false">OR</string>
+    <string name="NOTstr" translatable="false">NOT</string>
+    <string name="NOTsymbol" translatable="false">!</string>
+    <string name="NANDstr" translatable="false">NAND</string>
+    <string name="NORstr" translatable="false">NOR</string>
+    <string name="XORstr" translatable="false">XOR</string>
+    <string name="XNORstr" translatable="false">XNOR</string>
+    <string name="LSHstr" translatable="false">LSH</string>
+    <string name="RSHstr" translatable="false">RSH</string>
+    <string name="URSHstr" translatable="false">URSH</string>
+    <string name="RoLstr" translatable="false">RoL</string>
+    <string name="RoRstr" translatable="false">RoR</string>
+    <string name="ushrtext" translatable="false">&gt;&gt;&gt;</string>
+    <string name="d" translatable="false">D</string>
+    <string name="e" translatable="false">E</string>
+    <string name="f" translatable="false">F</string>
+    <string name="cl" translatable="false">CL</string>
+    <string name="a" translatable="false">A</string>
+    <string name="b" translatable="false">B</string>
+    <string name="c" translatable="false">C</string>
+    <string name="numberdouble0" translatable="false">00</string>
+    <string name="hexStr" translatable="false">Hex</string>
+    <string name="decstr" translatable="false">Dec</string>
+    <string name="octstr" translatable="false">OCT</string>
+    <string name="binstr" translatable="false">BIN</string>
+    <string name="difference" translatable="false">Difference</string>
+    <string name="add" translatable="false">Add</string>
+    <string name="subtract" translatable="false">Subtract</string>
+    <string name="datetext" translatable="false">Date</string>
+    <string name="erf" translatable="false">erf</string>
+    <string name="erfc" translatable="false">erfc</string>
+    <string name="erfInv" translatable="false">erf⁻¹</string>
+    <string name="erfcInv" translatable="false">erfc⁻¹</string>
+    <string name="gamma" translatable="false">Γ</string>
+    <string name="sgngamma" translatable="false">sgnΓ</string>
+    <string name="loggamma" translatable="false">lnΓ</string>
+    <string name="digamma" translatable="false">ψ</string>
+    <string name="gamma_func" translatable="false">Gamma(</string>
+    <string name="loggamma_func" translatable="false">logGamma(</string>
+    <string name="erf_func" translatable="false">erf(</string>
+    <string name="erfc_func" translatable="false">erfc(</string>
+    <string name="digamma_func" translatable="false">diGamma(</string>
+    <string name="erfInv_func" translatable="false">erfInv(</string>
+    <string name="erfcInv_func" translatable="false">erfcInv(</string>
+    <string name="sgngamma_func" translatable="false">sgnGamma(</string>
+    <string name="lambwzero_func" translatable="false">LambW0(</string>
+    <string name="lambwnegone_func" translatable="false">LambW1(</string>
     <string name="key_theme">chosenTheme</string>
     <string name="dark_theme">Dark</string>
     <string name="system_theme">System (Default)</string>
     <string name="light_theme">Light</string>
     <string name="abyss_theme">Abyss</string>
     <string name="materialyou_theme">Material You</string>
-    <string name="lambertzerotext">W₀</string>
+    <string name="lambertzerotext" translatable="false">W₀</string>
     <string name="messageFromAbyss">You\'ve unlocked the secrets of the void. Embrace the shadows—your battery thanks you.</string>
 
     <string-array name="currencies_one">
@@ -1093,9 +1093,9 @@
         <item>Programmer Mode</item>
     </string-array>
     <string name="title_activity_settings">SettingsActivity</string>
-    <string name="default_basecurrency">INR</string>
-    <string name="default_convcurrency">USD</string>
-    <string name="default_vartext">x</string>
+    <string name="default_basecurrency" translatable="false">INR</string>
+    <string name="default_convcurrency" translatable="false">USD</string>
+    <string name="default_vartext" translatable="false">x</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="currency">Currency</string>
     <string name="length">Length</string>
@@ -1113,10 +1113,10 @@
     <string name="calculator">Calculator</string>
     <string name="programmer">Programmer</string>
 
-    <string name="defaultprectext">1.00000000000001</string>
-    <string name="secondprectext">1.000000000000000000000000000000000000000000000000000000000001</string>
-    <string name="thirdprectext">1.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001</string>
-    <string name="fourthprectext">1.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001</string>
+    <string name="defaultprectext" translatable="false">1.00000000000001</string>
+    <string name="secondprectext" translatable="false">1.000000000000000000000000000000000000000000000000000000000001</string>
+    <string name="thirdprectext" translatable="false">1.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001</string>
+    <string name="fourthprectext" translatable="false">1.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001</string>
     <string name="back_nin_naction">Back\nIn\nAction</string>
 
     <!-- prefs -->
