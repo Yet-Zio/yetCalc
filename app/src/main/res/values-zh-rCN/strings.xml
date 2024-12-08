@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="VERSION_NAMEANDNUM">詹姆斯·西蒙斯 (2.0.3)</string>
+    <string name="eastereggtoast">你现在拥有了能带领人类撕碎高维度数学难题的完美躯体！(Gigachad.mp4)</string>
+    <string name="app_descrp">Yet another calculator by Yet Zio</string>
+    <string name="ghbtext">在Github查看</string>
+    <string name="app_details">开源自由软件\n使用BSD-3-Clause协议传播</string>
+    <string name="licensesText">开源协议</string>
+    <string name="ac_buttontext">清空</string>
+    <string name="history_name">历史记录</string>
+    <string name="theme_opt">选择主题</string>
+    <string name="feedback">发送翻译</string>
+    <string name="about">关于</string>
+    <string name="mode_text">计算模式</string>
+    <string name="angle_mode_text">角度模式</string>
+    <string name="spacetext">空格</string>
+    <string name="action_settings">设置</string>
+    <string name="historybartext">历史</string>
+    <string name="settingsmenu">设置</string>
+    <string name="helpmenu">帮助</string>
+    <string name="currency_convertertitle">\n货币</string>
+    <string name="converter">单位转换器</string>
+    <string name="from">从</string>
+    <string name="to">转换到</string>
+    <string name="amount">数值</string>
+    <string name="update_currency_rates">更新金融汇率</string>
+    <string name="result">结果</string>
+    <string name="date">日期</string>
+    <string name="datehint">年-月-日</string>
+    <string name="datecurrhint">如果你想用历史汇率数据, 请在下方指定一个日期.\n<![CDATA[ <a href="https://data.jsdelivr.com/v1/package/npm/@fawazahmed0/currency-api">查询可用的日期</a>]]></string>
+    <string name="nointInfoText">汇率转换需要网络连接</string>
+    <string name="nointTitle">无网络.\n请检查连接后重试</string>
+    <string name="nohistory">什么都没有¯\\_(ツ)_/¯</string>
+    <string name="try_again">重试</string>
+    <string name="key_theme">选中的主题</string>
+    <string name="dark_theme">暗色主题</string>
+    <string name="system_theme">跟随系统（默认）</string>
+    <string name="light_theme">亮色主题</string>
+    <string name="abyss_theme">黑色主题（AMDLED）</string>
+    <string name="materialyou_theme">Material You主题</string>
+    <string name="messageFromAbyss">揭秘虚空，遁入暗影—你的电池感谢你.</string>
+
+    <string-array name="currencies_one">
+        <item>00</item>
+        <item>1INCH</item>
+        <item>AAVE</item>
+        <item>ABT</item>
+        <item>ACH</item>
+        <item>ACS</item>
+        <item>ADA</item>
+        <item>AED</item>
+        <item>AERGO</item>
+        <item>AFN</item>
+        <item>AGLD</item>
+        <item>AIOZ</item>
+        <item>AKT</item>
+        <item>ALCX</item>
+        <item>ALEPH</item>
+        <item>ALGO</item>
+        <item>ALICE</item>
+        <item>ALL</item>
+        <item>AMD</item>
+        <item>AMP</item>
+        <item>ANG</item>
+        <item>ANKR</item>
+        <item>ANT</item>
+        <item>AOA</item>
+        <item>APE</item>
+        <item>API3</item>
+        <item>APT</item>
+        <item>AR</item>
+        <item>ARB</item>
+        <item>ARPA</item>
+        <item>ARS</item>
+        <item>ASM</item>
+        <item>AST</item>
+        <item>ATA</item>
+        <item>ATOM</item>
+        <item>ATS</item>
+        <item>AUCTION</item>
+        <item>AUD</item>
+        <item>AUDIO</item>
+        <item>AURORA</item>
+        <item>AVAX</item>
+        <item>AVT</item>
+        <item>AWG</item>
+        <item>AXL</item>
+        <item>AXS</item>
+        <item>AZM</item>
+        <item>AZN</item>
+        <item>BADGER</item>
+        <item>BAKE</item>
+        <item>BAL</item>
+        <item>BAM</item>
+        <item>BAND</item>
+        <item>BAT</item>
+        <item>BBD</item>
+        <item>BCH</item>
+        <item>BDT</item>
+        <item>BEF</item>
+        <item>BGN</item>
+        <item>BHD</item>
+        <item>BICO</item>
+        <item>BIF</item>
+        <item>BIT</item>
+        <item>BLUR</item>
+        <item>BLZ</item>
+        <item>BMD</item>
+        <item>BNB</item>
+        <item>BND</item>
+        <item>BNT</item>
+        <item>BOB</item>
+        <item>BOBA</item>
+        <item>BOND</item>
+        <item>BRL</item>
+        <item>BSD</item>
+        <item>BSV</item>
+        <item>BSW</item>
+        <item>BTC</item>
+        <item>BTCB</item>
+        <item>BTG</item>
+        <item>BTN</item>
+        <item>BTRST</item>
+        <item>BTT</item>
+        <item>BUSD</item>
+        <item>BWP</item>
+        <item>BYN</item>
+        <item>BYR</item>
+        <item>BZD</item>
+        <item>C98</item>
+        <item>CAD</item>
+        <item>CAKE</item>
+        <item>CBETH</item>
+        <item>CDF</item>
+        <item>CELO</item>
+        <item>CELR</item>
+        <item>CFX</item>
+        <item>CGLD</item>
+        <item>CHF</item>
+        <item>CHZ</item>
+        <item>CLP</item>
+        <item>CLV</item>
+        <item>CNH</item>
+        <item>CNY</item>
+        <item>COMP</item>
+        <item>COP</item>
+        <item>COTI</item>
+        <item>COVAL</item>
+        <item>CRC</item>
+        <item>CRO</item>
+        <item>CRPT</item>
+        <item>CRV</item>
+        <item>CSPR</item>
+        <item>CTSI</item>
+        <item>CTX</item>
+        <item>CUC</item>
+        <item>CUP</item>
+        <item>CVC</item>
+        <item>CVE</item>
+        <item>CVX</item>
+        <item>CYP</item>
+        <item>CZK</item>
+        <item>DAI</item>
+        <item>DAR</item>
+        <item>DASH</item>
+        <item>DCR</item>
+        <item>DDX</item>
+        <item>DEM</item>
+        <item>DESO</item>
+        <item>DEXT</item>
+        <item>DFI</item>
+        <item>DIA</item>
+        <item>DIMO</item>
+        <item>DJF</item>
+        <item>DKK</item>
+        <item>DNT</item>
+        <item>DOGE</item>
+        <item>DOP</item>
+        <item>DOT</item>
+        <item>DREP</item>
+        <item>DYDX</item>
+        <item>DYP</item>
+        <item>DZD</item>
+        <item>EEK</item>
+        <item>EGLD</item>
+        <item>EGP</item>
+        <item>ELA</item>
+        <item>ENJ</item>
+        <item>ENS</item>
+        <item>EOS</item>
+        <item>ERN</item>
+        <item>ESP</item>
+        <item>ETB</item>
+        <item>ETC</item>
+        <item>ETH</item>
+        <item>ETH2</item>
+        <item>EUR</item>
+        <item>EUROC</item>
+        <item>FARM</item>
+        <item>FEI</item>
+        <item>FET</item>
+        <item>FIDA</item>
+        <item>FIL</item>
+        <item>FIM</item>
+        <item>FIS</item>
+        <item>FJD</item>
+        <item>FKP</item>
+        <item>FLOW</item>
+        <item>FLR</item>
+        <item>FORT</item>
+        <item>FORTH</item>
+        <item>FOX</item>
+        <item>FRAX</item>
+        <item>FRF</item>
+        <item>FTM</item>
+        <item>FTT</item>
+        <item>FX</item>
+        <item>FXS</item>
+        <item>GAL</item>
+        <item>GALA</item>
+        <item>GBP</item>
+        <item>GEL</item>
+        <item>GFI</item>
+        <item>GGP</item>
+        <item>GHC</item>
+        <item>GHS</item>
+        <item>GHST</item>
+        <item>GIP</item>
+        <item>GLM</item>
+        <item>GMD</item>
+        <item>GMT</item>
+        <item>GMX</item>
+        <item>GNF</item>
+        <item>GNO</item>
+        <item>GNT</item>
+        <item>GODS</item>
+        <item>GRD</item>
+        <item>GRT</item>
+        <item>GST</item>
+        <item>GT</item>
+        <item>GTC</item>
+        <item>GTQ</item>
+        <item>GUSD</item>
+        <item>GYD</item>
+        <item>GYEN</item>
+        <item>HBAR</item>
+        <item>HFT</item>
+        <item>HIGH</item>
+        <item>HKD</item>
+        <item>HNL</item>
+        <item>HNT</item>
+        <item>HOPR</item>
+        <item>HOT</item>
+        <item>HRK</item>
+        <item>HT</item>
+        <item>HTG</item>
+        <item>HUF</item>
+        <item>ICP</item>
+        <item>IDEX</item>
+        <item>IDR</item>
+        <item>IEP</item>
+        <item>ILS</item>
+        <item>ILV</item>
+        <item>IMP</item>
+        <item>IMX</item>
+        <item>INDEX</item>
+        <item>INJ</item>
+        <item>INR</item>
+        <item>INV</item>
+        <item>IOTX</item>
+        <item>IQD</item>
+        <item>IRR</item>
+        <item>ISK</item>
+        <item>ITL</item>
+        <item>JASMY</item>
+        <item>JEP</item>
+        <item>JMD</item>
+        <item>JOD</item>
+        <item>JPY</item>
+        <item>JUP</item>
+        <item>KAS</item>
+        <item>KAVA</item>
+        <item>KCS</item>
+        <item>KDA</item>
+        <item>KEEP</item>
+        <item>KES</item>
+        <item>KGS</item>
+        <item>KHR</item>
+        <item>KLAY</item>
+        <item>KMF</item>
+        <item>KNC</item>
+        <item>KPW</item>
+        <item>KRL</item>
+        <item>KRW</item>
+        <item>KSM</item>
+        <item>KWD</item>
+        <item>KYD</item>
+        <item>KZT</item>
+        <item>LAK</item>
+        <item>LBP</item>
+        <item>LCX</item>
+        <item>LDO</item>
+        <item>LEO</item>
+        <item>LINK</item>
+        <item>LIT</item>
+        <item>LKR</item>
+        <item>LOKA</item>
+        <item>LOOM</item>
+        <item>LPT</item>
+        <item>LQTY</item>
+        <item>LRC</item>
+        <item>LRD</item>
+        <item>LSETH</item>
+        <item>LSL</item>
+        <item>LTC</item>
+        <item>LTL</item>
+        <item>LUF</item>
+        <item>LUNA</item>
+        <item>LUNC</item>
+        <item>LVL</item>
+        <item>LYD</item>
+        <item>MAD</item>
+        <item>MAGIC</item>
+        <item>MANA</item>
+        <item>MASK</item>
+        <item>MATH</item>
+        <item>MATIC</item>
+        <item>MCO2</item>
+        <item>MDL</item>
+        <item>MDT</item>
+        <item>MEDIA</item>
+        <item>METIS</item>
+        <item>MGA</item>
+        <item>MGF</item>
+        <item>MINA</item>
+        <item>MIOTA</item>
+        <item>MIR</item>
+        <item>MKD</item>
+        <item>MKR</item>
+        <item>MLN</item>
+        <item>MMK</item>
+        <item>MNDE</item>
+        <item>MNT</item>
+        <item>MONA</item>
+        <item>MOP</item>
+        <item>MPL</item>
+        <item>MRO</item>
+        <item>MRU</item>
+        <item>MSOL</item>
+        <item>MTL</item>
+        <item>MULTI</item>
+        <item>MUR</item>
+        <item>MUSD</item>
+        <item>MUSE</item>
+        <item>MVR</item>
+        <item>MWK</item>
+        <item>MXC</item>
+        <item>MXN</item>
+        <item>MXV</item>
+        <item>MYR</item>
+        <item>MZM</item>
+        <item>MZN</item>
+        <item>NAD</item>
+        <item>NCT</item>
+        <item>NEAR</item>
+        <item>NEO</item>
+        <item>NEST</item>
+        <item>NEXO</item>
+        <item>NFT</item>
+        <item>NGN</item>
+        <item>NIO</item>
+        <item>NKN</item>
+        <item>NLG</item>
+        <item>NMR</item>
+        <item>NOK</item>
+        <item>NPR</item>
+        <item>NU</item>
+        <item>NZD</item>
+        <item>OCEAN</item>
+        <item>OGN</item>
+        <item>OKB</item>
+        <item>OMG</item>
+        <item>OMR</item>
+        <item>ONE</item>
+        <item>OOKI</item>
+        <item>OP</item>
+        <item>ORCA</item>
+        <item>ORN</item>
+        <item>OSMO</item>
+        <item>OXT</item>
+        <item>PAB</item>
+        <item>PAX</item>
+        <item>PAXG</item>
+        <item>PEN</item>
+        <item>PEPE</item>
+        <item>PERP</item>
+        <item>PGK</item>
+        <item>PHP</item>
+        <item>PKR</item>
+        <item>PLA</item>
+        <item>PLN</item>
+        <item>PLU</item>
+        <item>PNG</item>
+        <item>POLS</item>
+        <item>POLY</item>
+        <item>POND</item>
+        <item>POWR</item>
+        <item>PRIME</item>
+        <item>PRO</item>
+        <item>PRQ</item>
+        <item>PTE</item>
+        <item>PUNDIX</item>
+        <item>PYG</item>
+        <item>PYR</item>
+        <item>PYUSD</item>
+        <item>QAR</item>
+        <item>QI</item>
+        <item>QNT</item>
+        <item>QSP</item>
+        <item>QTUM</item>
+        <item>QUICK</item>
+        <item>RAD</item>
+        <item>RAI</item>
+        <item>RARE</item>
+        <item>RARI</item>
+        <item>RBN</item>
+        <item>REN</item>
+        <item>REP</item>
+        <item>REPV2</item>
+        <item>REQ</item>
+        <item>RGT</item>
+        <item>RLC</item>
+        <item>RLY</item>
+        <item>RNDR</item>
+        <item>ROL</item>
+        <item>RON</item>
+        <item>ROSE</item>
+        <item>RPL</item>
+        <item>RSD</item>
+        <item>RUB</item>
+        <item>RUNE</item>
+        <item>RVN</item>
+        <item>RWF</item>
+        <item>SAND</item>
+        <item>SAR</item>
+        <item>SBD</item>
+        <item>SCR</item>
+        <item>SDD</item>
+        <item>SDG</item>
+        <item>SEI</item>
+        <item>SEK</item>
+        <item>SGD</item>
+        <item>SHIB</item>
+        <item>SHP</item>
+        <item>SHPING</item>
+        <item>SIT</item>
+        <item>SKK</item>
+        <item>SKL</item>
+        <item>SLE</item>
+        <item>SLL</item>
+        <item>SNT</item>
+        <item>SNX</item>
+        <item>SOL</item>
+        <item>SOS</item>
+        <item>SPA</item>
+        <item>SPELL</item>
+        <item>SPL</item>
+        <item>SRD</item>
+        <item>SRG</item>
+        <item>SSP</item>
+        <item>STD</item>
+        <item>STG</item>
+        <item>STN</item>
+        <item>STORJ</item>
+        <item>STX</item>
+        <item>SUI</item>
+        <item>SUKU</item>
+        <item>SUPER</item>
+        <item>SUSHI</item>
+        <item>SVC</item>
+        <item>SWFTC</item>
+        <item>SYLO</item>
+        <item>SYN</item>
+        <item>SYP</item>
+        <item>SZL</item>
+        <item>T</item>
+        <item>THB</item>
+        <item>THETA</item>
+        <item>TIME</item>
+        <item>TJS</item>
+        <item>TMM</item>
+        <item>TMT</item>
+        <item>TND</item>
+        <item>TON</item>
+        <item>TONE</item>
+        <item>TOP</item>
+        <item>TRAC</item>
+        <item>TRB</item>
+        <item>TRIBE</item>
+        <item>TRL</item>
+        <item>TRU</item>
+        <item>TRX</item>
+        <item>TRY</item>
+        <item>TTD</item>
+        <item>TTT</item>
+        <item>TUSD</item>
+        <item>TVD</item>
+        <item>TVK</item>
+        <item>TWD</item>
+        <item>TWT</item>
+        <item>TZS</item>
+        <item>UAH</item>
+        <item>UGX</item>
+        <item>UMA</item>
+        <item>UNFI</item>
+        <item>UNI</item>
+        <item>UPI</item>
+        <item>USD</item>
+        <item>USDC</item>
+        <item>USDD</item>
+        <item>USDP</item>
+        <item>USDT</item>
+        <item>UST</item>
+        <item>UYU</item>
+        <item>UZS</item>
+        <item>VAL</item>
+        <item>VARA</item>
+        <item>VEB</item>
+        <item>VED</item>
+        <item>VEF</item>
+        <item>VES</item>
+        <item>VET</item>
+        <item>VGX</item>
+        <item>VND</item>
+        <item>VOXEL</item>
+        <item>VTHO</item>
+        <item>VUV</item>
+        <item>WAMPL</item>
+        <item>WAVES</item>
+        <item>WAXL</item>
+        <item>WBTC</item>
+        <item>WCFG</item>
+        <item>WEMIX</item>
+        <item>WLUNA</item>
+        <item>WOO</item>
+        <item>WST</item>
+        <item>XAF</item>
+        <item>XAG</item>
+        <item>XAU</item>
+        <item>XAUT</item>
+        <item>XBT</item>
+        <item>XCD</item>
+        <item>XCH</item>
+        <item>XCN</item>
+        <item>XDC</item>
+        <item>XDR</item>
+        <item>XEC</item>
+        <item>XEM</item>
+        <item>XLM</item>
+        <item>XMON</item>
+        <item>XMR</item>
+        <item>XOF</item>
+        <item>XPD</item>
+        <item>XPF</item>
+        <item>XPT</item>
+        <item>XRP</item>
+        <item>XTZ</item>
+        <item>XYO</item>
+        <item>YER</item>
+        <item>YFI</item>
+        <item>YFII</item>
+        <item>ZAR</item>
+        <item>ZEC</item>
+        <item>ZEN</item>
+        <item>ZIL</item>
+        <item>ZMK</item>
+        <item>ZMW</item>
+        <item>ZRX</item>
+        <item>ZWD</item>
+        <item>ZWL</item>
+    </string-array>
+
+    <string-array name="lengthlist">
+        <item>飞米(fm)</item>
+        <item>皮米(pm)</item>
+        <item>纳米(nm)</item>
+        <item>微米(μm)</item>
+        <item>毫米(mm)</item>
+        <item>厘米(cm)</item>
+        <item>分米(dm)</item>
+        <item>米(m)</item>
+        <item>十米(dam)</item>
+        <item>百米(hm)</item>
+        <item>千米(km)</item>
+        <item>英寸(in)</item>
+        <item>英尺(ft)</item>
+        <item>码(yd)</item>
+        <item>英里(mi)</item>
+        <item>海里(nmi)</item>
+        <item>兆米(Mm)</item>
+        <item>千兆米(Gm)</item>
+        <item>太米(Tm)</item>
+        <item>皮米(Pm)</item>
+        <item>弗隆(fur)</item>
+    </string-array>
+
+    <string-array name="volumelist">
+        <item>微升(μl)</item>
+        <item>滴(gt)</item>
+        <item>毫升(ml)</item>
+        <item>立方厘米(cc)</item>
+        <item>分升(dl)</item>
+        <item>升(l)</item>
+        <item>立方米(m³)</item>
+        <item>杯(美制)</item>
+        <item>杯(英制)</item>
+        <item>品脱(美制)</item>
+        <item>品脱(英制)</item>
+        <item>夸脱(美制)</item>
+        <item>夸脱(英制)</item>
+        <item>加仑(美制)</item>
+        <item>加仑(英制)</item>
+        <item>干桶(美制)</item>
+        <item>液体桶(美制)</item>
+        <item>联邦桶(美制)</item>
+        <item>油桶(美制)</item>
+        <item>桶(英制)</item>
+        <item>立方英寸(in³)</item>
+        <item>立方英尺(ft³)</item>
+        <item>立方码(yd³)</item>
+        <item>茶匙(美制)</item>
+        <item>茶匙(英制)</item>
+        <item>汤匙(美制)</item>
+        <item>汤匙(英制)</item>
+        <item>液量盎司(美制)</item>
+        <item>液量盎司(英制)</item>
+    </string-array>
+
+    <string-array name="arealist">
+        <item>平方毫米(mm²)</item>
+        <item>平方厘米(cm²)</item>
+        <item>平方分米(dm²)</item>
+        <item>平方米(m²)</item>
+        <item>平方十米(dam²)</item>
+        <item>平方百米(hm²)</item>
+        <item>平方公里(km²)</item>
+        <item>公顷(ha)</item>
+        <item>平方英里(mi²)</item>
+        <item>亩(ac)</item>
+        <item>平方英寸(in²)</item>
+        <item>平方英尺(ft²)</item>
+        <item>平方码(yd²)</item>
+        <item>平方海里(nmi²)</item>
+        <item>德南</item>
+        <item>坪</item>
+        <item>平(py)</item>
+        <item>库尔达斯(cda)</item>
+        <item>平方兆米(Mm²)</item>
+        <item>平方千兆米(Gm²)</item>
+        <item>平方太米(Tm²)</item>
+        <item>平方皮米(Pm²)</item>
+    </string-array>
+
+    <string-array name="weightormasslist">
+        <item>飞克(fg)</item>
+        <item>皮克(pg)</item>
+        <item>纳克(ng)</item>
+        <item>微克(µg)</item>
+        <item>克拉(ct)</item>
+        <item>毫克(mg)</item>
+        <item>厘米(cg)</item>
+        <item>分克(dg)</item>
+        <item>克(g)</item>
+        <item>十克(dag)</item>
+        <item>百克(hg)</item>
+        <item>千克(kg)</item>
+        <item>重力(牛)</item>
+        <item>吨(t)</item>
+        <item>盎司(oz)</item>
+        <item>磅(lb)</item>
+        <item>英石(st)</item>
+        <item>吨(美制)</item>
+        <item>吨(英制)</item>
+        <item>市斤(斤)</item>
+        <item>谷粒(gr)</item>
+        <item>千兆克(Gg)</item>
+        <item>太克(Tg)</item>
+        <item>皮克(Pg)</item>
+    </string-array>
+
+    <string-array name="temperaturelist">
+        <item>摄氏度(°C)</item>
+        <item>华氏度(°F)</item>
+        <item>开氏度(K)</item>
+        <item>兰氏度(°R)</item>
+        <item>德利尔温标(°De)</item>
+        <item>牛顿度(°N)</item>
+        <item>列氏度(°Ré)</item>
+        <item>罗氏度(°Rø)</item>
+        <item>Yoctokelvin(yK)</item>
+        <item>Attokelvin(aK)</item>
+        <item>Femtokelvin(fK)</item>
+        <item>Picokelvin(pK)</item>
+        <item>Nanokelvin(nK)</item>
+        <item>Microkelvin(µK)</item>
+        <item>Millikelvin(mK)</item>
+        <item>Kilokelvin(kK)</item>
+        <item>Megakelvin(MK)</item>
+        <item>Gigakelvin(GK)</item>
+        <item>Terakelvin(TK)</item>
+        <item>Petakelvin(PK)</item>
+        <item>Exakelvin(EK)</item>
+        <item>Zettakelvin(ZK)</item>
+        <item>Yottakelvin(YK)</item>
+    </string-array>
+
+    <string-array name="speedlist">
+        <item>厘米每秒(cm/s)</item>
+        <item>米每秒(m/s)</item>
+        <item>公里时速(km/h)</item>
+        <item>英里时速(mi/h)</item>
+        <item>海里(kn)</item>
+        <item>英尺每秒(ft/s)</item>
+        <item>英尺每分(ft/min)</item>
+        <item>英寸每秒(in/s)</item>
+        <item>马赫(Ma)</item>
+        <item>弗隆每两周(fur/fn)</item>
+        <item>布伯诺夫单位(B)</item>
+        <item>自然单位制(光速)</item>
+    </string-array>
+
+    <string-array name="powerlist">
+        <item>瓦特(W)</item>
+        <item>千瓦(KW)</item>
+        <item>马力(hp)</item>
+        <item>尔格每秒(erg/s)</item>
+        <item>英尺磅/分钟(ft-lb/min)</item>
+        <item>分贝-毫瓦(dBm)</item>
+        <item>每小时卡路里(cal/h)</item>
+        <item>每小时英国热单位(BTU/h)</item>
+        <item>冷吨(TR)</item>
+    </string-array>
+
+    <string-array name="energylist">
+        <item>电子伏特(eV)</item>
+        <item>焦耳(J)</item>
+        <item>千焦(kJ)</item>
+        <item>尔格(erg)</item>
+        <item>卡路里(cal)</item>
+        <item>英国热单位(BTU)</item>
+        <item>千瓦时(KWh)</item>
+        <item>千卡(kcal)</item>
+        <item>英尺磅(ft-lb)</item>
+    </string-array>
+
+    <string-array name="pressurelist">
+        <item>大气压(atm)</item>
+        <item>托(Torr)</item>
+        <item>帕斯卡(Pa)</item>
+        <item>千帕(kPa)</item>
+        <item>基普/平方英寸(kip/in²)</item>
+        <item>磅/平方英寸(lbf/in²)</item>
+        <item>英尺海水(15°C)</item>
+        <item>巴</item>
+        <item>千克/平方厘米(kg/cm²)</item>
+        <item>Baryes(Ba)</item>
+        <item>Sthenes(sn)</item>
+        <item>毫米汞柱(mmHg)</item>
+    </string-array>
+
+    <string-array name="timelist">
+        <item>纳秒(ns)</item>
+        <item>微秒(μs)</item>
+        <item>毫秒(ms)</item>
+        <item>Jiffies(Linux内核时间)</item>
+        <item>秒(s)</item>
+        <item>分钟(min)</item>
+        <item>小时(hr)</item>
+        <item>天</item>
+        <item>周(wk)</item>
+        <item>两周(fn)</item>
+        <item>月(mo)</item>
+        <item>年(yr)</item>
+        <item>十年</item>
+        <item>世纪</item>
+        <item>千年</item>
+        <item>银河年(gal)</item>
+    </string-array>
+
+    <string-array name="anglelist">
+        <item>角度制(°)</item>
+        <item>弧度制(rad)</item>
+        <item>百分度(grad)</item>
+        <item>圈数(tr)</item>
+        <item>毫弧度(mrad)</item>
+        <item>分(′)</item>
+        <item>秒(″)</item>
+    </string-array>
+
+    <string-array name="datalist">
+        <item>比特(b)</item>
+        <item>半字节</item>
+        <item>克伦布</item>
+        <item>字节(B)</item>
+        <item>千比特(kb)</item>
+        <item>二进制千比特(Kib)</item>
+        <item>千字节(kB)</item>
+        <item>二进制千字节(KiB)</item>
+        <item>兆比特(Mb)</item>
+        <item>二进制兆比特(Mib)</item>
+        <item>兆字节(MB)</item>
+        <item>二进制兆字节(MiB)</item>
+        <item>千兆比特(Gb)</item>
+        <item>二进制千兆比特(Gib)</item>
+        <item>千兆字节(GB)</item>
+        <item>二进制千兆字节(GiB)</item>
+        <item>太比特(Tb)</item>
+        <item>二进制太比特(Tib)</item>
+        <item>太字节(TB)</item>
+        <item>二进制太字节(TiB)</item>
+        <item>皮比特(Pb)</item>
+        <item>二进制皮比特(Pib)</item>
+        <item>皮字节(PB)</item>
+        <item>二进制皮字节(PiB)</item>
+        <item>Exabits(Eb)</item>
+        <item>Exbibits(Eib)</item>
+        <item>Exabytes(EB)</item>
+        <item>Exbibytes(EiB)</item>
+        <item>Zetabits(Zb)</item>
+        <item>Zebibits(Zib)</item>
+        <item>Zetabytes(ZB)</item>
+        <item>Zebibytes(ZiB)</item>
+        <item>Yottabits(Yb)</item>
+        <item>Yobibits(Yib)</item>
+        <item>Yottabytes(YB)</item>
+        <item>Yobibytes(YiB)</item>
+    </string-array>
+
+    <string-array name="numeralsystems">
+        <item>十六进制</item>
+        <item>十进制</item>
+        <item>八进制</item>
+        <item>二进制</item>
+    </string-array>
+
+    <string-array name="calcmodeslist">
+        <item>科学计算</item>
+        <item>单位转换</item>
+        <item>程序员计算</item>
+    </string-array>
+
+    <string name="title_activity_settings">设置Activity</string>
+    <string name="hello_blank_fragment">hello world!</string>
+    <string name="currency">货币</string>
+    <string name="length">长度</string>
+    <string name="volume">溶剂</string>
+    <string name="area">面积</string>
+    <string name="weight_mass">质量</string>
+    <string name="temperature">温度</string>
+    <string name="speed">速度</string>
+    <string name="power">功率</string>
+    <string name="energy">能量</string>
+    <string name="pressure">压力</string>
+    <string name="time">时间</string>
+    <string name="angle">度制</string>
+    <string name="data">计算机数据</string>
+    <string name="calculator">科学计算</string>
+    <string name="programmer">程序员计算</string>
+    <string name="back_nin_naction">重返\n行动</string>
+    <string name="viewsourcetitle">查看源码</string>
+    <string name="interestedinsource">想要做贡献？</string>
+    <string name="osslicenses">开源协议</string>
+    <string name="appversiontitle">软件版本&amp;代号</string>
+    <string name="selectthemeforcalc">主题</string>
+    <string name="choose_a_theme_for_the_app">选择中意的主题</string>
+    <string name="theme_from_the_abyss">*深渊凝视*</string>
+    <string name="offers_a_fully_black_background_nhelps_preserve_battery_life_nalso_called_amoled_dark">使用纯黑背景\n可以降低耗电\n这个也常叫做AMOLED黑</string>
+    <string name="material_youthemetitle">Material You主题</string>
+    <string name="apply_dynamic_colors_to_the_app">启用动态配色</string>
+    <string name="styles">风格</string>
+    <string name="precisiontitle">准确度</string>
+    <string name="precisionsubtext">选一个用于计算的最大小数位</string>
+    <string name="leftjustifytitle">结果向左对齐</string>
+    <string name="leftjustifysubtext">计算结果无论数值大小均向左对齐, 然后按下任意键回到右对齐</string>
+    <string name="almostintrtitle">自动取整</string>
+    <string name="almostintrsubtext">当数值足够靠近时自动取最近的整数值</string>
+    <string name="canonicalrtitle">标准舍入</string>
+    <string name="canonicalrsubtext">解决类似于0.1+0.2≠0.3的问题. 启用该选项可能会导致计算细小数值时丢失精确度的问题</string>
+    <string name="datehisttitle">历史日期格式</string>
+    <string name="datehistrsubtext">选择历史记录中显示的日期格式</string>
+    <string name="prefmodetitle">默认模式</string>
+    <string name="prefmodesubtext">选择启动软件时的默认模式</string>
+    <string name="hapticfeedbacktitle">触感反馈</string>
+    <string name="hapticfeedbacksubtext">在操作软件时会出现不同的震动反馈</string>
+    <string name="refresh_shortcuts">刷新快捷方式</string>
+    <string name="shortcut_icons_are_refreshed_non_theme_change">快捷方式图标已经刷新为\n主题样式</string>
+    <string name="appearancetitle">外观</string>
+    <string name="appearancesubtext">自定义软件外观</string>
+    <string name="generaltitle">通用</string>
+    <string name="generalsubtext">按需选择你的偏好</string>
+    <string name="calculatortitle">科学计算</string>
+    <string name="calculatorsubtext">舍入，精确度以及日期格式</string>
+    <string name="unitconvtitle">单位转换</string>
+    <string name="unitconvsubtext">最近使用的组，单位以及单位组</string>
+    <string name="programmertitle">程序员计算</string>
+    <string name="programmersubtext">调整该模式的偏好选项</string>
+    <string name="appctgtitle">本应用</string>
+    <string name="donatetitle">捐赠</string>
+    <string name="donatesubtext">你的贡献将让世界变得更好！</string>
+    <string name="abouttitle">关于</string>
+    <string name="aboutsubtext">了解更多此软件详情</string>
+    <string name="unitgroupstitle">单位组</string>
+    <string name="unitgroupssubtext">选择你用的上的单位组</string>
+    <string name="recentlyusedgrptitle">记住单位组</string>
+    <string name="recentusedgrpsubtext">在启动时选择上次使用的组</string>
+    <string name="recentlyusedunittitle">记住单位</string>
+    <string name="recentusedunitsubtext">在启动时选择上次使用的单位</string>
+    <string name="dtmFormattitle">日期格式（货币转换）</string>
+    <string name="dtmFormatsubtext">选择你习惯的日期格式</string>
+
+</resources>
