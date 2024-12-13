@@ -1,0 +1,7 @@
+Bug Fixes
+
+- Conversions are now handled properly for Delisle, Rømer and other scales in temperature group.
+
+Enhancements
+
+- Added Simplified Chinese(zh-rCN) translation for users!

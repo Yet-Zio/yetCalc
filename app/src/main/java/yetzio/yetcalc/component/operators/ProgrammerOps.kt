@@ -37,20 +37,6 @@ class InfixOrOperator : AbstractOperator() {
     }
 }
 
-//@PrefixOperator(precedence = OPERATOR_PRECEDENCE_UNARY)
-//class PrefixNotOperator: AbstractOperator() {
-//    @Throws(EvaluationException::class)
-//    override fun evaluate(
-//        expression: Expression, operatorToken: Token?, vararg operands: EvaluationValue
-//    ): EvaluationValue {
-//        val value = expression.evaluateSubtree(operands[0].expressionNode)
-//
-//        val result = value.stringValue.toLong(10).inv()
-//
-//        return expression.convertValue(result)
-//    }
-//}
-
 @PrefixOperator
 class PrefixNotOperator : AbstractOperator() {
     override fun evaluate(
