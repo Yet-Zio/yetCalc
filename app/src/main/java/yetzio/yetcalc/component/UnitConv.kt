@@ -1189,8 +1189,8 @@ class UnitConv{
                 return rankine * 5/9
             }
 
-            fun DelisleToKel(delisle: Double): Double{
-                return (delisle + 100)/1.5000 + abs_zero
+            fun DelisleToKel(delisle: Double): Double {
+                return 373.15 - (delisle / 1.5)
             }
 
             fun NewtonToKel(newton: Double): Double{
@@ -1275,24 +1275,24 @@ class UnitConv{
                 return (kelvin - abs_zero) * 9/5 + 32
             }
 
-            fun KelToRankine(kelvin: Double): Double{
-                return kelvin / 5/9
+            fun KelToRankine(kelvin: Double): Double {
+                return kelvin * 9/5
             }
 
-            fun KelToDelisle(kelvin: Double): Double{
-                return (kelvin - 100)*1.5000 - abs_zero
+            fun KelToDelisle(kelvin: Double): Double {
+                return (373.15 - kelvin) * 1.5
             }
 
-            fun KelToNewton(kelvin: Double): Double{
-                return (kelvin*0.33000) - abs_zero
+            fun KelToNewton(kelvin: Double): Double {
+                return (kelvin - abs_zero) * 0.33
             }
 
-            fun KelToReaumur(kelvin: Double): Double{
-                return (kelvin*0.80000) - abs_zero
+            fun KelToReaumur(kelvin: Double): Double {
+                return (kelvin - abs_zero) * 0.8
             }
 
-            fun KelToRomer(kelvin: Double): Double{
-                return (kelvin + 7.5)*0.52500 - abs_zero
+            fun KelToRomer(kelvin: Double): Double {
+                return (kelvin - abs_zero) * 21/40 + 7.5
             }
 
             fun KelToYoctoKel(kelvin: Double): Double{

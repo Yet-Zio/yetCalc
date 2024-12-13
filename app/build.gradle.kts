@@ -17,12 +17,16 @@ android {
         excludeFields = arrayOf("generated")
     }
 
+    androidResources {
+        generateLocaleConfig = true
+    }
+
     defaultConfig {
         applicationId = "yetzio.yetcalc"
         minSdk = 28
         targetSdk = 35
-        versionCode = 19
-        versionName = "2.0.3"
+        versionCode = 20
+        versionName = "2.0.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

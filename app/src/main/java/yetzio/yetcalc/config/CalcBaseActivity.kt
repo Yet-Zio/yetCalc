@@ -30,7 +30,6 @@ import yetzio.yetcalc.views.ProgramCalcActivity
 import yetzio.yetcalc.views.UnitConvActivity
 import kotlin.properties.Delegates
 
-
 open class CalcBaseActivity : AppCompatActivity() {
     lateinit var theme: String
     lateinit var currentMatYouStyle: String
