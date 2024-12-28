@@ -3,6 +3,7 @@ package yetzio.yetcalc.views
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.content.res.Configuration
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
@@ -11,6 +12,7 @@ import android.widget.LinearLayout
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -138,6 +140,14 @@ class ProgramCalcActivity : CalcBaseActivity(), View.OnClickListener{
         mviewModel = ViewModelProvider(this)[ProgramCalcViewModel::class.java]
         mviewModel.hapticPref = preferences.getBoolean(SharedPrefs.HAPTICKEY, true)
         settingsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+            val newfontPref = preferences.getBoolean(SharedPrefs.SYSFONTPGCALCKEY, false)
+            if(newfontPref){
+                textexpression.typeface = Typeface.DEFAULT
+            }
+            else{
+                val customFont = ResourcesCompat.getFont(this, R.font.nunitosans)
+                textexpression.typeface = customFont
+            }
             mviewModel.hapticPref = preferences.getBoolean(SharedPrefs.HAPTICKEY, true)
         }
         settingsBt = findViewById(R.id.settingsButton)
@@ -164,6 +174,11 @@ class ProgramCalcActivity : CalcBaseActivity(), View.OnClickListener{
                 }
             }
         })
+
+        val fontPref = preferences.getBoolean(SharedPrefs.SYSFONTPGCALCKEY, false)
+        if(fontPref){
+            textexpression.typeface = Typeface.DEFAULT
+        }
 
         textres = findViewById(R.id.textres)
 

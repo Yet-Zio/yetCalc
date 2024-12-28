@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator
 import android.app.Activity
 import android.content.Intent
 import android.content.res.Configuration
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
@@ -14,6 +15,7 @@ import android.widget.LinearLayout
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.button.MaterialButton
@@ -153,6 +155,11 @@ class CalculatorActivity : CalcBaseActivity(), View.OnClickListener {
             }
         })
 
+        val fontPref = preferences.getBoolean(SharedPrefs.SYSFONTCALCKEY, false)
+        if(fontPref){
+            textexpression.typeface = Typeface.DEFAULT
+        }
+
         textres = findViewById(R.id.textres)
 
         if(getScreenOrientation(applicationContext) == Configuration.ORIENTATION_PORTRAIT){
@@ -277,6 +284,15 @@ class CalculatorActivity : CalcBaseActivity(), View.OnClickListener {
         }
 
         settingsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+            val newFontPref = preferences.getBoolean(SharedPrefs.SYSFONTCALCKEY, false)
+            if(newFontPref){
+                textexpression.typeface = Typeface.DEFAULT
+            }
+            else{
+                val customFont = ResourcesCompat.getFont(this, R.font.nunitosans)
+                textexpression.typeface = customFont
+            }
+
             val almInt = preferences.getBoolean(SharedPrefs.ALMINTKEY, true)
             val canInt = preferences.getBoolean(SharedPrefs.CANINTKEY, false)
             val precisionChoice = preferences.getString(SharedPrefs.PRECKEY, "Default precision")
