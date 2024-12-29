@@ -35,6 +35,7 @@
             android:id="@+id/textexpression"
             android:layout_width="match_parent"
             android:fontFamily="@font/nunitosans"
+            android:textSize="@dimen/textExpFontSize"
             style="@style/CalcTextExp"/>
     </LinearLayout>
 
