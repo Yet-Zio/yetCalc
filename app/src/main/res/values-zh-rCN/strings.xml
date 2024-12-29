@@ -917,5 +917,7 @@
     <string name="recentusedunitsubtext">在启动时选择上次使用的单位</string>
     <string name="dtmFormattitle">日期格式（货币转换）</string>
     <string name="dtmFormatsubtext">选择你习惯的日期格式</string>
+    <string name="systemfonttitle">使用系统字体</string>
+    <string name="systemfontsubtext">将使用系统字体来显示表达式，而不是默认字体</string>
 
 </resources>

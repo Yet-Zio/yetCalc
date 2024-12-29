@@ -1138,8 +1138,8 @@
     <string name="leftjustifytitle">Left Justify Result</string>
     <string name="leftjustifysubtext">Results are always left justified no matter small or large. Right justifies after pressing a button automatically</string>
 
-    <string name="systemfonttitle" translatable="false">Use System Font</string>
-    <string name="systemfontsubtext" translatable="false">System font will be used for expressions instead of the default font</string>
+    <string name="systemfonttitle">Use System Font</string>
+    <string name="systemfontsubtext">System font will be used for expressions instead of the default font</string>
 
     <string name="almostintrtitle">Almost Integer Rounding</string>
     <string name="almostintrsubtext">A number is rounded to the nearest integer if it is close enough to an integer</string>
