@@ -10,6 +10,13 @@
         />
 
     <SwitchPreferenceCompat
+        app:key="usesystemfontcalc"
+        app:icon="@drawable/systemfont"
+        app:summary="@string/systemfontsubtext"
+        app:title="@string/systemfonttitle"
+        app:defaultValue="false"/>
+
+    <SwitchPreferenceCompat
         app:key="leftjustifyres"
         app:icon="@drawable/round_align_horizontal_left_24"
         app:summary="@string/leftjustifysubtext"

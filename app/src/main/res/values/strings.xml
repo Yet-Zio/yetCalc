@@ -1,8 +1,8 @@
 <resources>
     <string name="author_name" translatable="false">Yet Zio</string>
     <string name="app_name" translatable="false">yetCalc</string>
-    <string name="VERSION_NUM" translatable="false">2.0.4</string>
-    <string name="VERSION_NAMEANDNUM">Back in Action (2.0.4)</string>
+    <string name="VERSION_NUM" translatable="false">2.0.5</string>
+    <string name="VERSION_NAMEANDNUM">Back in Action (2.0.5)</string>
     <string name="eastereggtoast">Congratulations, Now you are a Gigachad!</string>
     <string name="app_descrp">Yet another calculator by Yet Zio</string>
     <string name="ghbtext">View on GitHub</string>
@@ -1137,6 +1137,9 @@
 
     <string name="leftjustifytitle">Left Justify Result</string>
     <string name="leftjustifysubtext">Results are always left justified no matter small or large. Right justifies after pressing a button automatically</string>
+
+    <string name="systemfonttitle">Use System Font</string>
+    <string name="systemfontsubtext">System font will be used for expressions instead of the default font</string>
 
     <string name="almostintrtitle">Almost Integer Rounding</string>
     <string name="almostintrsubtext">A number is rounded to the nearest integer if it is close enough to an integer</string>

@@ -20,6 +20,8 @@ object SharedPrefs {
     const val LEFTJUSTRES = "leftjustifyres"
     const val LEFTJUSTPGRES = "leftjustifypgres"
     const val DATEFMTKEY = "dateFormatKey"
+    const val SYSFONTCALCKEY = "usesystemfontcalc"
+    const val SYSFONTPGCALCKEY = "usesystemfontpgcalc"
 
     // CONVERTER KEYS
     const val SAVE_RECENT_TABKEY = "saverecenttabkey"

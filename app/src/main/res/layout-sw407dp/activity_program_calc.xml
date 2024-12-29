@@ -53,8 +53,8 @@
 
         <LinearLayout
             android:id="@+id/hexContainer"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:orientation="vertical"
             android:background="@drawable/container_round_ripple"
             android:gravity="center"
@@ -67,6 +67,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunitosans"
                 android:text="@string/hexStr"
+                android:textSize="18sp"
                 android:textColor="?attr/textResultColor"
                 android:layout_marginBottom="8dp"
                 app:textAllCaps="true" />
@@ -75,6 +76,7 @@
                 android:id="@+id/HEXres"
                 android:layout_width="60dp"
                 android:gravity="center"
+                android:textSize="14sp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunitosans"
                 android:textColor="?attr/textResultColor"
@@ -88,8 +90,8 @@
 
         <LinearLayout
             android:id="@+id/decContainer"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:orientation="vertical"
             android:background="@drawable/container_round_ripple"
             android:gravity="center"
@@ -102,6 +104,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunitosans"
                 android:text="@string/decstr"
+                android:textSize="18sp"
                 android:textColor="?attr/textResultColor"
                 android:layout_marginBottom="8dp"
                 app:textAllCaps="true" />
@@ -110,6 +113,7 @@
                 android:id="@+id/DECres"
                 android:layout_width="60dp"
                 android:gravity="center"
+                android:textSize="14sp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunitosans"
                 android:textColor="?attr/textResultColor"
@@ -123,8 +127,8 @@
 
         <LinearLayout
             android:id="@+id/octContainer"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:background="@drawable/container_round_ripple"
             android:orientation="vertical"
             android:gravity="center"
@@ -137,6 +141,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunitosans"
                 android:text="@string/octstr"
+                android:textSize="18sp"
                 android:textColor="?attr/textResultColor"
                 android:layout_marginBottom="8dp"
                 app:textAllCaps="true" />
@@ -145,6 +150,7 @@
                 android:id="@+id/OCTres"
                 android:layout_width="50dp"
                 android:gravity="center"
+                android:textSize="14sp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunitosans"
                 android:textColor="?attr/textResultColor"
@@ -158,8 +164,8 @@
 
         <LinearLayout
             android:id="@+id/binContainer"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:background="@drawable/container_round_ripple"
             android:orientation="vertical"
             android:gravity="center"
@@ -172,6 +178,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunitosans"
                 android:text="@string/binstr"
+                android:textSize="18sp"
                 android:textColor="?attr/textResultColor"
                 android:layout_marginBottom="8dp"
                 app:textAllCaps="true" />
@@ -180,6 +187,7 @@
                 android:id="@+id/BINres"
                 android:layout_width="50dp"
                 android:gravity="center"
+                android:textSize="14sp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunitosans"
                 android:textColor="?attr/textResultColor"
@@ -194,8 +202,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/backspacebutton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             style="@style/CircularButton"
             android:layout_marginEnd="5dp"
             android:backgroundTint="?attr/altButtonBgColor"
@@ -251,8 +259,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/acbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:layout_marginStart="18dp"
                             android:fontFamily="@font/nunitosans"
@@ -263,8 +271,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/leftshiftbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/ACButton"
@@ -275,8 +283,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/rightshiftbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/ACButton"
@@ -287,8 +295,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/divideop"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/SpecialButtons"
@@ -306,8 +314,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/numberseven"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:layout_marginStart="18dp"
                             android:fontFamily="@font/nunitosans"
@@ -318,8 +326,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/numbereight"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
@@ -329,8 +337,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/numbernine"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
@@ -340,8 +348,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/mulop"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             android:text="@string/mulop"
@@ -358,8 +366,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/numberfour"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:layout_marginStart="18dp"
                             android:fontFamily="@font/nunitosans"
@@ -370,8 +378,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/numberfive"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
@@ -381,8 +389,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/numbersix"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
@@ -392,8 +400,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/minusop"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             android:text="@string/minusop"
@@ -410,8 +418,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/numberone"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:layout_marginStart="18dp"
                             android:fontFamily="@font/nunitosans"
@@ -422,8 +430,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/numbertwo"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
@@ -433,8 +441,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/numberthree"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
@@ -444,8 +452,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/plusop"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             android:text="@string/plusop"
@@ -462,8 +470,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/numberzero"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:layout_marginStart="18dp"
                             android:fontFamily="@font/nunitosans"
@@ -474,8 +482,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/doublezerobt"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
@@ -485,8 +493,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/percentbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
@@ -496,8 +504,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/equalop"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             android:text="@string/equalop"
@@ -549,47 +557,47 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/andbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:layout_marginStart="18dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
                             android:text="@string/ANDstr"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/orbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
                             android:text="@string/ORstr"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/notbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
                             android:text="@string/NOTstr"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/nandbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             android:text="@string/NANDstr"
                             style="@style/SpecialButtons"
-                            android:textSize="16sp"
+                            android:textSize="18sp"
                             />
                     </LinearLayout>
 
@@ -601,47 +609,47 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/norbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:layout_marginStart="18dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
                             android:text="@string/NORstr"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/xorbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
                             android:text="@string/XORstr"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/xnorbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
                             android:text="@string/XNORstr"
-                            android:textSize="16sp"
+                            android:textSize="18sp"
                             />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/ushrbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             android:text="@string/ushrtext"
                             style="@style/SpecialButtons"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
                     </LinearLayout>
 
@@ -653,47 +661,47 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/Abutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:layout_marginStart="18dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
                             android:text="@string/a"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/Bbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
                             android:text="@string/b"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/Cbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
                             android:text="@string/c"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/leftbracbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             android:text="@string/leftbracket"
                             style="@style/SpecialButtons"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
                     </LinearLayout>
 
@@ -705,47 +713,47 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/Dbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:layout_marginStart="18dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
                             android:text="@string/d"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/Ebutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
                             android:text="@string/e"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/Fbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
                             android:text="@string/f"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/rightbracbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             android:text="@string/rightbracket"
                             style="@style/SpecialButtons"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
                     </LinearLayout>
 
@@ -757,8 +765,8 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/numberzerosecond"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:layout_marginStart="18dp"
                             android:fontFamily="@font/nunitosans"
@@ -769,30 +777,30 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/rolbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
                             android:text="@string/RoLstr"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/rorbutton"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             style="@style/NumberButton"
                             android:text="@string/RoRstr"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/equalopsecond"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/nunitosans"
                             android:text="@string/equalop"

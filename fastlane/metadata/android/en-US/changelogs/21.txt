@@ -1,0 +1,9 @@
+Fixes
+
+- Improved layouts for larger screens, with larger buttons and more padding.
+- Fixed font issues in Programmer mode for NAND and XNOR.
+
+Enhancements
+
+- Added a setting to use the system font in expressions for both Calculator and Programmer modes.
+(Go to Settings > Calculator / Programmer > Use System Font)

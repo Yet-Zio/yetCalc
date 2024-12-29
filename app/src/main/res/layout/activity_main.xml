@@ -175,281 +175,281 @@
                 android:layout_weight="1"
                 android:background="?attr/darkViewColor" />
 
-                <ScrollView
-                    android:layout_width="wrap_content"
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal">
+                    android:orientation="vertical">
+
+                    <!-- Calc Buttons -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="50dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/acbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/ACButton"
+                            android:text="@string/ac_buttontext"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/powerbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/SpecialButtons"
+                            android:text="@string/powerbutton"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/percentbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/percent_bttext"
+                            style="@style/SpecialButtons"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/divideop"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/SpecialButtons"
+                            android:text="@string/dividetext"
+                            android:textSize="28sp"
+                            />
+                    </LinearLayout>
+
+                    <!-- Calc Buttons - 2 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numberseven"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numberseven"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numbereight"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numbereight"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numbernine"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numbernine"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/mulop"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/mulop"
+                            style="@style/SpecialButtons"
+                            android:textSize="28sp"
+                            />
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
 
-                        <!-- Calc Buttons -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="50dp">
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numberfour"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numberfour"
+                            android:textSize="28sp"
+                            />
 
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/acbutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:layout_marginStart="18dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/ACButton"
-                                android:text="@string/ac_buttontext"
-                                android:textSize="28sp"
-                                />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numberfive"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numberfive"
+                            android:textSize="28sp"
+                            />
 
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/powerbutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/SpecialButtons"
-                                android:text="@string/powerbutton"
-                                android:textSize="28sp"
-                                />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numbersix"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numbersix"
+                            android:textSize="28sp"
+                            />
 
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/percentbutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                android:text="@string/percent_bttext"
-                                style="@style/SpecialButtons"
-                                android:textSize="28sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/divideop"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/SpecialButtons"
-                                android:text="@string/dividetext"
-                                android:textSize="28sp"
-                                />
-                        </LinearLayout>
-
-                        <!-- Calc Buttons - 2 -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="20dp">
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/numberseven"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:layout_marginStart="18dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/numberseven"
-                                android:textSize="28sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/numbereight"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/numbereight"
-                                android:textSize="28sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/numbernine"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/numbernine"
-                                android:textSize="28sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/mulop"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                android:text="@string/mulop"
-                                style="@style/SpecialButtons"
-                                android:textSize="28sp"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="20dp">
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/numberfour"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:layout_marginStart="18dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/numberfour"
-                                android:textSize="28sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/numberfive"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/numberfive"
-                                android:textSize="28sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/numbersix"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/numbersix"
-                                android:textSize="28sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/minusop"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                android:text="@string/minusop"
-                                style="@style/SpecialButtons"
-                                android:textSize="28sp"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="20dp">
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/numberone"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:layout_marginStart="18dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/numberone"
-                                android:textSize="28sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/numbertwo"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/numbertwo"
-                                android:textSize="28sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/numberthree"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/numberthree"
-                                android:textSize="28sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/plusop"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                android:text="@string/plusop"
-                                style="@style/SpecialButtons"
-                                android:textSize="28sp"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="20dp">
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/numberzero"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:layout_marginStart="18dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/numberzero"
-                                android:textSize="28sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/pointbutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/point_text"
-                                android:textSize="28sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/commabutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/commachar"
-                                android:textSize="28sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/equalop"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                android:text="@string/equalop"
-                                style="@style/EqualButton"
-                                android:textSize="28sp"
-                                />
-                        </LinearLayout>
-
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/minusop"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/minusop"
+                            style="@style/SpecialButtons"
+                            android:textSize="28sp"
+                            />
                     </LinearLayout>
 
-                </ScrollView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numberone"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numberone"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numbertwo"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numbertwo"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numberthree"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numberthree"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/plusop"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/plusop"
+                            style="@style/SpecialButtons"
+                            android:textSize="28sp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numberzero"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numberzero"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/pointbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/point_text"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/commabutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/commachar"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/equalop"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/equalop"
+                            style="@style/EqualButton"
+                            android:textSize="28sp"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
 
         </FrameLayout>
 
@@ -465,296 +465,296 @@
             android:background="?attr/darkViewColor"
             app:layout_constraintTop_toBottomOf="@id/commonContainer">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="32dp"
-                    android:layout_weight="1"
-                    android:background="?attr/darkViewColor"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="32dp"
+                android:layout_weight="1"
+                android:background="?attr/darkViewColor"/>
 
-                <ScrollView
-                    android:layout_width="wrap_content"
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal">
+                    android:orientation="vertical">
+
+                    <!-- Calc Buttons -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="50dp">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/calcmodeDropdown"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            style="@style/OthModeSelector">
+
+                            <AutoCompleteTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/AutoCompleteTVThemePort"
+                                android:fontFamily="@font/nunitosans"
+                                android:inputType="none" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/gradbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="10dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/SpecialButtons"
+                            android:text="@string/gradtext"
+                            android:textSize="16sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/lambertWzerobutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="10dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/lambertzerotext"
+                            style="@style/SpecialButtons"
+                            android:textSize="20sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/anglebutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="10dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/SpecialButtons"
+                            android:text="@string/radiantext"
+                            android:textSize="20sp"
+                            />
+                    </LinearLayout>
+
+                    <!-- Calc Buttons - 2 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/otherconstbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/goldenratio"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/factbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/factorialtext"
+                            android:textSize="16sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/spacebutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/spacetext"
+                            android:textSize="16sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/angleconvbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/radconvtext"
+                            style="@style/SpecialButtons"
+                            android:textSize="16sp"
+                            />
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
 
-                        <!-- Calc Buttons -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/sinbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/sintext"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/cosbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/costext"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/varbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="x"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/varModeDropdown"
+                            android:layout_marginEnd="20dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="50dp">
+                            style="@style/OthModeSelector">
 
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/calcmodeDropdown"
-                                android:layout_marginEnd="10dp"
-                                android:layout_marginStart="8dp"
-                                android:layout_width="100dp"
+                            <AutoCompleteTextView
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                style="@style/OthModeSelector">
-
-                                <AutoCompleteTextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    style="@style/AutoCompleteTVThemePort"
-                                    android:fontFamily="@font/nunitosans"
-                                    android:inputType="none" />
-
-                            </com.google.android.material.textfield.TextInputLayout>
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/gradbutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="10dp"
+                                style="@style/AutoCompleteTVTheme"
                                 android:fontFamily="@font/nunitosans"
-                                style="@style/SpecialButtons"
-                                android:text="@string/gradtext"
-                                android:textSize="16sp"
-                                />
+                                android:inputType="none" />
 
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/lambertWzerobutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="10dp"
-                                android:fontFamily="@font/nunitosans"
-                                android:text="@string/lambertzerotext"
-                                style="@style/SpecialButtons"
-                                android:textSize="20sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/anglebutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="10dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/SpecialButtons"
-                                android:text="@string/radiantext"
-                                android:textSize="20sp"
-                                />
-                        </LinearLayout>
-
-                        <!-- Calc Buttons - 2 -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="20dp">
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/otherconstbutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:layout_marginStart="18dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/goldenratio"
-                                android:textSize="18sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/factbutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/factorialtext"
-                                android:textSize="16sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/spacebutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/spacetext"
-                                android:textSize="16sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/angleconvbutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                android:text="@string/radconvtext"
-                                style="@style/SpecialButtons"
-                                android:textSize="16sp"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="20dp">
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/sinbutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:layout_marginStart="18dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/sintext"
-                                android:textSize="18sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/cosbutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/costext"
-                                android:textSize="18sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/varbutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="x"
-                                android:textSize="28sp"
-                                />
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/varModeDropdown"
-                                android:layout_marginEnd="20dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                style="@style/OthModeSelector">
-
-                                <AutoCompleteTextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    style="@style/AutoCompleteTVTheme"
-                                    android:fontFamily="@font/nunitosans"
-                                    android:inputType="none" />
-
-                            </com.google.android.material.textfield.TextInputLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="20dp">
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/tanbutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:layout_marginStart="18dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/tantext"
-                                android:textSize="18sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/eulernumbutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/eulersnumber"
-                                android:textSize="18sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/naturallogbt"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/naturallogtext"
-                                android:textSize="18sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/commonlogbt"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                android:text="@string/commonlogtext"
-                                style="@style/SpecialButtons"
-                                android:textSize="18sp"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="20dp">
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/numberzerosecond"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:layout_marginStart="18dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/numberzero"
-                                android:textSize="28sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/pointbuttonsecond"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                style="@style/NumberButton"
-                                android:text="@string/point_text"
-                                android:textSize="28sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/sqrtbutton"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                style="@style/NumberButton"
-                                android:text="@string/sqroot"
-                                android:textSize="18sp"
-                                />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/equalopsecond"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginEnd="20dp"
-                                android:fontFamily="@font/nunitosans"
-                                android:text="@string/equalop"
-                                style="@style/EqualButton"
-                                android:textSize="28sp"
-                                />
-                        </LinearLayout>
-
+                        </com.google.android.material.textfield.TextInputLayout>
                     </LinearLayout>
-                </ScrollView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/tanbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/tantext"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/eulernumbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/eulersnumber"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/naturallogbt"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/naturallogtext"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/commonlogbt"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/commonlogtext"
+                            style="@style/SpecialButtons"
+                            android:textSize="18sp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/numberzerosecond"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="18dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/numberzero"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/pointbuttonsecond"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            style="@style/NumberButton"
+                            android:text="@string/point_text"
+                            android:textSize="28sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/sqrtbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            style="@style/NumberButton"
+                            android:text="@string/sqroot"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/equalopsecond"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/nunitosans"
+                            android:text="@string/equalop"
+                            style="@style/EqualButton"
+                            android:textSize="28sp"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
         </FrameLayout>
 
         <!-- Lines for drop arrow -->
