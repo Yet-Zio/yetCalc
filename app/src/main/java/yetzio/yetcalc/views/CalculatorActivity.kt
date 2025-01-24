@@ -25,6 +25,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import yetzio.yetcalc.R
 import yetzio.yetcalc.component.SharedPrefs
 import yetzio.yetcalc.config.CalcBaseActivity
@@ -151,6 +153,15 @@ class CalculatorActivity : CalcBaseActivity(), View.OnClickListener {
                 else{
                     textres.setText("")
                     result = textres.text.toString()
+                }
+            }
+
+            override fun onSolve(selectedText: String): String {
+                return runBlocking {
+                    val result = withContext(Dispatchers.Default) {
+                        Calc.calculate(selectedText)
+                    }
+                    result
                 }
             }
         })
