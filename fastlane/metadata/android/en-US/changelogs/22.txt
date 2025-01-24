@@ -1,0 +1,7 @@
+Fixes
+
+- Font size fixes for smaller layouts
+
+Enhancements
+
+- Added a solve and share option in text selection context menu.
