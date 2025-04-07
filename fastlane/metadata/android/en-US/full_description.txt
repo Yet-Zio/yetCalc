@@ -1,19 +1,18 @@
-yetCalc is a Calculator with basic and scientific calculation features, a unit converter and a programmer mode. The design is loosely based on Google's Calculator and tries to address its problems.
+Calculator with basic and scientific calculation features, a unit converter and a programmer mode.
+It's design is inspired by Google's Calculator and tries to address its flaws.
 
-v2 of yetCalc comes with the following features:
-- Redesigned Calculator with scientific mode in both Portrait and Landscape mode
-- Customizable Unit Converter with selectable unit groups, unit pins, search and much more...
-- Fully Redesigned Programmer mode with new operators and functions.
-- Selectable starting mode.
-- Shortcuts for home screen with themed icons support.
-- New and Improved Settings providing endless customizability.
-- New Abyss mode (AMOLED Dark) for those wanting to preserve battery life.
-- Material You Support or Dynamic Colors, with 4 unique styles to serve your needs.
+<b>Features:</b>
+<ul>
+<li>Progressive Calculations.</li>
+<li>Scientific Mode with trigonometric, hyperbolic and inverse functions, calculus and iterated operators, much more.</li>
+<li>Converter of units with selectable unit groups, unit pins, search and much more.</li>
+<li>Programmer Mode with number systems and logical operations.</li>
+<li>Scientific mode works in both Portrait and Landscape mode.</li>
+<li>The starting mode is selectable.</li>
+<li>Shortcuts for home screen with themed icons support.</li>
+<li>Abyss mode (AMOLED Dark) for those wanting to preserve battery life.</li>
+<li>Support of Material You design and Dynamic Colors, with 4 unique styles to serve your needs.</li>
+<li>Endless customizability.</li>
+</ul>
 
-Features: 
-• Progressive Calculations
-• Scientific Mode with trigonometric, hyperbolic and inverse functions, calculus and iterated operators, much more.
-• Unit Converter
-• Programmer Mode with number systems and logical operations.
-
-NOTE: Internet connection is used for currency conversions and nothing else.
+Internet connection is used for only currency conversions and nothing else.
