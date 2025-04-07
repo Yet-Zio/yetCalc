@@ -1,19 +1,21 @@
-yetCalc is a Calculator with basic and scientific calculation features, a unit converter and a programmer mode. The design is loosely based on Google's Calculator and tries to address its problems.
+yetCalc это калькулятор с функциями базовых и научных расчетов, конвертером единиц измерения и программным режимом. Дизайн вдохновлён калькулятором от Google и пытается решить его недостатки.
 
-v2 of yetCalc comes with the following features:
-- Redesigned Calculator with scientific mode in both Portrait and Landscape mode
-- Customizable Unit Converter with selectable unit groups, unit pins, search and much more...
-- Fully Redesigned Programmer mode with new operators and functions.
-- Selectable starting mode.
-- Shortcuts for home screen with themed icons support.
-- New and Improved Settings providing endless customizability.
-- New Abyss mode (AMOLED Dark) for those wanting to preserve battery life.
-- Material You Support or Dynamic Colors, with 4 unique styles to serve your needs.
 
-Features: 
-• Progressive Calculations
-• Scientific Mode with trigonometric, hyperbolic and inverse functions, calculus and iterated operators, much more.
-• Unit Converter
-• Programmer Mode with number systems and logical operations.
 
-NOTE: Internet connection is used for currency conversions and nothing else.
+
+<b>Возможности:</b>
+<ul>
+<li>Прогрессивные вычисления</li>
+<li>Научный режим с тригонометрическими, гиперболическими и обратными функциями, математическим анализом и итерационными операторами и многим другим.</li>
+<li>Конвертер единиц измерения</li>
+<li>Режим программиста со системами счисления и логическими операциями.</li>
+<li>Научный режим работает как в портретном, так и в режиме ландшафта. </li>
+<li>Начальный режим можно выбирать </li>
+<li>Можно сделать ярлыки на домашнем экране для запуска в выбранном режиме. </li>
+<li>Полностью чёрная тема (Тёмный AMOLED ) для тех кто хочет сохранить срок службы батареи </li>
+<li>Поддержка Material You и динамические цвета, с 4 уникальными стилями на ваш вкус.</li>
+<li>Бесконечная настраиваемость.</li>
+</ul>
+</ul>
+
+Подключение к Интернету используется только для преобразования валюты и ничего больше.
