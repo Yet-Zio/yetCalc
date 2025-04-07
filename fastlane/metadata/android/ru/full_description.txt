@@ -1,0 +1,19 @@
+yetCalc is a Calculator with basic and scientific calculation features, a unit converter and a programmer mode. The design is loosely based on Google's Calculator and tries to address its problems.
+
+v2 of yetCalc comes with the following features:
+- Redesigned Calculator with scientific mode in both Portrait and Landscape mode
+- Customizable Unit Converter with selectable unit groups, unit pins, search and much more...
+- Fully Redesigned Programmer mode with new operators and functions.
+- Selectable starting mode.
+- Shortcuts for home screen with themed icons support.
+- New and Improved Settings providing endless customizability.
+- New Abyss mode (AMOLED Dark) for those wanting to preserve battery life.
+- Material You Support or Dynamic Colors, with 4 unique styles to serve your needs.
+
+Features: 
+• Progressive Calculations
+• Scientific Mode with trigonometric, hyperbolic and inverse functions, calculus and iterated operators, much more.
+• Unit Converter
+• Programmer Mode with number systems and logical operations.
+
+NOTE: Internet connection is used for currency conversions and nothing else.
