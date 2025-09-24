@@ -18,7 +18,7 @@ activity = "1.9.3"
 constraintlayout = "2.2.0"
 mathparserOrgMxparser = "4.4.3"
 preferenceKtx = "1.2.1"
-navigationUiKtx = "2.8.5"
+navigationUiKtx = "2.9.5"
 
 [libraries]
 aboutlibraries = { module = "com.mikepenz:aboutlibraries", version.ref = "aboutlibrariesCore" }
