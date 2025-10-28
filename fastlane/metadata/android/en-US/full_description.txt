@@ -1,4 +1,5 @@
-yetCalc is a Calculator with basic and scientific calculation features, a unit converter and a programmer mode. The design is loosely based on Google's Calculator and tries to address its problems.
+Calculator with basic and scientific calculation features, a unit converter and a programmer mode.
+It's design is inspired by Google's Calculator and tries to address its flaws.
 
 v2 of yetCalc comes with the following features:
 
