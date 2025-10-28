@@ -1,0 +1,19 @@
+yetCalc je kalkulačka se základními a vědeckými funkcemi, převodníkem jednotek a programátorským režimem. Vzhled volně vychází z Kalkulačky Google a pokouší se řešit její problémy.
+
+v2 aplikace yetCalc obsahuje následující funkce:
+- Přepracovaná kalkulačka s vědeckým režimem v režimu na výšku i na šířku.
+- Přizpůsobitelný převodník jednotek s volitelnými skupinami jednotek, připnutím jednotek, vyhledáváním a mnoha dalšími funkcemi...
+- Kompletně přepracovaný programátorský režim s novými operátory a funkcemi.
+- Volitelný režim spuštění.
+- Zkratky pro domovskou obrazovku s podporou tematických ikon.
+- Nové a vylepšené nastavení poskytující nekonečné možnosti přizpůsobení.
+- Nový režim Abyss (tmavý AMOLED) pro ty, kteří chtějí šetřit výdrž baterie.
+- Podpora Material You neboli dynamických barev se 4 jedinečnými styly, které poslouží vašim potřebám.
+
+Funkce:
+• Progresivní výpočty
+• Vědecký režim s trigonometrickými, hyperbolickými a inverzními funkcemi, kalkulem a iteračními operátory a mnoho dalšího.
+• Převodník jednotek
+• Programátorský režim s číselnými soustavami a logickými operacemi.
+
+POZNÁMKA: internetové připojení je použito pouze pro převod měn.

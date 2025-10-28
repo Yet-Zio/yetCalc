@@ -967,12 +967,12 @@ class UnitConv{
                 return ounce / BigDecimal("35.274").toDouble()
             }
 
-            fun PoundsToKiloG(pound: Double): Double{
-                return pound / BigDecimal("2.205").toDouble()
+            fun PoundsToKiloG(pound: Double): Double {
+                return pound * 0.45359237
             }
 
-            fun StonesToKiloG(stone: Double): Double{
-                return stone * BigDecimal("6.35").toDouble()
+            fun StonesToKiloG(stone: Double): Double {
+                return stone * 6.35029318
             }
 
             fun TonsUSToKiloG(ton: Double): Double{
@@ -1061,12 +1061,12 @@ class UnitConv{
                 return kilog * BigDecimal("35.274").toDouble()
             }
 
-            fun KiloGToPounds(kilog: Double): Double{
-                return kilog * BigDecimal("2.205").toDouble()
+            fun KiloGToPounds(kilog: Double): Double {
+                return kilog / 0.45359237
             }
 
-            fun KiloGToStones(kilog: Double): Double{
-                return kilog / BigDecimal("6.35").toDouble()
+            fun KiloGToStones(kilog: Double): Double {
+                return kilog / 6.35029318
             }
 
             fun KiloGToTonsUS(kilog: Double): Double{
@@ -2580,4 +2580,5 @@ class UnitConv{
             }
         }
     }
+
 }
