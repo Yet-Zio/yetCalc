@@ -1,0 +1,6 @@
+Minor Fixes:
+
+- Conversion issues for Pounds and Stones
+- Some translation issues
+
+Support for Android 16

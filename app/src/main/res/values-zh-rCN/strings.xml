@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="VERSION_NAMEANDNUM">重回正轨 (2.0.6)</string>
+    <string name="VERSION_NAMEANDNUM">精细调校 (2.0.7)</string>
     <string name="eastereggtoast">你现在拥有了能带领人类撕碎高维度数学难题的完美躯体！(Gigachad.mp4)</string>
     <string name="app_descrp">Yet another calculator by Yet Zio</string>
     <string name="ghbtext">在Github查看</string>
@@ -850,7 +850,7 @@
     <string name="data">计算机数据</string>
     <string name="calculator">科学计算</string>
     <string name="programmer">程序员计算</string>
-    <string name="back_nin_naction">重返\n行动</string>
+    <string name="back_nin_naction">精细\n调校</string>
     <string name="viewsourcetitle">查看源码</string>
     <string name="interestedinsource">想要做贡献？</string>
     <string name="osslicenses">开源协议</string>

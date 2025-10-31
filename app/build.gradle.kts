@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "yetzio.yetcalc"
-    compileSdk = 35
+    compileSdk = 36
 
     dependenciesInfo {
         includeInApk = false
@@ -28,9 +28,9 @@ android {
     defaultConfig {
         applicationId = "yetzio.yetcalc"
         minSdk = 28
-        targetSdk = 35
-        versionCode = 22
-        versionName = "2.0.6"
+        targetSdk = 36
+        versionCode = 23
+        versionName = "2.0.7"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

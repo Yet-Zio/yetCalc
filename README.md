@@ -21,6 +21,12 @@
     <img alt="Screenshot" src="fastlane/metadata/android/en-US/images/phoneScreenshots/8.png" width="24%"/>
 </div>
 
+## Translations
+
+We’d love your help translating **yetCalc** into more languages!
+
+[![Translation status](https://toolate.othing.xyz/widget/yetcalc/multi-auto.svg)](https://toolate.othing.xyz/engage/yetcalc/)
+
 ## Major Version Upgrade
 
 yetCalc v2.0.0 comes with the following features:
