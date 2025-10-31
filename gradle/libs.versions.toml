@@ -1,5 +1,5 @@
 [versions]
-aboutlibrariesCore = "13.1.0"
+aboutlibrariesCore = "11.3.0-rc02"
 agp = "8.12.3"
 desugar_jdk_libs = "2.1.5"
 dynamicToastsVersion = "4.3.0"
@@ -46,5 +46,5 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-aboutLibraries = { id = "com.mikepenz.aboutlibraries.plugin", version = "13.1.0" }
+aboutLibraries = { id = "com.mikepenz.aboutlibraries.plugin", version = "11.3.0-rc02" }
 

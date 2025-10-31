@@ -16,9 +16,7 @@ android {
     }
 
     aboutLibraries {
-        export {
-            excludeFields.addAll("generated")
-        }
+        excludeFields = arrayOf("generated")
     }
 
     androidResources {
