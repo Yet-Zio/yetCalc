@@ -1,6 +1,6 @@
 [versions]
 aboutlibrariesCore = "11.3.0-rc02"
-agp = "8.12.3"
+agp = "8.13.0"
 desugar_jdk_libs = "2.1.5"
 dynamicToastsVersion = "4.3.0"
 evalex = "3.5.0"
