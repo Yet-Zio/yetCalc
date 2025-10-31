@@ -1,8 +1,8 @@
 <resources>
     <string name="author_name" translatable="false">Yet Zio</string>
     <string name="app_name" translatable="false">yetCalc</string>
-    <string name="VERSION_NUM" translatable="false">2.0.6</string>
-    <string name="VERSION_NAMEANDNUM">Back in Action (2.0.6)</string>
+    <string name="VERSION_NUM" translatable="false">2.0.7</string>
+    <string name="VERSION_NAMEANDNUM">Fine Tuned (2.0.7)</string>
     <string name="eastereggtoast">Congratulations, Now you are a Gigachad!</string>
     <string name="app_descrp">Yet another calculator by Yet Zio</string>
     <string name="ghbtext">View on GitHub</string>
@@ -1117,7 +1117,7 @@
     <string name="secondprectext" translatable="false">1.000000000000000000000000000000000000000000000000000000000001</string>
     <string name="thirdprectext" translatable="false">1.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001</string>
     <string name="fourthprectext" translatable="false">1.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001</string>
-    <string name="back_nin_naction">Back\nIn\nAction</string>
+    <string name="back_nin_naction">Fine\nTuned</string>
 
     <!-- prefs -->
     <string name="viewsourcetitle">View Source Code</string>

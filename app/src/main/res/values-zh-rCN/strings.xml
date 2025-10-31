@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="VERSION_NAMEANDNUM">重回正轨 (2.0.6)</string>
+    <string name="VERSION_NAMEANDNUM">精细调校 (2.0.7)</string>
     <string name="eastereggtoast">你现在拥有了能带领人类撕碎高维度数学难题的完美躯体！(Gigachad.mp4)</string>
     <string name="app_descrp">Yet another calculator by Yet Zio</string>
     <string name="ghbtext">在Github查看</string>
@@ -39,7 +39,6 @@
     <string name="abyss_theme">黑色主题（AMDLED）</string>
     <string name="materialyou_theme">Material You主题</string>
     <string name="messageFromAbyss">揭秘虚空，遁入暗影—你的电池感谢你.</string>
-
     <string-array name="currencies_one">
         <item>00</item>
         <item>1INCH</item>
@@ -579,7 +578,6 @@
         <item>ZWD</item>
         <item>ZWL</item>
     </string-array>
-
     <string-array name="lengthlist">
         <item>飞米(fm)</item>
         <item>皮米(pm)</item>
@@ -603,7 +601,6 @@
         <item>皮米(Pm)</item>
         <item>弗隆(fur)</item>
     </string-array>
-
     <string-array name="volumelist">
         <item>微升(μl)</item>
         <item>滴(gt)</item>
@@ -635,7 +632,6 @@
         <item>液量盎司(美制)</item>
         <item>液量盎司(英制)</item>
     </string-array>
-
     <string-array name="arealist">
         <item>平方毫米(mm²)</item>
         <item>平方厘米(cm²)</item>
@@ -660,7 +656,6 @@
         <item>平方太米(Tm²)</item>
         <item>平方皮米(Pm²)</item>
     </string-array>
-
     <string-array name="weightormasslist">
         <item>飞克(fg)</item>
         <item>皮克(pg)</item>
@@ -687,7 +682,6 @@
         <item>太克(Tg)</item>
         <item>皮克(Pg)</item>
     </string-array>
-
     <string-array name="temperaturelist">
         <item>摄氏度(°C)</item>
         <item>华氏度(°F)</item>
@@ -713,7 +707,6 @@
         <item>Zettakelvin(ZK)</item>
         <item>Yottakelvin(YK)</item>
     </string-array>
-
     <string-array name="speedlist">
         <item>厘米每秒(cm/s)</item>
         <item>米每秒(m/s)</item>
@@ -728,7 +721,6 @@
         <item>布伯诺夫单位(B)</item>
         <item>自然单位制(光速)</item>
     </string-array>
-
     <string-array name="powerlist">
         <item>瓦特(W)</item>
         <item>千瓦(KW)</item>
@@ -740,7 +732,6 @@
         <item>每小时英国热单位(BTU/h)</item>
         <item>冷吨(TR)</item>
     </string-array>
-
     <string-array name="energylist">
         <item>电子伏特(eV)</item>
         <item>焦耳(J)</item>
@@ -752,7 +743,6 @@
         <item>千卡(kcal)</item>
         <item>英尺磅(ft-lb)</item>
     </string-array>
-
     <string-array name="pressurelist">
         <item>大气压(atm)</item>
         <item>托(Torr)</item>
@@ -767,7 +757,6 @@
         <item>Sthenes(sn)</item>
         <item>毫米汞柱(mmHg)</item>
     </string-array>
-
     <string-array name="timelist">
         <item>纳秒(ns)</item>
         <item>微秒(μs)</item>
@@ -786,7 +775,6 @@
         <item>千年</item>
         <item>银河年(gal)</item>
     </string-array>
-
     <string-array name="anglelist">
         <item>角度制(°)</item>
         <item>弧度制(rad)</item>
@@ -796,7 +784,6 @@
         <item>分(′)</item>
         <item>秒(″)</item>
     </string-array>
-
     <string-array name="datalist">
         <item>比特(b)</item>
         <item>半字节</item>
@@ -835,20 +822,17 @@
         <item>Yottabytes(YB)</item>
         <item>Yobibytes(YiB)</item>
     </string-array>
-
     <string-array name="numeralsystems">
         <item>十六进制</item>
         <item>十进制</item>
         <item>八进制</item>
         <item>二进制</item>
     </string-array>
-
     <string-array name="calcmodeslist">
         <item>科学计算</item>
         <item>单位转换</item>
         <item>程序员计算</item>
     </string-array>
-
     <string name="title_activity_settings">设置Activity</string>
     <string name="hello_blank_fragment">hello world!</string>
     <string name="currency">货币</string>
@@ -866,7 +850,7 @@
     <string name="data">计算机数据</string>
     <string name="calculator">科学计算</string>
     <string name="programmer">程序员计算</string>
-    <string name="back_nin_naction">重返\n行动</string>
+    <string name="back_nin_naction">精细\n调校</string>
     <string name="viewsourcetitle">查看源码</string>
     <string name="interestedinsource">想要做贡献？</string>
     <string name="osslicenses">开源协议</string>
@@ -919,5 +903,243 @@
     <string name="dtmFormatsubtext">选择你习惯的日期格式</string>
     <string name="systemfonttitle">使用系统字体</string>
     <string name="systemfontsubtext">将使用系统字体来显示表达式，而不是默认字体</string>
-
+    <string name="author_name" translatable="false"></string>
+    <string name="app_name" translatable="false"></string>
+    <string name="VERSION_NUM" translatable="false"></string>
+    <string name="numberthree" translatable="false"></string>
+    <string name="plusop" translatable="false"></string>
+    <string name="numberzero" translatable="false"></string>
+    <string name="point_text" translatable="false"></string>
+    <string name="equalop" translatable="false"></string>
+    <string name="radiantext" translatable="false"></string>
+    <string name="invsintext" translatable="false"></string>
+    <string name="invcostext" translatable="false"></string>
+    <string name="invtan_func" translatable="false"></string>
+    <string name="invcsc_func" translatable="false"></string>
+    <string name="invsec_func" translatable="false"></string>
+    <string name="derivativetext" translatable="false"></string>
+    <string name="leftdertext" translatable="false"></string>
+    <string name="rightdertext" translatable="false"></string>
+    <string name="nthdertext" translatable="false"></string>
+    <string name="eqsolvefunc" translatable="false"></string>
+    <string name="prod_func" translatable="false"></string>
+    <string name="stirlingnumfunc" translatable="false"></string>
+    <string name="avg_func" translatable="false"></string>
+    <string name="nderfunc" translatable="false"></string>
+    <string name="bernfunc" translatable="false"></string>
+    <string name="vari_func" translatable="false"></string>
+    <string name="fwd_func" translatable="false"></string>
+    <string name="loggamma_func" translatable="false"></string>
+    <string name="backspacebt_text" translatable="false"></string>
+    <string name="percent_bttext" translatable="false"></string>
+    <string name="pi_symbol" translatable="false"></string>
+    <string name="pi_text" translatable="false"></string>
+    <string name="numberseven" translatable="false"></string>
+    <string name="numbereight" translatable="false"></string>
+    <string name="numbernine" translatable="false"></string>
+    <string name="leftbracket" translatable="false"></string>
+    <string name="rightbracket" translatable="false"></string>
+    <string name="powerbutton" translatable="false"></string>
+    <string name="power_text" translatable="false"></string>
+    <string name="dividetext" translatable="false"></string>
+    <string name="mulop" translatable="false"></string>
+    <string name="sqroot" translatable="false"></string>
+    <string name="sqrootval" translatable="false"></string>
+    <string name="numberfour" translatable="false"></string>
+    <string name="numberfive" translatable="false"></string>
+    <string name="numbersix" translatable="false"></string>
+    <string name="minusop" translatable="false"></string>
+    <string name="numberone" translatable="false"></string>
+    <string name="numbertwo" translatable="false"></string>
+    <string name="secondmodetext"></string>
+    <string name="factorialtext" translatable="false"></string>
+    <string name="degconvtext" translatable="false"></string>
+    <string name="radconvtext" translatable="false"></string>
+    <string name="sintext" translatable="false"></string>
+    <string name="costext" translatable="false"></string>
+    <string name="tantext" translatable="false"></string>
+    <string name="eulersnumber" translatable="false"></string>
+    <string name="naturallogtext" translatable="false"></string>
+    <string name="commonlogtext" translatable="false"></string>
+    <string name="divide_expr" translatable="false"></string>
+    <string name="mul_expr" translatable="false"></string>
+    <string name="zero_text" translatable="false"></string>
+    <string name="doublezero_text" translatable="false"></string>
+    <string name="text_res"></string>
+    <string name="squaretext" translatable="false"></string>
+    <string name="cosectext" translatable="false"></string>
+    <string name="sectext" translatable="false"></string>
+    <string name="cottext" translatable="false"></string>
+    <string name="eraisedtext" translatable="false"></string>
+    <string name="tenraisedtext" translatable="false"></string>
+    <string name="square_func" translatable="false"></string>
+    <string name="rad_func" translatable="false"></string>
+    <string name="deg_func" translatable="false"></string>
+    <string name="sine_func" translatable="false"></string>
+    <string name="cosine_func" translatable="false"></string>
+    <string name="cosec_func" translatable="false"></string>
+    <string name="sec_func" translatable="false"></string>
+    <string name="tan_func" translatable="false"></string>
+    <string name="cot_func" translatable="false"></string>
+    <string name="eraised_func" translatable="false"></string>
+    <string name="naturallog_func" translatable="false"></string>
+    <string name="commonlog_func" translatable="false"></string>
+    <string name="tenraised_func" translatable="false"></string>
+    <string name="mx_parser_init" translatable="false"></string>
+    <string name="eulermascheroni" translatable="false"></string>
+    <string name="eulermascheroni_text" translatable="false"></string>
+    <string name="degreetext" translatable="false"></string>
+    <string name="modulustext" translatable="false"></string>
+    <string name="invtantext" translatable="false"></string>
+    <string name="invcosectext" translatable="false"></string>
+    <string name="invsectext" translatable="false"></string>
+    <string name="invcottext" translatable="false"></string>
+    <string name="abs_func" translatable="false"></string>
+    <string name="invsin_func" translatable="false"></string>
+    <string name="invcos_func" translatable="false"></string>
+    <string name="invcot_func" translatable="false"></string>
+    <string name="signum_text" translatable="false"></string>
+    <string name="sinhtext" translatable="false"></string>
+    <string name="coshtext" translatable="false"></string>
+    <string name="tanhtext" translatable="false"></string>
+    <string name="cschtext" translatable="false"></string>
+    <string name="sechtext" translatable="false"></string>
+    <string name="cothtext" translatable="false"></string>
+    <string name="signum_func" translatable="false"></string>
+    <string name="sinh_func" translatable="false"></string>
+    <string name="cosh_func" translatable="false"></string>
+    <string name="tanh_func" translatable="false"></string>
+    <string name="csch_func" translatable="false"></string>
+    <string name="sech_func" translatable="false"></string>
+    <string name="coth_func" translatable="false"></string>
+    <string name="sinc_text" translatable="false"></string>
+    <string name="invsinhtext" translatable="false"></string>
+    <string name="invcoshtext" translatable="false"></string>
+    <string name="invtanhtext" translatable="false"></string>
+    <string name="invcosechtext" translatable="false"></string>
+    <string name="invsechtext" translatable="false"></string>
+    <string name="invcothtext" translatable="false"></string>
+    <string name="sinc_func" translatable="false"></string>
+    <string name="invsinh_func" translatable="false"></string>
+    <string name="invcosh_func" translatable="false"></string>
+    <string name="invtanh_func" translatable="false"></string>
+    <string name="invcsch_func" translatable="false"></string>
+    <string name="invsech_func" translatable="false"></string>
+    <string name="invcoth_func" translatable="false"></string>
+    <string name="gradtext" translatable="false"></string>
+    <string name="grad_func" translatable="false"></string>
+    <string name="goldenratio" translatable="false"></string>
+    <string name="goldenratio_text" translatable="false"></string>
+    <string name="ncr_text" translatable="false"></string>
+    <string name="plancksconst" translatable="false"></string>
+    <string name="speedoflight" translatable="false"></string>
+    <string name="parabolicconst" translatable="false"></string>
+    <string name="boltzmannconst" translatable="false"></string>
+    <string name="integraltext" translatable="false"></string>
+    <string name="fwd_difftext" translatable="false"></string>
+    <string name="npr_text" translatable="false"></string>
+    <string name="viswanathconst" translatable="false"></string>
+    <string name="backdifftext" translatable="false"></string>
+    <string name="eqsolvtext" translatable="false"></string>
+    <string name="stirlingnumonetext" translatable="false"></string>
+    <string name="strlingnumtwotext" translatable="false"></string>
+    <string name="berntext" translatable="false"></string>
+    <string name="worptext" translatable="false"></string>
+    <string name="kdelta_text" translatable="false"></string>
+    <string name="plasticconst" translatable="false"></string>
+    <string name="sigmatext" translatable="false"></string>
+    <string name="prodtext" translatable="false"></string>
+    <string name="avgtext" translatable="false"></string>
+    <string name="varitext" translatable="false"></string>
+    <string name="stditext" translatable="false"></string>
+    <string name="meantext" translatable="false"></string>
+    <string name="npr_func" translatable="false"></string>
+    <string name="boltzmannconstnum" translatable="false"></string>
+    <string name="ncr_func" translatable="false"></string>
+    <string name="kdelta_func" translatable="false"></string>
+    <string name="integralfunc" translatable="false"></string>
+    <string name="backward_difffunc" translatable="false"></string>
+    <string name="sigma_func" translatable="false"></string>
+    <string name="derfunc" translatable="false"></string>
+    <string name="worpfunc" translatable="false"></string>
+    <string name="stdi_func" translatable="false"></string>
+    <string name="leftderfunc" translatable="false"></string>
+    <string name="rightderfunc" translatable="false"></string>
+    <string name="stirlingnum2func" translatable="false"></string>
+    <string name="mean_func" translatable="false"></string>
+    <string name="parabolicconstant" translatable="false"></string>
+    <string name="lightspeed" translatable="false"></string>
+    <string name="plancksconstant" translatable="false"></string>
+    <string name="viswanathconstant" translatable="false"></string>
+    <string name="plasticconstant" translatable="false"></string>
+    <string name="commachar" translatable="false"></string>
+    <string name="spacechar" translatable="false"></string>
+    <string name="alphabets" translatable="false"></string>
+    <string name="specialsym" translatable="false"></string>
+    <string name="deftext" translatable="false"></string>
+    <string name="drop_downarr" translatable="false"></string>
+    <string name="modulotext" translatable="false"></string>
+    <string name="cuberoottext" translatable="false"></string>
+    <string name="cuberootval" translatable="false"></string>
+    <string name="fourthroottext" translatable="false"></string>
+    <string name="fourthrootval" translatable="false"></string>
+    <string name="powertower" translatable="false"></string>
+    <string name="moduloop" translatable="false"></string>
+    <string name="lshstr" translatable="false"></string>
+    <string name="rshstr" translatable="false"></string>
+    <string name="ANDstr" translatable="false"></string>
+    <string name="ORstr" translatable="false"></string>
+    <string name="NOTstr" translatable="false"></string>
+    <string name="NOTsymbol" translatable="false"></string>
+    <string name="NANDstr" translatable="false"></string>
+    <string name="NORstr" translatable="false"></string>
+    <string name="XORstr" translatable="false"></string>
+    <string name="XNORstr" translatable="false"></string>
+    <string name="LSHstr" translatable="false"></string>
+    <string name="RSHstr" translatable="false"></string>
+    <string name="URSHstr" translatable="false"></string>
+    <string name="RoLstr" translatable="false"></string>
+    <string name="RoRstr" translatable="false"></string>
+    <string name="ushrtext" translatable="false"></string>
+    <string name="d" translatable="false"></string>
+    <string name="e" translatable="false"></string>
+    <string name="f" translatable="false"></string>
+    <string name="cl" translatable="false"></string>
+    <string name="a" translatable="false"></string>
+    <string name="b" translatable="false"></string>
+    <string name="c" translatable="false"></string>
+    <string name="numberdouble0" translatable="false"></string>
+    <string name="hexStr" translatable="false"></string>
+    <string name="decstr" translatable="false"></string>
+    <string name="octstr" translatable="false"></string>
+    <string name="binstr" translatable="false"></string>
+    <string name="difference" translatable="false"></string>
+    <string name="add" translatable="false"></string>
+    <string name="subtract" translatable="false"></string>
+    <string name="datetext" translatable="false"></string>
+    <string name="erf" translatable="false"></string>
+    <string name="erfc" translatable="false"></string>
+    <string name="erfInv" translatable="false"></string>
+    <string name="erfcInv" translatable="false"></string>
+    <string name="gamma" translatable="false"></string>
+    <string name="sgngamma" translatable="false"></string>
+    <string name="loggamma" translatable="false"></string>
+    <string name="digamma" translatable="false"></string>
+    <string name="gamma_func" translatable="false"></string>
+    <string name="erf_func" translatable="false"></string>
+    <string name="erfc_func" translatable="false"></string>
+    <string name="digamma_func" translatable="false"></string>
+    <string name="erfInv_func" translatable="false"></string>
+    <string name="erfcInv_func" translatable="false"></string>
+    <string name="sgngamma_func" translatable="false"></string>
+    <string name="lambwzero_func" translatable="false"></string>
+    <string name="lambwnegone_func" translatable="false"></string>
+    <string name="lambertzerotext" translatable="false"></string>
+    <string name="default_basecurrency" translatable="false"></string>
+    <string name="default_convcurrency" translatable="false"></string>
+    <string name="default_vartext" translatable="false"></string>
+    <string name="defaultprectext" translatable="false"></string>
+    <string name="secondprectext" translatable="false"></string>
+    <string name="thirdprectext" translatable="false"></string>
+    <string name="fourthprectext" translatable="false"></string>
 </resources>

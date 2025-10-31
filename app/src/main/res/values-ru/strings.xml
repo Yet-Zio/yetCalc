@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="eastereggtoast">Поздравляю, теперь ты Гигачад!</string>
+    <string name="historybartext">История</string>
+    <string name="datehint">ГГГГ-ММ-ДД</string>
+    <string name="app_descrp">Очередной калькулятор от Yet Zio</string>
+    <string name="ac_buttontext">AC</string>
+    <string name="abyss_theme">Полностью чёрный</string>
+    <string name="materialyou_theme">Material You</string>
+    <string name="currency">Валюта</string>
+    <string name="length">Длина</string>
+    <string name="area">Площадь</string>
+    <string name="weight_mass">Вес/Масса</string>
+    <string name="temperature">Температура</string>
+    <string name="speed">Скорость</string>
+    <string name="energy">Энергия</string>
+    <string name="angle">Угол</string>
+    <string name="calculator">Калькулятор</string>
+    <string name="styles">Стили</string>
+    <string name="precisiontitle">Точность</string>
+    <string name="generaltitle">Общие</string>
+    <string name="unitconvtitle">Преобразователь единиц</string>
+    <string name="appctgtitle">Приложение</string>
+    <string name="unitgroupstitle">Группы единиц</string>
+    <string name="ghbtext">Посмотреть на GitHub</string>
+    <string name="app_details">Свободное программное обеспечение с открытым исходным кодом\nЛицензируется по лицензии BSD-3-Clause.</string>
+    <string name="licensesText">Лицензии на открытый исходный код</string>
+    <string name="history_name">История</string>
+    <string name="theme_opt">Выберите тему</string>
+    <string name="feedback">Отправить отзыв</string>
+    <string name="about">О приложении</string>
+    <string name="action_settings">Настройки</string>
+    <string name="settingsmenu">Настройки</string>
+    <string name="helpmenu">Помощь</string>
+    <string name="currency_convertertitle">\nВалюта</string>
+    <string name="converter">Конвертер единиц измерения</string>
+    <string name="from">Из</string>
+    <string name="to">В</string>
+    <string name="amount">Количество</string>
+    <string name="update_currency_rates">Обновление курсов валют</string>
+    <string name="result">Результат</string>
+    <string name="date">Дата:</string>
+    <string name="nointInfoText">Для конвертации валюты требуется подключение к Интернету.</string>
+    <string name="try_again">Попробуйте еще раз</string>
+    <string name="dark_theme">Тёмная</string>
+    <string name="system_theme">Как в системе</string>
+    <string name="light_theme">Светлая</string>
+    <string name="VERSION_NAMEANDNUM">Тонкая настройка (2.0.7)</string>
+    <string name="secondmodetext">2й</string>
+    <string name="hello_blank_fragment">Пустой фрагмент</string>
+    <string name="material_youthemetitle">Material You</string>
+    <string name="donatetitle">Пожертвовать</string>
+    <string name="nointTitle">Нет соединения к сети Интернету.\nПроверьте подключение и попробуйте снова.</string>
+    <string name="pressure">Давление</string>
+    <string name="programmer">Программисткий</string>
+    <string name="time">Время</string>
+    <string name="viewsourcetitle">Исходный код</string>
+    <string name="selectthemeforcalc">Тема оформления</string>
+    <string name="appversiontitle">Версия приложения</string>
+    <string name="appearancetitle">Оформление</string>
+    <string name="calculatortitle">Калькулятор</string>
+    <string name="programmertitle">Программисткий</string>
+    <string name="abouttitle">О приложении</string>
+
+    <string name="power">Питание</string>
+    <string name="data">Данные</string>
+    <string name="back_nin_naction">Тонкая\nнастройка</string>
+
+    <string name="interestedinsource">Заинтересованы в участии?</string>
+    <string name="osslicenses">Лицензии с открытым исходным кодом</string>
+
+    <string name="choose_a_theme_for_the_app">Выберите тему для приложения</string>
+    <string name="theme_from_the_abyss">Тема из бездны</string>
+    <string name="offers_a_fully_black_background_nhelps_preserve_battery_life_nalso_called_amoled_dark">Предлагает полностью чёрный фон,\nпомогает экономить заряд батареи.\nТакже называется AMOLED тёмная.</string>
+    <string name="apply_dynamic_colors_to_the_app">Применить динамические цвета к приложению.</string>
+
+    <string name="precisionsubtext">Выберите количество десятичных знаков для вычислений</string>
+
+    <string name="leftjustifytitle">Выровнять результат по левому краю</string>
+    <string name="leftjustifysubtext">Результаты всегда выровнены по левому краю независимо от размера. Автоматически выравнивает по правому краю после нажатия кнопки</string>
+
+    <string name="systemfonttitle">Использовать системный шрифт</string>
+    <string name="systemfontsubtext">Системный шрифт будет использоваться для выражений вместо шрифта по умолчанию</string>
+
+    <string name="almostintrtitle">Округление почти целых чисел</string>
+    <string name="almostintrsubtext">Число округляется до ближайшего целого, если оно достаточно близко к целому числу</string>
+
+    <string name="canonicalrtitle">Каноническое округление</string>
+    <string name="canonicalrsubtext">Решает проблемы точности типа 0.1 + 0.2. Включение может привести к потере точности в очень малых числах</string>
+
+    <string name="datehisttitle">Формат даты истории</string>
+    <string name="datehistrsubtext">Выберите желаемый формат даты для истории</string>
+
+    <string name="prefmodetitle">Предпочитаемый режим</string>
+    <string name="prefmodesubtext">Выберите экран запуска по умолчанию</string>
+
+    <string name="hapticfeedbacktitle">Тактильная обратная связь</string>
+    <string name="hapticfeedbacksubtext">Все виды сил и вибраций от различных взаимодействий в приложении</string>
+    <string name="refresh_shortcuts">Обновить ярлыки</string>
+    <string name="shortcut_icons_are_refreshed_non_theme_change">Иконки ярлыков обновляются\nпри смене темы.</string>
+
+    <string name="appearancesubtext">Настройте внешний вид приложения</string>
+    <string name="generalsubtext">Настройте приложение под свои нужды</string>
+
+    <string name="calculatorsubtext">Округление, точность, формат даты</string>
+
+    <string name="unitconvsubtext">Недавно использованная группа, единицы и группы единиц</string>
+
+    <string name="programmersubtext">Настройте работу режима программиста</string>
+
+    <string name="donatesubtext">Внесите вклад своим пожертвованием.</string>
+
+    <string name="aboutsubtext">Узнайте больше о приложении</string>
+
+    <string name="unitgroupssubtext">Выберите группы единиц, которые вам нужны</string>
+
+    <string name="recentlyusedgrptitle">Недавно использованная группа</string>
+
+    <string name="recentusedgrpsubtext">Загружать недавно использованную группу при запуске</string>
+
+    <string name="recentlyusedunittitle">Недавно использованная единица</string>
+
+    <string name="recentusedunitsubtext">Загружать недавно использованные единицы при запуске</string>
+
+    <string name="dtmFormattitle">Формат даты (валюта)</string>
+    <string name="dtmFormatsubtext">Выберите желаемый формат даты, который вы понимаете</string>
+
+    <string name="text_res">textres</string>
+    <string name="mode_text">calcmode</string>
+    <string name="angle_mode_text">anglemode</string>
+
+    <string name="spacetext">пробел</string>
+
+    <string name="datecurrhint">Если вы хотите конвертировать на основе исторических данных обменного курса, укажите дату ниже.\n<![CDATA[ <a href="https://data.jsdelivr.com/v1/package/npm/@fawazahmed0/currency-api">Возможные даты</a> перечислены в тегах.]]></string>
+
+    <string name="nohistory">История вычислений не найдена. Вы ещё не сохранили ни одного вычисления.</string>
+
+    <string name="key_theme">chosenTheme</string>
+
+    <string name="messageFromAbyss">Вы раскрыли секреты пустоты. Примите тени — ваша батарея благодарит вас.</string>
+
+    <string name="title_activity_settings">НастройкиАктивность</string>
+
+    <string name="volume">Объём</string>
+
+</resources>
