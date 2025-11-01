@@ -1,5 +1,5 @@
 [versions]
-aboutlibrariesCore = "11.3.0-rc02"
+aboutlibrariesCore = "13.1.0"
 agp = "8.11.1"
 desugar_jdk_libs = "2.1.5"
 dynamicToastsVersion = "4.3.0"
