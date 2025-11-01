@@ -6,7 +6,7 @@
     <string name="eastereggtoast">Gratulujeme, nyní jste Gigachad!</string>
     <string name="update_currency_rates">Aktualizovat kurzy</string>
     <string name="text_res">text</string>
-    <string name="VERSION_NAMEANDNUM">Jemně vyladěno (2.0.7)</string>
+    <string name="VERSION_NAMEANDNUM">Jemně vyladěno (2.0.8)</string>
     <string name="licensesText">Licence open source</string>
     <string name="datecurrhint">Pokud chcete provést převod založený na historických datech, zadejte datum níže.\n<![CDATA[ <a href="https://data.jsdelivr.com/v1/package/npm/@fawazahmed0/currency-api">Použitelná data</a> v seznamu.]]></string>
     <string name="app_descrp">Další kalkulačka od Yet Zio</string>
