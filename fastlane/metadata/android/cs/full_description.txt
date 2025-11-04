@@ -1,19 +1,22 @@
-yetCalc je kalkulačka se základními a vědeckými funkcemi, převodníkem jednotek a programátorským režimem. Vzhled volně vychází z Kalkulačky Google a pokouší se řešit její problémy.
+Kalkulačka se základními a vědeckými výpočteními funkcemi, převodník jednotek a programátorský režim.
+Její design je inspirován Kalkulačkou Google a pokouší se vyřešit její problémy.
 
-v2 aplikace yetCalc obsahuje následující funkce:
-- Přepracovaná kalkulačka s vědeckým režimem v režimu na výšku i na šířku.
-- Přizpůsobitelný převodník jednotek s volitelnými skupinami jednotek, připnutím jednotek, vyhledáváním a mnoha dalšími funkcemi...
-- Kompletně přepracovaný programátorský režim s novými operátory a funkcemi.
-- Volitelný režim spuštění.
-- Zkratky pro domovskou obrazovku s podporou tematických ikon.
-- Nové a vylepšené nastavení poskytující nekonečné možnosti přizpůsobení.
-- Nový režim Abyss (tmavý AMOLED) pro ty, kteří chtějí šetřit výdrž baterie.
-- Podpora Material You neboli dynamických barev se 4 jedinečnými styly, které poslouží vašim potřebám.
+Verze 2 aplikace yetCalc nabízí následující funkce:
 
-Funkce:
-• Progresivní výpočty
-• Vědecký režim s trigonometrickými, hyperbolickými a inverzními funkcemi, kalkulem a iteračními operátory a mnoho dalšího.
-• Převodník jednotek
-• Programátorský režim s číselnými soustavami a logickými operacemi.
+- Nový vzhled kalkulačky s vědeckým režimem v režimu na výšku i na šířku.
+- Přizpůsobitelný převodník jednotek s volitelnými skupinami jednotek, připínáním jednotek, vyhledáváním a dalšími funkcemi…
+- Úplně nový vzhled programátorského režimu s novými operátory a funkcemi.
+- Volitelný režim po spuštění.
+- Záložky pro domovskou obrazovku s podporou tematických ikon.
+- Nová a vylepšená nastavení poskytující nekonečnou přizpůsobitelnost.
+- Nový režim Abyss (tmavý AMOLED) pro ty, kteří chtějí vyšší výdrž baterie.
+- Podpora Material You (dynamických barev) se 4 unikátními styly.
 
-POZNÁMKA: internetové připojení je použito pouze pro převod měn.
+<b>Funkce:</b>
+
+- Progresivní výpočty
+- Vědecký režim s goniometrickými, hyperbolickými a inverzními funkcemi, kalkulek a iterovanými operátory a spoustou dalších funkcí.
+- Převodník jednotek
+- Programátorský režim s číslicovými systémy a logickými operacemi.
+
+UPOZORNĚNÍ: Připojení k internetu je použito výhradně pro převody měn.
