@@ -1,22 +1,22 @@
-Calculator with basic and scientific calculation features, a unit converter and a programmer mode.
-It's design is inspired by Google's Calculator and tries to address its flaws.
+Calculatrice basique et scientifique, avec un convertisseur d'unités et un mode programmeur.
+Inspiré de la Calculatrice de Google et essaie de remédier à ses défauts.
 
-v2 of yetCalc comes with the following features:
+La v2 de yetCalc amène les fonctionnalité suivantes :
 
-- Redesigned Calculator with scientific mode in both Portrait and Landscape mode
-- Customizable Unit Converter with selectable unit groups, unit pins, search and much more...
-- Fully Redesigned Programmer mode with new operators and functions.
-- Selectable starting mode.
-- Shortcuts for home screen with themed icons support.
-- New and Improved Settings providing endless customizability.
-- New Abyss mode (AMOLED Dark) for those wanting to preserve battery life.
-- Material You Support or Dynamic Colors, with 4 unique styles to serve your needs.
+- Refonte de la Calculatrice avec mode scientifique et orientations Portrait et Paysage
+- Convertisseur d'unités personnalisable avec des groupes d'unités, des broches d'unités, et bien plus...
+- Refonte complète du mode Programmeur avec de nouveaux opérateurs et nouvelles fonctions.
+- Mode d'ouverture sélectionnable.
+- Raccourcis pour l'écran d’accueil avec support pour icônes sous thèmes. 
+- Nouveaux et meilleurs paramètres pour une personnalisation infinie.
+- Nouveau mode Abîme (Sombre AMOLED) pour ceux voulant sauvegarder la durée de vie de votre batterie.
+- Support pour Material You ou Couleurs dynamiques, avec 4 styles uniques pour tous vos besoins.
 
-<b>Features:</b>
+<b>Fonctionnalités :</b>
 
-- Progressive Calculations
-- Scientific Mode with trigonometric, hyperbolic and inverse functions, calculus and iterated operators, much more.
-- Unit Converter
-- Programmer Mode with number systems and logical operations.
+- Calculs progressifs
+- Mode Scientifique avec fonctions trigonométrique, hyperbolique et inverse, calculs et opérateurs itérés, et bien plus.
+- Convertisseur d'unités
+- Mode Programmeur avec systèmes de nombres et opérations logiques.
 
-NOTE: Internet connection is used for currency conversions and nothing else.
+NOTE : votre connexion Internet est utilisée pour la conversion de devises (taux de change) et rien d'autre.
