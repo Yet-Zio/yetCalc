@@ -1,0 +1,22 @@
+Calculatrice basique et scientifique, avec un convertisseur d'unités et un mode programmeur.
+Inspiré de la Calculatrice de Google et essaie de remédier à ses défauts.
+
+La v2 de yetCalc amène les fonctionnalité suivantes :
+
+- Refonte de la Calculatrice avec mode scientifique et orientations Portrait et Paysage
+- Convertisseur d'unités personnalisable avec des groupes d'unités, des broches d'unités, et bien plus...
+- Refonte complète du mode Programmeur avec de nouveaux opérateurs et nouvelles fonctions.
+- Mode d'ouverture sélectionnable.
+- Raccourcis pour l'écran d’accueil avec support pour icônes sous thèmes. 
+- Nouveaux et meilleurs paramètres pour une personnalisation infinie.
+- Nouveau mode Abîme (Sombre AMOLED) pour ceux voulant sauvegarder la durée de vie de votre batterie.
+- Support pour Material You ou Couleurs dynamiques, avec 4 styles uniques pour tous vos besoins.
+
+<b>Fonctionnalités :</b>
+
+- Calculs progressifs
+- Mode Scientifique avec fonctions trigonométrique, hyperbolique et inverse, calculs et opérateurs itérés, et bien plus.
+- Convertisseur d'unités
+- Mode Programmeur avec systèmes de nombres et opérations logiques.
+
+NOTE : votre connexion Internet est utilisée pour la conversion de devises (taux de change) et rien d'autre.
