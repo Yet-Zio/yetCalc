@@ -103,7 +103,7 @@
     <string name="recentusedunitsubtext">Charger l\'unité récemment utilisée au démarrage</string>
     <string name="dtmFormattitle">Format de la date (devise)</string>
     <string name="dtmFormatsubtext">Sélectionnez le format de date souhaité que vous comprenez</string>
-    <string name="ac_buttontext"></string>
+    <string name="ac_buttontext"/>
     <string name="text_res">résolution_du_texte</string>
     <string name="mode_text">mode_calculs</string>
     <string name="angle_mode_text">mode_angle</string>
