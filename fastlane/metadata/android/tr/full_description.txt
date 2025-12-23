@@ -1,0 +1,22 @@
+Temel ve bilimsel hesaplama özellikleri, bir birim dönüştürücüsü ve programlayıcı moduyla bir hesap makinesi.
+Google Hesap Makinesi'nden ilham alınarak onun eksikliklerini gidermeyi amaçlar.
+
+yetCalc'un v2 sürümü şu özelliklerle gelmektedir:
+
+- Dikey ve yatay modda bilimsel moda sahip yeniden tasarlanmış hesap makinesi.
+- Seçilebilir birim grupları, birim sabitleyicileri, arama ve daha fazlasına sahip özelleştirilebilir birim dönüştürücü.
+- Yeni operatörler ve fonksiyonlarla tamamen yeniden tasarlanmış programlayıcı modu.
+- Seçilebilir başlangıç modu.
+- Temalı ikon desteğiyle ana ekran için kısayollar.
+- Sonsuz özelleştirme sunan yeni ve iyileştirilmiş ayarlar.
+- Batarya ömrünü korumak isteyenler için yeni Abyss modu (AMOLED Koyu).
+- İhtiyaca göre 4 eşsiz tarzla Dinamik Renkler ve Material You desteği.
+
+<b>Özellikler:</b>
+
+- Progresif Hesaplamalar
+- Trigonometrik, hiperbolik ve ters fonskiyonlar, kalkülüs ve tekrarlanan operatörler ve daha fazlasıyla Bilimsel Mod
+- Birim Dönüştürücü
+- Sayı sistemleri ve mantıksal işlemlerle Programlayıcı Modu.
+
+NOT: İnternet bağlantısı yalnızca para birimi dönüştürmeleri için gereklidir.
