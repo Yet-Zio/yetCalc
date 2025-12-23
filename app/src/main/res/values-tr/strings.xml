@@ -70,7 +70,7 @@
     <string name="precisiontitle">Hassasiyet</string>
     <string name="precisionsubtext">Hesaplamalar için ondalık basamak sayısını seçin</string>
     <string name="leftjustifytitle">Sonucu Sola Hizala</string>
-    <string name="leftjustifysubtext">Küçük ya da büyük farketmeksizin sonuç her zaman sola hizalanır. Bir düğmeye bastıktan sonra otomatik olarak sağa hizalanır</string>
+    <string name="leftjustifysubtext">Küçük ya da büyük farketmeksizin sonuç her zaman sola hizalanır. Bir düğmeye bastıktan sonra otomatik olarak sağa hizalanır.</string>
     <string name="systemfonttitle">Sistem Fontunu Kullan</string>
     <string name="systemfontsubtext">İfadeler için varsayılan font yerine sistem fontu kullanılacak</string>
     <string name="almostintrtitle">Tam Sayıya Yuvarlama</string>
