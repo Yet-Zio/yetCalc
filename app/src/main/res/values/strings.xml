@@ -1147,6 +1147,9 @@
     <string name="canonicalrtitle">Canonical Rounding</string>
     <string name="canonicalrsubtext">Solves precision problems like 0.1 + 0.2. Enabling this might cause losing precision in really small numbers</string>
 
+    <string name="disablescinotrtitle">Disable Scientific Notation</string>
+    <string name="disablescinotrsubtext">If toggled, calculation results are never converted into scientific notation</string>
+
     <string name="datehisttitle">Date History Format</string>
     <string name="datehistrsubtext">Select your desired date format for history</string>
 

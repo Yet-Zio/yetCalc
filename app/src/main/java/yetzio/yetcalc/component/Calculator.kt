@@ -9,6 +9,7 @@ class Calculator{
     var angleMode = AngleMode.DEGREE
     var almostInt = true
     var canonInt =  false
+    var disableScientificNotation =  false
     var precision = "Default precision"
     val m_history = History()
     val MAXREP = 9999999
@@ -49,15 +50,23 @@ class Calculator{
 
         val e = Expression(expr, grad, npr, ncr)
 
-
-        return if(e.calculate() > MAXREP){
-            e.calculate().toString()
+        val calcRes = e.calculate()     //resource intensive, save first
+        return if(calcRes.isNaN() || calcRes.isInfinite()){
+            // invalid expression returns NaN, or result too big
+            // cannot be converted into BigDecimal
+            calcRes.toString()
         }
-        else if(e.calculate() % 1.0 == 0.0){
-            Math.round(e.calculate()).toString()
+        else if(calcRes < MAXREP && e.calculate() % 1.0 == 0.0){
+            if (disableScientificNotation)
+                Math.round(calcRes).toBigDecimal().stripTrailingZeros().toPlainString()
+            else
+                Math.round(calcRes).toString()
         }
         else{
-            e.calculate().toString()
+            if (disableScientificNotation)
+                calcRes.toBigDecimal().stripTrailingZeros().toPlainString()
+            else
+                calcRes.toString()
         }
     }
 

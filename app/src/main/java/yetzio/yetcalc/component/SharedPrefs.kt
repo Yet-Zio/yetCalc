@@ -15,6 +15,7 @@ object SharedPrefs {
     const val DATEHISTKEY = "datehistkey"
     const val ALMINTKEY = "almostintkey"
     const val CANINTKEY = "canonintkey"
+    const val DISABLESCINOTATIONKEY = "disablescinotationkey"
     const val PRECKEY = "precisionkey"
     const val HAPTICKEY = "hapticfdkey"
     const val LEFTJUSTRES = "leftjustifyres"

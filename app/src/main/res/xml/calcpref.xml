@@ -37,6 +37,13 @@
         app:title="@string/canonicalrtitle"
         app:defaultValue="false"/>
 
+    <SwitchPreferenceCompat
+        app:key="disablescinotationkey"
+        android:icon="@drawable/round_123_24"
+        app:summary="@string/disablescinotrsubtext"
+        app:title="@string/disablescinotrtitle"
+        app:defaultValue="false"/>
+
     <androidx.preference.Preference
         android:key="datetimeformat"
         app:icon="@drawable/round_view_timeline_24"

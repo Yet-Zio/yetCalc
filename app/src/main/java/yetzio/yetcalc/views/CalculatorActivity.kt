@@ -306,11 +306,13 @@ class CalculatorActivity : CalcBaseActivity(), View.OnClickListener {
 
             val almInt = preferences.getBoolean(SharedPrefs.ALMINTKEY, true)
             val canInt = preferences.getBoolean(SharedPrefs.CANINTKEY, false)
+            val disableScientificNotation = preferences.getBoolean(SharedPrefs.DISABLESCINOTATIONKEY, false)
             val precisionChoice = preferences.getString(SharedPrefs.PRECKEY, "Default precision")
             mviewModel.hapticPref = preferences.getBoolean(SharedPrefs.HAPTICKEY, true)
 
             Calc.almostInt = almInt
             Calc.canonInt = canInt
+            Calc.disableScientificNotation = disableScientificNotation
             if (precisionChoice != null) {
                 Calc.precision = precisionChoice
             }
@@ -367,10 +369,12 @@ class CalculatorActivity : CalcBaseActivity(), View.OnClickListener {
     private fun initCalculationPrefs(){
         val almInt = preferences.getBoolean(SharedPrefs.ALMINTKEY, true)
         val canInt = preferences.getBoolean(SharedPrefs.CANINTKEY, false)
+        val disableScientificNotation = preferences.getBoolean(SharedPrefs.DISABLESCINOTATIONKEY, false)
         val precisionChoice = preferences.getString(SharedPrefs.PRECKEY, "Default precision")
 
         Calc.almostInt = almInt
         Calc.canonInt = canInt
+        Calc.disableScientificNotation = disableScientificNotation
         if (precisionChoice != null) {
             Calc.precision = precisionChoice
         }
