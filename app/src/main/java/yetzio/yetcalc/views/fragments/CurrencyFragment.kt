@@ -209,26 +209,47 @@ class CurrencyFragment : Fragment() {
         val lowerConv = pViewModel._secondcur.value?.lowercase()
         val baseCur = pViewModel._firstcur.value?.lowercase()
         // thanks to https://github.com/fawazahmed0/exchange-api
-        API = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${baseCur}.json"
+        var version = "latest"
 
         if(dateText != null){
             if(dateText!!.text.isNotEmpty() && dateText!!.text.isNotBlank()){
-                API = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${pViewModel.current_date.value}/v1/currencies/${baseCur}.json"
+                version = "${pViewModel.current_date.value}"
             }
         }
+
+        // Tried in order until one returns the requested rate: jsDelivr, then the
+        // pages.dev mirror recommended by the exchange-api README, then
+        // allratestoday.com, which serves the same JSON (latest and dated) for
+        // ~30 ECB currencies and returns 404 for the rest.
+        val apiUrls = listOf(
+            "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${version}/v1/currencies/${baseCur}.json",
+            "https://${version}.currency-api.pages.dev/v1/currencies/${baseCur}.json",
+            "https://allratestoday.com/api/compat/currency-api/${version}/v1/currencies/${baseCur}.json"
+        )
+        API = apiUrls[0]
 
         mCoroutineScope.launch {
             try {
                 val resDeferred = mCoroutineScope.async(Dispatchers.IO){
-                    val apiresult = URL(API).readText()
-                    val jsonObj = baseCur?.let { JSONObject(apiresult).getJSONObject(it) }
+                    var lastError: Exception? = null
+                    for (url in apiUrls) {
+                        try {
+                            val apiresult = URL(url).readText()
+                            val jsonObj = baseCur?.let { JSONObject(apiresult).getJSONObject(it) }
 
-                    if (lowerConv != null) {
-                        jsonObj?.getDouble(lowerConv)?.toFloat()
+                            return@async if (lowerConv != null) {
+                                jsonObj?.getDouble(lowerConv)?.toFloat()
+                            }
+                            else{
+                                0f
+                            }
+                        }
+                        catch (e: Exception){
+                            Log.w("yetCalc", "Currency API failed: $url", e)
+                            lastError = e
+                        }
                     }
-                    else{
-                        0f
-                    }
+                    throw lastError ?: Exception("No currency API available")
                 }
 
                 convRate = resDeferred.await() ?: 0f
